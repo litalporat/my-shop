@@ -35,4 +35,16 @@ module.exports = function() {
         });
         return schema.validate(body);
     }
+
+    /**
+     * This function validate a token request body.
+     * @param {Object} body - request body to validate
+     * @returns {Object} - Joi object with details of the validation.
+     */
+     this.validateToken = (body) => {
+        const schema = Joi.object({
+            token: Joi.string().required()
+        });
+        return schema.validate(body);
+    }
 }
