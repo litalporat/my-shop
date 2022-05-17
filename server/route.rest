@@ -18,3 +18,20 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:5000/api/products/62837719c887e9cc01436888
+Content-Type: application/json
+
+{
+    "name": "test1234",
+    "description": "a short description",
+    "price": 345,
+    "countInStock": 2,
+    "imageUrl": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+}
+
+###
+
+DELETE http://localhost:5000/api/products/62837778702cf9e6d8e33bd0
+
+###
