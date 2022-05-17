@@ -21,7 +21,12 @@ const getProductById = async (req, res) => {
   }
 };
 
+const addProduct = (req, res) => {
+  res.json(req.body);
+}
+
 module.exports = {
     getAllProducts,
-    getProductById
+    getProductById,
+    addProduct
 }
