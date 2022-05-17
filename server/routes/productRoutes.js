@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const verify = require('../middlewares/verifyToken');
 
 const {
   getAllProducts,
@@ -22,16 +23,16 @@ router.get("/:id", getProductById);
 //@desc add a product to the db
 //@route POST /api/products/
 //@access Public
-router.post("/", addProduct);
+router.post("/", verify, addProduct);
 
 //@desc add a product to the db
 //@route PUT /api/products/:id
 //@access Public
-router.put("/:id", setProductById);
+router.put("/:id", verify, setProductById);
 
 //@desc delete a product to the db
 //@route DELETE /api/products/:id
 //@access Public
-router.delete("/:id", removeProductById);
+router.delete("/:id", verify, removeProductById);
 
 module.exports = router;

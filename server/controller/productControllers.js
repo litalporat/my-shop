@@ -1,6 +1,7 @@
 const res = require("express/lib/response");
 const Product = require("../models/Product");
 const logger = require('../logger');
+
 require('../validators.js')();
 
 const getAllProducts = async (req, res) => {

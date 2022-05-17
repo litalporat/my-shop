@@ -17,4 +17,22 @@ module.exports = function() {
         });
         return schema.validate(body);
     }
+
+    /**
+     * This function validate a product request body.
+     * @param {Object} body - request body to validate
+     * @returns {Object} - Joi object with details of the validation.
+     */
+     this.validateUser = (body) => {
+        const schema = Joi.object({
+            email: Joi
+                .string()
+                .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'il', 'io', 'co'] } })
+                .required(),
+            password: Joi
+                .string()
+                .required(),
+        });
+        return schema.validate(body);
+    }
 }
