@@ -1,0 +1,17 @@
+:root{
+    --black-color:#04080F;
+    --blue-color:#172231;
+    --orange-color:#C74521;
+    --lightblue-color:#B1C6DF;
+    --white-color:#E9F8F7;
+}
+
+body{
+    background-color: var(--black-color);
+}
+main{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
