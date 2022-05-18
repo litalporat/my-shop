@@ -8,8 +8,8 @@ const getAllUsers = async (req, res) => {
     const users = await User.find({});
     logger.info("GET /api/users request has been accepted");
     res.json(users);
-  } catch (error) {
-    logger.error(error);
+  } catch (e) {
+    logger.error(e);
     res.status(500).json({ message: "Server Error!" });
   }
 };
@@ -19,8 +19,8 @@ const getUserById = async (req, res) => {
     const user = await User.findById(req.params.id);
     logger.info(`GET /api/users/${req.params.id} request has been accepted`);
     res.json(user);
-  } catch (error) {
-    logger.error(error);
+  } catch (e) {
+    logger.error(e);
     res.status(500).json({ message: "Server Error!" });
   }
 };
