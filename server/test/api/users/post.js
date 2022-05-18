@@ -1,8 +1,9 @@
 const expect = require('chai').expect;
 const request = require('supertest');
-const app = require('../../../server');
+const app = require('../../../app');
+const assert = require('assert');
 const { connectDB, closeDB } = require("../../../config/db");
-
+process.env.NODE_ENV = 'test';
 describe("POST /api/users", () => {
 
     before((done) => {
@@ -17,15 +18,15 @@ describe("POST /api/users", () => {
             .catch((e) => done(e));
     })
 
-    it('OK', (done) => {
-        const response = request(app).post("/api/users").send({
+    it('OK', async () => {
+        const response = await request(app).post("/api/users").send({
             email: "username@gmail.com",
             password: "password123#$" 
-        }).then((res) => {
-            const { body } = res;
-            expect.body.to.contain.property('status');
-            done();
-        })
+        });
+        const { body } = response;
+        console.log(body)
+        expect.body.to.contain.property('status');
+        assert.ok(true);
     })
 
     // describe("given a username and password", () => {

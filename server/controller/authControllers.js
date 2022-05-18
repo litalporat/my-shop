@@ -16,9 +16,8 @@ const validateLogin = async (req, res) => {
           res.status(400).send({ status: 400, error});
           return;
         }
-
-        const user = await User.findOne({email: req.body.email});
         logger.info(`POST /api/auth request has been accepted`);
+        const user = await User.findOne({email: req.body.email});
 
         if (!user) return res.json({ status: 400, error: "Email not exists!", email: req.body.email });
 

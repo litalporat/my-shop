@@ -20,8 +20,8 @@ const getProductById = async (req, res) => {
     const products = await Product.findById(req.params.id);
     logger.info(`GET /api/products/${req.params.id} request has been accepted`);
     res.json(products);
-  } catch (error) {
-    logger.error(error);
+  } catch (e) {
+    logger.error(e);
     res.status(500).json({ message: "Server Error!" });
   }
 };

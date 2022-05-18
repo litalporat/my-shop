@@ -8,7 +8,6 @@ const generateAccessToken = (user) => {
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1]
-    console.log(authHeader);
     if (!token) return res.json({ status: 401, error: "Access Denied!" });
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
