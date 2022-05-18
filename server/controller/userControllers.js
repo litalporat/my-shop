@@ -1,7 +1,7 @@
 const res = require("express/lib/response");
 const User = require("../models/User");
-const logger = require('../logger');
-require('../validators.js')();
+const logger = require('../utils/logger');
+require('../utils/validators.js')();
 
 const getAllUsers = async (req, res) => {
   try {

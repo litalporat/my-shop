@@ -1,4 +1,4 @@
-const logger = require('../logger');
+const logger = require('../utils/logger');
 const jwt = require('jsonwebtoken');
 
 const generateAccessToken = (user) => {
@@ -6,7 +6,6 @@ const generateAccessToken = (user) => {
 }
 
 const verifyToken = (req, res, next) => {
-    //const token = req.header('auth-token');
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1]
     console.log(authHeader);

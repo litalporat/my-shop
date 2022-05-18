@@ -1,10 +1,10 @@
 const res = require("express/lib/response");
 const User = require("../models/User");
-const logger = require('../logger');
+const logger = require('../utils/logger');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const { generateAccessToken } = require('../middlewares/auth')
-require('../validators.js')();
+require('../utils/validators.js')();
 
 let refreshTokens = [];
 
@@ -26,7 +26,7 @@ const validateLogin = async (req, res) => {
         if (!validPass) return res.json({ status: 400, error: "Invalid password!" });
 
         const accessToken = generateAccessToken({ _id: user._id });
-        const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET);
+        const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '30d' });
         refreshTokens.push(refreshToken);
         res.json({ status: 200, info: "user authenticated successfuly!", accessToken, refreshToken })
     } catch (e) {
