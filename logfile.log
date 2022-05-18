@@ -1,0 +1,13 @@
+2022-05-18 13:56:05 [32minfo[39m: GET /api/products request has been accepted
+2022-05-18 13:56:35 [31merror[39m: secret or public key must be provided
+2022-05-18 13:56:49 [32minfo[39m: POST /api/auth request has been accepted
+2022-05-18 13:56:49 [31merror[39m: secretOrPrivateKey must have a value
+2022-05-18 13:57:15 [32minfo[39m: POST /api/auth request has been accepted
+2022-05-18 13:57:15 [31merror[39m: secretOrPrivateKey must have a value
+2022-05-18 13:57:17 [32minfo[39m: POST /api/auth request has been accepted
+2022-05-18 13:57:17 [31merror[39m: secretOrPrivateKey must have a value
+2022-05-18 13:58:50 [32minfo[39m: POST /api/auth request has been accepted
+2022-05-18 13:58:50 [31merror[39m: secretOrPrivateKey must have a value
+2022-05-18 13:59:00 [32minfo[39m: POST /api/auth request has been accepted
+2022-05-18 13:59:22 [32minfo[39m: DELETE /api/products/62837778702cf9e6d8e33bd0 request has been accepted
+2022-05-18 13:59:22 [31merror[39m: product not exsits!

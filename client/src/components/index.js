@@ -1,0 +1,6 @@
+// import { Navbar } from './Navbar'
+// import { Product } from './Product'
+// import { ProductList } from './ProductList'
+// import { Shoes } from './Shoes'
+// export { Catalog } from './Catalog/index'
+// import { CartBtn } from './CartBtn'
