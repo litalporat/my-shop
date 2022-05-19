@@ -18,25 +18,25 @@ describe("POST /api/users", () => {
             .catch((e) => done(e));
     })
 
-    // after((done) => {
-    //     closeDB()
-    //         .then(() => done())
-    //         .catch((e) => done(e));
-    // })
+    after((done) => {
+        closeDB()
+            .then(() => done())
+            .catch((e) => done(e));
+    })
 
-    it('OK', () => {
+    it('OK', (done) => {
         chai.request(app)
             .post("/api/users")
             .send({
                 email: "username@gmail.com",
-                password: "password123#$" 
+                password: "password123#$"
             })
             .end((err, res) => {
                 console.log(res.body);
                 res.body.should.have.property('status');
                 done();
-            })
-    })
+            });
+    });
 
     // describe("given a username and password", () => {
     //     // should save the username and password to the database
@@ -44,7 +44,7 @@ describe("POST /api/users", () => {
     //     test("should respond with status 200", () => {
     //         const response = request(server).post("/api/users").send({
     //             email: "username@gmail.com",
-    //             password: "password123#$" 
+    //             password: "password123#$"
     //         })
     //         expect(response.statusCode).toBe(200);
     //     });
