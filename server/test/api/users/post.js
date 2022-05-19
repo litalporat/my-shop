@@ -1,9 +1,15 @@
-const expect = require('chai').expect;
-const request = require('supertest');
-const app = require('../../../app');
-const assert = require('assert');
-const { connectDB, closeDB } = require("../../../config/db");
 process.env.NODE_ENV = 'test';
+
+const chai = require('chai');
+const chaiHttp = require('chai-http')
+const app = require('../../../app');
+const { connectDB, closeDB } = require("../../../config/db");
+
+require("dotenv").config();
+
+const should = chai.should();
+chai.use(chaiHttp);
+
 describe("POST /api/users", () => {
 
     before((done) => {
@@ -12,21 +18,24 @@ describe("POST /api/users", () => {
             .catch((e) => done(e));
     })
 
-    after((done) => {
-        closeDB()
-            .then(() => done())
-            .catch((e) => done(e));
-    })
+    // after((done) => {
+    //     closeDB()
+    //         .then(() => done())
+    //         .catch((e) => done(e));
+    // })
 
-    it('OK', async () => {
-        const response = await request(app).post("/api/users").send({
-            email: "username@gmail.com",
-            password: "password123#$" 
-        });
-        const { body } = response;
-        console.log(body)
-        expect.body.to.contain.property('status');
-        assert.ok(true);
+    it('OK', () => {
+        chai.request(app)
+            .post("/api/users")
+            .send({
+                email: "username@gmail.com",
+                password: "password123#$" 
+            })
+            .end((err, res) => {
+                console.log(res.body);
+                res.body.should.have.property('status');
+                done();
+            })
     })
 
     // describe("given a username and password", () => {

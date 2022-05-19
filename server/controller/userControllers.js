@@ -27,6 +27,7 @@ const getUserById = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
+    console.log(req.body)
     const { error } = validateUser(req.body);
     if (error) {
       logger.error(error);
