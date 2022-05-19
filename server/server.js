@@ -1,4 +1,5 @@
 const logger = require('./utils/logger');
+require("dotenv").config();
 require("./config/db")
     .connectDB()
     .then(() => {
