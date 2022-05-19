@@ -1,18 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat&family=Poppins:wght@200&display=swap');
+
 .navbar {
     width: 100%;
-    background-color: var(--blue-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem;
+    padding: 2rem 5rem;
     z-index:50;
-    border-radius: 0 0 20% 20% ;
+    border-radius: 0 0 30% 30% ;
+    position: fixed;
+    color: #282936;
+}
+.navbar:hover{
+    background-color: #282936;
+    color: white;
+    box-shadow: inset 0px -10px 15px -10px black;
+    backdrop-filter: blur(8px);
 }
 
 .navbar__logo h2 {
-    color: var(--white-color);
-    font-size: 1.4rem;
+    font-size: 2rem;
     cursor: pointer;
+    margin: 0 4rem;
+    font-family: 'Dancing Script', cursive;
 }
 
 .navbar__links {
@@ -27,11 +37,11 @@
 
 .navbar__links > li > a {
     text-decoration: none;
-    color: var(--white-color);
     font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: inherit;
 }
 .navbar__links > li > a > span {
     display: flex;
@@ -40,7 +50,7 @@
 }
 
 .cart__link {
-    background: #333;
+    background: inherit;
     padding: 10px;
     border-radius: 8px;
 }

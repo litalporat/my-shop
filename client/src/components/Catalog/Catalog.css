@@ -23,18 +23,7 @@
     width: 20rem;
     height: 14rem;
 }
-.woman{
-    background-image: url(../../images/pexels-konstantin-mishchenko-1926769.jpg);
-}
-.men{
-    background-image: url(../../images/pexels-pixabay-157675.jpg);
-}
-.sport{
-    background-image: url(../../images/pexels-wendel-moretti-1972115.jpg);
-}
-.shoes{
-    background-image: url(../../images/pexels-terrance-barksdale-6692037.jpg);
-}
+
 .c-title{
     font-size: 5rem;
     color: var(--white-color);
