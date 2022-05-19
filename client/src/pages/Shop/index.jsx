@@ -15,11 +15,16 @@ const products = [
     {
         title: "chair",
         price: "120$",
-        photo: {Chair},
+        photo: {Chair}, 
     },
     {
         title: "light",
         price: "50$",
+        photo: {Light},
+    },
+    {
+        title: "mirror",
+        price: "30$",
         photo: {Light},
     }
 ]
@@ -47,7 +52,6 @@ const ProductPage = () => {
                     <ProductBtn title={prod.title} onClick={() => openProduct(prod)}/>
                 ))
             }
-            {/* <img src={Photos[0]} alt="" /> */}
             </div>
 
             </div>
