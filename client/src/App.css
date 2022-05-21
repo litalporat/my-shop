@@ -12,7 +12,10 @@
     font-family: 'Quicksand', sans-serif;
     color: var(--black-color);
 }
-
+body{
+    background-image: url(./images/background.png);
+    background-repeat: round;
+}
 main{
     margin: 5px;
     display: flex;

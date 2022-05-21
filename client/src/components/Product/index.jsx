@@ -13,6 +13,7 @@ const Index = props => {
                 <center >
                     <div className="title"> {props.product.title} </div> 
                     <div className="price"> {props.product.price} </div> 
+                   
                 </center>
                 <button className='like-btn'>
                     <i className='fas fa-heart'></i>
