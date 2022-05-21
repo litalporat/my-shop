@@ -4,11 +4,8 @@ import './Navbar.css'
 const Navbar = () => {
     return (
         <nav className='navbar'>
-
+            <h2>ADDICT</h2>
             <ul className='navbar__links'>
-            <div className='navbar__logo'>
-                <h2>Our Shopping Site</h2>
-            </div>
                 <li>
                     <Link to="/">
                         Home
@@ -34,7 +31,6 @@ const Navbar = () => {
                     </Link>
                 </li>
             </ul>
-
         </nav>
     )
 }

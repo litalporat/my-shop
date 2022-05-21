@@ -1,54 +1,79 @@
-.product-img{
-    width: 15rem;
-    height: 15rem;
-    box-shadow: inset 0 0 5px black;
-    border-radius: 50%;
+.image-span{
+    width: 22rem;
+    height: 26rem;
+    border-radius: 5px 5px 0 0;
+    background-repeat: round;
+    background-image: url(../../images/normal.jpg);
+}
+.image-span:hover{
+    background-image: url(../../images/hover.jpg);
 }
 .container{
-    width: 30rem;
-    height: 35rem;
-    background-color: #ba8f68;
+    background-color: #d8d2d2;
     border-radius: 10px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 1px 20px -10px black;
+}
+.title{
+    color: var(--darkbrown-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+.price{
+    color: var(--darkbrown-color);
+}
+.product-body{
+    margin: 1rem;
+    font-weight: bolder;
+    gap: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.content{
-    color: var(--white-color);
-}
-.title{
-    color: var(--lightblue-color);
-}
-.price{
-    color: var(--orange-color);
-}
-.product-btn{
-    background-color: var(--white-color);
-    width: 4rem;
-    height: 4rem;
-    border-radius: 1.5rem 0 1.5rem 0;
-    margin-top: 73px;
-    margin-right: -6px;
-    border: none;
-    color: var(--orange-color);
-    font-size: 2.5rem;
-    cursor: pointer;
-}
-.product-body{
-    margin: 2rem;
+tr{
+    background-color: var(--lightnude-color);
+    height: 2px;
+    border-radius: 50%;
+    width: 20rem;
+    box-shadow: 0px 8px 10px 1px white;
 }
 .flex-row{
     display: flex;
+    flex-direction: row;
+    width: 20rem;
     justify-content: space-between;
 }
-.cabinet{
-    background-image: url(../../images/Room1/Cabinet.jpg);
+.view-btn{
+    background: #d8d2d2;
+    border: var(--lightnude-color) solid 2px;
+    border-radius: 5rem;
+    padding: 0.5rem 1rem;
+    color: var(--darkbrown-color);
+    box-shadow: 0px 1px 10px -5px black;
+    top: -38px;
+    font-weight: bold;
 }
-
-.chair{
-    background-image: url(../../images/Room1/Chair.jpg);
+.view-btn:hover{
+    background-color: var(--lightnude-color);
+    color: #d8d2d2;
 }
-.light{
-    background-image: url(../../images/Room1/Light.jpg);
+.fa-heart{
+    color: var(--lightnude-color);
+}
+.fa-heart:hover{
+    color: #d8d2d2;
+}
+.like-btn{
+    box-shadow: 0px 1px 10px -5px black;
+    border: var(--lightnude-color) solid 2px;
+    background: #d8d2d2;
+    border-radius: 50%;
+    width: 45px;
+    margin-left: 2rem;
+    top: -38px;
+}
+.like-btn:hover{
+    background-color: var(--lightnude-color);
 }

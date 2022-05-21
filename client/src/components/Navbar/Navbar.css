@@ -3,22 +3,19 @@
 .navbar {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 5rem;
-    z-index:50;
-    border-radius: 0 0 30% 30% ;
+    padding: 2rem 8rem;
+    z-index: 50;
     position: fixed;
-    color: #282936;
+    justify-content: space-around;
 }
 .navbar:hover{
-    background-color: #282936;
+    border-radius: 0 0 30% 30%;
+    background-color: var(--lightnude-color);
     color: white;
     box-shadow: inset 0px -10px 15px -10px black;
-    backdrop-filter: blur(8px);
 }
 
-.navbar__logo h2 {
+h2 {
     font-size: 2rem;
     cursor: pointer;
     margin: 0 4rem;
