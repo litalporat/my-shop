@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Product from '../../components/Product'
 import Popup from '../../components/PopUp'
+// const axios = require('axios');
+import axios from 'axios'
 import './Shop.css'
 
 const products = [
@@ -87,9 +89,20 @@ const products = [
 ]
 
 
+
+
 const ProductPage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setcontent] = useState();
+
+    axios({
+        method: 'get',
+        url: 'http://localhost:5000/api/products',
+      })
+        .then(function (response) {
+          console.table(response.data[0])
+        });
+
     const togglePopup = () => {
       setIsOpen(!isOpen);
     }
@@ -105,8 +118,8 @@ const ProductPage = () => {
                     product={product}
                     onClick={()=> {changeContent(product);togglePopup()}}
                     />
-                ))
-            }
+                    ))
+                }
             {
                 isOpen && <Popup
                 content={content}
