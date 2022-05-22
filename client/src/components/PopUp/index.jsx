@@ -3,6 +3,18 @@ import './Popup.css'
 
  
 const Popup = props => {
+
+  if(!props.text){
+    return(
+    <div className="popup-box">
+      <div className="box">
+      <span className="close-icon" onClick={props.handleClose}>x</span>
+          There Is No Content
+      </div>
+    </div>
+    );
+  }
+  
   return (
     <div className="popup-box">
       <div className="box">

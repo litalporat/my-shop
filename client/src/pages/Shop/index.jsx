@@ -94,7 +94,6 @@ const ProductPage = () => {
       setIsOpen(!isOpen);
     }
     const changeContent = (product) => {
-      console.log(product);
       setcontent(product)
     }
 
