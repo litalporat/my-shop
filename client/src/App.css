@@ -1,13 +1,20 @@
-:root{
-    --black-color:#04080F;
-    --blue-color:#172231;
-    --orange-color:#C74521;
-    --lightblue-color:#B1C6DF;
-    --white-color:#E9F8F7;
-}
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
 
+:root{
+    --white-color:#B6ADA7;
+    --darkbrown-color:#67271D;
+    --black-color:#120E10;
+    --darkgray-color:#483E41;
+    --lightnude-color:#A18278;
+    --nude-color:#9A6758;
+}
+*{
+    font-family: 'Quicksand', sans-serif;
+    color: var(--black-color);
+}
 body{
-    background-color: var(--black-color);
+    background-image: url(./images/background.png);
+    background-repeat: round;
 }
 main{
     margin: 5px;
@@ -15,3 +22,17 @@ main{
     justify-content: center;
     align-items: center;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--lightnude-color);
+  }
+  
