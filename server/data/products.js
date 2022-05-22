@@ -22,6 +22,7 @@ const products = [
         'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg_udijwl.webp'
       ]
     },
+    color: ["Blue"],
     price: 330,
     discount: 0,
     stock: {
@@ -50,6 +51,7 @@ const products = [
       details: [
       ]
     },
+    color: ["Pale Blue", "Blue"],
     price: 330,
     discount: 0,
     stock: {
@@ -77,6 +79,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["White", "Black"],
     price: 140,
     discount: 0,
     stock: {
@@ -106,6 +109,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Azure", "Blue"],
     price: 130,
     discount: 0,
     stock: {
@@ -132,6 +136,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Pink"],
     price: 130,
     discount: 0,
     stock: {
@@ -158,6 +163,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Mocha", "Brown"],
     price: 130,
     discount: 0,
     stock: {
@@ -168,7 +174,7 @@ const products = [
     similarProducts: []
   },
   {
-    displayName: "Purple Jynx Suit",
+    displayName: "Jynx Purple Suit",
     description: ["Jynx suit spills and falls on the body precisely. The suit consists of a two-piece shirt top with an oversized sleeve length after the elbow, a Chinese collar and buttons along the entire length of the shirt. Rubber shorts at the waist with a pair of hidden side pockets."],
     metadata: {
       materials: ["Viscose", "Polyester"],
@@ -184,6 +190,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Purple"],
     price: 130,
     discount: 0,
     stock: {
@@ -194,7 +201,7 @@ const products = [
     similarProducts: []
   },
   {
-    displayName: "Black Cloud Pants",
+    displayName: "Cloud Black Pants",
     description: ["Cloud pants in a tailored cut made of super light and comfortable fabric in a straight cut. A pair of hidden pockets on the sides of the pants, with a button closure and a zipper."],
     metadata: {
       materials: ["Cotton", "Polyester"],
@@ -210,6 +217,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Black"],
     price: 170,
     discount: 0,
     stock: {
@@ -238,6 +246,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Green"],
     price: 180,
     discount: 0,
     stock: {
@@ -266,6 +275,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Brown"],
     price: 180,
     discount: 0,
     stock: {
@@ -294,6 +304,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Orange"],
     price: 180,
     discount: 0,
     stock: {
@@ -322,6 +333,7 @@ const products = [
       ],
       details: [],
     },
+    color: ["Mint"],
     price: 180,
     discount: 0,
     stock: {
