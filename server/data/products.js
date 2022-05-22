@@ -10,8 +10,17 @@ const products = [
       instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
     },
     images: {
-      display: ['static/media/WhatsApp-Image-2022-04-13-at-10.27.27-1-430x515.jpeg.webp', 'images/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg.webp'],
-      details: ['images/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg.webp', 'images/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1.jpeg.webp', 'images/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.29-1.jpeg.webp']
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg_dtysbl.webp', 
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215974/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1-430x515.jpeg_pb8grf.webp'
+      ],
+      details: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215976/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28.jpeg_sn6glq.webp', 
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215976/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.29-1.jpeg_pvc6ul.webp', 
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1.jpeg_zzixkc.webp',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg_udijwl.webp',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg_udijwl.webp'
+      ]
     },
     price: 330,
     discount: 0,
@@ -34,8 +43,11 @@ const products = [
       instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
     },
     images: {
-      display: ['images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-430x515.jpeg', 'images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-430x515.jpeg'],
-      details: ['images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-1-768x1024.jpeg', 'images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-773x1024.jpeg', 'images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-1-758x1024.jpeg', 'images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-773x1024.jpeg', 'images/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.55-1-773x1024.jpeg']
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-430x515_z51n5a.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-430x515_jsheep.jpg'
+      ],
+      details: [],
     },
     price: 140,
     discount: 0,
@@ -60,8 +72,11 @@ const products = [
       instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
     },
     images: {
-      display: ['images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-430x515.jpeg', 'images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-430x515.jpeg'],
-      details: ['images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-2-768x1024.jpeg', 'images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-766x1024.jpeg', 'images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-1-1-774x1024.jpeg', 'images/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-768x1024.jpeg']
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-430x515_voffs3.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-430x515_awsimn.jpg'
+      ],
+      details: [],
     },
     price: 130,
     discount: 0,
@@ -83,15 +98,46 @@ const products = [
       instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
     },
     images: {
-      display: ['images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.53-430x515.jpeg', 'images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.54-430x515.jpeg'],
-      details: ['images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.53-2-768x1024.jpeg', 'images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.53-766x1024.jpeg', 'images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.54-1-1-774x1024.jpeg', 'images/products/suits/pink_zoe/WhatsApp-Image-2022-05-18-at-08.16.54-768x1024.jpeg']
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217252/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-430x515_nwycyt.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217251/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-1-430x515_cuopqd.jpg'
+      ],
+      details: [],
     },
     price: 130,
     discount: 0,
     stock: {
       os: 14,
     },
-    type: "shirt",
+    type: "suit",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Black Cloud Pants",
+    description: ["Cloud pants in a tailored cut made of super light and comfortable fabric in a straight cut. A pair of hidden pockets on the sides of the pants, with a button closure and a zipper."],
+    metadata: {
+      materials: ["Cotton", "Polyester"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217772/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.24-430x515_hugonk.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217772/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.27-430x515_oymhl2.jpg'
+      ],
+      details: [],
+    },
+    price: 170,
+    discount: 0,
+    stock: {
+      xs: 14,
+      s: 5,
+      l: 3
+    },
+    type: "pants",
     amountSold: 0,
     similarProducts: []
   },
