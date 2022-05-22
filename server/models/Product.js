@@ -5,9 +5,9 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 0,
-    maxlength: 15,
+    maxlength: 50,
     validate: {
-      validator: v => v.length > 0 && v.length < 15,
+      validator: v => v.length > 0 && v.length < 50,
       message: props => `${props.value} length is not valid!`
     }
   },
