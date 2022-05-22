@@ -1,6 +1,6 @@
 const products = [
   {
-    displayName: "Vi Overall",
+    displayName: "Vi Royal Blue Overall",
     description: ["Vi overall made of lycra knit fabric in a super qual cut! Front spillage that can be changes according to the typing of the straps, combined with thin staps that tie at the shoulders. Rubber at the waist and removable tying thread, pants in an expandable cut."],
     metadata: {
       materials: ["Cotton combined with knit"],
@@ -20,6 +20,34 @@ const products = [
         'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1.jpeg_zzixkc.webp',
         'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg_udijwl.webp',
         'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.27-1.jpeg_udijwl.webp'
+      ]
+    },
+    price: 330,
+    discount: 0,
+    stock: {
+      xs: 10,
+      s: 20,
+    },
+    type: "overall",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Vi Pale Blue Overall",
+    description: ["Vi overall made of lycra knit fabric in a super qual cut! Front spillage that can be changes according to the typing of the straps, combined with thin staps that tie at the shoulders. Rubber at the waist and removable tying thread, pants in an expandable cut."],
+    metadata: {
+      materials: ["Cotton combined with knit"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.32-430x515.jpeg_adgtmw.webp',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.34-430x515.jpeg_hyydmy.webp'
+      ],
+      details: [
       ]
     },
     price: 330,
@@ -114,6 +142,58 @@ const products = [
     similarProducts: []
   },
   {
+    displayName: "Zoe Mocha Suit",
+    description: ["Zoe oversozes suit spills and falls on the body precisely. The suit consists of a two-piece shirt top with an oversized sleeve length after the elbow, a Chinese collar and buttons along the entire length of the shirt. Rubber shorts at the waist with a pair of hidden side pockets."],
+    metadata: {
+      materials: ["Viscose", "Polyester"],
+      origin: "China",
+      model_size: "os",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222749/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.56-430x515_jz1uhl.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222748/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.57-430x515_citpqe.jpg'
+      ],
+      details: [],
+    },
+    price: 130,
+    discount: 0,
+    stock: {
+      os: 14,
+    },
+    type: "suit",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Purple Jynx Suit",
+    description: ["Jynx suit spills and falls on the body precisely. The suit consists of a two-piece shirt top with an oversized sleeve length after the elbow, a Chinese collar and buttons along the entire length of the shirt. Rubber shorts at the waist with a pair of hidden side pockets."],
+    metadata: {
+      materials: ["Viscose", "Polyester"],
+      origin: "China",
+      model_size: "s",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.54-1-430x515_oy0kup.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.55-1-430x515_mkoalz.jpg'
+      ],
+      details: [],
+    },
+    price: 130,
+    discount: 0,
+    stock: {
+      os: 14,
+    },
+    type: "suit",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
     displayName: "Black Cloud Pants",
     description: ["Cloud pants in a tailored cut made of super light and comfortable fabric in a straight cut. A pair of hidden pockets on the sides of the pants, with a button closure and a zipper."],
     metadata: {
@@ -138,6 +218,118 @@ const products = [
       l: 3
     },
     type: "pants",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Camille Green Skirt",
+    description: ["Camille skirt shell made of comfortable fabric. The skirt comes with a side tie that can be tied to the desired size."],
+    metadata: {
+      materials: ["Cotton", "Polyester"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222073/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.17-430x515_tdwanu.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222073/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.18-430x515_mgjzju.jpg'
+      ],
+      details: [],
+    },
+    price: 180,
+    discount: 0,
+    stock: {
+      xs: 11,
+      s: 5,
+      m: 3
+    },
+    type: "skirt",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Camille Brown Skirt",
+    description: ["Camille skirt shell made of comfortable fabric. The skirt comes with a side tie that can be tied to the desired size."],
+    metadata: {
+      materials: ["Cotton", "Polyester"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221208/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-1-430x515_lhycwq.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221208/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-430x515_m7k2ev.jpg'
+      ],
+      details: [],
+    },
+    price: 180,
+    discount: 0,
+    stock: {
+      xs: 11,
+      s: 5,
+      m: 3
+    },
+    type: "skirt",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Camille Orange Skirt",
+    description: ["Camille skirt shell made of comfortable fabric. The skirt comes with a side tie that can be tied to the desired size."],
+    metadata: {
+      materials: ["Cotton", "Polyester"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221838/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.21-430x515_y2fqhh.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221838/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.22-430x515_zf81hj.jpg'
+      ],
+      details: [],
+    },
+    price: 180,
+    discount: 0,
+    stock: {
+      xs: 11,
+      s: 5,
+      m: 3
+    },
+    type: "skirt",
+    amountSold: 0,
+    similarProducts: []
+  },
+  {
+    displayName: "Camille Mint Skirt",
+    description: ["Camille skirt shell made of comfortable fabric. The skirt comes with a side tie that can be tied to the desired size."],
+    metadata: {
+      materials: ["Cotton", "Polyester"],
+      origin: "China",
+      model_size: "xs",
+      model_height: 170,
+      instructions: ["The items should be washed by hand seperatly in cold water, and avoid squeezing!"]
+    },
+    images: {
+      display: [
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222005/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.14-430x515_chz8sh.jpg',
+        'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222005/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.15-1-430x515_lagdaj.jpg'
+      ],
+      details: [],
+    },
+    price: 180,
+    discount: 0,
+    stock: {
+      xs: 11,
+      s: 5,
+      m: 3
+    },
+    type: "skirt",
     amountSold: 0,
     similarProducts: []
   },
