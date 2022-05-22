@@ -11,3 +11,7 @@
 2022-05-18 13:59:00 [32minfo[39m: POST /api/auth request has been accepted
 2022-05-18 13:59:22 [32minfo[39m: DELETE /api/products/62837778702cf9e6d8e33bd0 request has been accepted
 2022-05-18 13:59:22 [31merror[39m: product not exsits!
+2022-05-22 11:09:19 [32minfo[39m: MongoDB connection SUCCESS
+2022-05-22 11:09:20 [32minfo[39m: Server running on port 5000
+2022-05-22 11:09:28 [32minfo[39m: MongoDB connection SUCCESS
+2022-05-22 11:09:29 [32minfo[39m: Server running on port 5000

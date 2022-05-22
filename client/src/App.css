@@ -14,7 +14,6 @@
 }
 body{
     background-image: url(./images/background.png);
-    background-repeat: round;
 }
 main{
     margin: 5px;
