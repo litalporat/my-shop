@@ -6,9 +6,6 @@ const Index = () => {
     return (
         <div className="product-list">
             <Product/>
-            <Product/>
-            <Product/>
-            <Product/>
         </div>
     );
 };
