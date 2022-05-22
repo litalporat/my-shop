@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "test": "mocha 'server/test/**/*.js' --recursive --timeout 10000 --exit",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node server/seederScript.js"
+    "data:import": "node server/utils/seederScript.js"
   },
   "keywords": [],
   "author": "",

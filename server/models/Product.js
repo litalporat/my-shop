@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-  display_name: {
+  displayName: {
     type: String,
     required: true,
     minlength: 0,
@@ -15,12 +15,12 @@ const productSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
-  more_info: {
+  metadata: {
     type: Object,
     materials: [String],
     origin: String,
-    model_size: String,
-    model_height: Number,
+    modelSize: String,
+    modelHeight: Number,
     instructions: [String],
     required: true,
   },
@@ -32,30 +32,23 @@ const productSchema = new mongoose.Schema({
     type: Number
   },
   stock: {
-    required: true,
     xs: {
       type: Number,
-      default: 0
     },
     s:  {
       type: Number,
-      default: 0
     },
     m:  {
       type: Number,
-      default: 0
     },
     l:  {
       type: Number,
-      default: 0
     },
     os:  {
       type: Number,
-      default: 0
     },
     xl:  {
       type: Number,
-      default: 0
     }
   },
   type: {
@@ -63,23 +56,28 @@ const productSchema = new mongoose.Schema({
     type: String
   },
   images: {
-    required: true,
     display: [String],
     details: [String]
   },
-  available_sizes: [String],
-  search_keywords: [String],
-  amount_sold: Number,
-  similar_products: [mongoose.SchemaTypes.ObjectId],
-  created_at: {
+  amountSold: Number,
+  similarProducts: [mongoose.SchemaTypes.ObjectId],
+  createdAt: {
     type: Date,
     immutable: true,
     default: () => new Date()
   },
-  updated_at: {
+  updatedAt: {
     type: Date,
     default: () => new Date()
   }
+});
+
+productSchema.virtual('globalStock').get(function() {
+  return Object.values(this.stock).reduce((acc, a) => acc + a, 0);
+});
+
+productSchema.virtual('availableSizes').get(function() {
+  return Object.keys(this.stock);
 });
 
 const Product = mongoose.model("product", productSchema);
