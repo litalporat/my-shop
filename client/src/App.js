@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+=======
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Login';
+import Register from './Register';
+>>>>>>> 99755e0 (Login)
 
 // Screens
 import HomePage from './pages/Home'
@@ -21,6 +28,7 @@ function App() {
         <HeartProvider>
           <Navbar />
           <Routes>
+            <Route exact path="/login" element={<Login/>} />
             <Route exact path="/" element={<HomePage />} />
             {/* <Route exact path="/product/:id" element={<ProductPage/>}/> */}
             <Route exact path="/cart" element={<CartPage />} />
