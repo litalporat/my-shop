@@ -2,6 +2,11 @@ GET http://localhost:5000/api/products
 
 ###
 
+GET http://localhost:5000/api/products?category=overall
+
+###
+
+
 GET http://localhost:5000/api/products/627d24d57aa7daed90ac6406
 
 ###
