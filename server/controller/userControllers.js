@@ -36,9 +36,9 @@ const addUser = async (req, res) => {
     }
     const emailExist = await User.findOne({email: req.body.email});
     logger.info(`POST /api/users request has been accepted`);
-    if (emailExist) return res.json({ status: 400, error: "Email already exists!", email: req.body.email });
+    if (emailExist) return res.status(400).json({ status: 400, error: "Email already exists!", email: req.body.email });
     await User.create(req.body);
-    res.json({ status: 200, info: "product added successfuly!" })
+    res.json({ status: 200, info: "user was added successfuly!" })
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });

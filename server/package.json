@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon server/server.js",
-    "client": "npm start --prefix client",
-    "test": "mocha 'server/test/**/*.js' --recursive --timeout 10000 --exit",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../client",
+    "test": "mocha 'test/**/*.js' --recursive --timeout 10000 --exit",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node server/utils/seederScript.js"
   },
