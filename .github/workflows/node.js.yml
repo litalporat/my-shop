@@ -27,6 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: whoami
+    - run: cd server
     - run: pwd
     - run:  ls   
     - run: npm ci ./server
