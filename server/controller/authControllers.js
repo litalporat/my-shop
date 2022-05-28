@@ -3,7 +3,7 @@ const User = require("../models/User");
 const logger = require('../utils/logger');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
-const { generateAccessToken } = require('../middlewares/auth')
+const { generateAccessToken } = require('../middlewares/auth');
 require('../utils/validators.js')();
 
 let refreshTokens = [];
@@ -12,22 +12,20 @@ const validateLogin = async (req, res) => {
     try {
         const { error } = validateUser(req.body);
         if (error) {
-          logger.error(error);
-          res.status(400).send({ status: 400, error});
-          return;
+            res.status(400).json({ error: error.details[0].message });
+            return;
         }
-        logger.info(`POST /api/auth request has been accepted`);
-        const user = await User.findOne({email: req.body.email});
+        const user = await User.findOne({ email: req.body.email });
 
-        if (!user) return res.json({ status: 400, error: "Email not exists!", email: req.body.email });
+        if (!user) return res.status(400).json({ error: "email not exists!", email: req.body.email });
 
         const validPass = await bcrypt.compare(req.body.password, user.password);
-        if (!validPass) return res.json({ status: 400, error: "Invalid password!" });
+        if (!validPass) return res.status(400).json({ error: "invalid password!" });
 
         const accessToken = generateAccessToken({ _id: user._id });
         const refreshToken = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '30d' });
         refreshTokens.push(refreshToken);
-        res.json({ status: 200, info: "user authenticated successfuly!", accessToken, refreshToken })
+        res.status(200).json({ info: "user authenticated successfuly!", accessToken, refreshToken });
     } catch (e) {
         logger.error(e);
         res.status(500).json({ message: "Server Error!" });
@@ -37,17 +35,14 @@ const validateLogin = async (req, res) => {
 const refreshToken = (req, res) => {
     const { error } = validateToken(req.body);
     if (error) {
-        logger.error(error);
-        res.status(400).send({ status: 400, error});
+        res.status(400).json({error: error.details[0].message});
         return;
     }
     const refreshToken = req.body.token;
-    if (!refreshToken) return res.status(401).json({});
-    if (!refreshTokens.includes(refreshToken)) return res.status(403).send("Invalid Refresh Token!");
+    if (!refreshTokens.includes(refreshToken)) return res.status(403).json({ error: "invalid refresh token!" });
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
         if (err) {
-            logger.error(err);
-            return res.status(403).send('Invalid Token!');
+            return res.status(403).json({error:'invalid Token!'});
         }
         const accessToken = generateAccessToken({ _id: user._id });
         res.json({ accessToken });
@@ -55,12 +50,17 @@ const refreshToken = (req, res) => {
 }
 
 const deleteRefreshToken = (req, res) => {
+    const { error } = validateToken(req.body);
+    if (error) {
+        res.status(400).json({error: error.details[0].message});
+        return;
+    }
     refreshTokens = refreshTokens.filter(token => token !== req.body.token);
-    res.status(204).send("Logout Successfuly!");
+    res.status(200).json({info: "logout successfuly!"});
 }
 
 module.exports = {
-  validateLogin,
-  refreshToken,
-  deleteRefreshToken
+    validateLogin,
+    refreshToken,
+    deleteRefreshToken
 }

@@ -17,7 +17,7 @@ router.post("/login", validateLogin);
 //@access Public
 router.post("/token", refreshToken);
 
-//@desc get a refresh token
+//@desc delete a refresh token
 //@route POST /api/auth/token
 //@access Public
 router.delete("/logout", deleteRefreshToken);

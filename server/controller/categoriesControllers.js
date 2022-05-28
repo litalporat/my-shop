@@ -6,8 +6,7 @@ require('../utils/validators.js')();
 const getAllCategories = async (req, res) => {
   try {
     const cat = await Categories.find({});
-    logger.info("GET /api/categories request has been accepted");
-    res.json(cat);
+    res.status(200).json(cat);
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });

@@ -1,3 +1,4 @@
+const { ObjectId } = require("bson");
 const res = require("express/lib/response");
 const User = require("../models/User");
 const logger = require('../utils/logger');
@@ -6,7 +7,6 @@ require('../utils/validators.js')();
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({});
-    logger.info("GET /api/users request has been accepted");
     res.json(users);
   } catch (e) {
     logger.error(e);
@@ -15,10 +15,34 @@ const getAllUsers = async (req, res) => {
 };
 
 const getUserById = async (req, res) => {
+  let _id = null;
   try {
-    const user = await User.findById(req.params.id);
-    logger.info(`GET /api/users/${req.params.id} request has been accepted`);
-    res.json(user);
+    _id = ObjectId(req.params.id);
+  } catch (e) {
+    return res.status(400).json({ error: "invalid id!" });
+  }
+  try {
+    const user = await User.findById(_id);
+    if (!user) return res.status(400).json({ error: "user does not exists!" });
+    res.status(200).json({ info: "user found!", data: user });
+  } catch (e) {
+    logger.error(e);
+    res.status(500).json({ message: "Server Error!" });
+  }
+};
+
+const deleteUserById = async (req, res) => {
+  let _id = null;
+  try {
+    _id = ObjectId(req.params.id);
+  } catch (e) {
+    return res.status(400).json({ error: "invalid id!" });
+  }
+  try {
+    const emailExist = await User.findById(_id);
+    if (!emailExist) return res.status(400).json({ error: "user does not exists!" });
+    await User.findOneAndRemove(req.params.id);
+    res.status(200).json({ info: "user deleted successfully!"});
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
@@ -27,18 +51,15 @@ const getUserById = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
-    console.log(req.body)
     const { error } = validateUser(req.body);
     if (error) {
-      logger.error(error);
-      res.status(400).send({ status: 400, error});
+      res.status(400).send({ error: error.details[0].message });
       return;
     }
     const emailExist = await User.findOne({email: req.body.email});
-    logger.info(`POST /api/users request has been accepted`);
-    if (emailExist) return res.status(400).json({ status: 400, error: "Email already exists!", email: req.body.email });
+    if (emailExist) return res.status(400).json({ error: "Email already exists!", email: req.body.email });
     await User.create(req.body);
-    res.json({ status: 200, info: "user was added successfuly!" })
+    res.json({ info: "user was added successfuly!" })
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
@@ -48,5 +69,6 @@ const addUser = async (req, res) => {
 module.exports = {
   getAllUsers,
   getUserById,
-  addUser
+  addUser,
+  deleteUserById
 }
