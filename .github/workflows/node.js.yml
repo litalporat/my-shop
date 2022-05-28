@@ -26,10 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: whoami
-    - run: cd /home/runner/work/my-shop/my-shop/server
-    - run: pwd
-    - run:  ls   
     - run: npm ci
+      working-directory: server
     - run: npm run build --if-present
+      working-directory: server
     - run: npm test
+      working-directory: server
