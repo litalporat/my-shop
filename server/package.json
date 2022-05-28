@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix ../client",
     "test": "mocha 'test/**/*.js' --recursive --timeout 10000 --exit",
