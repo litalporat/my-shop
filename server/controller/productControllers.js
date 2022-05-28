@@ -2,6 +2,7 @@ const res = require("express/lib/response");
 const Categories = require("../models/Categories");
 const Product = require("../models/Product");
 const logger = require('../utils/logger');
+const { ObjectId } = require("bson");
 
 require('../utils/validators.js')();
 
@@ -30,10 +31,15 @@ const getAllProducts = async (req, res) => {
 };
 
 const getProductById = async (req, res) => {
+  let _id = null;
   try {
-    const products = await Product.findById(req.params.id);
-    logger.info(`GET /api/products/${req.params.id} request has been accepted`);
-    res.json(products);
+    _id = ObjectId(req.params.id);
+  } catch (e) {
+    return res.status(400).json({ error: "invalid id!" });
+  }
+  try {
+    const products = await Product.findById(_id);
+    res.status(200).json(products);
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
@@ -78,14 +84,13 @@ const getProductById = async (req, res) => {
 const removeProductById = async (req, res) => {
   try {
     const _id = req.params.id;
-    logger.info(`DELETE /api/products/${_id} request has been accepted`);
     const product = await Product.findByIdAndDelete({_id});
     if (product) {
-      res.json({ status: 200, info: "product deleted successfuly!" })
+      res.status(200).json({ info: "product deleted successfuly!" })
       return;
     }
     logger.error("product not exsits!");
-    res.json({ status: 400, error: "product not exsits!" })
+    res.status(400).json({ error: "product not exsits!" })
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
