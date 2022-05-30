@@ -3,126 +3,88 @@ import Product from '../../components/Product'
 import Popup from '../../components/PopUp'
 import axios from 'axios'
 import './Shop.css'
+import FilterComp from '../../components/FilterComp';
 
-const products = [
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-    {
-        title: "cabinet",
-        price: "150$",
-    },
-]
+const catagories = [ "Dresses" , "Tops", "Shirts"]
 
 const ProductPage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setcontent] = useState();
     const [data, setData] = useState()
+    const [viewData, setViewData] = useState()
+    const [filters, setFilters] = useState({})
 
+    // Getting the data from the DB.
     useEffect(() => {
         axios.get('http://localhost:5000/api/products')
         .then(function (response) {
-          // handle success
-          setData(response.data);
+            // handle success
+            setData(response.data);
+            setViewData(response.data)
         })
         .catch(function (error) {
             // handle error
             console.log(error);
         });
     },[])
-    
-    console.log(data)
-
+    // Filtering the data 
+    useEffect(()=>{
+        if(data){
+            let tempData = [...data]
+            let newData = []
+            let filteredData = []
+            Object.keys(filters).map((key,index) =>{
+                filters[key].forEach(value =>{
+                    newData.push( tempData.filter(prod => prod[key].includes(value)) )
+                })
+            })
+            if(newData.length>0){
+                newData.forEach(e=> e.forEach(d=>filteredData.push(d)))
+                setViewData(filteredData)
+            }
+            else {
+                setViewData(tempData)
+            }
+        }
+        
+    },[filters])
     const togglePopup = () => {
       setIsOpen(!isOpen);
     }
     const changeContent = (product) => {
       setcontent(product)
     }
+    const filterBy = (param,value) => {
+        let newFilters = {...filters}
+        if(!newFilters[param])
+            newFilters[param] = []
+        newFilters[param].push(value)
+        setFilters(newFilters)
+        
+    }
+    const deletefilterBy = (param,value) => {
+        let newFilters = {...filters}
+        newFilters[param] = newFilters[param].filter(e=>e!=value)
+        setFilters(newFilters)
+    }
 
     return (
+        <>
+        <div className="filters">
+        <FilterComp
+        filterFunc={filterBy}
+        delFilterFunc={deletefilterBy}
+        />
+        </div>
         <div className='shop-body'>
             {
-                data && data.map(product =>(
+                data && viewData.map(product =>(
                     <Product
                     product={product}
                     onClick={()=> {changeContent(product);togglePopup()}}
                     />
                     ))
-                }
+            }
             {
                 isOpen && <Popup
                 content={content}
@@ -130,6 +92,7 @@ const ProductPage = () => {
                 />
             }
         </div>
+        </>
     );
 };
 
