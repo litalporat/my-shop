@@ -54,7 +54,7 @@ const ProductPage = () => {
     const changeContent = (product) => {
       setcontent(product)
     }
-    const filterBy = (param,value) => {
+    const filterByParam = (param,value) => {
         let newFilters = {...filters}
         if(!newFilters[param])
             newFilters[param] = []
@@ -62,18 +62,25 @@ const ProductPage = () => {
         setFilters(newFilters)
         
     }
-    const deletefilterBy = (param,value) => {
+    const deletefilterByParam = (param,value) => {
         let newFilters = {...filters}
         newFilters[param] = newFilters[param].filter(e=>e!=value)
         setFilters(newFilters)
+    }
+    const filterByPrice = (value) => {
+        let tempData = [...data]
+        console.log(tempData)
+        tempData = tempData.filter(product => product.price>=value[0] && product.price<=value[1])
+        setViewData(tempData)
     }
 
     return (
         <>
         <div className="filters">
         <FilterComp
-        filterFunc={filterBy}
-        delFilterFunc={deletefilterBy}
+        filterFunc={filterByParam}
+        delFilterFunc={deletefilterByParam}
+        filterByPrice={filterByPrice}
         />
         </div>
         <div className='shop-body'>
