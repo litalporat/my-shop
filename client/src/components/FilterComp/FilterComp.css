@@ -10,6 +10,8 @@
     border-radius: 0px 10px 10px 0px ;
     height: 100%;
     padding-top: 8rem;
+    overflow-x: hidden;
+    overflow-y:scroll;
 }
 .filter-box {
     position: fixed;
