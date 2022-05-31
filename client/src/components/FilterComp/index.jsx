@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import ArrowBtn from '../ArrowBtn';
 import './FilterComp.css'
+import { Slider } from '@mui/material';
 
 
 const FilterComp = props => {
     const [isOpen, setIsOpen] = useState(false);
+    const [value, setValue] = useState([100,1000])
+
+    const updateRange = (e,data) => {
+      setValue(data)
+      props.filterByPrice(value);
+    }
 
     isOpen && document.addEventListener("click" ,(e) => {
         if(e.target.className == 'filter-box')
@@ -15,13 +22,12 @@ const FilterComp = props => {
         stock : ["XS","S","M","L","XL","One-Size"],
         colors: ["Blue","Red","Green","Black","Pink","White"]
     }
-    function checkValue(e) {
+    const checkValue = e => {
         if(e.target.checked)
             props.filterFunc(e.target.id,e.target.value)
         else
             props.delFilterFunc(e.target.id,e.target.value)
     }
-
 
     return (
         <div>
@@ -31,8 +37,13 @@ const FilterComp = props => {
                     <div className="filter-box">
                     <div className='filter-container'>
                         <h3>Price</h3>
-                        <label className='check-cont'>
-                        <input type="checkbox" /> Price <span className="checkmark"></span></label>
+                        <Slider
+                        value={value}
+                        onChange={updateRange}
+                        valueLabelDisplay="auto"
+                        max={1500}
+                        step={50}
+                        />
                         <tr/>
                         <h3>Size</h3>
                         {options.stock.map(size => (
