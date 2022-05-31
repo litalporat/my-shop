@@ -69,7 +69,6 @@ const ProductPage = () => {
     }
     const filterByPrice = (value) => {
         let tempData = [...data]
-        console.log(tempData)
         tempData = tempData.filter(product => product.price>=value[0] && product.price<=value[1])
         setViewData(tempData)
     }
