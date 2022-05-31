@@ -47,7 +47,6 @@ const FilterComp = props => {
                         />
                         <tr/>
                         {
-<<<<<<< HEAD
                             options.map(obj => (
                                 <>
                                 <h3> {obj.title} </h3>
@@ -67,33 +66,6 @@ const FilterComp = props => {
                                 </>
                             ))
                         }
-=======
-                            console.log(options)
-                        }
-                        {/* <h3>Size</h3>
-                        {options.stock.map(size => (
-                            <label className='check-cont'>
-                                <input type="checkbox" 
-                                onChange={checkValue}
-                                value={String(size)}
-                                id={'stock'}
-                                />
-                                 {String(size)}
-                                 <span className="checkmark"></span></label>
-                            ))}
-                        <tr/>
-                        <h3>Color</h3>
-                        {options.colors.map(color => (
-                            <label className='check-cont'>
-                                <input type="checkbox" 
-                                onChange={checkValue}
-                                value={String(color)}
-                                id={'color'}
-                                />
-                                 {String(color)} <span className="checkmark"></span><span className="checkmark"></span></label>
-                            ))}
-                    <tr/> */}
->>>>>>> 63c1e0b (scaling)
                     <center><ArrowBtn content={"submit"}/></center>
                     </div>
                     </div>
