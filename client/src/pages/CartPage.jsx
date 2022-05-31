@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useState } from "react";
 
 const CartPage = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+  return <div></div>;
 };
 
 export default CartPage;

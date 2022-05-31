@@ -9,7 +9,7 @@ import BasicButton from '../../components/BasicButton';
 
 const catagories = [ "Dresses" , "Tops", "Shirts"]
 
-const ProductPage = () => {
+const ProductPage = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setcontent] = useState();
     const [data, setData] = useState()
@@ -29,7 +29,7 @@ const ProductPage = () => {
             console.log(error);
         });
     },[])
-    // Filtering the data 
+    // Filtering the data
     useEffect(()=>{
         if(data){
             let tempData = [...data]
@@ -49,7 +49,7 @@ const ProductPage = () => {
                 setViewData(tempData)
             }
         }
-        
+
     },[filters])
     const togglePopup = () => {
       setIsOpen(!isOpen);
@@ -63,7 +63,7 @@ const ProductPage = () => {
             newFilters[param] = []
         newFilters[param].push(value)
         setFilters(newFilters)
-        
+
     }
     const deletefilterByParam = (param,value) => {
         let newFilters = {...filters}
@@ -128,6 +128,9 @@ const ProductPage = () => {
                     <Product
                     product={product}
                     onClick={()=> {changeContent(product);togglePopup()}}
+                    onCart={() => {
+                      props.onCart(product);
+                    }}
                     />
                     ))
             }
