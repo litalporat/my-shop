@@ -18,10 +18,10 @@ const FilterComp = props => {
         setIsOpen(!isOpen)
     })
 
-    const options = {
-        stock : ["XS","S","M","L","XL","One-Size"],
-        colors: ["Blue","Red","Green","Black","Pink","White"]
-    }
+    const options = [
+        {param: "Size" , values :["XS","S","M","L","XL","One-Size"]},
+        {param: "Colors" , values :["Blue","Red","Green","Black","Pink","White"]}
+    ]
     const checkValue = e => {
         if(e.target.checked)
             props.filterFunc(e.target.id,e.target.value)
@@ -45,7 +45,10 @@ const FilterComp = props => {
                         step={50}
                         />
                         <tr/>
-                        <h3>Size</h3>
+                        {
+                            console.log(options)
+                        }
+                        {/* <h3>Size</h3>
                         {options.stock.map(size => (
                             <label className='check-cont'>
                                 <input type="checkbox" 
@@ -67,7 +70,7 @@ const FilterComp = props => {
                                 />
                                  {String(color)} <span className="checkmark"></span><span className="checkmark"></span></label>
                             ))}
-                    <tr/>
+                    <tr/> */}
                     <center><ArrowBtn content={"submit"}/></center>
                     </div>
                     </div>
