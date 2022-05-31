@@ -6,7 +6,7 @@ import { Slider } from '@mui/material';
 
 const FilterComp = props => {
     const [isOpen, setIsOpen] = useState(false);
-    const [value, setValue] = useState([100,1000])
+    const [value, setValue] = useState([100,900])
 
     const updateRange = (e,data) => {
       setValue(data)
@@ -19,9 +19,10 @@ const FilterComp = props => {
     })
 
     const options = [
-        {param: "Size" , values :["XS","S","M","L","XL","One-Size"]},
-        {param: "Colors" , values :["Blue","Red","Green","Black","Pink","White"]}
+        {title: "Sizes" ,param: "size", values :["XS","S","M","L","XL","One-Size"]},
+        {title: "Colors" ,param: "color" , values :["Blue","Red","Green","Black","Pink","White"]}
     ]
+
     const checkValue = e => {
         if(e.target.checked)
             props.filterFunc(e.target.id,e.target.value)
@@ -41,36 +42,30 @@ const FilterComp = props => {
                         value={value}
                         onChange={updateRange}
                         valueLabelDisplay="auto"
-                        max={1500}
-                        step={50}
+                        max={1000}
+                        step={10}
                         />
                         <tr/>
                         {
-                            console.log(options)
+                            options.map(obj => (
+                                <>
+                                <h3> {obj.title} </h3>
+                                {obj.values.map(val=>(
+                                    <>
+                                    <label className='check-cont'>
+                                    <input type="checkbox" 
+                                    onChange={checkValue}
+                                    value={val}
+                                    id={obj.param}
+                                    />
+                                    {val}
+                                    <span className="checkmark"></span></label>
+                                    </>
+                                ))}
+                                <tr/>
+                                </>
+                            ))
                         }
-                        {/* <h3>Size</h3>
-                        {options.stock.map(size => (
-                            <label className='check-cont'>
-                                <input type="checkbox" 
-                                onChange={checkValue}
-                                value={String(size)}
-                                id={'stock'}
-                                />
-                                 {String(size)}
-                                 <span className="checkmark"></span></label>
-                            ))}
-                        <tr/>
-                        <h3>Color</h3>
-                        {options.colors.map(color => (
-                            <label className='check-cont'>
-                                <input type="checkbox" 
-                                onChange={checkValue}
-                                value={String(color)}
-                                id={'color'}
-                                />
-                                 {String(color)} <span className="checkmark"></span><span className="checkmark"></span></label>
-                            ))}
-                    <tr/> */}
                     <center><ArrowBtn content={"submit"}/></center>
                     </div>
                     </div>
