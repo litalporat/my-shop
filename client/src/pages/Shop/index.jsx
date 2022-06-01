@@ -4,6 +4,8 @@ import Popup from '../../components/PopUp'
 import axios from 'axios'
 import './Shop.css'
 import FilterComp from '../../components/FilterComp';
+import SorterComp from '../../components/SorterComp';
+import BasicButton from '../../components/BasicButton';
 
 const catagories = [ "Dresses" , "Tops", "Shirts"]
 
@@ -72,6 +74,36 @@ const ProductPage = () => {
         tempData = tempData.filter(product => product.price>=value[0] && product.price<=value[1])
         setViewData(tempData)
     }
+    const sortByInt = (param,order) => {
+        if(order === "Default"){
+            let tempData = [...data]
+            setViewData(tempData)
+        }
+        if(order === "High To Low"){
+            let tempData = [...viewData]
+            tempData = tempData.sort((a,b)=> a[param] - b[param])
+            setViewData(tempData)
+        }
+        if(order === "Low To High"){
+            let tempData = [...viewData]
+            tempData = tempData.sort((a,b)=> b[param] - a[param])
+            setViewData(tempData)
+        }
+    }
+    const sortByString = (param,order) => {
+        let tempData = [...data]
+        if(order === "Default"){
+            setViewData(tempData)
+        }
+        if(order === "High To Low"){
+            tempData = tempData.sort((a,b) => (a[param] > b[param]) ? 1 : ((b[param] > a[param]) ? -1 : 0))
+            setViewData(tempData)
+        }
+        if(order === "Low To High"){
+            tempData = tempData.sort((a,b)=> (a[param] < b[param]) ? 1 : ((b[param] < a[param]) ? -1 : 0))
+            setViewData(tempData)
+        }
+    }
 
     return (
         <>
@@ -80,6 +112,13 @@ const ProductPage = () => {
         filterFunc={filterByParam}
         delFilterFunc={deletefilterByParam}
         filterByPrice={filterByPrice}
+        />
+        <BasicButton
+        title={`Number Of Products: ${data && viewData.length}`}
+        />
+        <SorterComp
+        sortByInt={sortByInt}
+        sortByString={sortByString}
         />
         </div>
         <div className='shop-body'>

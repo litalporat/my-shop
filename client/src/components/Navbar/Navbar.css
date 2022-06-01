@@ -5,7 +5,7 @@
     display: flex;
     padding: 2rem 8rem;
     z-index: 50;
-    position: fixed;
+    position: sticky;
     justify-content: space-around;
 }
 .navbar:hover{
