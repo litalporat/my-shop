@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Product from "../../components/Product";
 import Popup from "../../components/PopUp";
 import axios from "axios";
 import "./Shop.css";
+import CartContext from "../../Contexts/CartContext";
 
 const ProductPage = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [content, setcontent] = useState();
   const [data, setData] = useState();
+  const { addProduct } = useContext(CartContext);
 
   useEffect(() => {
     axios
@@ -21,8 +23,6 @@ const ProductPage = (props) => {
         console.log(error);
       });
   }, []);
-
-  console.log(data);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -41,9 +41,8 @@ const ProductPage = (props) => {
               changeContent(product);
               togglePopup();
             }}
-            onCart={() => {
-              props.onCart(product);
-            }}
+            onCart={() => addProduct(product)}
+            text="ADD TO CART"
           />
         ))}
       {isOpen && <Popup content={content} handleClose={togglePopup} />}

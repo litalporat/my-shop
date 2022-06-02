@@ -1,0 +1,10 @@
+.liked-list {
+  color: black;
+  background-color: antiquewhite;
+  padding-top: 30px;
+}
+
+.list-image {
+  height: 14rem;
+  width: 12rem;
+}
