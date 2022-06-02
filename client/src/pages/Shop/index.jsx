@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Product from '../../components/Product'
-import Popup from '../../components/PopUp'
-import axios from 'axios'
-import './Shop.css'
+import React, { useContext, useEffect, useState } from "react";
+import Product from "../../components/Product";
+import Popup from "../../components/PopUp";
+import axios from "axios";
+import "./Shop.css";
+import CartContext from "../../Contexts/CartContext";
 import FilterComp from '../../components/FilterComp';
 import SorterComp from '../../components/SorterComp';
 import BasicButton from '../../components/BasicButton';
 
-const catagories = [ "Dresses" , "Tops", "Shirts"]
-
 const ProductPage = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [content, setcontent] = useState();
-    const [data, setData] = useState()
-    const [viewData, setViewData] = useState()
-    const [filters, setFilters] = useState({})
+  const [isOpen, setIsOpen] = useState(false);
+  const [content, setcontent] = useState();
+  const [data, setData] = useState();
+  const [viewData, setViewData] = useState()
+  const [filters, setFilters] = useState({})
+  const { addProduct } = useContext(CartContext);
 
     // Getting the data from the DB.
     useEffect(() => {
@@ -128,9 +128,7 @@ const ProductPage = (props) => {
                     <Product
                     product={product}
                     onClick={()=> {changeContent(product);togglePopup()}}
-                    onCart={() => {
-                      props.onCart(product);
-                    }}
+                    onCart={() => addProduct(product)}
                     />
                     ))
             }

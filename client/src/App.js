@@ -10,15 +10,10 @@ import TestPage from './pages/Test'
 // Components
 import Navbar from "./components/Navbar";
 import { useState } from "react";
+import { CartProvider } from "./Contexts/CartContext";
+import { HeartProvider } from "./Contexts/HeartContext";
 
 function App() {
-  const [products, setProduct] = useState([]);
-
-  const addCart = (product) => {
-    console.log("adding to cart");
-    setProduct(product);
-  };
-
   return (
     <Router>
       <Navbar />

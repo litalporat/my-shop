@@ -7,7 +7,7 @@ const ArrowBtn = (props) => {
       <span class="circle" aria-hidden="true">
         <span class="icon arrow"></span>
       </span>
-      <span class="button-text">{props.content}</span>
+      <span class="button-text">{props.text}</span>
     </button>
   );
 };

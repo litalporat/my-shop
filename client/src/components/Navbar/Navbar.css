@@ -79,3 +79,15 @@ h2 {
   text-align: center;
   font-size: 1rem;
 }
+
+.heart {
+  color: black;
+}
+
+.heart:hover {
+  color: white;
+}
+
+.heart:active {
+  color: black;
+}
