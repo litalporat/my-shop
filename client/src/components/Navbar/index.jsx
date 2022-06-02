@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import DropDown from "../Buttons/MenuBtn";
+import LoginPopup from "../LoginPopUp";
 import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
 import { useContext, useState } from "react";
@@ -63,6 +65,19 @@ const Navbar = () => {
               </span>
             </i>
           </li>
+          <li>
+          <button
+            className="profile_picture"
+            onClick={() => {
+              setIsLogin(!isLogin);
+              togglePopup();
+            }}
+          >
+            {isLogin ? "Profile" : "Login"}
+          </button>
+          <i class="fa-solid fa-user"></i>
+          {isOpen && <LoginPopup onClick={togglePopup} />}
+        </li>
         </ul>
       </nav>
       {isLikeOpen && (
