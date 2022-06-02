@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import LoginPopup from "../LoginPopUp";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">
@@ -27,7 +36,17 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <button className="profile_picture">Profile</button>
+          <button
+            className="profile_picture"
+            onClick={() => {
+              setIsLogin(!isLogin);
+              togglePopup();
+            }}
+          >
+            {isLogin ? "Profile" : "Login"}
+          </button>
+          <i class="fa-solid fa-user"></i>
+          {isOpen && <LoginPopup onClick={togglePopup} />}
         </li>
       </ul>
     </nav>
