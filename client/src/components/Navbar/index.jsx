@@ -21,6 +21,11 @@ const Navbar = () => {
                         Shop
                     </Link>
                 </li>
+                <li>
+                    <Link to="/test">
+                        Test
+                    </Link>
+                </li>
             </ul>
             <ul className='navbar__links'>
                 <li>
