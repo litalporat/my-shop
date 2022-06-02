@@ -11,6 +11,8 @@
 }
 *{
     font-family: 'Quicksand', sans-serif;
+    color: var(--black-color);
+    text-decoration: none;
 }
 body{
     background-image: url(./images/background.png);
@@ -25,7 +27,7 @@ main{
 ::-webkit-scrollbar {
     display: none;
 }
-/* 
+/*
 ::-webkit-scrollbar-track {
     background: var(--white-color);
 }
