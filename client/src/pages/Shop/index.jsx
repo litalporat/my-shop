@@ -4,6 +4,8 @@ import Popup from '../../components/PopUp'
 import axios from 'axios'
 import './Shop.css'
 import FilterComp from '../../components/FilterComp';
+import SorterComp from '../../components/SorterComp';
+import BasicButton from '../../components/BasicButton';
 
 const catagories = [ "Dresses" , "Tops", "Shirts"]
 
@@ -33,6 +35,7 @@ const ProductPage = () => {
             let tempData = [...data]
             let newData = []
             let filteredData = []
+            console.log(filters)
             Object.keys(filters).map((key,index) =>{
                 filters[key].forEach(value =>{
                     newData.push( tempData.filter(prod => prod[key].includes(value)) )
@@ -54,7 +57,7 @@ const ProductPage = () => {
     const changeContent = (product) => {
       setcontent(product)
     }
-    const filterBy = (param,value) => {
+    const filterByParam = (param,value) => {
         let newFilters = {...filters}
         if(!newFilters[param])
             newFilters[param] = []
@@ -62,18 +65,61 @@ const ProductPage = () => {
         setFilters(newFilters)
         
     }
-    const deletefilterBy = (param,value) => {
+    const deletefilterByParam = (param,value) => {
         let newFilters = {...filters}
         newFilters[param] = newFilters[param].filter(e=>e!=value)
         setFilters(newFilters)
+    }
+    const filterByPrice = (value) => {
+        let tempData = [...data]
+        tempData = tempData.filter(product => product.price>=value[0] && product.price<=value[1])
+        setViewData(tempData)
+    }
+    const sortByInt = (param,order) => {
+        if(order === "Default"){
+            let tempData = [...data]
+            setViewData(tempData)
+        }
+        if(order === "High To Low"){
+            let tempData = [...viewData]
+            tempData = tempData.sort((a,b)=> a[param] - b[param])
+            setViewData(tempData)
+        }
+        if(order === "Low To High"){
+            let tempData = [...viewData]
+            tempData = tempData.sort((a,b)=> b[param] - a[param])
+            setViewData(tempData)
+        }
+    }
+    const sortByString = (param,order) => {
+        let tempData = [...data]
+        if(order === "Default"){
+            setViewData(tempData)
+        }
+        if(order === "High To Low"){
+            tempData = tempData.sort((a,b) => (a[param] > b[param]) ? 1 : ((b[param] > a[param]) ? -1 : 0))
+            setViewData(tempData)
+        }
+        if(order === "Low To High"){
+            tempData = tempData.sort((a,b)=> (a[param] < b[param]) ? 1 : ((b[param] < a[param]) ? -1 : 0))
+            setViewData(tempData)
+        }
     }
 
     return (
         <>
         <div className="filters">
         <FilterComp
-        filterFunc={filterBy}
-        delFilterFunc={deletefilterBy}
+        filterFunc={filterByParam}
+        delFilterFunc={deletefilterByParam}
+        filterByPrice={filterByPrice}
+        />
+        <BasicButton
+        title={`Number Of Products: ${data && viewData.length}`}
+        />
+        <SorterComp
+        sortByInt={sortByInt}
+        sortByString={sortByString}
         />
         </div>
         <div className='shop-body'>
