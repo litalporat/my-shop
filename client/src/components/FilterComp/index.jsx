@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ArrowBtn from '../ArrowBtn';
 import './FilterComp.css'
 import { Slider } from '@mui/material';
+import BasicButton from '../BasicButton';
 
 
 const FilterComp = props => {
@@ -32,7 +33,10 @@ const FilterComp = props => {
 
     return (
         <div>
-            <button onClick={() => setIsOpen(!isOpen)}>Filters</button>
+            <BasicButton 
+            onClick={() => setIsOpen(!isOpen)}
+            title={"Filters"}
+            />
             {
                 isOpen && (
                     <div className="filter-box">
@@ -66,7 +70,6 @@ const FilterComp = props => {
                                 </>
                             ))
                         }
-                    <center><ArrowBtn content={"submit"}/></center>
                     </div>
                     </div>
                 )
