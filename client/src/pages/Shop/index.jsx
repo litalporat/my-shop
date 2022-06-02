@@ -35,6 +35,7 @@ const ProductPage = () => {
             let tempData = [...data]
             let newData = []
             let filteredData = []
+            console.log(filters)
             Object.keys(filters).map((key,index) =>{
                 filters[key].forEach(value =>{
                     newData.push( tempData.filter(prod => prod[key].includes(value)) )
