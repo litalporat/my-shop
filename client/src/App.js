@@ -9,6 +9,7 @@ import TestPage from './pages/Test'
 
 // Components
 import Navbar from './components/Navbar';
+import Footer from './components/Sections/Footer';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route exact path="/shop" element={<ShopPage/>} />
                     <Route exact path="/test" element={<TestPage/>} />
                 </Routes>
+                <Footer/>
         </Router>
     );
 }

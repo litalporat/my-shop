@@ -33,6 +33,10 @@
 }
 h1{
     font-size: 4rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
 }
 .home-footer{
     background-color: var(--black-color);

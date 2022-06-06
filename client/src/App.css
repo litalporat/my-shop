@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
 
 :root{
+    --lightwhite-color: #d8d2d2;
     --white-color:#B6ADA7;
     --darkbrown-color:#67271D;
     --black-color:#120E10;
@@ -10,7 +11,6 @@
 }
 *{
     font-family: 'Quicksand', sans-serif;
-    color: var(--black-color);
 }
 body{
     background-image: url(./images/background.png);
@@ -23,9 +23,9 @@ main{
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    display: none;
 }
-
+/* 
 ::-webkit-scrollbar-track {
     background: var(--white-color);
 }
@@ -34,4 +34,4 @@ main{
     border-radius: 5px;
     background: var(--lightnude-color);
   }
-  
+   */

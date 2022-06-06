@@ -1,7 +1,7 @@
-import Catalog from '../../components/Catalog'
 import './Home.css'
 import Photo from '../../images/photo.jpg'
 import ArrowBtn from '../../components/ArrowBtn'
+import Footer from '../../components/Sections/Footer'
 
 const HomePage = () => {
     return (

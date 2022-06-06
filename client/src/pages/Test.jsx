@@ -1,9 +1,14 @@
 import React from 'react';
+import SideBarBtn from '../components/Buttons/SideBarBtn';
+import CartProduct from '../components/NewComp/CartProduct';
+import Footer from '../components/Sections/Footer';
 
 const Test = () => {
     return (
         <>
-        Empty
+        <SideBarBtn title={"test"} side={"left"}>
+        <CartProduct/>
+        </SideBarBtn>
         </>
     );
 };

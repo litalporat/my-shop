@@ -5,7 +5,7 @@ import axios from 'axios'
 import './Shop.css'
 import FilterComp from '../../components/FilterComp';
 import SorterComp from '../../components/SorterComp';
-import BasicButton from '../../components/BasicButton';
+import BasicButton from '../../components/Buttons/BasicBtn';
 
 const catagories = [ "Dresses" , "Tops", "Shirts"]
 
@@ -107,7 +107,7 @@ const ProductPage = () => {
     }
 
     return (
-        <>
+        <div className='shop-body'>
         <div className="filters">
         <FilterComp
         filterFunc={filterByParam}
@@ -122,7 +122,7 @@ const ProductPage = () => {
         sortByString={sortByString}
         />
         </div>
-        <div className='shop-body'>
+        <div className='shop-list'>
             {
                 data && viewData.map(product =>(
                     <Product
@@ -138,7 +138,7 @@ const ProductPage = () => {
                 />
             }
         </div>
-        </>
+        </div>
     );
 };
 
