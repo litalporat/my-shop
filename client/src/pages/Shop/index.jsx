@@ -4,12 +4,14 @@ import Popup from "../../components/PopUp";
 import axios from "axios";
 import "./Shop.css";
 import CartContext from "../../Contexts/CartContext";
+import HeartContext from "../../Contexts/HeartContext";
 
 const ProductPage = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [content, setcontent] = useState();
   const [data, setData] = useState();
   const { addProduct } = useContext(CartContext);
+  const { hearts } = useContext(HeartContext);
 
   console.log(data);
 
