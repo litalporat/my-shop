@@ -17,7 +17,7 @@ const Button = styled.button`
   width: 12rem;
   height: auto;
 
-  :hover Circle{
+  :hover Circle {
     width: 100%;
   }
 `;

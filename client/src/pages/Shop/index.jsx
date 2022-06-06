@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import Product from '../../components/Product'
-import Popup from '../../components/PopUp'
-import axios from 'axios'
-import './Shop.css'
+import React, { useContext, useEffect, useState } from "react";
+import Product from "../../components/Product";
+import Popup from "../../components/PopUp";
+import axios from "axios";
+import "./Shop.css";
+import CartContext from "../../Contexts/CartContext";
 import FilterComp from '../../components/FilterComp';
 import SorterComp from '../../components/SorterComp';
-import BasicButton from '../../components/Buttons/BasicBtn';
+import BasicButton from '../../components/BasicButton';
+import HeartContext from "../../Contexts/HeartContext";
 
-const catagories = [ "Dresses" , "Tops", "Shirts"]
-
-const ProductPage = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [content, setcontent] = useState();
-    const [data, setData] = useState()
-    const [viewData, setViewData] = useState()
-    const [filters, setFilters] = useState({})
+const ProductPage = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [content, setcontent] = useState();
+  const [data, setData] = useState();
+  const [viewData, setViewData] = useState()
+  const [filters, setFilters] = useState({})
+  const { addProduct } = useContext(CartContext);
+  const { hearts } = useContext(HeartContext);
 
     // Getting the data from the DB.
     useEffect(() => {
@@ -29,7 +31,7 @@ const ProductPage = () => {
             console.log(error);
         });
     },[])
-    // Filtering the data 
+    // Filtering the data
     useEffect(()=>{
         if(data){
             let tempData = [...data]
@@ -49,7 +51,7 @@ const ProductPage = () => {
                 setViewData(tempData)
             }
         }
-        
+
     },[filters])
     const togglePopup = () => {
       setIsOpen(!isOpen);
@@ -63,7 +65,7 @@ const ProductPage = () => {
             newFilters[param] = []
         newFilters[param].push(value)
         setFilters(newFilters)
-        
+
     }
     const deletefilterByParam = (param,value) => {
         let newFilters = {...filters}
@@ -128,6 +130,7 @@ const ProductPage = () => {
                     <Product
                     product={product}
                     onClick={()=> {changeContent(product);togglePopup()}}
+                    onCart={() => addProduct(product)}
                     />
                     ))
             }
