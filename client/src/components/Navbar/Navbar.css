@@ -80,14 +80,17 @@ h2 {
   font-size: 1rem;
 }
 
-.heart {
+.heart-logo {
   color: black;
 }
 
-.heart:hover {
+.heart-logo::before {
+  color: black;
+}
+.heart-logo:hover {
   color: white;
 }
 
-.heart:active {
+.heart-logo:active {
   color: black;
 }

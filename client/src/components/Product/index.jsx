@@ -1,6 +1,5 @@
-import './Pruduct.css'
-import ArrowBtn from '../ArrowBtn'
-// backgroundImage: `url(${props.product.images.display[1]})`
+import "./Product.css";
+import ArrowBtn from "../ArrowBtn";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext } from "react";
 

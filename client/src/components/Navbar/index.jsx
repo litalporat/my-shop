@@ -39,7 +39,7 @@ const Navbar = () => {
         </ul>
         <ul className="navbar__links">
           <li>
-            <i className="fas fa-heart heart" onClick={wishlistPop}></i>
+            <i className="fas fa-heart heart-logo" onClick={wishlistPop}></i>
           </li>
           <li>
             <i className="cart__link" onClick={cartPop}>
