@@ -87,3 +87,7 @@ tr {
 .heart-selected {
   color: #e75050;
 }
+
+.like-btn:hover .heart-selected {
+  color: #e75050;
+}

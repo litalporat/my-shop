@@ -19,8 +19,7 @@ export function CartProvider({ children }) {
   const removeProduct = (product) => {
     const tempProducts = [];
     for (let i = 0; i < products.length; i++)
-      if (products[i].displayName != product.displayName)
-        tempProducts.push(products[i]);
+      if (products[i]._id != product._id) tempProducts.push(products[i]);
     setProducts(tempProducts);
   };
 

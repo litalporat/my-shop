@@ -1,4 +1,4 @@
-.wishlist-box {
+.side-box {
   right: 0;
   background-color: white;
   width: 40%;
@@ -21,4 +21,12 @@
   border: 1px solid #999;
   font-size: 20px;
   color: #0a0a1b;
+}
+
+.checkout-btn {
+  color: white;
+  background-color: black;
+  padding: 7px 50px;
+  text-align: center;
+  margin: 20px;
 }

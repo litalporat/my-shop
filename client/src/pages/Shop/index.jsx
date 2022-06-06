@@ -11,6 +11,8 @@ const ProductPage = (props) => {
   const [data, setData] = useState();
   const { addProduct } = useContext(CartContext);
 
+  console.log(data);
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/products")

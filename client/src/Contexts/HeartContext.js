@@ -25,8 +25,7 @@ export function HeartProvider({ children }) {
   const removeHeart = (product) => {
     const tempHearts = [];
     for (let i = 0; i < hearts.length; i++)
-      if (hearts[i].displayName != product.displayName)
-        tempHearts.push(hearts[i]);
+      if (hearts[i]._id != product._id) tempHearts.push(hearts[i]);
     setHearts(tempHearts);
   };
 

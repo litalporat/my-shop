@@ -1,4 +1,4 @@
-import "./Pruduct.css";
+import "./Product.css";
 import ArrowBtn from "../ArrowBtn";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext } from "react";

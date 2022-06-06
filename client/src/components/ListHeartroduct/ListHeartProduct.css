@@ -6,5 +6,9 @@
 
 .list-image {
   height: 14rem;
-  width: 12rem;
+  width: 40%;
+}
+
+.around-btn {
+  margin: 10px;
 }
