@@ -1,12 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from "react";
 =======
 import React, { useEffect, useState } from "react";
 >>>>>>> 38e9f2e (Fixed filters and price slider)
+=======
+import React, { useEffect, useState } from "react";
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
 import Product from "../../components/Product";
 import Popup from "../../components/PopUp";
 import axios from "axios";
 import "./Shop.css";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import CartContext from "../../Contexts/CartContext";
 import FilterComp from '../../components/FilterComp';
@@ -27,6 +32,12 @@ import FilterComp from "../../components/FilterComp";
 import SorterComp from "../../components/SorterComp";
 import BasicButton from "../../components/BasicButton";
 
+=======
+import FilterComp from "../../components/FilterComp";
+import SorterComp from "../../components/SorterComp";
+import BasicButton from "../../components/BasicButton";
+
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
 const catagories = ["Dresses", "Tops", "Shirts"];
 
 const ProductPage = () => {
@@ -37,7 +48,10 @@ const ProductPage = () => {
   const [filters, setFilters] = useState({});
   const [colorData, setColorData] = useState([]);
   const [priceData, setPriceData] = useState([]);
+<<<<<<< HEAD
 >>>>>>> 38e9f2e (Fixed filters and price slider)
+=======
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
 
   // Getting the data from the DB.
   useEffect(() => {
@@ -65,6 +79,7 @@ const ProductPage = () => {
         filters[key].forEach((value) => {
           newData.push(tempData.filter((prod) => prod[key].includes(value)));
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
     },[])
     // Filtering the data
@@ -143,6 +158,8 @@ const ProductPage = () => {
             setViewData(tempData)
         }
 =======
+=======
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
       });
       if (newData.length > 0) {
         newData.forEach((e) => e.forEach((d) => filteredData.push(d)));
@@ -152,6 +169,7 @@ const ProductPage = () => {
         setColorData(tempData);
         // setViewData(tempData);
       }
+<<<<<<< HEAD
 >>>>>>> 38e9f2e (Fixed filters and price slider)
     }
   }, [filters]);
@@ -192,6 +210,11 @@ const ProductPage = () => {
         </div>
         </div>
 =======
+=======
+    }
+  }, [filters]);
+
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
   useEffect(() => {
     if (priceData.length != 0 && colorData.length != 0)
       setViewData(colorData.filter((x) => priceData.includes(x)));
@@ -220,7 +243,10 @@ const ProductPage = () => {
     let tempData = [...data];
     tempData = tempData.filter(
       (product) => product.price >= value[0] && product.price <= value[1]
+<<<<<<< HEAD
 >>>>>>> 38e9f2e (Fixed filters and price slider)
+=======
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
     );
     setPriceData(tempData);
   };

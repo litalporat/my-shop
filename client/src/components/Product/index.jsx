@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./Product.css";
 import ArrowBtn from "../ArrowBtn";
 import HeartContext from "../../Contexts/HeartContext";
@@ -5,6 +6,13 @@ import { useContext } from "react";
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
+=======
+import "./Pruduct.css";
+import ArrowBtn from "../ArrowBtn";
+// backgroundImage: `url(${props.product.images.display[1]})`
+
+const Index = (props) => {
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
   return (
     <div className="container">
       <span
@@ -27,6 +35,7 @@ const Index = (props) => {
             <div className="title"> {props.product.displayName} </div>
             <div className="price"> {props.product.price} ₪ </div>
           </center>
+<<<<<<< HEAD
           <button
             className="like-btn"
             onClick={() => handleHearts(props.product)}
@@ -38,11 +47,19 @@ const Index = (props) => {
                   : "fas fa-heart"
               }
             ></i>
+=======
+          <button className="like-btn">
+            <i className="fas fa-heart"></i>
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
           </button>
         </div>
         <tr></tr>
         <sbr />
+<<<<<<< HEAD
         <ArrowBtn text={props.text} onClick={props.onCart} />
+=======
+        <ArrowBtn content={"Add To Cart"} />
+>>>>>>> 38e9f2ef42c2a6888c2377c445f842e86ef4db99
       </div>
     </div>
   );
