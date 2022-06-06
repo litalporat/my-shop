@@ -7,6 +7,7 @@ import CartContext from "../../Contexts/CartContext";
 import FilterComp from '../../components/FilterComp';
 import SorterComp from '../../components/SorterComp';
 import BasicButton from '../../components/BasicButton';
+import HeartContext from "../../Contexts/HeartContext";
 
 const ProductPage = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ const ProductPage = (props) => {
   const [viewData, setViewData] = useState()
   const [filters, setFilters] = useState({})
   const { addProduct } = useContext(CartContext);
+  const { hearts } = useContext(HeartContext);
 
     // Getting the data from the DB.
     useEffect(() => {
