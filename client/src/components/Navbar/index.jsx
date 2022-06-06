@@ -38,34 +38,36 @@ const Navbar = () => {
             <Link to="/">About</Link>
           </li>
           <li>
-          <DropDown
-            title={"Shop"}
-            sidetitles={["Tops", "Jeans", "Dresses"]}
-          />
-        </li>
-          <li>
-            <Link to="/shop">Shop</Link>
+            <DropDown
+              title={"Shop"}
+              sidetitles={["Tops", "Jeans", "Dresses"]}
+            />
           </li>
           <li>
-              <Link to="/test">
-                  Test
-              </Link>
+            <Link to="/test">Test</Link>
           </li>
         </ul>
         <ul className="navbar__links">
           <li>
-            <i className="fas fa-heart heart-logo" onClick={wishlistPop}></i>
+            <i
+              className="fas fa-heart heart-logo"
+              onClick={wishlistPop}
+            ></i>
           </li>
           <li>
             <i className="cart__link" onClick={cartPop}>
               <i className="fas fa-shopping-cart"></i>
               Cart
-              <span className="cartlogo__badge">{products.length}</span>
+              <span className="cartlogo__badge">
+                {products.length}
+              </span>
             </i>
           </li>
         </ul>
       </nav>
-      {isLikeOpen && <RightPopUp content="wishlist" onClick={wishlistPop} />}
+      {isLikeOpen && (
+        <RightPopUp content="wishlist" onClick={wishlistPop} />
+      )}
       {isCartOpen && <RightPopUp content="cart" onClick={cartPop} />}
     </div>
   );

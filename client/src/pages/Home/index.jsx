@@ -31,9 +31,6 @@ const HomePage = () => {
             provident reiciendis! Nihil.
           </p>
           <ArrowBtn content={"Start Tour"} />
-          <div className="foryou">
-            <h2>For You</h2>
-          </div>
         </div>
       </div>
     </div>

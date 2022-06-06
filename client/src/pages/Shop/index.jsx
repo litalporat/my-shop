@@ -6,7 +6,7 @@ import "./Shop.css";
 import CartContext from "../../Contexts/CartContext";
 import FilterComp from '../../components/FilterComp';
 import SorterComp from '../../components/SorterComp';
-import BasicButton from '../../components/BasicButton';
+import BasicButton from "../../components/Buttons/BasicBtn";
 import HeartContext from "../../Contexts/HeartContext";
 
 const ProductPage = (props) => {
