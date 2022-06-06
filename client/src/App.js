@@ -9,6 +9,7 @@ import TestPage from './pages/Test'
 
 // Components
 import Navbar from "./components/Navbar";
+import Footer from './components/Sections/Footer';
 import { useState } from "react";
 import { CartProvider } from "./Contexts/CartContext";
 import { HeartProvider } from "./Contexts/HeartContext";
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/shop" element={<ShopPage />} />
             <Route exact path="/test" element={<TestPage/>} />
           </Routes>
+          <Footer/>
         </HeartProvider>
       </CartProvider>
     </Router>
