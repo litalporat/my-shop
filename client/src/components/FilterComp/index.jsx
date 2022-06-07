@@ -38,7 +38,10 @@ const FilterComp = (props) => {
   };
 
   return (
-      <SideBarBtn title={"Filters"}>
+      <SideBarBtn 
+      title={"Filters"}
+      button={<BasicButton title={"Filters"}/>}
+      >
         <h3>Price</h3>
         <Slider
           value={value}

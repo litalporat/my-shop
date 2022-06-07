@@ -1,7 +1,8 @@
 import "./Product.css";
-import ArrowBtn from "../ArrowBtn";
+import ArrowBtn from "../Buttons/ArrowBtn";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext } from "react";
+import IconBtn from "../Buttons/IconBtn";
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
@@ -9,7 +10,9 @@ const Index = (props) => {
     <div className="container">
       <span
         className="image-span"
-        style={{ backgroundImage: `url(${props.product.images.display[0]})` }}
+        style={{
+          backgroundImage: `url(${props.product.images.display[0]})`,
+        }}
         onMouseOver={(e) =>
           (e.target.style.backgroundImage = `url(${props.product.images.display[1]})`)
         }
@@ -27,8 +30,7 @@ const Index = (props) => {
             <div className="title"> {props.product.displayName} </div>
             <div className="price"> {props.product.price} ₪ </div>
           </center>
-          <button
-            className="like-btn"
+          <IconBtn
             onClick={() => handleHearts(props.product)}
           >
             <i
@@ -38,11 +40,11 @@ const Index = (props) => {
                   : "fas fa-heart"
               }
             ></i>
-          </button>
+          </IconBtn>
         </div>
         <tr></tr>
         <sbr />
-        <ArrowBtn text={props.text} onClick={props.onCart} />
+        <ArrowBtn content={"add to cart"} onClick={props.onCart} />
       </div>
     </div>
   );

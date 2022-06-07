@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import BasicButton from "./BasicBtn";
 
 const Container = styled.div`
   position: fixed;
@@ -26,7 +25,7 @@ const Box = styled.div`
           border-radius: 0px 10px 10px 0px;
         `}
   padding: 1rem;
-  position: fixed;
+  position: absolute;
   overflow-x: hidden;
   flex-direction: column;
   background: var(--lightwhite-color);
@@ -34,14 +33,7 @@ const Box = styled.div`
 `;
 const Button = styled.button`
   display: flex;
-  ${(props) =>
-    props.side == "right"
-      ? css`
-          flex-direction: row;
-        `
-      : css`
-          flex-direction: row-reverse;
-        `}
+
 `;
 const Title = styled.h3`
   color: var(--darkgray-color);
@@ -50,6 +42,14 @@ const Title = styled.h3`
 const TitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  ${(props) =>
+    props.side == "right"
+      ? css`
+          flex-direction: row;
+        `
+      : css`
+          flex-direction: row-reverse;
+        `}
 `;
 
 const SideBarBtn = (props) => {
@@ -62,10 +62,9 @@ const SideBarBtn = (props) => {
 
   return (
     <>
-      <BasicButton
-        onClick={() => setIsOpen(!isOpen)}
-        title={props.title}
-      />
+      <span onClick={() => setIsOpen(!isOpen)}>
+      {props.button}
+      </span>
       {isOpen && (
         <Container id="side-bar">
           <Box side={props.side}>
