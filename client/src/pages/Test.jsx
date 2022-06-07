@@ -1,15 +1,12 @@
-import React from 'react';
-import SideBarBtn from '../components/Buttons/SideBarBtn';
-import Product from '../components/NewComp/ListViewProduct';
+import React from "react";
+import SideBarBtn from "../components/Buttons/SideBarBtn";
+import Product from "../components/NewComp/ListViewProduct";
 
 const Test = () => {
-    return (
-        <>
-        <SideBarBtn title={"test"} side={"left"}>
-        <Product/>
-        </SideBarBtn>
-        </>
-    );
+  return (
+    <div className="m-10rem">
+    </div>
+  );
 };
 
 export default Test;

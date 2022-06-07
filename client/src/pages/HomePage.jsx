@@ -6,7 +6,7 @@ const Body = styled.div`
   display: flex;
   align-items: center;
   gap:5rem;
-  height: 100%;
+  height: 100vh;
   padding: 0 5rem 5rem 5rem;
 `;
 const Shape = styled.div`
@@ -15,6 +15,7 @@ const Shape = styled.div`
   background-color: #9a6758;
   padding: 1rem;
   border-radius: 0rem 0rem 16rem 16rem;
+  margin-top:-16vh;
 `;
 const Image = styled.img`
   width: 30rem;
