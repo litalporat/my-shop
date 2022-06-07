@@ -12,7 +12,6 @@ const Navbar = () => {
   const [navbar, setNavBar] = useState("navbar");
 
   window.onwheel = (e) => {
-    console.log(e);
     if (e.deltaY > 0) setNavBar("navbar down");
     if (e.deltaY < 0) setNavBar("navbar up");
     if (e.x >= 920) setNavBar("navbar");
@@ -49,25 +48,18 @@ const Navbar = () => {
         </ul>
         <ul className="navbar__links">
           <li>
-            <i
-              className="fas fa-heart heart-logo"
-              onClick={wishlistPop}
-            ></i>
+            <i className="fas fa-heart heart-logo" onClick={wishlistPop}></i>
           </li>
           <li>
             <i className="cart__link" onClick={cartPop}>
               <i className="fas fa-shopping-cart"></i>
               Cart
-              <span className="cartlogo__badge">
-                {products.length}
-              </span>
+              <span className="cartlogo__badge">{products.length}</span>
             </i>
           </li>
         </ul>
       </nav>
-      {isLikeOpen && (
-        <RightPopUp content="wishlist" onClick={wishlistPop} />
-      )}
+      {isLikeOpen && <RightPopUp content="wishlist" onClick={wishlistPop} />}
       {isCartOpen && <RightPopUp content="cart" onClick={cartPop} />}
     </div>
   );

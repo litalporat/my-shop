@@ -6,9 +6,11 @@ import { useContext } from "react";
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
   return (
-    <div className="container">
+    <div
+      className={props.size == "small" ? "container smallCont" : "container"}
+    >
       <span
-        className="image-span"
+        className={props.size == "small" ? "image-span smallImg" : "image-span"}
         style={{ backgroundImage: `url(${props.product.images.display[0]})` }}
         onMouseOver={(e) =>
           (e.target.style.backgroundImage = `url(${props.product.images.display[1]})`)
@@ -42,7 +44,7 @@ const Index = (props) => {
         </div>
         <tr></tr>
         <sbr />
-        <ArrowBtn text={props.text} onClick={props.onCart} />
+        <ArrowBtn content={props.content} onClick={props.onCart} />
       </div>
     </div>
   );
