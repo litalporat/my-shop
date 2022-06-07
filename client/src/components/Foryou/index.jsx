@@ -16,31 +16,22 @@ const Foryou = () => {
 
   const [foryouId, setForyouId] = useState(() => {
     const heartsIds = hearts.map((prod) => prod._id);
-    const tempIds = [...heartsIds, ...defaultForyouId];
+    const tempIds = [...defaultForyouId];
+    heartsIds.map((id) => {
+      if (!defaultForyouId.includes(id)) tempIds.push(id);
+    });
     return tempIds.length > 3 ? tempIds.slice(0, 3) : tempIds;
   });
 
   const [foryouProd, setForyouProd] = useState([]);
-  // const temp = [];
-  // foryouId.map((id) => {
-  //   axios
-  //     .get(`http://localhost:5000/api/products/${id}`)
-  //     .then(function (response) {
-  //       // handle success
-  //       temp.push(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       console.log(error);
-  //     });
-  // });
-  // return temp;
-  // });
 
   useEffect(() => {
     const heartsIds = hearts.map((prod) => prod._id);
-    const tempForyouId = [...heartsIds, ...defaultForyouId].slice(0, 3);
-    setForyouId(tempForyouId);
+    const tempForyouId = [...defaultForyouId];
+    heartsIds.map((id) => {
+      if (!defaultForyouId.includes(id)) tempForyouId.push(id);
+    });
+    setForyouId(tempForyouId.slice(0, 3));
   }, hearts);
 
   useEffect(() => {
