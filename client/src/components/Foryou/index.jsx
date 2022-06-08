@@ -2,7 +2,7 @@ import "./Foryou.css";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Product from "../../components/Product";
+import Product from "../../components/ProductView/ListViewProduct";
 import CartContext from "../../Contexts/CartContext";
 const Foryou = () => {
   const { hearts } = useContext(HeartContext);
