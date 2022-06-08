@@ -7,7 +7,9 @@ import IconBtn from "../Buttons/IconBtn";
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
   return (
-    <div className="container">
+    <div
+      className={props.size == "small" ? "container smallCont" : "container"}
+    >
       <span
         className="image-span"
         style={{
