@@ -1,29 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import IconBtn from '../components/Buttons/IconBtn';
-import PopupBtn from '../components/Buttons/PopupBtn'
-
-const Container = styled.div`
-    margin:5rem;
-`
+import React from "react";
+import SideBarBtn from "../components/Buttons/SideBarBtn";
+import Foryou from "../components/Foryou";
+import Product from "../components/NewComp/ListViewProduct";
 
 const Test = () => {
-    return (
-        <Container>
-            <PopupBtn
-              title={"Test"}
-              size={"L"}
-              button={
-                <IconBtn
-                type={"secondary"}
-                >
-                  <i className="fas fa-heart"></i>
-                </IconBtn>
-              }
-            >
-            </PopupBtn>
-        </Container>
-    );
+  return (
+    <div className="m-10rem">
+        <Foryou/>
+    </div>
+  );
 };
 
 export default Test;
