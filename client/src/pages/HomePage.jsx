@@ -1,6 +1,7 @@
 import Photo from "../images/photo.jpg";
 import ArrowBtn from "../components/Buttons/ArrowBtn";
 import styled from "styled-components";
+import VideoSection from "../components/Sections/VideoSection";
 
 const Body = styled.div`
   display: flex;
@@ -57,6 +58,7 @@ const HomePage = () => {
           <ArrowBtn content={"Start Tour"} />
         </Container>
       </Body>
+      <VideoSection/>
     </>
   );
 };

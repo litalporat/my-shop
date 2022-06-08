@@ -5,10 +5,10 @@ import CartContext from "../../Contexts/CartContext";
 import { useContext, useState } from "react";
 import SideBarBtn from "../Buttons/SideBarBtn";
 import IconBtn from "../Buttons/IconBtn";
-import CartProduct from "../NewComp/ListViewProduct";
+import CartProduct from "../ProductView/ListViewProduct";
 import BasicButton from "../Buttons/BasicBtn";
-import LikeList from "../NewComp/LikeList";
-import ListCartProduct from "../NewComp/CartList";
+import LikeList from "../Lists/LikeList";
+import ListCartProduct from "../Lists/CartList";
 
 const Navbar = () => {
   const { products } = useContext(CartContext);

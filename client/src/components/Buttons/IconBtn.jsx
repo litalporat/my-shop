@@ -40,7 +40,7 @@ const Cirlce = styled.button`
 
 const IconBtn = (props) => {
   return (
-    <Cirlce onClick={props.onClick} type={props.type}>
+    <Cirlce onClick={props.onClick} type={props.type} style={props.style}>
       {props.children}
     </Cirlce>
   );

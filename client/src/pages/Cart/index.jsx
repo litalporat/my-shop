@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../Contexts/CartContext";
-import Product from "../../components/Product";
+import Product from "../../components/ProductView/CardView";
 import Popup from "../../components/PopUp";
 import "./Cart.css";
 
