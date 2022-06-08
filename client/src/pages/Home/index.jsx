@@ -19,7 +19,6 @@ const HomePage = () => {
             provident reiciendis! Nihil.
           </p>
           <ArrowBtn content={"Start Tour"} />
-          <Foryou />
         </div>
       </div>
     </div>
