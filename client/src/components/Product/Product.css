@@ -5,6 +5,12 @@
   background-repeat: round;
   background-image: url(../../images/normal.jpg);
 }
+
+.smallImg {
+  width: 12rem;
+  height: 16rem;
+}
+
 .image-span:hover {
   background-image: url(../../images/hover.jpg);
 }
@@ -16,6 +22,12 @@
   align-items: center;
   box-shadow: 0px 1px 20px -10px black;
 }
+
+.smallCont {
+  width: 15rem;
+  height: 18rem;
+}
+
 .title {
   color: var(--darkbrown-color);
   font-weight: bold;
@@ -36,6 +48,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 tr {
   background-color: var(--lightnude-color);
   height: 2px;
@@ -49,6 +62,7 @@ tr {
   width: 20rem;
   justify-content: space-between;
 }
+
 .view-btn {
   background: #d8d2d2;
   border: var(--lightnude-color) solid 2px;
