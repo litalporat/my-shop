@@ -5,14 +5,14 @@ import IconBtn from "../Buttons/IconBtn";
 const Container = styled.div`
   border-radius: 10px;
   display: flex;
-  padding: 10px;
   box-shadow: 0px 1px 10px -5px black;
   align-items: center;
   justify-content: space-between;
 `;
 const Photo = styled.img`
-  width: 5rem;
-  border-radius: 10px;
+  width: 7rem;
+  border-radius: 10px 0 0 10px;
+  image-rendering: -webkit-optimize-contrast;
 `;
 const Details = styled.div`
   color: var(--black-color);
@@ -23,6 +23,10 @@ const IconList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding-right: 10px;
+`;
+const Text = styled.p`
+  letter-spacing: 1px;
 `;
 
 const ListViewProduct = (props) => {
@@ -30,9 +34,9 @@ const ListViewProduct = (props) => {
     <Container>
       <Photo src={props.product.images.display[0]}></Photo>
       <Details>
-        <h4>{props.product.displayName}</h4>
-        <p>Price: {props.product.price} </p>
-        <p>Size: XS </p>
+        <Text>{props.product.displayName}</Text>
+        <Text>Price: {props.product.price} </Text>
+        <Text>Size: XS </Text>
       </Details>
       <IconList>
         <IconBtn onClick={props.delete}>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext from "../../Contexts/CartContext";
 import HeartContext from "../../Contexts/HeartContext";
-import CartProduct from "./ListViewProduct";
+import CartProduct from "../ProductView/ListViewProduct";
 import IconBtn from "../Buttons/IconBtn";
 
 const LikeList = () => {

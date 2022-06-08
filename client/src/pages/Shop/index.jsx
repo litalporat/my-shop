@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Product from "../../components/Product";
+import Product from "../../components/ProductView/CardView";
 import Popup from "../../components/PopUp";
 import axios from "axios";
 import "./Shop.css";
