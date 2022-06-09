@@ -1,7 +1,8 @@
 import "./Home.css";
 import Photo from "../../images/photo.jpg";
 import ArrowBtn from "../../components/ArrowBtn";
-import FacebookLogComp from "../../components/FacebookLogComp";
+import FacebookLog from "../../components/FacebookComp/Login";
+import FacebookShare from "../../components/FacebookComp/Share";
 const HomePage = () => {
   return (
     <div className="home-body">
@@ -18,10 +19,6 @@ const HomePage = () => {
             provident reiciendis! Nihil.
           </p>
           <ArrowBtn content={"Start Tour"} />
-          <div>
-            <p>login:</p>
-            <FacebookLogComp />
-          </div>
         </div>
       </div>
     </div>

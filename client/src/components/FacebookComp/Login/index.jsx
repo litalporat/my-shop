@@ -1,7 +1,7 @@
 import React from "react";
 import FacebookLogin from "react-facebook-login";
 
-export default function FacebookLogComp() {
+export default function FacebookLog() {
   const responseFacebook = (response) => {
     console.log(response);
   };
