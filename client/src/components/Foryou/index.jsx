@@ -2,8 +2,18 @@ import "./Foryou.css";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Product from "../../components/ProductView/ListViewProduct";
+import Product from "../../components/ProductView/CardView";
 import CartContext from "../../Contexts/CartContext";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display:flex;
+  gap:3rem;
+  width:100vw;
+  justify-content: center;
+  padding:3rem;
+`
+
 const Foryou = () => {
   const { hearts } = useContext(HeartContext);
   const { addProduct } = useContext(CartContext);
@@ -56,7 +66,7 @@ const Foryou = () => {
   return (
     <div>
       <h2>For You</h2>
-      <div className="foryou-container">
+      <Container>
         {console.log("in return statement")}
         {foryouProd.map(
           (product) => (
@@ -71,7 +81,7 @@ const Foryou = () => {
             )
           )
         )}
-      </div>
+      </Container>
     </div>
   );
 };
