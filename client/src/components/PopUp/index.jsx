@@ -1,54 +1,48 @@
 import React, { useState, useSyncExternalStore } from "react";
+import styled from "styled-components";
 import "./Popup.css";
 
+const PhotoDiv = styled.div`
+    height: 50vh;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+`
+const Text =styled.p`
+  padding: 10px;
+`
+
+
 const Popup = (props) => {
-  const [viewPhoto, setViewPhoto] = useState(props.content.images.display[0]);
+  const [viewPhoto, setViewPhoto] = useState(props.product.images.display[0]);
 
   const handleClickPhoto = (e) => {
     setViewPhoto(e.target.src);
   };
 
-  if (!props.content) {
-    return (
-      <div className="popup-box">
-        <div className="box">
-          <span className="close-icon" onClick={props.handleClose}></span>
-          There Is No Content
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="popup-box"
-      onClick={(e) =>
-        e.target.className == "popup-box" ? props.handleClose() : ""
-      }
-    >
-      <div className="box">
-        <div className="popup-details">
-          <span className="close-icon" onClick={props.handleClose}>
-            x
-          </span>
-          <div className={"icon " + props.content.type}></div>
-          <p className="text">{props.content.displayName}</p>
-          <p className="text text-small">{props.content.description}</p>
-          <p className="text">{"₪" + props.content.price}</p>
+      <>
+        <PhotoDiv>
+          <div className={"icon " + props.product.type}></div>
+          <p className="text">{props.product.displayName}</p>
+          <p className="text text-small">{props.product.description}</p>
+          <p className="text">{"₪" + props.product.price}</p>
           <p className="text text-small">
-            {Object.keys(props.content.metadata).map((elem) => (
+            {Object.keys(props.product.metadata).map((elem) => (
               <p>
-                {elem}: {props.content.metadata[elem]}
+                {elem}: {props.product.metadata[elem]}
               </p>
             ))}
           </p>
-        </div>
-        <div className="popup-photos">
+        </PhotoDiv>
+        <PhotoDiv>
           <div className="main-photo">
             <img src={viewPhoto} />
           </div>
           <div className="choose-photos">
-            {props.content.images.display.map((img) => (
+            {props.product.images.display.map((img) => (
               <img
                 src={img}
                 className={img === viewPhoto ? "chosen-photo" : ""}
@@ -56,9 +50,8 @@ const Popup = (props) => {
               />
             ))}
           </div>
-        </div>
-      </div>
-    </div>
+        </PhotoDiv>
+      </>
   );
 };
 

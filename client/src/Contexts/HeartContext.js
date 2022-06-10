@@ -36,7 +36,7 @@ export function HeartProvider({ children }) {
   };
 
   return (
-    <HeartContext.Provider value={{ hearts, handleHearts, include }}>
+    <HeartContext.Provider value={{ hearts, handleHearts, include, removeHeart }}>
       {children}
     </HeartContext.Provider>
   );
