@@ -44,6 +44,10 @@ const Item = styled.li`
   }
 `;
 
+/**
+ * @param {String} title *must
+ * @param {String[]} sideTitles ["example","example"]
+ */
 const DropDown = (props) => {
   const [dropdown, setdropdown] = useState(false);
 
