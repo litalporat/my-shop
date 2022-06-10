@@ -2,10 +2,8 @@ import React from "react";
 import SideBarBtn from "../components/Buttons/SideBarBtn";
 import FacebookLog from "../components/FacebookComp/Login";
 import FacebookShare from "../components/FacebookComp/Share";
-import CartProduct from "../components/NewComp/CartProduct";
+import CartProduct from "../components/ProductView/ListViewProduct";
 import Map from "../components/NewComp/Map";
-import Foryou from "../components/Foryou";
-import Footer from "../components/Sections/Footer";
 
 const Test = () => {
   return (
