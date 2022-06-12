@@ -7,80 +7,96 @@ import CartContext from "../../Contexts/CartContext";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display:flex;
-  gap:3rem;
-  width:100vw;
+  display: flex;
+  gap: 3rem;
+  width: 100vw;
   justify-content: center;
-  padding:3rem;
-`
+  padding: 3rem;
+`;
 
 const Foryou = () => {
   const { hearts } = useContext(HeartContext);
   const { addProduct } = useContext(CartContext);
-
-  const defaultForyouId = [
-    "628a3950cd566118fe095cbc",
-    "628a3950cd566118fe095cbd",
-    "628a3950cd566118fe095cc5",
-  ];
-
-  const [foryouId, setForyouId] = useState(() => {
-    const heartsIds = hearts.map((prod) => prod._id);
-    const tempIds = [...defaultForyouId];
-    heartsIds.map((id) => {
-      if (!defaultForyouId.includes(id)) tempIds.push(id);
-    });
-    return tempIds.length > 3 ? tempIds.slice(0, 3) : tempIds;
-  });
-
+  const [defaultForyou, setdefaultForyou] = useState([]);
   const [foryouProd, setForyouProd] = useState([]);
 
   useEffect(() => {
-    const heartsIds = hearts.map((prod) => prod._id);
-    const tempForyouId = [...defaultForyouId];
-    heartsIds.map((id) => {
-      if (!defaultForyouId.includes(id)) tempForyouId.push(id);
-    });
-    setForyouId(tempForyouId.slice(0, 3));
-  }, hearts);
+    axios
+      .get(`http://localhost:5000/api/products`)
+      .then(function (response) {
+        // handle success
+        const tempdefault = response.data;
+        tempdefault.slice(0, 3);
+        setdefaultForyou(tempdefault.slice(0, 3));
+        setForyouProd();
+        console.log(tempdefault.slice(0, 3));
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
-    const temp = [...foryouProd];
-    foryouId.map((id) => {
-      axios
-        .get(`http://localhost:5000/api/products/${id}`)
-        .then(function (response) {
-          // handle success
-          temp.push(response.data);
-          temp.length == 3
-            ? setForyouProd(temp)
-            : setForyouProd(temp.slice(0, 3));
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
-    });
-  }, foryouId);
+    setForyouProd([...defaultForyou]);
+    console.log(foryouProd);
+  }, defaultForyou);
+
+  // useEffect(() => {
+  //   console.log(foryouId);
+  //   const temp = [...foryouProd];
+  //   foryouId.map((id) => {
+  //     axios
+  //       .get(`http://localhost:5000/api/products/${id}`)
+  //       .then(function (response) {
+  //         // handle success
+  //         temp.push(response.data);
+  //         console.log(response.data);
+  //         if (temp.length == 3) setForyouProd(temp);
+  //         else if (temp.length > 3) setForyouProd(temp.slice(0, 3));
+  //       })
+  //       .catch(function (error) {
+  //         // handle error
+  //         console.log(error);
+  //       });
+  //   });
+  // }, [foryouId]);
+
+  // const [foryouId, setForyouId] = useState(() => {
+  //   const heartsIds = hearts.map((prod) => prod._id);
+  //   const tempIds = [...defaultForyouId];
+  //   heartsIds.map((id) => {
+  //     if (!defaultForyouId.includes(id)) tempIds.push(id);
+  //   });
+  //   return tempIds.length > 3 ? tempIds.slice(0, 3) : tempIds;
+  // });
+
+  useEffect(() => {
+    const tempForyou = [...defaultForyou];
+    if (hearts) hearts.map((h) => tempForyou.push(h));
+    setForyouProd(tempForyou.slice(0, 3));
+    console.log(tempForyou);
+  }, hearts);
 
   return (
     <div>
       <h2>For You</h2>
       <Container>
         {console.log("in return statement")}
-        {foryouProd.map(
-          (product) => (
-            console.log("in map loop"),
-            (
-              <Product
-                product={product}
-                size="small"
-                content="ADD TO CART"
-                onCart={() => addProduct(product)}
-              />
+        {foryouProd &&
+          foryouProd.map(
+            (product) => (
+              console.log("in map loop"),
+              (
+                <Product
+                  product={product}
+                  size="small"
+                  content="ADD TO CART"
+                  onCart={() => addProduct(product)}
+                />
+              )
             )
-          )
-        )}
+          )}
       </Container>
     </div>
   );

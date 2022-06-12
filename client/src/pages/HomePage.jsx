@@ -50,8 +50,8 @@ const ForUBtn = styled.button`
   font-size: 30px;
   font-weight: 800;
   display: flex;
-  justify-content:space-evenly;
-  align-items:center;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 const HomePage = () => {
@@ -65,18 +65,17 @@ const HomePage = () => {
           <Container>
             <Title> Welcome To Our App</Title>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Iste unde quibusdam, laborum aperiam veniam et
-              nisi architecto doloremque commodi tempore eveniet vero
-              velit accusamus, ipsam ex nesciunt provident reiciendis!
-              Nihil.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste
+              unde quibusdam, laborum aperiam veniam et nisi architecto
+              doloremque commodi tempore eveniet vero velit accusamus, ipsam ex
+              nesciunt provident reiciendis! Nihil.
             </Text>
             <ArrowBtn content={"Start Tour"} />
           </Container>
         </Body>
         <ForUBtn>
           #ForU
-          <i className="fas fa-fire" style={{color:"red"}}></i>
+          <i className="fas fa-fire" style={{ color: "red" }}></i>
         </ForUBtn>
       </Container>
       <ForUSection />
