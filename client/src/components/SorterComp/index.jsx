@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BasicButton from '../BasicButton';
+import BasicButton from '../Buttons/BasicBtn';
 
 const SorterComp = props => {
     const [sort, setSort] = useState([

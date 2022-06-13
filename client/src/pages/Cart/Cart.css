@@ -1,0 +1,8 @@
+.cart-body {
+  padding: 8rem 1rem 1rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
