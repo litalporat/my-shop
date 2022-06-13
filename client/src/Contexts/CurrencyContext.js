@@ -28,13 +28,8 @@ export function CurrencyProvider({ children }) {
   };
 
   return (
-    <CurrencyContext.Provider value={{ currency }}>
+    <CurrencyContext.Provider value={{ currency, rates, changeCurrency }}>
       {children}
-      <CurrenctSelect
-        base={currency}
-        options={rates}
-        onClick={changeCurrency}
-      />
     </CurrencyContext.Provider>
   );
 }

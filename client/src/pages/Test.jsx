@@ -7,6 +7,7 @@ import Map from "../components/NewComp/Map";
 import { IconBtn } from "../components/Buttons";
 import CurrencyContext from "../Contexts/CurrencyContext";
 import { useContext } from "react";
+import CurrenctSelect from "../components/CurrencySelector";
 
 const Test = () => {
   return (
@@ -21,7 +22,9 @@ const Test = () => {
       <div style={{ margin: "10rem" }}>
         <Map lat={31.998629} lng={34.775545} />
       </div>
-      <div>{/* <CurrencyContext /> */}</div>
+      <div>
+        <CurrenctSelect />
+      </div>
     </>
   );
 };
