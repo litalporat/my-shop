@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/Shop";
 import CartPage from "./pages/Cart";
 import TestPage from "./pages/Test";
+import AboutPage from './pages/About';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -17,24 +18,6 @@ import { HeartProvider } from "./Contexts/HeartContext";
 import { CurrencyProvider } from "./Contexts/CurrencyContext";
 
 function App() {
-<<<<<<< HEAD
-    return (
-        <Router>
-            {/* <main className = "App">
-                <Register />
-            </main> */}
-            <Navbar/>
-                <Routes>
-                    <Route exact path="/login" element={<Login/>} />
-                    <Route exact path="/" element={<HomePage/>}/>
-                    {/* <Route exact path="/product/:id" element={<ProductPage/>}/> */}
-                    <Route exact path="/cart" element={<CartPage/>} />
-                    <Route exact path="/shop" element={<ShopPage/>} />
-                    <Route exact path="/test" element={<TestPage/>} />
-                </Routes>
-        </Router>
-    );
-=======
   return (
     <Router>
       <CartProvider>
@@ -45,6 +28,7 @@ function App() {
               <Route exact path="/" element={<HomePage />} />
               <Route exact path="/cart" element={<CartPage />} />
               <Route exact path="/shop" element={<ShopPage />} />
+              <Route exact path="/about" element={<AboutPage />} />
               <Route exact path="/test" element={<TestPage />} />
             </Routes>
             <Footer />
@@ -53,7 +37,6 @@ function App() {
       </CartProvider>
     </Router>
   );
->>>>>>> 182985b8548e607fa7d375e5b08603b3b387170b
 }
 
 export default App;

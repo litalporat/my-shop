@@ -14,7 +14,7 @@ const Button = styled.button`
   letter-spacing: 2px;
   font-weight: 900;
   :hover {
-      text-decoration: overline 2px;
+    text-decoration: overline 2px;
   }
 `;
 const Box = styled.div`
@@ -53,9 +53,7 @@ const DropDown = (props) => {
 
   return (
     <Wrapper>
-      <Button onClick={() => setdropdown(!dropdown)}>
-        {props.title}
-      </Button>
+      <Button onClick={() => setdropdown(!dropdown)}>{props.title}</Button>
       {dropdown && <DropDownList sidetitles={props.sidetitles} />}
     </Wrapper>
   );

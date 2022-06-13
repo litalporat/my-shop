@@ -15,8 +15,9 @@ const ProductPage = (props) => {
   const [content, setcontent] = useState();
   const [data, setData] = useState();
   const [viewData, setViewData] = useState();
-  const [activeFilters, setFilters] = useState({});
-
+  const [filters, setFilters] = useState({});
+  const [colorData, setColorData] = useState([]);
+  const [priceData, setPriceData] = useState([]);
   //Context
   const { addProduct } = useContext(CartContext);
   const { hearts } = useContext(HeartContext);
@@ -42,24 +43,29 @@ const ProductPage = (props) => {
       let tempData = [...data];
       let newData = [];
       let filteredData = [];
-      console.log(activeFilters);
-      Object.keys(activeFilters).map((key, index) => {
-        activeFilters[key].forEach((value) => {
-          newData.push(
-            tempData.filter((prod) => prod[key].includes(value))
-          );
+      console.log(filters);
+      Object.keys(filters).map((key, index) => {
+        filters[key].forEach((value) => {
+          newData.push(tempData.filter((prod) => prod[key].includes(value)));
         });
       });
       if (newData.length > 0) {
-        newData.forEach((e) =>
-          e.forEach((d) => filteredData.push(d))
-        );
-        setViewData(filteredData);
+        newData.forEach((e) => e.forEach((d) => filteredData.push(d)));
+        setColorData(filteredData);
+        // setViewData(filteredData);
       } else {
-        setViewData(tempData);
+        setColorData(tempData);
+        // setViewData(tempData);
       }
     }
-  }, [activeFilters]);
+  }, [filters]);
+
+  useEffect(() => {
+    if (priceData.length != 0 && colorData.length != 0)
+      setViewData(colorData.filter((x) => priceData.includes(x)));
+    else if (colorData.length != 0) setViewData(colorData);
+    else setViewData(priceData);
+  }, [colorData, priceData]);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -68,24 +74,24 @@ const ProductPage = (props) => {
     setcontent(product);
   };
   const filterByParam = (param, value) => {
-    let newFilters = { ...activeFilters };
+    let newFilters = { ...filters };
     if (!newFilters[param]) newFilters[param] = [];
     newFilters[param].push(value);
     setFilters(newFilters);
   };
   const deletefilterByParam = (param, value) => {
-    let newFilters = { ...activeFilters };
+    let newFilters = { ...filters };
     newFilters[param] = newFilters[param].filter((e) => e != value);
     setFilters(newFilters);
   };
   const filterByPrice = (value) => {
     let tempData = [...data];
     tempData = tempData.filter(
-      (product) =>
-        product.price >= value[0] && product.price <= value[1]
+      (product) => product.price >= value[0] && product.price <= value[1]
     );
-    setViewData(tempData);
+    setPriceData(tempData);
   };
+
   const sortByInt = (param, order) => {
     if (order === "Default") {
       let tempData = [...data];
@@ -129,13 +135,8 @@ const ProductPage = (props) => {
           delFilterFunc={deletefilterByParam}
           filterByPrice={filterByPrice}
         />
-        <BasicButton
-          title={`Number Of Products: ${data && viewData.length}`}
-        />
-        <SorterComp
-          sortByInt={sortByInt}
-          sortByString={sortByString}
-        />
+        <BasicButton title={`Number Of Products: ${data && viewData.length}`} />
+        <SorterComp sortByInt={sortByInt} sortByString={sortByString} />
       </div>
       <div className="shop-list">
         {data &&
@@ -149,9 +150,7 @@ const ProductPage = (props) => {
               onCart={() => addProduct(product)}
             />
           ))}
-        {isOpen && (
-          <Popup content={content} handleClose={togglePopup} />
-        )}
+        {isOpen && <Popup content={content} handleClose={togglePopup} />}
       </div>
     </div>
   );
