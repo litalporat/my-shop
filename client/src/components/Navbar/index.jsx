@@ -9,7 +9,11 @@ import CartProduct from "../ProductView/ListViewProduct";
 import BasicButton from "../Buttons/BasicBtn";
 import LikeList from "../Lists/LikeList";
 import ListCartProduct from "../Lists/CartList";
+<<<<<<< HEAD
 import LoginPopup from "../LoginPopUp";
+=======
+import CurrenctSelect from "../CurrencySelector";
+>>>>>>> 182985b8548e607fa7d375e5b08603b3b387170b
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
@@ -44,6 +48,9 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="navbar__links">
+          <li>
+            <CurrenctSelect />
+          </li>
           <li>
             <SideBarBtn
               title={"test"}
