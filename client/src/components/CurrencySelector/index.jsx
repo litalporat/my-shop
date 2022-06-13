@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
+import { HeartProvider } from "../../Contexts/HeartContext";
 
 export default function CurrenctSelect() {
   const [currency, setCurrency] = useState("ILS");
