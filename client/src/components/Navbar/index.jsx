@@ -9,6 +9,7 @@ import CartProduct from "../ProductView/ListViewProduct";
 import BasicButton from "../Buttons/BasicBtn";
 import LikeList from "../Lists/LikeList";
 import ListCartProduct from "../Lists/CartList";
+import CurrenctSelect from "../CurrencySelector";
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
@@ -43,18 +44,19 @@ const Navbar = () => {
         </ul>
         <ul className="navbar__links">
           <li>
+            <CurrenctSelect />
+          </li>
+          <li>
             <SideBarBtn
               title={"test"}
               side={"right"}
               button={
-                <IconBtn
-                type={"secondary"}
-                >
+                <IconBtn type={"secondary"}>
                   <i className="fas fa-heart"></i>
                 </IconBtn>
               }
             >
-              <LikeList/>
+              <LikeList />
             </SideBarBtn>
           </li>
           <li>
@@ -67,13 +69,11 @@ const Navbar = () => {
                   type={"secondary"}
                   icon={<i className="fas fa-shopping-cart"></i>}
                 >
-                  <span className="cartlogo__badge">
-                    {products.length}
-                  </span>
+                  <span className="cartlogo__badge">{products.length}</span>
                 </BasicButton>
               }
             >
-              <ListCartProduct/>
+              <ListCartProduct />
             </SideBarBtn>
           </li>
         </ul>

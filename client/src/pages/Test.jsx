@@ -22,9 +22,7 @@ const Test = () => {
       <div style={{ margin: "10rem" }}>
         <Map lat={31.998629} lng={34.775545} />
       </div>
-      <div>
-        <CurrenctSelect />
-      </div>
+      <div></div>
     </>
   );
 };
