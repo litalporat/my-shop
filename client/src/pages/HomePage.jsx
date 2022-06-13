@@ -3,6 +3,7 @@ import ArrowBtn from "../components/Buttons/ArrowBtn";
 import styled from "styled-components";
 import VideoSection from "../components/Sections/VideoSection";
 import ForUSection from "../components/Sections/ForUSection";
+import { Link } from "react-router-dom";
 
 const Body = styled.div`
   display: flex;
@@ -70,7 +71,9 @@ const HomePage = () => {
               doloremque commodi tempore eveniet vero velit accusamus, ipsam ex
               nesciunt provident reiciendis! Nihil.
             </Text>
-            <ArrowBtn content={"Start Tour"} />
+            <Link to="/shop">
+              <ArrowBtn content={"Start Tour"} />
+            </Link>
           </Container>
         </Body>
         <ForUBtn>
