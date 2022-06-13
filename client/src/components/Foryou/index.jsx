@@ -49,7 +49,6 @@ const Foryou = () => {
 
   return (
     <div>
-      <h2>For You</h2>
       <Container>
         {foryouProd &&
           foryouProd.map((product) => (
