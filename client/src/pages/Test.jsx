@@ -4,6 +4,7 @@ import FacebookLog from "../components/FacebookComp/Login";
 import FacebookShare from "../components/FacebookComp/Share";
 import CartProduct from "../components/ProductView/ListViewProduct";
 import Map from "../components/NewComp/Map";
+import { IconBtn } from "../components/Buttons";
 
 const Test = () => {
   return (

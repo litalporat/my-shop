@@ -1,18 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
-import Foryou from '../Foryou';
+import React from "react";
+import styled from "styled-components";
+import Foryou from "../Foryou";
 
 const Container = styled.div`
-    background:var(--darkgray-color);
-    width:100vw;
-`
+  background: #a1827842;
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+`;
 
 const ForUSection = () => {
-    return (
-        <Container>
-            <Foryou/>
-        </Container>
-    );
+  return (
+    <Container>
+      <Foryou />
+    </Container>
+  );
 };
 
 export default ForUSection;

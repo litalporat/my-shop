@@ -73,7 +73,7 @@ const Index = (props) => {
         <FlexRow>
           <PopupBtn
             title={props.product.displayName}
-            size={"L"}
+            size={"S"}
             button={<BasicBtn title={"View"} />}
           >
             <Popup product={props.product} />
