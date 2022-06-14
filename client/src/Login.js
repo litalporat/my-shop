@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
-const Login = () => {
+const Login = (props) => {
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
@@ -38,6 +38,7 @@ const Login = () => {
             setPwd('');
             setSuccess(true);
             window.localStorage.setItem("key", accessToken);
+            props.setIsLogin(true);
         }catch (err){
             if (!err?.response){
                 setErrMsg('No Server Response');

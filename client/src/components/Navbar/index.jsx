@@ -33,10 +33,10 @@ const Navbar = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   console.log("UE: login");
-  //   loginTitle === "Login" ? setLoginTitle("Logout") : setLoginTitle("Login");
-  // }, [isLogin]);
+  useEffect(() => {
+    console.log("UE: login");
+    isLogin == true ? setLoginTitle("Logout") : setLoginTitle("Login");
+  }, [isLogin]);
 
   return (
     <div>
@@ -101,7 +101,7 @@ const Navbar = () => {
               size={"S"}
               button={<BasicBtn title={loginTitle} type={"secondary"} />}
             >
-              <Login />
+              <Login setIsLogin={setIsLogin} />
             </PopupBtn>
           </li>
         </ul>
