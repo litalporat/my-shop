@@ -91,10 +91,10 @@ const Index = (props) => {
             <i className="fas fa-heart" />
           </IconBtn>
         </FlexRow>
-        <Price>
+        {/* <Price>
           {" "}
           {(props.product.price * rates[currency]).toFixed(2)} {currency}{" "}
-        </Price>
+        </Price> */}
         <Title> {props.product.displayName} </Title>
         <Devider />
         <ArrowBtn content={"add to cart"} onClick={props.onCart} />

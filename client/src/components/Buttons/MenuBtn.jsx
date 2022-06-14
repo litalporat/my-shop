@@ -48,12 +48,21 @@ const Item = styled.li`
  * @param {String} title *must
  * @param {String[]} sideTitles ["example","example"]
  */
+
 const DropDown = (props) => {
   const [dropdown, setdropdown] = useState(false);
-
+  document.addEventListener("click", (e) => {
+    setdropdown(false);
+  });
   return (
     <Wrapper>
-      <Button onClick={() => setdropdown(!dropdown)}>{props.title}</Button>
+      <Button
+        onClick={<Link to="/shop" />}
+        onMouseOver={() => setdropdown(true)}
+      >
+        {props.title}
+      </Button>
+      {/* <Button onMouseOver={() => setdropdown(!dropdown)}>{props.title}</Button> */}
       {dropdown && <DropDownList sidetitles={props.sidetitles} />}
     </Wrapper>
   );
@@ -61,7 +70,7 @@ const DropDown = (props) => {
 
 const DropDownList = (props) => {
   return (
-    <Box>
+    <Box className="DDList">
       <Devieder />
       <Item>
         <Link to="/shop"> All Products </Link>

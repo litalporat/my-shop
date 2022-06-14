@@ -10,6 +10,7 @@ import BasicButton from "../Buttons/BasicBtn";
 import LikeList from "../Lists/LikeList";
 import ListCartProduct from "../Lists/CartList";
 import LoginPopup from "../LoginPopUp";
+import Login from "../../Login";
 import { PopupBtn } from "../Buttons";
 import { BasicBtn } from "../Buttons";
 import Popup from "../PopUp";
@@ -88,7 +89,9 @@ const Navbar = () => {
               title={"Login"}
               size={"S"}
               button={<BasicBtn title={"Login"} type={"secondary"} />}
-            ></PopupBtn>
+            >
+              <Login />
+            </PopupBtn>
             {/* <button
               className="profile_picture"
               onClick={() => {

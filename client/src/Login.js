@@ -90,13 +90,12 @@ const Login = () => {
                 />
                 <button>Sign In</button>
             </form>
-            <p>
+            {/* <p>
                 Don't have an account? <br />
                 <span className = "line">
-                    {/* פה יהיה ראוטר לינק */}
                     <a href = "#">Sign Up</a>
                 </span>
-            </p>
+            </p> */}
         </section>
             )}
         </>
