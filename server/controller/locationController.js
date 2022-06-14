@@ -1,6 +1,8 @@
 const res = require("express/lib/response");
 const Location = require("../models/Location");
 const logger = require('../utils/logger');
+const { ObjectId } = require("bson");
+
 require('../utils/validators.js')();
 
 const getAllLocations = async (req, res) => {
@@ -24,7 +26,7 @@ const addLocation = async (req, res) => {
             res.status(400).send({ error: error.details[0].message });
             return;
         }
-        await User.create(req.body);
+        await Location.create(req.body);
         res.json({ info: "location was added successfuly!" })
     } catch (e) {
         logger.error(e);
@@ -37,13 +39,14 @@ const deleteLocationById = async (req, res) => {
     try {
         _id = ObjectId(req.params.id);
     } catch (e) {
+        logger.error(e);
         return res.status(400).json({ error: "invalid id!" });
     }
     try {
-        const exitingLocation = await Location.findById(_id);
-        if (!exitingLocation) return res.status(400).json({ error: "location does not exists!" });
-        await Location.findOneAndRemove(req.params.id);
-        res.status(200).json({ info: "location deleted successfully!"});
+        let location = await Location.findOneAndRemove({ _id: req.params.id });
+        if (!location)
+            return res.status(400).json({ error: "location does not exists!" });
+        return res.status(200).json({ info: "location deleted successfully!"});
     } catch (e) {
         logger.error(e);
         res.status(500).json({ message: "Server Error!" });
@@ -51,16 +54,23 @@ const deleteLocationById = async (req, res) => {
 };
 
 const setLocationById = async (req, res) => {
+    let _id = null;
     try {
-        const _id = req.params.id;
+        _id = ObjectId(req.params.id);
+    } catch (e) {
+        logger.error(e);
+        return res.status(400).json({ error: "invalid id!" });
+    }
+    try {
         const { error } = validateLocation(req.body);
         if (error) {
             logger.error(error);
             res.status(400).send({ error });
             return;
         }
-        await Product.findByIdAndUpdate({_id}, req.body);
-        res.json({ status: 200, info: "location updated successfuly!", product: req.body })
+        let result = await Location.findByIdAndUpdate({ _id: req.params.id }, req.body);
+        if (!result) return res.status(400).json({ error: "location does not exists!" });
+        res.status(200).json({ info: "location updated successfuly!", product: req.body })
     } catch (e) {
         logger.error(e);
         res.status(500).json({ message: "Server Error!" });

@@ -26,11 +26,14 @@ const products = [
   {
     displayName: "Vi Pale Blue Overall",
     description: "Vi overall made of lycra knit fabric in a super qual cut! Front spillage that can be changes according to the typing of the straps, combined with thin staps that tie at the shoulders. Rubber at the waist and removable tying thread, pants in an expandable cut.",
-  imgDisplay: [
-    'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.32-430x515.jpeg_adgtmw.webp',
-    'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.34-430x515.jpeg_hyydmy.webp'
-  ],
-  imgDetails: [
+    imgDisplay: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.32-430x515.jpeg_adgtmw.webp',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223336/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.34-430x515.jpeg_hyydmy.webp'
+    ],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223348/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.34.jpeg_bugxlr.webp',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223348/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.33.jpeg_eost10.webp',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653223348/products/overalls/vi_model_pale/WhatsApp-Image-2022-04-13-at-08.45.33-1.jpeg_njjabl.webp'
     ],
     color: ["Pale Blue", "Blue"],
     price: 330,
@@ -247,7 +250,13 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-430x515_z51n5a.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-430x515_jsheep.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216959/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.55-1-773x1024_y8k7i6.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-773x1024_oldq6r.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-1-758x1024_m2q8uu.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.53-1-768x1024_ofvi48.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653216958/products/dresses/diana_dress/WhatsApp-Image-2022-05-11-at-16.44.54-773x1024_vvzqrw.jpg'
+    ],
     color: ["White", "Black"],
     price: 140,
     discount: 0,
@@ -363,7 +372,12 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-430x515_voffs3.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-430x515_awsimn.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-2-768x1024_rcot16.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-768x1024_wm4uix.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.53-766x1024_wikkwv.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217130/products/shirts/caitlyn_shirt/WhatsApp-Image-2022-05-18-at-08.16.54-1-1-774x1024_ccfzbs.jpg'
+    ],
     color: ["Azure", "Blue"],
     price: 130,
     discount: 0,
@@ -443,7 +457,12 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217252/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-430x515_nwycyt.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217251/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-1-430x515_cuopqd.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217267/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.02-1152x1536_er4xi2.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217267/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.02-1-780x1024_opyr4v.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217266/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-768x1024_grhccn.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217266/products/suits/zoe_pink/WhatsApp-Image-2022-05-03-at-16.40.01-1-768x1053_oi5vxu.jpg'
+    ],
     color: ["Pink"],
     price: 130,
     discount: 0,
@@ -460,7 +479,13 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222749/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.56-430x515_jz1uhl.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222748/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.57-430x515_citpqe.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222767/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.57-1-768x1214_trmq5r.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222767/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.57-1152x1536_rglb1c.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222767/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.56-1-796x1024_mrnuek.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222767/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.58-779x1024_eswvpu.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222766/products/suits/zoe_mocha/WhatsApp-Image-2022-05-03-at-16.39.56-782x1024_a1elkl.jpg'
+    ],
     color: ["Mocha", "Brown"],
     price: 130,
     discount: 0,
@@ -519,7 +544,13 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.54-1-430x515_oy0kup.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.55-1-430x515_mkoalz.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222476/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.54-1-1152x1536_phwnr4.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222475/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.56-1152x1536_u4h0xo.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222475/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.56-1-1152x1536_mgry76.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.54-768x1090_pocwyk.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222474/products/suits/zoe_purple/WhatsApp-Image-2021-07-28-at-09.05.55-780x1024_d1rmwh.jpg'
+    ],
     color: ["Purple"],
     price: 130,
     discount: 0,
@@ -578,7 +609,11 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217772/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.24-430x515_hugonk.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217772/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.27-430x515_oymhl2.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217832/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.27-1152x1536_kgpwln.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217831/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.23-1150x1536_uen4nv.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653217831/products/pants/black_cloud/WhatsApp-Image-2022-05-11-at-17.22.24-777x1024_ep9zgk.jpg'
+    ],
     color: ["Black"],
     price: 170,
     discount: 0,
@@ -712,7 +747,12 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222073/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.17-430x515_tdwanu.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222073/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.18-430x515_mgjzju.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222075/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.18-1-1152x1536_yilyxo.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222074/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.17-1-1152x1536_erv6q9.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222074/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.17-772x1024_ojepif.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222074/products/skirts/camille_green/WhatsApp-Image-2022-05-18-at-09.07.18-1162x1536_urh5mg.jpg'
+    ],
     color: ["Green"],
     price: 180,
     discount: 0,
@@ -754,7 +794,11 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221208/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-1-430x515_lhycwq.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221208/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-430x515_m7k2ev.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221233/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.58-1150x1536_i9ipif.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221233/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-1-768x1034_xwi5jg.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221233/products/skirts/camille_brown/WhatsApp-Image-2022-05-18-at-09.05.56-773x1024_ekruqt.jpg'
+    ],
     color: ["Brown"],
     price: 180,
     discount: 0,
@@ -773,7 +817,11 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221838/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.21-430x515_y2fqhh.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221838/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.22-430x515_zf81hj.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221839/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.22-1150x1536_dlxqyc.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221839/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.22-1-776x1024_p7wa87.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653221839/products/skirts/camille_orange/WhatsApp-Image-2022-05-18-at-09.07.21-768x1029_nw1qlb.jpg'
+    ],
     color: ["Orange"],
     price: 180,
     discount: 0,
@@ -792,7 +840,11 @@ const products = [
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222005/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.14-430x515_chz8sh.jpg',
       'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222005/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.15-1-430x515_lagdaj.jpg'
     ],
-    imgDetails: [],
+    imgDetails: [
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222006/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.15-1152x1536_p6ddub.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222006/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.15-1-1152x1536_wqn3ls.jpg',
+      'https://res.cloudinary.com/league-shop-cloud/image/upload/v1653222005/products/skirts/camille_menta/WhatsApp-Image-2022-05-18-at-09.07.14-768x1034_ds4tdv.jpg'
+    ],
     color: ["Mint"],
     price: 180,
     discount: 0,

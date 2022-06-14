@@ -17,11 +17,27 @@ afterAll(async () => await db.close());
 
 
 describe("/api/locations", () => {
-    it('GET /api/locations - get all categories', async () => {
+    it('GET /api/locations - get all locations', async () => {
         const res = await request
             .get("/api/locations")
-        console.log(res.body);
-        console.log("sss");
+        expect(Array.isArray(res.body)).toBe(true);
+        expect(res.body).toHaveLength(locationData.length);
+        // const realNames = categoriesData.map(item => item.name);
+        // const realDisplayNames = categoriesData.map(item => item.displayName);
+        // expect(res.status).toBe(200);
+        // expect(Array.isArray(res.body)).toBe(true);
+        // const cats = res.body;
+        // const names = cats.map(cat => cat.name);
+        // const displayNames = cats.map(cat => cat.displayName);
+        // if (realNames.sort().join(',') !== names.sort().join(',')) assert.fail();
+        // if (realDisplayNames.sort().join(',') !== displayNames.sort().join(',')) assert.fail();
+    });
+
+    it('GET /api/locations - get all locations', async () => {
+        const res = await request
+            .get("/api/locations")
+        expect(Array.isArray(res.body)).toBe(true);
+        expect(res.body).toHaveLength(locationData.length);
         // const realNames = categoriesData.map(item => item.name);
         // const realDisplayNames = categoriesData.map(item => item.displayName);
         // expect(res.status).toBe(200);
