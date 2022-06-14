@@ -20,11 +20,11 @@ function getFullName(params) {
 }
 
 const columnsTemp = [
-  { field: "id", headerName: "ID", width: 80 },
+  { field: "id", headerName: "ID", width: 150 },
   {
     field: "productName",
     headerName: "Product",
-    width: 300,
+    width: 150,
   },
   {
     field: "price",
@@ -37,8 +37,8 @@ const columnsTemp = [
     field: "actions",
     headerName: "Actions",
     type: "actions",
-    width: 250,
-    renderCell: (params) => <BtnGroup update={params.row.update} />,
+    width: 300,
+    renderCell: (params) => <BtnGroup update={params.row.update} product={params.row}/>,
   },
   //   {
   //     field: "fullName",
@@ -89,7 +89,7 @@ const Products = () => {
       const temp = [];
       data.map((obj, index) => {
         temp.push({
-          id: index + 1,
+          id: obj._id,
           mainPhoto: obj.images.display[0],
           productName: obj.displayName,
           price: obj.price,
