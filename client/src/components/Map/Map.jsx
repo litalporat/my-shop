@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 
 const Map = ({ lat, lng }) => {
+  
+
+
+
   return (
     <div style={{ height: "50vh", width: "50vw" }}>
       <GoogleMapReact

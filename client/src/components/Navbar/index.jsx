@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
-import { useContext, useState } from "react";
-import { MenuBtn, SideBarBtn, IconBtn, BasicBtn } from "../Buttons";
+import { useContext, useEffect, useState } from "react";
+import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
 import {LikeList,CartList} from "../Lists";
 import styled from "styled-components";
+import Login from "../../Login";
 
 const BtnsDiv = styled.div`
 display: flex;
@@ -17,12 +18,26 @@ const Navbar = () => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
   const [isLogin, setIsLogin] = useState(false);
+  const [loginTitle, setLoginTitle] = useState("Login");
 
   window.onwheel = (e) => {
     if (e.deltaY > 0) setNavBar("navbar down");
     if (e.deltaY < 0) setNavBar("navbar up");
     if (e.x >= 920) setNavBar("navbar");
   };
+
+  //Test
+  useEffect(() => {
+    if (localStorage.getItem("key")) {
+      console.log("Im holding a key");
+      setLoginTitle("Logout");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("UE: login");
+    isLogin == true ? setLoginTitle("Logout") : setLoginTitle("Login");
+  }, [isLogin]);
 
   return (
     <div>
@@ -90,6 +105,13 @@ const Navbar = () => {
           >
             <CartList />
           </SideBarBtn>
+            <PopupBtn
+              title={"Login"}
+              size={"S"}
+              button={<BasicBtn title={loginTitle} type={"secondary"} />}
+            >
+              <Login setIsLogin={setIsLogin} />
+            </PopupBtn>
         </BtnsDiv>
       </nav>
     </div>
