@@ -10,7 +10,7 @@ const Body = styled.div`
     align-items:center;
     justify-content: center;
     border-radius: 15% 40%;
-    margin-bottom:5rem;
+    
 `
 
 const VideoSection = () => {

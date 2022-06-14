@@ -41,11 +41,11 @@ h2 {
 
 .navbar__links > li > a {
   text-decoration: none;
+  color: inherit;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: inherit;
 }
 .navbar__links > li > a:hover{
     text-decoration: overline 2px;

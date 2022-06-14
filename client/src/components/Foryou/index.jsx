@@ -1,18 +1,23 @@
-import "./Foryou.css";
 import HeartContext from "../../Contexts/HeartContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Product from "../../components/ProductView/CardView";
+import Product from "../../components/ProductView/ForUView";
 import CartContext from "../../Contexts/CartContext";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  gap: 3rem;
-  width: 100vw;
+  gap: 5rem;
   justify-content: center;
+  display: flex;
   padding: 3rem;
 `;
+const Body = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+`;
+
+
 
 const Foryou = () => {
   const { hearts } = useContext(HeartContext);
@@ -48,19 +53,17 @@ const Foryou = () => {
   }, [hearts]);
 
   return (
-    <div>
+    <Body>
+      <h2>For You</h2>
       <Container>
-        {foryouProd &&
-          foryouProd.map((product) => (
-            <Product
-              product={product}
-              size="small"
-              content="ADD TO CART"
-              onCart={() => addProduct(product)}
-            />
-          ))}
+        {foryouProd.map((product) => (
+          <Product
+            product={product}
+            onCart={() => addProduct(product)}
+          />
+        ))}
       </Container>
-    </div>
+    </Body>
   );
 };
 
