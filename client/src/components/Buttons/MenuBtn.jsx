@@ -14,7 +14,7 @@ const Button = styled.button`
   letter-spacing: 2px;
   font-weight: 900;
   :hover {
-      text-decoration: overline 2px;
+    text-decoration: overline 2px;
   }
 `;
 const Box = styled.div`
@@ -53,10 +53,14 @@ const DropDown = (props) => {
 
   return (
     <Wrapper>
-      <Button onClick={() => setdropdown(!dropdown)}>
-        {props.title}
-      </Button>
-      {dropdown && <DropDownList sidetitles={props.sidetitles} />}
+      <Button onClick={() => setdropdown(!dropdown)}>{props.title}</Button>
+      {dropdown && (
+        <DropDownList
+          drop={dropdown}
+          setdrop={setdropdown}
+          children={props.children}
+        />
+      )}
     </Wrapper>
   );
 };
@@ -65,13 +69,13 @@ const DropDownList = (props) => {
   return (
     <Box>
       <Devieder />
-      <Item>
+      <Item onClick={() => props.setdrop(!props.drop)}>
         <Link to="/shop"> All Products </Link>
       </Item>
       <Devieder />
-      {props.sidetitles.map((obj) => (
+      {props.children.map((child) => (
         <>
-          <Item>{obj}</Item>
+          <Item onClick={() => props.setdrop(!props.drop)}>{child}</Item>
           <Devieder />
         </>
       ))}

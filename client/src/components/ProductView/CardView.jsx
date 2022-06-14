@@ -24,7 +24,7 @@ const Body = styled.div`
 `;
 const Price = styled.div`
   color: var(--lightwhite-color);
-  padding: 2px 2rem;
+  padding: 2px 1rem;
   margin-top: -1.8rem;
   font-size: 24px;
   border-radius: 0 0 10px 10px;
@@ -64,7 +64,7 @@ const FlexRow = styled.div`
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
-  const { currency, rates } = useContext(CurrencyContext);
+  // const { currency, rates } = useContext(CurrencyContext);
   return (
     <Container>
       <Image
@@ -91,10 +91,10 @@ const Index = (props) => {
             <i className="fas fa-heart" />
           </IconBtn>
         </FlexRow>
-        <Price>
-          {" "}
-          {(props.product.price * rates[currency]).toFixed(2)} {currency}{" "}
-        </Price>
+        {/* <Price>
+          {(props.product.price * rates[currency]).toFixed(2)}{" "}
+          <small style={{ fontSize: "10px" }}>{currency}</small>
+        </Price> */}
         <Title> {props.product.displayName} </Title>
         <Devider />
         <ArrowBtn content={"add to cart"} onClick={props.onCart} />

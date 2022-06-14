@@ -21,14 +21,20 @@ const ProductPage = (props) => {
   const { addProduct } = useContext(CartContext);
   const { hearts } = useContext(HeartContext);
 
+  console.log(props.catagory);
+
   // Getting the data from the DB.
   useEffect(() => {
+    const path = props.catagory
+      ? `http://localhost:5000/api/products?category=${props.catagory}`
+      : "http://localhost:5000/api/products";
     axios
-      .get("http://localhost:5000/api/products")
+      .get(path)
       .then(function (response) {
         // handle success
         setData(response.data);
         setViewData(response.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         // handle error
@@ -45,15 +51,11 @@ const ProductPage = (props) => {
       console.log(activeFilters);
       Object.keys(activeFilters).map((key, index) => {
         activeFilters[key].forEach((value) => {
-          newData.push(
-            tempData.filter((prod) => prod[key].includes(value))
-          );
+          newData.push(tempData.filter((prod) => prod[key].includes(value)));
         });
       });
       if (newData.length > 0) {
-        newData.forEach((e) =>
-          e.forEach((d) => filteredData.push(d))
-        );
+        newData.forEach((e) => e.forEach((d) => filteredData.push(d)));
         setViewData(filteredData);
       } else {
         setViewData(tempData);
@@ -81,8 +83,7 @@ const ProductPage = (props) => {
   const filterByPrice = (value) => {
     let tempData = [...data];
     tempData = tempData.filter(
-      (product) =>
-        product.price >= value[0] && product.price <= value[1]
+      (product) => product.price >= value[0] && product.price <= value[1]
     );
     setViewData(tempData);
   };
@@ -129,13 +130,8 @@ const ProductPage = (props) => {
           delFilterFunc={deletefilterByParam}
           filterByPrice={filterByPrice}
         />
-        <BasicButton
-          title={`Number Of Products: ${data && viewData.length}`}
-        />
-        <SorterComp
-          sortByInt={sortByInt}
-          sortByString={sortByString}
-        />
+        <BasicButton title={`Number Of Products: ${data && viewData.length}`} />
+        <SorterComp sortByInt={sortByInt} sortByString={sortByString} />
       </div>
       <div className="shop-list">
         {data &&
@@ -149,9 +145,7 @@ const ProductPage = (props) => {
               onCart={() => addProduct(product)}
             />
           ))}
-        {isOpen && (
-          <Popup content={content} handleClose={togglePopup} />
-        )}
+        {isOpen && <Popup content={content} handleClose={togglePopup} />}
       </div>
     </div>
   );

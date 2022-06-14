@@ -27,6 +27,11 @@ function App() {
               <Route exact path="/cart" element={<CartPage />} />
               <Route exact path="/shop" element={<ShopPage />} />
               <Route exact path="/test" element={<TestPage />} />
+              <Route
+                exact
+                path="/tops"
+                element={<ShopPage catagory={"tops"} />}
+              />
             </Routes>
             <Footer />
           </CurrencyProvider>
