@@ -48,7 +48,7 @@ const BtnsList = styled.div`
 
 const Popup = (props) => {
   const [viewPhoto, setViewPhoto] = useState(
-    props.product.images.display[0]
+    props.product.imgDetails[0]
   );
 
   const handleClickPhoto = (e) => {
@@ -62,7 +62,7 @@ const Popup = (props) => {
           <img src={viewPhoto} />
         </div>
         <div className="choose-photos">
-          {props.product.images.display.map((img) => (
+          {props.product.imgDetails.map((img) => (
             <img
               src={img}
               className={img === viewPhoto ? "chosen-photo" : ""}
@@ -76,14 +76,6 @@ const Popup = (props) => {
         <p className="text text-small">{props.product.description}</p>
         <label htmlFor=""> Price:</label>
         <p className="text">{"₪" + props.product.price}</p>
-        <label htmlFor=""> Details:</label>
-        <p className="text text-small">
-          {Object.keys(props.product.metadata).map((elem) => (
-            <p>
-              {elem} : {props.product.metadata[elem]}
-            </p>
-          ))}
-        </p>
         <Sizes stock={props.product.stock} />
         <ArrowBtn content={"add to cart"} />
       </Details>

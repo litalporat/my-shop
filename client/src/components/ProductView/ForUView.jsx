@@ -27,7 +27,6 @@ const FlexRow = styled.div`
 
 const ForUView = (props) => {
 
-  console.log(props.product)
   return (
     <Container>
         <FlexRow>
@@ -40,7 +39,7 @@ const ForUView = (props) => {
       </PopupBtn>
       <IconBtn><i className="fa-solid fa-up-right-from-square"></i></IconBtn>
         </FlexRow>
-      <Image src={props.product.images.display[0]} />
+      <Image src={props.product.imgDisplay[0]} />
       <ArrowBtn content={"add to cart"} onClick={props.onCart} />
     </Container>
   );
