@@ -1,20 +1,17 @@
 import { Link } from "react-router-dom";
-import DropDown from "../Buttons/MenuBtn";
 import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
 import { useContext, useState } from "react";
-import SideBarBtn from "../Buttons/SideBarBtn";
-import IconBtn from "../Buttons/IconBtn";
-import CartProduct from "../ProductView/ListViewProduct";
-import BasicButton from "../Buttons/BasicBtn";
-import LikeList from "../Lists/LikeList";
-import ListCartProduct from "../Lists/CartList";
-import LoginPopup from "../LoginPopUp";
-import Login from "../../Login";
-import { PopupBtn } from "../Buttons";
-import { BasicBtn } from "../Buttons";
-import Popup from "../PopUp";
-import CurrenctSelect from "../CurrencySelector";
+import { MenuBtn, SideBarBtn, IconBtn, BasicBtn } from "../Buttons";
+import {LikeList,CartList} from "../Lists";
+import styled from "styled-components";
+
+const BtnsDiv = styled.div`
+display: flex;
+  flex-direction:row;
+  align-items: center;
+  gap:10px;
+`
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
@@ -41,7 +38,7 @@ const Navbar = () => {
             <Link to="/About">About</Link>
           </li>
           <li>
-            <DropDown
+            <MenuBtn
               title={"Shop"}
               sidetitles={["Tops", "Jeans", "Dresses"]}
             />
@@ -50,61 +47,50 @@ const Navbar = () => {
             <Link to="/test">Test</Link>
           </li>
         </ul>
-        <ul className="navbar__links">
-          <li>
-            <CurrenctSelect />
-          </li>
-          <li>
-            <SideBarBtn
-              title={"test"}
-              side={"right"}
-              button={
-                <IconBtn type={"secondary"}>
-                  <i className="fas fa-heart"></i>
-                </IconBtn>
-              }
-            >
-              <LikeList />
-            </SideBarBtn>
-          </li>
-          <li>
-            <SideBarBtn
-              title={"Cart"}
-              side={"right"}
-              button={
-                <BasicButton
-                  title={"Cart"}
-                  type={"secondary"}
-                  icon={<i className="fas fa-shopping-cart"></i>}
-                >
-                  <span className="cartlogo__badge">{products.length}</span>
-                </BasicButton>
-              }
-            >
-              <ListCartProduct />
-            </SideBarBtn>
-          </li>
-          <li>
-            <PopupBtn
-              title={"Login"}
-              size={"S"}
-              button={<BasicBtn title={"Login"} type={"secondary"} />}
-            >
-              <Login />
-            </PopupBtn>
-            {/* <button
-              className="profile_picture"
-              onClick={() => {
-                setIsLogin(!isLogin);
-                togglePopup();
-              }}
-            >
-              {isLogin ? "Profile" : "Login"}
-            </button>
-            <i class="fa-solid fa-user"></i>
-            {isOpen && <LoginPopup onClick={togglePopup} />} */}
-          </li>
-        </ul>
+        <BtnsDiv>
+        <IconBtn type={"secondary"}>
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </IconBtn>
+          <SideBarBtn
+            title={"Notification"}
+            side={"right"}
+            button={
+              <IconBtn type={"secondary"}>
+                <i className="fa-solid fa-bell"></i>
+              </IconBtn>
+            }
+          >
+            {/* Notification List */}
+          </SideBarBtn>
+          <SideBarBtn
+            title={"Likes"}
+            side={"right"}
+            button={
+              <IconBtn type={"secondary"}>
+                <i className="fas fa-heart"></i>
+              </IconBtn>
+            }
+          >
+            <LikeList />
+          </SideBarBtn>
+          <SideBarBtn
+            title={"Cart"}
+            side={"right"}
+            button={
+              <BasicBtn
+                title={"Cart"}
+                type={"secondary"}
+                icon={<i className="fas fa-shopping-cart"></i>}
+              >
+                <span className="cartlogo__badge">
+                  {products.length}
+                </span>
+              </BasicBtn>
+            }
+          >
+            <CartList />
+          </SideBarBtn>
+        </BtnsDiv>
       </nav>
     </div>
   );
