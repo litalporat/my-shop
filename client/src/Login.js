@@ -31,13 +31,13 @@ const Login = () => {
             }
             );
             console.log(response);
-            //console.log(JSON.stringify(response)); זה כל המידע, יכול להיות מאוד גדול אז בינתיים בהערה
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
             setAuth({user, pwd, roles, accessToken});
             setUser('');
             setPwd('');
-            setSuccess(true);   
+            setSuccess(true);
+            window.localStorage.setItem("key", accessToken);
         }catch (err){
             if (!err?.response){
                 setErrMsg('No Server Response');
@@ -58,9 +58,9 @@ const Login = () => {
                 <section>
                     <h1> You are logged in!</h1>
                     <br />
-                    <p>
+                    {/* <p>
                         <a href = "#">Go to Home</a>
-                    </p>
+                    </p> */}
                 </section>
             ) : (
 
