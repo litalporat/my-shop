@@ -9,7 +9,6 @@ import CartProduct from "../ProductView/ListViewProduct";
 import BasicButton from "../Buttons/BasicBtn";
 import LikeList from "../Lists/LikeList";
 import ListCartProduct from "../Lists/CartList";
-import LoginPopup from "../LoginPopUp";
 import Login from "../../Login";
 import { PopupBtn } from "../Buttons";
 import { BasicBtn } from "../Buttons";
@@ -92,17 +91,6 @@ const Navbar = () => {
             >
               <Login />
             </PopupBtn>
-            {/* <button
-              className="profile_picture"
-              onClick={() => {
-                setIsLogin(!isLogin);
-                togglePopup();
-              }}
-            >
-              {isLogin ? "Profile" : "Login"}
-            </button>
-            <i class="fa-solid fa-user"></i>
-            {isOpen && <LoginPopup onClick={togglePopup} />} */}
           </li>
         </ul>
       </nav>

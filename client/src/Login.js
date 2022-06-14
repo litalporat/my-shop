@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRef, useState, useEffect, useContext} from 'react';
 import AuthContext from "./context/AuthProvider";
-import axios from './api/axios';
+import axios from 'axios';
 
-const LOGIN_URL = '/auth';
+const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
 const Login = () => {
     const { setAuth } = useContext(AuthContext);
@@ -26,12 +26,11 @@ const Login = () => {
         e.preventDefault();
 
         try{
-            const response = await axios.post(LOGIN_URL, JSON.stringify({user, pwd}),{
-                headers: {'Content-Type': 'application/json'},
-                withCredentials: true
+            const response = await axios.post(LOGIN_URL, {email: user, password: pwd},{
+                headers: {'Content-Type': 'application/json'}
             }
             );
-            console.log(JSON.stringify(response?.data));
+            console.log(response);
             //console.log(JSON.stringify(response)); זה כל המידע, יכול להיות מאוד גדול אז בינתיים בהערה
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
@@ -42,8 +41,8 @@ const Login = () => {
         }catch (err){
             if (!err?.response){
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 400){ // 400 זה קוד שנוהג לציין שהאינפורמציה הצפויה לא התקבלה
-                setErrMsg('Missing Email or Password');
+            } else if (err.response?.status === 400){
+                setErrMsg('Bad Request');
             } else if (err.response?.status === 401){
                 setErrMsg('Unauthorized');
             } else {
@@ -79,6 +78,7 @@ const Login = () => {
                     value = {user}  /* אולי להעיף בשביל להשאיר שדה מלא */
                     required
                 />
+                <br />
                 <label htmlFor = "password">Password:</label>
                 <input
                     type = "password"
@@ -88,6 +88,8 @@ const Login = () => {
                     value = {pwd}  /* אולי להעיף בשביל להשאיר שדה מלא */
                     //required
                 />
+                                <br />
+
                 <button>Sign In</button>
             </form>
             {/* <p>
