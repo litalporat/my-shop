@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
-import { useContext, useState } from "react";
 import { MenuBtn, SideBarBtn, IconBtn, BasicBtn } from "../Buttons";
-import {LikeList,CartList} from "../Lists";
+import { LikeList, CartList } from "../Lists";
 import styled from "styled-components";
+import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const BtnsDiv = styled.div`
-display: flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap:10px;
-`
+  gap: 10px;
+`;
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
   const [isLogin, setIsLogin] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/categories");
+  }, []);
 
   window.onwheel = (e) => {
     if (e.deltaY > 0) setNavBar("navbar down");
@@ -38,19 +44,16 @@ const Navbar = () => {
             <Link to="/About">About</Link>
           </li>
           <li>
-            <MenuBtn
-              title={"Shop"}
-              sidetitles={["Tops", "Jeans", "Dresses"]}
-            />
+            <MenuBtn title={"Shop"} sidetitles={["Tops", "Jeans", "Dresses"]} />
           </li>
           <li>
             <Link to="/test">Test</Link>
           </li>
         </ul>
         <BtnsDiv>
-        <IconBtn type={"secondary"}>
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </IconBtn>
+          <IconBtn type={"secondary"}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </IconBtn>
           <SideBarBtn
             title={"Notification"}
             side={"right"}
@@ -82,9 +85,7 @@ const Navbar = () => {
                 type={"secondary"}
                 icon={<i className="fas fa-shopping-cart"></i>}
               >
-                <span className="cartlogo__badge">
-                  {products.length}
-                </span>
+                <span className="cartlogo__badge">{products.length}</span>
               </BasicBtn>
             }
           >
