@@ -3,7 +3,7 @@ import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
 import { useContext, useEffect, useState } from "react";
 import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
-import {LikeList,CartList} from "../Lists";
+import { LikeList, CartList } from "../Lists";
 import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
@@ -23,7 +23,16 @@ const Navbar = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/categories");
+    axios
+      .get("http://localhost:5000/api/categories")
+      .then(function (response) {
+        // handle success
+        setCategories(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
   }, []);
 
   window.onwheel = (e) => {
@@ -59,7 +68,7 @@ const Navbar = () => {
             <Link to="/About">About</Link>
           </li>
           <li>
-            <MenuBtn title={"Shop"} sidetitles={["Tops", "Jeans", "Dresses"]} />
+            <MenuBtn title={"Shop"} items={categories} />
           </li>
           <li>
             <Link to="/test">Test</Link>
@@ -106,13 +115,13 @@ const Navbar = () => {
           >
             <CartList />
           </SideBarBtn>
-            <PopupBtn
-              title={"Login"}
-              size={"S"}
-              button={<BasicBtn title={loginTitle} type={"secondary"} />}
-            >
-              <Login setIsLogin={setIsLogin} />
-            </PopupBtn>
+          <PopupBtn
+            title={"Login"}
+            size={"S"}
+            button={<BasicBtn title={loginTitle} type={"secondary"} />}
+          >
+            <Login setIsLogin={setIsLogin} />
+          </PopupBtn>
         </BtnsDiv>
       </nav>
     </div>

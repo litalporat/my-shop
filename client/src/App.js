@@ -1,13 +1,13 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './Login';
-import Register from './Register';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
 // Screens
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/Shop";
 import CartPage from "./pages/Cart";
 import TestPage from "./pages/Test";
-import AboutPage from './pages/About';
+import AboutPage from "./pages/About";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -27,7 +27,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route exact path="/cart" element={<CartPage />} />
-              <Route exact path="/shop" element={<ShopPage />} />
+              <Route path="/shop" element={<ShopPage />} />
               <Route exact path="/about" element={<AboutPage />} />
               <Route exact path="/test" element={<TestPage />} />
             </Routes>

@@ -8,6 +8,7 @@ import FilterComp from "../../components/FilterComp";
 import SorterComp from "../../components/SorterComp";
 import BasicButton from "../../components/Buttons/BasicBtn";
 import HeartContext from "../../Contexts/HeartContext";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const ProductPage = (props) => {
   //States
@@ -21,11 +22,16 @@ const ProductPage = (props) => {
   //Context
   const { addProduct } = useContext(CartContext);
   const { hearts } = useContext(HeartContext);
+  const location = useLocation();
 
   // Getting the data from the DB.
   useEffect(() => {
+    const path = location.search
+      ? `http://localhost:5000/api/products${location.search}`
+      : "http://localhost:5000/api/products";
+    console.log(path);
     axios
-      .get("http://localhost:5000/api/products")
+      .get(path)
       .then(function (response) {
         // handle success
         setData(response.data);
@@ -35,7 +41,7 @@ const ProductPage = (props) => {
         // handle error
         console.log(error);
       });
-  }, []);
+  }, [location]);
 
   // Filtering the data
   useEffect(() => {
@@ -130,6 +136,7 @@ const ProductPage = (props) => {
   return (
     <div className="shop-body">
       <div className="filters">
+        {console.log(location.search)}
         <FilterComp
           filterFunc={filterByParam}
           delFilterFunc={deletefilterByParam}
