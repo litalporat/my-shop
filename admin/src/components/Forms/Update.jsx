@@ -1,40 +1,28 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-} from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import React from "react";
 import styled from "styled-components";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const Body = styled.div``;
-const Title = styled.h1``;
-const Form = styled.div``;
+const Image = styled.img`
+  width: 15rem;
+  border-radius: 10px;
+`;
 
 const Update = (product) => {
-    const [values, setValues] = React.useState({
-        amount: "",
-        password: "",
-        weight: "",
-        weightRange: "",
-        showPassword: false,
-    });
-    
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      alert("You have submitted the form.");
-    };
+  const [values, setValues] = React.useState({
+    productName: product.product.productName,
+    price: product.product.price,
+    description: product.product.description,
+  });
 
-  const handleChange = (prop) => (event) => {
-      console.log(prop);
-      setValues({ ...values, [prop]: event.target.value });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("You have submitted the form.");
+    console.table(values);
+  };
+
+  const handleChange = (event) => {
+    setValues({ ...values, [event.target.id]: event.target.value });
   };
 
   const handleClickShowPassword = () => {
@@ -49,47 +37,67 @@ const Update = (product) => {
   };
 
   return (
-    <Body>
+    <Box
+      component="form"
+      sx={{
+        maxWidth: "100%",
+        display: "flex",
+        gap: 2,
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Image src={product.product.mainPhoto} />
       <Box
-        component="form"
         sx={{
-            maxWidth: '100%',
-          }}
+          display: "flex",
+          maxWidth: "100%",
+          gap: "1rem",
+          justifyContent: "center",
+        }}
       >
-        <div>
-          <TextField
-            id="outlined-read-only-input"
-            label="Product ID"
-            defaultValue={product.product.id}
-            InputProps={{
-                readOnly: true,
-            }}
-            />
-          <TextField
-            id="outlined"
-            label="Product Name"
-            defaultValue={product.product.productName}
-            onChange={handleChange}
-          />
-          <TextField
-            id="outlined-number"
-            label="Price"
-            type="number"
-            defaultValue={product.product.price}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
         <TextField
-          id="fullWidth"
-          label="Description"
-          defaultValue={"Desc"}
-          fullWidth
+          id="outlined-read-only-input"
+          label="Product ID"
+          defaultValue={product.product.id}
+          InputProps={{
+            readOnly: true,
+          }}
         />
-        </div>
-        <Button variant="contained" onClick={handleChange}>Update</Button>
+        <TextField
+          id="price"
+          label="Price"
+          type="number"
+          onChange={handleChange}
+          defaultValue={values.price ? values.price : "No Data"}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          id="productName"
+          label="Product Name"
+          defaultValue={
+            values.productName ? values.productName : "No Data"
+          }
+          onChange={handleChange}
+        />
       </Box>
-    </Body>
+      <TextField
+        id="description"
+        label="Description"
+        defaultValue={
+          values.description ? values.description : "No Data"
+        }
+        onChange={handleChange}
+        fullWidth
+        multiline
+        maxRows={4}
+      />
+      <Button variant="contained" onClick={handleSubmit}>
+        Update <CircularProgress />{" "}
+      </Button>
+    </Box>
   );
 };
 

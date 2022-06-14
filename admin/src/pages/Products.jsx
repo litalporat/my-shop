@@ -40,31 +40,11 @@ const columnsTemp = [
     width: 300,
     renderCell: (params) => <BtnGroup update={params.row.update} product={params.row}/>,
   },
-  //   {
-  //     field: "fullName",
-  //     headerName: "Full name",
-  //     description:
-  //       "This column has a value getter and is not sortable.",
-  //     sortable: false,
-  //     width: 160,
-  //     valueGetter: (params) =>
-  //       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  //   },
-];
-
-const rowsTemp = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
 ];
 
 const Products = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
-  const [columns, setColumns] = useState([]);
 
   const updateProduct = (product) => {
     console.log(product.displayName);
@@ -93,7 +73,7 @@ const Products = () => {
           mainPhoto: obj.images.display[0],
           productName: obj.displayName,
           price: obj.price,
-          update: () => updateProduct(obj),
+          description:obj.description,
         });
       });
       setRows(temp);
