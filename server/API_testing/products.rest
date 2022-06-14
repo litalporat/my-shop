@@ -7,7 +7,7 @@ GET http://localhost:5000/api/products?category=overall
 ###
 
 
-GET http://localhost:5000/api/products/628a3950cd566118fe095cbc
+GET http://localhost:5000/api/products/627d24d57aa7daed90ac6406
 
 ###
 

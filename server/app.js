@@ -6,6 +6,7 @@ const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
 const categoriesRoutes = require("./routes/categoriesRoutes");
+const locationRoutes = require("./routes/locationRoutes");
 const app = express();
 
 // Middlewares
@@ -18,5 +19,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoriesRoutes);
+app.use("/api/locations", locationRoutes);
 
 module.exports = app;

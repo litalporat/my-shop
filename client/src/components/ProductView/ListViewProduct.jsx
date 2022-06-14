@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import IconBtn from "../Buttons/IconBtn";
+import { useContext } from "react";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 
 const Container = styled.div`
   border-radius: 10px;
@@ -30,12 +32,16 @@ const Text = styled.p`
 `;
 
 const ListViewProduct = (props) => {
+  const { currency, rates } = useContext(CurrencyContext);
+
   return (
     <Container>
       <Photo src={props.product.images.display[0]}></Photo>
       <Details>
         <Text>{props.product.displayName}</Text>
-        <Text>Price: {props.product.price} </Text>
+        {/* <Text>
+          Price: {(props.product.price * rates[currency]).toFixed(2)} {currency}
+        </Text> */}
         <Text>Size: XS </Text>
       </Details>
       <IconList>

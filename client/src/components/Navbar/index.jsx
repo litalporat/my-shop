@@ -16,6 +16,7 @@ display: flex;
 const Navbar = () => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
+  const [isLogin, setIsLogin] = useState(false);
 
   window.onwheel = (e) => {
     if (e.deltaY > 0) setNavBar("navbar down");
@@ -26,13 +27,15 @@ const Navbar = () => {
   return (
     <div>
       <nav className={navbar}>
-        <h2>My Shop</h2>
+        <Link to="/">
+          <h2 style={{ textDecoration: "none" }}>My Shop</h2>
+        </Link>
         <ul className="navbar__links">
-          <li>
+          {/* <li>
             <Link to="/">Home</Link>
-          </li>
+          </li> */}
           <li>
-            <Link to="/">About</Link>
+            <Link to="/About">About</Link>
           </li>
           <li>
             <MenuBtn

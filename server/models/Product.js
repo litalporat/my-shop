@@ -12,16 +12,7 @@ const productSchema = new mongoose.Schema({
     }
   },
   description: {
-    type: [String],
-    required: true,
-  },
-  metadata: {
-    type: Object,
-    materials: [String],
-    origin: String,
-    modelSize: String,
-    modelHeight: Number,
-    instructions: [String],
+    type: String,
     required: true,
   },
   color: [String],
@@ -33,6 +24,8 @@ const productSchema = new mongoose.Schema({
     type: Number
   },
   stock: {
+    type: Object,
+    required: true,
     xs: {
       type: Number,
     },
@@ -56,12 +49,17 @@ const productSchema = new mongoose.Schema({
     required: true,
     type: String
   },
-  images: {
-    display: [String],
-    details: [String]
+  imgDisplay: {
+    type: [String],
+    required: true,
   },
-  amountSold: Number,
-  similarProducts: [mongoose.SchemaTypes.ObjectId],
+  imgDetails: {
+    type: [String],
+    required: true,
+  },
+  amountSold: {
+    type: Number
+  },
   createdAt: {
     type: Date,
     immutable: true,

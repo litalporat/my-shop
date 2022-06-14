@@ -52,6 +52,13 @@ const TitleDiv = styled.div`
         `}
 `;
 
+/**
+ * @param {String} title *must
+ * @param {String} side left | right
+ * @param {Object} button BasicBtn | IconBtn
+ * @param {Object} children
+ */
+
 const SideBarBtn = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 

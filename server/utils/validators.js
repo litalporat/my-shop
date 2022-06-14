@@ -9,11 +9,37 @@ module.exports = function() {
      */
     this.validateProduct = (body) => {
         const schema = Joi.object({
-            name: Joi.string().min(2).max(30).required(),
+            displayName: Joi.string().min(2).max(30).required(),
             description: Joi.string().max(500).required(),
             price: Joi.number().min(1).required(),
-            countInStock: Joi.number().min(0).required(),
-            imageUrl: Joi.string().required()
+            imgDisplay: Joi.number().min(0).required(),
+            imgDetails: Joi.string().required(),
+            stock: Joi.object().keys({
+                xs: Joi.string(),
+                s: Joi.string(),
+                m: Joi.string(),
+                l: Joi.string(),
+                xl: Joi.string(),
+                os: Joi.string()
+            }).required(),
+            color: Joi.array().items(Joi.string()).required(),
+            discount: Joi.number().required(),
+            type: Joi.string().required(),
+            amountSold: Joi.number().required(),
+        });
+        return schema.validate(body);
+    }
+
+    /**
+     * This function validate a location request body.
+     * @param {Object} body - request body to validate
+     * @returns {Object} - Joi object with details of the validation.
+     */
+    this.validateLocation = (body) => {
+        const schema = Joi.object({
+            name: Joi.string().min(2).max(50).required(),
+            lat: Joi.number().required(),
+            lng: Joi.number().required(),
         });
         return schema.validate(body);
     }
@@ -23,7 +49,7 @@ module.exports = function() {
      * @param {Object} body - request body to validate
      * @returns {Object} - Joi object with details of the validation.
      */
-     this.validateUser = (body) => {
+    this.validateUser = (body) => {
         const schema = Joi.object({
             email: Joi
                 .string()
@@ -41,7 +67,7 @@ module.exports = function() {
      * @param {Object} body - request body to validate
      * @returns {Object} - Joi object with details of the validation.
      */
-     this.validateToken = (body) => {
+    this.validateToken = (body) => {
         const schema = Joi.object({
             token: Joi.string().required()
         });

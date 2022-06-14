@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const productsData = require("../data/products");
 const categoriesData = require("../data/categories");
-const { connectDB } = require("../config/db");
+const { connectDB } = require("../config/mongoConnect");
 const Product = require("../models/Product");
 const Categories = require('../models/Categories');
 const categories = require("../data/categories");
