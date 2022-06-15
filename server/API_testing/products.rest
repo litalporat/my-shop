@@ -7,7 +7,7 @@ GET http://localhost:5000/api/products?category=overall
 ###
 
 
-GET http://localhost:5000/api/products/627d24d57aa7daed90ac6406
+GET http://localhost:5000/api/products/62aa314408f44bdee663f26e
 
 ###
 
@@ -20,23 +20,31 @@ Content-Type: application/json
     "price": 345,
     "countInStock": 2,
     "imgDisplay": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+    "color": ["blue"],
+    "imgDetails": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"],
+    "imgDisplay": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"],
+    "stock": {},
+    "type": "skirt"
 }
 
 ###
 
-PUT http://localhost:5000/api/products/62837719c887e9cc01436888
+PATCH http://localhost:5000/api/products/62aa314408f44bdee663f26e
 Content-Type: application/json
 
 {
-    "name": "test1234",
-    "description": "a short description",
-    "price": 345,
-    "countInStock": 2,
-    "imageUrl": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+    "displayName": "test123",
+    "description": "a short description123",
+    "price": 345123,
+    "color": ["blue123"],
+    "imgDetails": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80123"],
+    "imgDisplay": ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80123"],
+    "stock": {},
+    "type": "suit"
 }
 
 ###
 
-DELETE http://localhost:5000/api/products/62837778702cf9e6d8e33bd0
+DELETE http://localhost:5000/api/products/62aa2fa758ae06d05d3f2e66
 
 ###
