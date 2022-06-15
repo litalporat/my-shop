@@ -38,6 +38,5 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:5000/api/products/62837778702cf9e6d8e33bd0
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjgzYWNhODQ1YjZiNDM4NTdjMjIzZWUiLCJpYXQiOjE2NTI4MTUxMDksImV4cCI6MTY1MjgxNTEyNH0.hcVFgL6fFKHkzt-CoxmPf61hKUVd58pZ6o0MtvAL_8o
 
 ###
