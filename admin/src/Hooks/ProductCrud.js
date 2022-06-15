@@ -2,7 +2,6 @@ import axios from "axios";
 
 const updateProduct = () => {
   const product = {
-    id: "62a8fcf1e12a0casdasddsa6d07",
     displayName: "test",
     description: "a short description",
     price: 345,
@@ -21,5 +20,10 @@ const updateProduct = () => {
 //     axios
 //     .post(`http://localhost:5000/api/products`,product)
 // }
+const deleteProduct = async () => {
+  await axios.delete(
+    `http://localhost:5000/api/products/:62aa306206ce83cd6d0f7d8e`
+  );
+};
 
-export default updateProduct;
+export default deleteProduct;

@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import styled, { css } from "styled-components";
 import BtnGroup from "../components/New/BtnGroup";
 import { Button } from "@mui/material";
-import updateProduct from "../Hooks/ProductCrud";
+import deleteProduct from "../Hooks/ProductCrud";
 import Popup from "../components/New/Popup";
 import AddIcon from "@mui/icons-material/Add";
 import Create from "../components/Forms/Create";
@@ -28,7 +28,7 @@ const Products = () => {
   const [rows, setRows] = useState([]);
 
   const columnsTemp = [
-    { field: "id", headerName: "ID", width: 150 },
+    { field: "id", headerName: "ID", width: 250 },
     {
       field: "productName",
       headerName: "Product",
@@ -37,7 +37,7 @@ const Products = () => {
     {
       field: "price",
       headerName: "Price",
-      width: 100,
+      width: "100",
       type: "number",
     },
     {
@@ -67,9 +67,9 @@ const Products = () => {
         // handle error
         console.log(error);
       });
-    // updateProduct();
   }, []);
 
+  deleteProduct();
   useEffect(() => {
     if (data) {
       const temp = [];
@@ -91,15 +91,15 @@ const Products = () => {
     <Body>
       <Header></Header>
       <Table>
-      <Popup
-        button={
-          <Button color="success" startIcon={<AddIcon />}>
-            New Product
-          </Button>
-        }
-      >
-        <Create />
-      </Popup>
+        <Popup
+          button={
+            <Button color="success" startIcon={<AddIcon />}>
+              New Product
+            </Button>
+          }
+        >
+          <Create />
+        </Popup>
         <DataGrid
           rows={rows}
           columns={columnsTemp}
