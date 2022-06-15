@@ -114,6 +114,7 @@ const ProductPage = (props) => {
       setViewData(tempData);
     }
   };
+  
   const sortByString = (param, order) => {
     let tempData = [...data];
     if (order === "Default") {
