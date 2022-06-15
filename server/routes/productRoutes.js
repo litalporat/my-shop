@@ -26,13 +26,13 @@ router.get("/:id", getProductById);
 router.post("/", addProduct);
 
 //@desc update a product to the db
-//@route PUT /api/products/:id
+//@route PATCH /api/products/:id
 //@access Public
 router.patch("/:id", setProductById);
 
 //@desc delete a product to the db
 //@route DELETE /api/products/:id
 //@access Public
-router.delete("/:id", verifyToken, removeProductById);
+router.delete("/:id", removeProductById);
 
 module.exports = router;

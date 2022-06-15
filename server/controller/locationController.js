@@ -68,7 +68,7 @@ const setLocationById = async (req, res) => {
             res.status(400).send({ error });
             return;
         }
-        let result = await Location.findByIdAndUpdate({ _id: req.params.id }, req.body);
+        let result = await Location.findOneAndUpdate({ _id: req.params.id }, req.body);
         if (!result) return res.status(400).json({ error: "location does not exists!" });
         res.status(200).json({ info: "location updated successfuly!", product: req.body })
     } catch (e) {

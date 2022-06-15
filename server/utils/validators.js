@@ -12,8 +12,8 @@ module.exports = function() {
             displayName: Joi.string().min(2).max(30).required(),
             description: Joi.string().max(500).required(),
             price: Joi.number().min(1).required(),
-            imgDisplay: Joi.number().min(0).required(),
-            imgDetails: Joi.string().required(),
+            imgDisplay: Joi.array().required(),
+            imgDetails: Joi.array().required(),
             stock: Joi.object().keys({
                 xs: Joi.string(),
                 s: Joi.string(),
@@ -23,9 +23,9 @@ module.exports = function() {
                 os: Joi.string()
             }).required(),
             color: Joi.array().items(Joi.string()).required(),
-            discount: Joi.number().required(),
+            discount: Joi.number(),
             type: Joi.string().required(),
-            amountSold: Joi.number().required(),
+            amountSold: Joi.number(),
         });
         return schema.validate(body);
     }

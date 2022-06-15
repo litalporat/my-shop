@@ -38,6 +38,7 @@ const getProductById = async (req, res) => {
   }
   try {
     const products = await Product.findById(_id);
+    if (!products) return res.status(400).json({ error: 'product not found!' })
     res.status(200).json(products);
   } catch (e) {
     logger.error(e);
@@ -70,8 +71,9 @@ const setProductById = async (req, res) => {
       res.status(400).send({ status: 400, error });
       return;
     }
-    await Product.findByIdAndUpdate({_id}, req.body);
-    res.status(200).json({ info: "product updated successfuly!", product: req.body })
+    let result = await Product.findOneAndUpdate({_id}, req.body);
+    if (!result) return res.status(400).json({ error: "there is no such product!" })
+    return res.status(200).json({ info: "product updated successfuly!", product: req.body })
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
