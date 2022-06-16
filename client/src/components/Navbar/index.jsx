@@ -7,6 +7,7 @@ import { LikeList, CartList } from "../Lists";
 import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
+import SearchBar from "./search";
 
 const BtnsDiv = styled.div`
   display: flex;
@@ -41,7 +42,6 @@ const Navbar = () => {
     if (e.x >= 920) setNavBar("navbar");
   };
 
-  //Test
   useEffect(() => {
     if (localStorage.getItem("key")) {
       console.log("Im holding a key");
@@ -50,7 +50,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    console.log("UE: login");
     isLogin == true ? setLoginTitle("Logout") : setLoginTitle("Login");
   }, [isLogin]);
 
@@ -75,9 +74,7 @@ const Navbar = () => {
           </li>
         </ul>
         <BtnsDiv>
-          <IconBtn type={"secondary"}>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </IconBtn>
+          <SearchBar />
           <SideBarBtn
             title={"Notification"}
             side={"right"}
