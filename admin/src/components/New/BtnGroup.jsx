@@ -6,13 +6,13 @@ import EditIcon from "@mui/icons-material/Edit";
 import Popup from "./Popup";
 import Update from "../Forms/Update";
 import axios from "axios";
-import { Alert } from "@mui/material";
+import { Alert, Fab, IconButton } from "@mui/material";
 
 const BtnGroup = (props) => {
   const deleteProduct = (id) => {
     alert("This Product Is Deleted");
     axios.delete(`http://localhost:5000/api/products/${id}`);
-    props.toggleChange()
+    props.toggleChange();
   };
 
   return (
@@ -22,20 +22,23 @@ const BtnGroup = (props) => {
     >
       <Popup
         button={
-          <Button color="success" startIcon={<EditIcon />}>
-            Update
-          </Button>
+          <Fab color="primary" aria-label="edit" size={"small"}>
+            <EditIcon />
+          </Fab>
         }
       >
-        <Update product={props.product} toggleChange={props.toggleChange}/>
+        <Update
+          product={props.product}
+          toggleChange={props.toggleChange}
+        />
       </Popup>
-      <Button
+      <Fab
         color="error"
-        startIcon={<DeleteIcon />}
+        size={"small"}
         onClick={() => deleteProduct(props.product._id)}
       >
-        Delete
-      </Button>
+        <DeleteIcon />
+      </Fab>
     </ButtonGroup>
   );
 };

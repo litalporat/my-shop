@@ -9,13 +9,25 @@ import AddIcon from "@mui/icons-material/Add";
 import Create from "../components/Forms/Create";
 
 const Body = styled.div``;
+const Title = styled.h1`
+  font-size: 3rem;
+  letter-spacing: 5px;
+  margin: 10px;
+`;
 const Header = styled.div`
-  width: 100%;
-  height: 15%;
+  background: #ffffffa1;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 5px 8px 0px rgb(0 0 0 / 14%),
+    0px 1px 14px 0px rgb(0 0 0 / 12%);
 `;
 const Table = styled.div`
   width: 100%;
-  height: 75%;
+  height: 80%;
 `;
 
 const Products = () => {
@@ -28,23 +40,22 @@ const Products = () => {
   };
 
   const columnsTemp = [
-    { field: "id", headerName: "ID", width: 250 },
+    { field: "id", headerName: "ID", width: 220 },
     {
       field: "productName",
       headerName: "Product",
-      width: 150,
+      width: 200,
     },
     {
       field: "price",
       headerName: "Price",
       width: "100",
-      type: "number",
     },
     {
       field: "actions",
       headerName: "Actions",
       type: "actions",
-      width: 300,
+      width: 100,
       renderCell: (params) => (
         <BtnGroup
           product={params.row.product}
@@ -88,7 +99,9 @@ const Products = () => {
 
   return (
     <Body>
-      <Header></Header>
+      <Header>
+        <Title>Products Manager</Title>
+      </Header>
       <Table>
         <Popup
           button={
@@ -102,13 +115,21 @@ const Products = () => {
         <DataGrid
           rows={rows}
           columns={columnsTemp}
-          pageSize={9}
-          rowsPerPageOptions={[3]}
+          autoPageSize
           checkboxSelection
           disableSelectionOnClick
+          density={""}
+          sx={{
+            boxShadow: 5,
+            padding: 1,
+            borderRadius: "10px",
+            background: "#ffffffa1",
+            "& .MuiDataGrid-cell:hover": {
+              color: "primary",
+            },
+          }}
         />
       </Table>
-      {/* {data && data.map((obj) => <div>{obj.displayName}</div>)} */}
     </Body>
   );
 };
