@@ -3,6 +3,7 @@ import CartContext from "../../Contexts/CartContext";
 import Product from "../../components/ProductView/CardView";
 import Popup from "../../components/PopUp";
 import "./Cart.css";
+import { ArrowBtn, PopupBtn } from "../../components/Buttons";
 
 const CartPage = () => {
   const { products, removeProduct } = useContext(CartContext);
@@ -25,10 +26,20 @@ const CartPage = () => {
               togglePopup();
             }}
             onCart={() => removeProduct(product)}
-            text="REMOVE ITEM"
+            checkout={true}
           />
         ))}
       {isOpen && <Popup content={content} handleClose={togglePopup} />}
+
+      {products.length > 0 && (
+        <PopupBtn
+          title={"Thank you!"}
+          size={"s"}
+          button={<ArrowBtn content={"place order"} />}
+        >
+          <p>your order has been placed successfuly.</p>
+        </PopupBtn>
+      )}
     </div>
   );
 };

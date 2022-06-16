@@ -12,15 +12,35 @@ export function CartProvider({ children }) {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
+  // const productsInclude = (product) => {
+  //   for (const prod in products) {
+  //     if (prod._id == product._id) return true;
+  //     console.log(`comparing ${prod._id} and ${product._id}`);
+  //   }
+  //   return false;
+  // };
+
   const addProduct = (product) => {
-    const tempProducts = [...products, product];
-    setProducts(tempProducts);
+    const index = products.findIndex((prod) => {
+      return prod._id == product._id && prod.size == product.size;
+    });
+    if (index >= 0) {
+      products[index].quantity++;
+    } else {
+      product.quantity = 1;
+      const tempProducts = [...products, product];
+      setProducts(tempProducts);
+    }
   };
   const removeProduct = (product) => {
-    const tempProducts = [];
-    for (let i = 0; i < products.length; i++)
-      if (products[i]._id != product._id) tempProducts.push(products[i]);
-    setProducts(tempProducts);
+    if (product.quantity > 1) product.quantity--;
+    else {
+      const tempProducts = [];
+      products.map((prod) => {
+        if (prod._id != product._id) tempProducts.push(prod);
+      });
+      setProducts(tempProducts);
+    }
   };
 
   return (

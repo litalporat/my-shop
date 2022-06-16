@@ -3,6 +3,9 @@ import styled from "styled-components";
 import IconBtn from "../Buttons/IconBtn";
 import { useContext } from "react";
 import CurrencyContext from "../../Contexts/CurrencyContext";
+import SizeBtn from "../Buttons/SizeBtn";
+import { useState } from "react";
+import CartContext from "../../Contexts/CartContext";
 
 const Container = styled.div`
   border-radius: 10px;
@@ -33,23 +36,37 @@ const Text = styled.p`
 
 const ListViewProduct = (props) => {
   const { currency, rates } = useContext(CurrencyContext);
+  const [clickCart, setClick] = useState(false);
+  const { addProduct } = useContext(CartContext);
 
   return (
     <Container>
-      <Photo src={props.product.images.display[0]}></Photo>
+      <Photo src={props.product.imgDisplay[0]}></Photo>
       <Details>
         <Text>{props.product.displayName}</Text>
         {/* <Text>
           Price: {(props.product.price * rates[currency]).toFixed(2)} {currency}
         </Text> */}
-        <Text>Size: XS </Text>
+        {props.product.size && <Text>{props.product.size}</Text>}
       </Details>
       <IconList>
         <IconBtn onClick={props.delete}>
           <i class="fa-solid fa-trash-can"></i>
         </IconBtn>
-        {props.button}
+        {props.cartButton && (
+          <IconBtn onClick={() => setClick(!clickCart)}>
+            <i className="fas fa-shopping-cart"></i>
+          </IconBtn>
+        )}
+        {props.cartButton && clickCart && (
+          <SizeBtn
+            product={props.product}
+            onCart={() => addProduct(props.product)}
+            closeSize={() => setClick(!clickCart)}
+          />
+        )}
       </IconList>
+      {props.children}
     </Container>
   );
 };
