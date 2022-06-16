@@ -16,7 +16,7 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const Map = ({ lat, lng , zoom}) => {
+const Map = ({ lat, lng, zoom }) => {
   const [locations, setLocations] = useState([]);
   useEffect(() => {
     axios
@@ -32,7 +32,7 @@ const Map = ({ lat, lng , zoom}) => {
   }, []);
 
   return (
-    <div style={{ height: "50vh", width: "50vw" }}>
+    <div style={{ height: "50vh", width: "100vw" }}>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: "AIzaSyCVkzKt1VA52RTj2iEhedowhQdxpxB9TaI",

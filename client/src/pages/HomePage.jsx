@@ -4,6 +4,7 @@ import styled from "styled-components";
 import VideoSection from "../components/Sections/VideoSection";
 import ForUSection from "../components/Sections/ForUSection";
 import { Link } from "react-router-dom";
+import Map from "../components/Map/Map";
 
 const Body = styled.div`
   display: flex;
@@ -83,6 +84,7 @@ const HomePage = () => {
       </Container>
       <ForUSection />
       <VideoSection />
+      <Map lat={31.998629} lng={34.775545} />
     </>
   );
 };
