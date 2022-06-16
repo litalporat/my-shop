@@ -1,0 +1,24 @@
+GET http://localhost:5000/api/locations
+
+###
+
+POST http://localhost:5000/api/locations
+Content-Type: application/json
+
+{
+    "name": "lala shop", "lng": 34.9656036, "lat": 29.554164
+}
+
+###
+
+PATCH http://localhost:5000/api/locations/62a8fd2934457b8f9e068473
+Content-Type: application/json
+
+{
+    "name": "lala123 shop", "lng": 36.9656036, "lat": 30.554164
+}
+
+###
+
+DELETE http://localhost:5000/api/locations/62a8fcfd34457b8f9e068468
+Content-Type: application/json

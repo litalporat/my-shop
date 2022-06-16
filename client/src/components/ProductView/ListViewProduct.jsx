@@ -39,9 +39,9 @@ const ListViewProduct = (props) => {
       <Photo src={props.product.images.display[0]}></Photo>
       <Details>
         <Text>{props.product.displayName}</Text>
-        <Text>
+        {/* <Text>
           Price: {(props.product.price * rates[currency]).toFixed(2)} {currency}
-        </Text>
+        </Text> */}
         <Text>Size: XS </Text>
       </Details>
       <IconList>

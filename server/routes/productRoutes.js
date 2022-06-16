@@ -5,8 +5,8 @@ const { verifyToken } = require('../middlewares/auth');
 const {
   getAllProducts,
   getProductById,
-  // addProduct,
-  // setProductById,
+  addProduct,
+  setProductById,
   removeProductById
 } = require("../controller/productControllers");
 
@@ -20,19 +20,19 @@ router.get("/", getAllProducts);
 //@access Public
 router.get("/:id", getProductById);
 
-// //@desc add a product to the db
-// //@route POST /api/products/
-// //@access Public
-// router.post("/", verifyToken, addProduct);
+//@desc add a product to the db
+//@route POST /api/products/
+//@access Public
+router.post("/", addProduct);
 
-// //@desc add a product to the db
-// //@route PUT /api/products/:id
-// //@access Public
-// router.put("/:id", verifyToken, setProductById);
+//@desc update a product to the db
+//@route PATCH /api/products/:id
+//@access Public
+router.patch("/:id", setProductById);
 
 //@desc delete a product to the db
 //@route DELETE /api/products/:id
 //@access Public
-router.delete("/:id", verifyToken, removeProductById);
+router.delete("/:id", removeProductById);
 
 module.exports = router;

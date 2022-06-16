@@ -1,23 +1,39 @@
 import { Link } from "react-router-dom";
-import DropDown from "../Buttons/MenuBtn";
 import "./Navbar.css";
 import CartContext from "../../Contexts/CartContext";
 import { useContext, useEffect, useState } from "react";
-import SideBarBtn from "../Buttons/SideBarBtn";
-import IconBtn from "../Buttons/IconBtn";
-import BasicButton from "../Buttons/BasicBtn";
-import LikeList from "../Lists/LikeList";
-import ListCartProduct from "../Lists/CartList";
+import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
+import { LikeList, CartList } from "../Lists";
 import Login from "../../Login";
-import { PopupBtn } from "../Buttons";
-import { BasicBtn } from "../Buttons";
-import CurrenctSelect from "../CurrencySelector";
+import styled from "styled-components";
+import axios from "axios";
+
+const BtnsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+`;
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
   const [isLogin, setIsLogin] = useState(false);
   const [loginTitle, setLoginTitle] = useState("Login");
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/categories")
+      .then(function (response) {
+        // handle success
+        setCategories(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
 
   window.onwheel = (e) => {
     if (e.deltaY > 0) setNavBar("navbar down");
@@ -52,59 +68,61 @@ const Navbar = () => {
             <Link to="/About">About</Link>
           </li>
           <li>
-            <DropDown
-              title={"Shop"}
-              sidetitles={["Tops", "Jeans", "Dresses"]}
-            />
+            <MenuBtn title={"Shop"} items={categories} />
           </li>
           <li>
             <Link to="/test">Test</Link>
           </li>
         </ul>
-        <ul className="navbar__links">
-          <li>
-            <CurrenctSelect />
-          </li>
-          <li>
-            <SideBarBtn
-              title={"test"}
-              side={"right"}
-              button={
-                <IconBtn type={"secondary"}>
-                  <i className="fas fa-heart"></i>
-                </IconBtn>
-              }
-            >
-              <LikeList />
-            </SideBarBtn>
-          </li>
-          <li>
-            <SideBarBtn
-              title={"Cart"}
-              side={"right"}
-              button={
-                <BasicButton
-                  title={"Cart"}
-                  type={"secondary"}
-                  icon={<i className="fas fa-shopping-cart"></i>}
-                >
-                  <span className="cartlogo__badge">{products.length}</span>
-                </BasicButton>
-              }
-            >
-              <ListCartProduct />
-            </SideBarBtn>
-          </li>
-          <li>
-            <PopupBtn
-              title={"Login"}
-              size={"S"}
-              button={<BasicBtn title={loginTitle} type={"secondary"} />}
-            >
-              <Login setIsLogin={setIsLogin} />
-            </PopupBtn>
-          </li>
-        </ul>
+        <BtnsDiv>
+          <IconBtn type={"secondary"}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </IconBtn>
+          <SideBarBtn
+            title={"Notification"}
+            side={"right"}
+            button={
+              <IconBtn type={"secondary"}>
+                <i className="fa-solid fa-bell"></i>
+              </IconBtn>
+            }
+          >
+            {/* Notification List */}
+          </SideBarBtn>
+          <SideBarBtn
+            title={"Likes"}
+            side={"right"}
+            button={
+              <IconBtn type={"secondary"}>
+                <i className="fas fa-heart"></i>
+              </IconBtn>
+            }
+          >
+            <LikeList />
+          </SideBarBtn>
+          <SideBarBtn
+            title={"Cart"}
+            side={"right"}
+            button={
+              <BasicBtn
+                title={"Cart"}
+                type={"secondary"}
+                icon={<i className="fas fa-shopping-cart"></i>}
+              >
+                <span className="cartlogo__badge">{products.length}</span>
+              </BasicBtn>
+            }
+          >
+            <CartList />
+          </SideBarBtn>
+          <PopupBtn
+            title={"Login"}
+            size={"S"}
+            button={<BasicBtn title={loginTitle} type={"secondary"} />}
+          >
+            <Login setIsLogin={setIsLogin} />
+          </PopupBtn>
+        </BtnsDiv>
       </nav>
     </div>
   );

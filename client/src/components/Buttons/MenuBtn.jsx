@@ -63,7 +63,7 @@ const DropDown = (props) => {
         {props.title}
       </Button>
       {/* <Button onMouseOver={() => setdropdown(!dropdown)}>{props.title}</Button> */}
-      {dropdown && <DropDownList sidetitles={props.sidetitles} />}
+      {dropdown && <DropDownList items={props.items} />}
     </Wrapper>
   );
 };
@@ -73,12 +73,16 @@ const DropDownList = (props) => {
     <Box className="DDList">
       <Devieder />
       <Item>
-        <Link to="/shop"> All Products </Link>
+        <Link to="/shop/"> All Products </Link>
       </Item>
       <Devieder />
-      {props.sidetitles.map((obj) => (
+      {props.items.map((category) => (
         <>
-          <Item>{obj}</Item>
+          <Item>
+            <Link to={`/shop?category=${category.name}`}>
+              {category.displayName}
+            </Link>
+          </Item>
           <Devieder />
         </>
       ))}

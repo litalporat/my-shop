@@ -22,8 +22,7 @@ const getAllProducts = async (req, res) => {
     if (await validateCategories(category))
       products = await Product.find({ type: req.query.category });
     else products = await Product.find({});
-    logger.info("GET /api/products request has been accepted");
-    res.json(products);
+    return res.status(200).json(products);
   } catch (error) {
     logger.error(error);
     res.status(500).json({ message: "Server Error!" });
@@ -39,6 +38,7 @@ const getProductById = async (req, res) => {
   }
   try {
     const products = await Product.findById(_id);
+    if (!products) return res.status(400).json({ error: 'product not found!' })
     res.status(200).json(products);
   } catch (e) {
     logger.error(e);
@@ -46,51 +46,55 @@ const getProductById = async (req, res) => {
   }
 };
 
-// const addProduct = async (req, res) => {
-//   try {
-//     const { error } = validateProduct(req.body);
-//     if (error) {
-//       logger.error(error);
-//       res.status(400).send({ status: 400, error});
-//       return;
-//     }
-//     logger.info(`POST /api/products/ request has been accepted`);
-//     await Product.create(req.body);
-//     res.json({ status: 200, info: "product added successfuly!", product: req.body })
-//   } catch (e) {
-//     logger.error(e);
-//     res.status(500).json({ message: "Server Error!" });
-//   }
-// }
-
-// const setProductById = async (req, res) => {
-//   try {
-//     const _id = req.params.id;
-//     const { error } = validateProduct(req.body);
-//     if (error) {
-//       logger.error(error);
-//       res.status(400).send({ status: 400, error });
-//       return;
-//     }
-//     logger.info(`PUT /api/products/${_id} request has been accepted`);
-//     await Product.findByIdAndUpdate({_id}, req.body);
-//     res.json({ status: 200, info: "product updated successfuly!", product: req.body })
-//   } catch (e) {
-//     logger.error(e);
-//     res.status(500).json({ message: "Server Error!" });
-//   }
-// }
-
-const removeProductById = async (req, res) => {
+const addProduct = async (req, res) => {
   try {
-    const _id = req.params.id;
-    const product = await Product.findByIdAndDelete({_id});
-    if (product) {
-      res.status(200).json({ info: "product deleted successfuly!" })
+    const { error } = validateProduct(req.body);
+    if (error) {
+      logger.error(error);
+      res.status(400).send({ error });
       return;
     }
-    logger.error("product not exsits!");
-    res.status(400).json({ error: "product not exsits!" })
+    await Product.create(req.body);
+    res.status(200).json({ info: "product added successfuly!", product: req.body })
+  } catch (e) {
+    logger.error(e);
+    res.status(500).json({ message: "Server Error!" });
+  }
+}
+
+const setProductById = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const { error } = validateProduct(req.body);
+    if (error) {
+      logger.error(error);
+      res.status(400).send({ status: 400, error });
+      return;
+    }
+    let result = await Product.findOneAndUpdate({_id}, req.body);
+    if (!result) return res.status(400).json({ error: "there is no such product!" })
+    return res.status(200).json({ info: "product updated successfuly!", product: req.body })
+  } catch (e) {
+    logger.error(e);
+    res.status(500).json({ message: "Server Error!" });
+  }
+}
+
+const removeProductById = async (req, res) => {
+  let _id = null;
+  try {
+    _id = ObjectId(req.params.id);
+  } catch (e) {
+    logger.error(e);
+    return res.status(400).json({ error: "invalid id!" });
+  }
+  try {
+    const product = await Product.findByIdAndDelete({_id: req.params.id});
+    if (product) {
+      res.status(200).json({ info: "product deleted successfuly!" });
+      return;
+    }
+    return res.status(400).json({ error: "product not exsits!" })
   } catch (e) {
     logger.error(e);
     res.status(500).json({ message: "Server Error!" });
@@ -100,7 +104,7 @@ const removeProductById = async (req, res) => {
 module.exports = {
   getAllProducts,
   getProductById,
-  // addProduct,
-  // setProductById,
+  addProduct,
+  setProductById,
   removeProductById
 }

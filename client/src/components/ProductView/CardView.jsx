@@ -68,8 +68,8 @@ const Index = (props) => {
   return (
     <Container>
       <Image
-        src={props.product.images.display[0]}
-        hover={props.product.images.display[1]}
+        src={props.product.imgDisplay[0]}
+        hover={props.product.imgDisplay[1]}
       />
       <Body>
         <FlexRow>
