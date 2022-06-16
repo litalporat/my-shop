@@ -74,9 +74,7 @@ const PopupBtn = (props) => {
           <Box size={props.size}>
             <TitleDiv>
               <Title>{props.title}</Title>
-              <Button
-                onClick={() => setIsOpen(!isOpen)}
-              >
+              <Button onClick={() => setIsOpen(!isOpen)}>
                 <i
                   class="fa-solid fa-xmark"
                   style={{
