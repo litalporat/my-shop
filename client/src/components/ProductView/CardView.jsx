@@ -7,7 +7,7 @@ import Popup from "../PopUp";
 import CurrencyContext from "../../Contexts/CurrencyContext";
 import { useState } from "react";
 import SizeBtn from "../Buttons/SizeBtn";
-import QuantitySelector from "../Buttons/Quantity";
+import QuantitySelector from "../Buttons/QuantityBtn";
 
 const Container = styled.div`
   background-color: #d8d2d2;

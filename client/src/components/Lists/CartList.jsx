@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import CartContext from "../../Contexts/CartContext";
 import ArrowBtn from "../Buttons/ArrowBtn";
-import QuantitySelector from "../Buttons/Quantity";
+import QuantitySelector from "../Buttons/QuantityBtn";
 import CartProduct from "../ProductView/ListViewProduct";
 const Container = styled.div`
   display: flex;

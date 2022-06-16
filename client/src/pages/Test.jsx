@@ -8,7 +8,6 @@ import { IconBtn } from "../components/Buttons";
 import CurrencyContext from "../Contexts/CurrencyContext";
 import { useContext } from "react";
 import CurrenctSelect from "../components/CurrencySelector";
-import QuantitySelector from "../components/Buttons/Quantity";
 import SizeBtn from "../components/Buttons/SizeBtn";
 
 const Test = () => {

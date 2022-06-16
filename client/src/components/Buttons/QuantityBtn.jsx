@@ -63,7 +63,7 @@ const BtnRight = styled.button`
 `;
 
 const QuantityDisplay = styled.input`
-  width: 2rem;
+  width: 3rem;
   padding: 0.5rem;
   font-size: 1.5rem;
   border: 0;
@@ -72,7 +72,7 @@ const QuantityDisplay = styled.input`
   text-align: center;
 `;
 
-const QuantitySelector = (props) => {
+const QuantityBtn = (props) => {
   const [quantity, setQuantity] = useState(props.quantity);
   const { addProduct, removeProduct } = useContext(CartContext);
 
@@ -87,7 +87,7 @@ const QuantitySelector = (props) => {
   };
 
   return (
-    <Container>
+    <Container side={"left"}>
       {quantity == 1 ? (
         <BtnLeftDisable>-</BtnLeftDisable>
       ) : (
@@ -103,4 +103,4 @@ const QuantitySelector = (props) => {
   );
 };
 
-export default QuantitySelector;
+export default QuantityBtn;

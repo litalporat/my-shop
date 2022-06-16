@@ -27,8 +27,9 @@ const Details = styled.div`
 const IconList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   padding-right: 10px;
+  align-items: center;
 `;
 const Text = styled.p`
   letter-spacing: 1px;
@@ -65,8 +66,8 @@ const ListViewProduct = (props) => {
             closeSize={() => setClick(!clickCart)}
           />
         )}
+        {props.children}
       </IconList>
-      {props.children}
     </Container>
   );
 };
