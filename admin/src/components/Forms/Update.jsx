@@ -1,14 +1,23 @@
-import { Box, Button, Divider, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  TextField,
+} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import React from "react";
 import styled from "styled-components";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import axios from "axios";
 
 const Image = styled.img`
   width: 14rem;
   border-radius: 10px;
 `;
 
-const PhotosContainer = styled.div`
+const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   gap: 10px;
@@ -21,38 +30,50 @@ const PhotoDiv = styled.div`
   align-items: center;
 `;
 
-const Update = (product) => {
+const Update = (props) => {
   const [values, setValues] = React.useState({
-    productName: product.product.displayName,
-    price: product.product.price,
-    description: product.product.description,
-    imgDisplay: product.product.imgDisplay,
-    imgDetails: product.product.imgDetails,
+    displayName: props.product.displayName,
+    price: props.product.price,
+    color: props.product.color,
+    type: props.product.type,
+    discount: props.product.discount,
+    description: props.product.description,
+    imgDisplay: props.product.imgDisplay,
+    imgDetails: props.product.imgDetails,
+    stock : {xs: 0, s: 0, m: 0, l: 0, os: 0 , ...props.product.stock},
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("You have submitted the form.");
     console.table(values);
+    axios.patch(`http://localhost:5000/api/products/${props.product._id}`, values);
+    props.toggleChange();
   };
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.id]: event.target.value });
   };
+  const handleStockChange = (event) => {
+    let temp = { ...values.stock };
+    temp[event.target.id] = Number(event.target.value);
+    setValues({ ...values, stock: temp });
+    console.log(values.stock);
+  };
   const handleImageChange = (event) => {
-    console.log(event.target.id);
-    setValues({ ...values, [event.target.id]: event.target.value });
+    let temp = [...values[event.target.id]];
+    temp[event.target.alt] = event.target.value;
+    setValues({ ...values, [event.target.id]: temp });
   };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
+  const addPhoto = (id) => {
+    let temp = [...values[id]];
+    temp.push("Enter An URL");
+    setValues({ ...values, [id]: temp });
   };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const removePhoto = (id, index) => {
+    let temp = [...values[id]];
+    temp.pop(temp[index]);
+    setValues({ ...values, [id]: temp });
   };
 
   return (
@@ -67,123 +88,52 @@ const Update = (product) => {
       }}
     >
       <Divider>Product Details</Divider>
-      <Box
-        sx={{
-          display: "flex",
-          maxWidth: "100%",
-          gap: 5,
-          justifyContent: "center",
+      <TextField
+        id="outlined-read-only-input"
+        label="Product ID"
+        defaultValue={props.product._id}
+        InputProps={{
+          readOnly: true,
         }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            maxWidth: "100%",
-            gap: 5,
-            justifyContent: "center",
-            flexDirection: "column",
+      />
+      <GridContainer>
+        <TextField
+          id="displayName"
+          label="Product Name"
+          defaultValue={
+            values.displayName ? values.displayName : "No Data"
+          }
+          onChange={handleChange}
+        />
+        <TextField
+          id="price"
+          label="Price"
+          type="number"
+          onChange={handleChange}
+          defaultValue={values.price ? values.price : "No Data"}
+          InputLabelProps={{
+            shrink: true,
           }}
-        >
-          <TextField
-            id="outlined-read-only-input"
-            label="Product ID"
-            defaultValue={product.product._id}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-          <TextField
-            id="price"
-            label="Price"
-            type="number"
-            onChange={handleChange}
-            defaultValue={values.price ? values.price : "No Data"}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField
-            id="productName"
-            label="Product Name"
-            defaultValue={
-              values.productName ? values.productName : "No Data"
-            }
-            onChange={handleChange}
-          />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            maxWidth: "100%",
-            gap: 5,
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <TextField
-            id="outlined-read-only-input"
-            label="Product ID"
-            defaultValue={product.product._id}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-          <TextField
-            id="price"
-            label="Price"
-            type="number"
-            onChange={handleChange}
-            defaultValue={values.price ? values.price : "No Data"}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField
-            id="productName"
-            label="Product Name"
-            defaultValue={
-              values.productName ? values.productName : "No Data"
-            }
-            onChange={handleChange}
-          />
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            maxWidth: "100%",
-            gap: 5,
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <TextField
-            id="outlined-read-only-input"
-            label="Product ID"
-            defaultValue={product.product._id}
-            InputProps={{
-              readOnly: true,
-            }}
-          />
-          <TextField
-            id="price"
-            label="Price"
-            type="number"
-            onChange={handleChange}
-            defaultValue={values.price ? values.price : "No Data"}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField
-            id="productName"
-            label="Product Name"
-            defaultValue={
-              values.productName ? values.productName : "No Data"
-            }
-            onChange={handleChange}
-          />
-        </Box>
-      </Box>
+        />
+        <TextField
+          id="type"
+          label="Type"
+          onChange={handleChange}
+          defaultValue={values.type ? values.type : "No Data"}
+        />
+        <TextField
+          id="color"
+          label="Color"
+          defaultValue={values.color ? values.color : "No Data"}
+          onChange={handleChange}
+        />
+        <TextField
+          id="discount"
+          label="Discount"
+          defaultValue={values.discount ? values.discount : "No Data"}
+          onChange={handleChange}
+        />
+      </GridContainer>
       <TextField
         id="description"
         label="Description"
@@ -195,36 +145,81 @@ const Update = (product) => {
         multiline
         maxRows={4}
       />
+      <Divider>Stock</Divider>
+      <Box
+        sx={{
+          display: "flex",
+          maxWidth: "100%",
+          gap: 2,
+          justifyContent: "center",
+        }}
+        >
+        {Object.keys(values.stock).map((size) => (
+            <TextField
+            id={size}
+            label={size.toUpperCase()}
+            type="number"
+            defaultValue={
+              values.stock[size] ? values.stock[size] : "No Data"
+            }
+            onChange={handleStockChange}
+          />
+        ))}
+      </Box>
       <Divider>Display Photos</Divider>
-      <PhotosContainer>
-        {values.imgDisplay.map((img, index) => (
-          <PhotoDiv>
-            <Image src={img} />
-            <TextField
-              id={`imgDisplay`}
-              index={index}
-              label={`Display Photo ${index}`}
-              defaultValue={img}
-              onChange={handleImageChange}
-            />
-          </PhotoDiv>
-        ))}
-      </PhotosContainer>
+      <center>
+        <IconButton onClick={() => addPhoto("imgDisplay")}>
+          <AddIcon />
+        </IconButton>
+        <br />
+        <br />
+        <GridContainer>
+          {values.imgDisplay.map((img, index) => (
+            <PhotoDiv>
+              <Image src={img} />
+              <IconButton
+                onClick={() => removePhoto("imgDisplay", index)}
+              >
+                <RemoveIcon />
+              </IconButton>
+              <TextField
+                id={`imgDisplay`}
+                index={index}
+                label={`Display Photo ${index}`}
+                defaultValue={img}
+                onChange={handleImageChange}
+              />
+            </PhotoDiv>
+          ))}
+        </GridContainer>
+      </center>
       <Divider>Details Photos</Divider>
-      <PhotosContainer>
-        {values.imgDetails.map((img, index) => (
-          <PhotoDiv>
-            <Image src={img} />
-            <TextField
-              id={`imgDisplay`}
-              index={index}
-              label={`Details Photo ${index}`}
-              defaultValue={img}
-              onChange={handleImageChange}
-            />
-          </PhotoDiv>
-        ))}
-      </PhotosContainer>
+      <center>
+        <IconButton onClick={() => addPhoto("imgDetails")}>
+          <AddIcon />
+        </IconButton>
+        <br />
+        <br />
+        <GridContainer>
+          {values.imgDetails.map((img, index) => (
+            <PhotoDiv>
+              <Image src={img} />
+              <IconButton
+                onClick={() => removePhoto("imgDetails", index)}
+              >
+                <RemoveIcon />
+              </IconButton>
+              <TextField
+                id={`imgDisplay`}
+                index={index}
+                label={`Details Photo ${index}`}
+                defaultValue={img}
+                onChange={handleImageChange}
+              />
+            </PhotoDiv>
+          ))}
+        </GridContainer>
+      </center>
       <Button variant="contained" onClick={handleSubmit}>
         Update <CircularProgress />{" "}
       </Button>

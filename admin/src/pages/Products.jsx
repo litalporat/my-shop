@@ -4,7 +4,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import styled, { css } from "styled-components";
 import BtnGroup from "../components/New/BtnGroup";
 import { Button } from "@mui/material";
-import deleteProduct from "../Hooks/ProductCrud";
 import Popup from "../components/New/Popup";
 import AddIcon from "@mui/icons-material/Add";
 import Create from "../components/Forms/Create";
@@ -19,13 +18,14 @@ const Table = styled.div`
   height: 75%;
 `;
 
-function getFullName(params) {
-  console.log(params);
-}
-
 const Products = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
+  const [isChange, setIsChange] = useState(false);
+
+  const toggleChange = () => {
+    setIsChange(!isChange);
+  };
 
   const columnsTemp = [
     { field: "id", headerName: "ID", width: 250 },
@@ -46,14 +46,14 @@ const Products = () => {
       type: "actions",
       width: 300,
       renderCell: (params) => (
-        <BtnGroup product={params.row.product} />
+        <BtnGroup
+          product={params.row.product}
+          deleteAction={params.row.deleteAction}
+          toggleChange={toggleChange}
+        />
       ),
     },
   ];
-
-  // const updateProduct = (product) => {
-  //   console.log(product.displayName);
-  // };
 
   // Getting the data from the DB.
   useEffect(() => {
@@ -67,9 +67,8 @@ const Products = () => {
         // handle error
         console.log(error);
       });
-  }, []);
+  }, [isChange]);
 
-  deleteProduct();
   useEffect(() => {
     if (data) {
       const temp = [];
@@ -98,7 +97,7 @@ const Products = () => {
             </Button>
           }
         >
-          <Create />
+          <Create toggleChange={toggleChange} />
         </Popup>
         <DataGrid
           rows={rows}
