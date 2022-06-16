@@ -66,6 +66,7 @@ const ProductPage = (props) => {
     }
   }, [filters]);
 
+  // Sets the view if color filter or price range changes
   useEffect(() => {
     if (priceData.length != 0 && colorData.length != 0)
       setViewData(colorData.filter((x) => priceData.includes(x)));
