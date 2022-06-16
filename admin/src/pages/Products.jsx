@@ -4,51 +4,67 @@ import { DataGrid } from "@mui/x-data-grid";
 import styled, { css } from "styled-components";
 import BtnGroup from "../components/New/BtnGroup";
 import { Button } from "@mui/material";
+import Popup from "../components/New/Popup";
+import AddIcon from "@mui/icons-material/Add";
+import Create from "../components/Forms/Create";
 
 const Body = styled.div``;
+const Title = styled.h1`
+  font-size: 3rem;
+  letter-spacing: 5px;
+  margin: 10px;
+`;
 const Header = styled.div`
-  width: 100%;
-  height: 30vh;
+  background: #ffffffa1;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 5px 8px 0px rgb(0 0 0 / 14%),
+    0px 1px 14px 0px rgb(0 0 0 / 12%);
 `;
 const Table = styled.div`
   width: 100%;
-  height: 50vh;
+  height: 80%;
 `;
-
-function getFullName(params) {
-  console.log(params);
-}
-
-const columnsTemp = [
-  { field: "id", headerName: "ID", width: 150 },
-  {
-    field: "productName",
-    headerName: "Product",
-    width: 150,
-  },
-  {
-    field: "price",
-    headerName: "Price",
-    width: 100,
-    editable: true,
-    type: "number",
-  },
-  {
-    field: "actions",
-    headerName: "Actions",
-    type: "actions",
-    width: 300,
-    renderCell: (params) => <BtnGroup update={params.row.update} product={params.row}/>,
-  },
-];
 
 const Products = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
+  const [isChange, setIsChange] = useState(false);
 
-  const updateProduct = (product) => {
-    console.log(product.displayName);
+  const toggleChange = () => {
+    setIsChange(!isChange);
   };
+
+  const columnsTemp = [
+    { field: "id", headerName: "ID", width: 220 },
+    {
+      field: "productName",
+      headerName: "Product",
+      width: 200,
+    },
+    {
+      field: "price",
+      headerName: "Price",
+      width: "100",
+    },
+    {
+      field: "actions",
+      headerName: "Actions",
+      type: "actions",
+      width: 100,
+      renderCell: (params) => (
+        <BtnGroup
+          product={params.row.product}
+          deleteAction={params.row.deleteAction}
+          toggleChange={toggleChange}
+        />
+      ),
+    },
+  ];
 
   // Getting the data from the DB.
   useEffect(() => {
@@ -62,7 +78,7 @@ const Products = () => {
         // handle error
         console.log(error);
       });
-  }, []);
+  }, [isChange]);
 
   useEffect(() => {
     if (data) {
@@ -70,10 +86,11 @@ const Products = () => {
       data.map((obj, index) => {
         temp.push({
           id: obj._id,
-          mainPhoto: obj.images.display[0],
+          mainPhoto: obj.imgDisplay[0],
           productName: obj.displayName,
           price: obj.price,
-          description:obj.description,
+          description: obj.description,
+          product: obj,
         });
       });
       setRows(temp);
@@ -82,18 +99,37 @@ const Products = () => {
 
   return (
     <Body>
-      <Header></Header>
+      <Header>
+        <Title>Products Manager</Title>
+      </Header>
       <Table>
+        <Popup
+          button={
+            <Button color="success" startIcon={<AddIcon />}>
+              New Product
+            </Button>
+          }
+        >
+          <Create toggleChange={toggleChange} />
+        </Popup>
         <DataGrid
           rows={rows}
           columns={columnsTemp}
-          pageSize={10}
-          rowsPerPageOptions={[5]}
+          autoPageSize
           checkboxSelection
           disableSelectionOnClick
+          density={""}
+          sx={{
+            boxShadow: 5,
+            padding: 1,
+            borderRadius: "10px",
+            background: "#ffffffa1",
+            "& .MuiDataGrid-cell:hover": {
+              color: "primary",
+            },
+          }}
         />
       </Table>
-      {/* {data && data.map((obj) => <div>{obj.displayName}</div>)} */}
     </Body>
   );
 };

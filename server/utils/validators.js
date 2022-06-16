@@ -15,12 +15,12 @@ module.exports = function() {
             imgDisplay: Joi.array().required(),
             imgDetails: Joi.array().required(),
             stock: Joi.object().keys({
-                xs: Joi.string(),
-                s: Joi.string(),
-                m: Joi.string(),
-                l: Joi.string(),
-                xl: Joi.string(),
-                os: Joi.string()
+                xs: Joi.number(),
+                s: Joi.number(),
+                m: Joi.number(),
+                l: Joi.number(),
+                xl: Joi.number(),
+                os: Joi.number()
             }).required(),
             color: Joi.array().items(Joi.string()).required(),
             discount: Joi.number(),

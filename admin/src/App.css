@@ -44,6 +44,9 @@
   grid-template-columns: 15rem auto 15rem;
   overflow: hidden;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 @media screen and (max-width: 1200px) {
   .AppGlass{

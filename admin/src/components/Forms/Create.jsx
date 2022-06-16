@@ -1,15 +1,10 @@
-import {
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  TextField,
-} from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 import React from "react";
 import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import createProduct from "../../Hooks/ProductCrud";
+import { IconButton, CircularProgress } from "@mui/material";
+import { Box, Button, Divider, TextField } from "@mui/material";
 import axios from "axios";
 
 const Image = styled.img`
@@ -21,6 +16,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   gap: 10px;
+  width: 98%;
 `;
 
 const PhotoDiv = styled.div`
@@ -30,39 +26,38 @@ const PhotoDiv = styled.div`
   align-items: center;
 `;
 
-const Update = (props) => {
+const Create = (props) => {
   const [values, setValues] = React.useState({
-    displayName: props.product.displayName,
-    price: props.product.price,
-    color: props.product.color,
-    type: props.product.type,
-    discount: props.product.discount,
-    description: props.product.description,
-    imgDisplay: props.product.imgDisplay,
-    imgDetails: props.product.imgDetails,
-    stock : {xs: 0, s: 0, m: 0, l: 0, os: 0 , ...props.product.stock},
+    displayName: " ",
+    color: ["red"],
+    type: " ",
+    discount: 0,
+    price: " ",
+    description: " ",
+    stock: { xs: 0, s: 0, m: 0, l: 0, os: 0 },
+    imgDisplay: [],
+    imgDetails: [],
   });
-
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("You have submitted the form.");
     console.table(values);
-    axios.patch(`http://localhost:5000/api/products/${props.product._id}`, values);
+    // createProduct(values);
+    axios.post(`http://localhost:5000/api/products/`, values);
     props.toggleChange();
   };
-
   const handleChange = (event) => {
     setValues({ ...values, [event.target.id]: event.target.value });
   };
   const handleStockChange = (event) => {
-    let temp = { ...values.stock };
-    temp[event.target.id] = Number(event.target.value);
-    setValues({ ...values, stock: temp });
-    console.log(values.stock);
-  };
+    let temp = {...values.stock}
+    temp[event.target.id] = Number(event.target.value)
+    setValues({ ...values, "stock" : temp });
+    console.log(values.stock)
+  }
   const handleImageChange = (event) => {
     let temp = [...values[event.target.id]];
-    temp[event.target.alt] = event.target.value;
+    temp[event.target.alt] = event.target.value
     setValues({ ...values, [event.target.id]: temp });
   };
   const addPhoto = (id) => {
@@ -88,63 +83,40 @@ const Update = (props) => {
       }}
     >
       <Divider>Product Details</Divider>
-      <TextField
-        id="outlined-read-only-input"
-        label="Product ID"
-        defaultValue={props.product._id}
-        InputProps={{
-          readOnly: true,
-        }}
-      />
-      <GridContainer>
+      <>
+        <GridContainer>
+          <TextField
+            id="displayName"
+            label="Product Name"
+            onChange={handleChange}
+          />
+          <TextField id="type" label="Type" onChange={handleChange} />
+          <TextField
+            id="color"
+            label="Color"
+            onChange={handleChange}
+          />
+          <TextField
+            id="discount"
+            label="Discount"
+            onChange={handleChange}
+          />
+          <TextField
+            id="price"
+            label="Price"
+            type="number"
+            onChange={handleChange}
+          />
+        </GridContainer>
         <TextField
-          id="displayName"
-          label="Product Name"
-          defaultValue={
-            values.displayName ? values.displayName : "No Data"
-          }
+          id="description"
+          label="Description"
           onChange={handleChange}
+          fullWidth
+          multiline
+          maxRows={4}
         />
-        <TextField
-          id="price"
-          label="Price"
-          type="number"
-          onChange={handleChange}
-          defaultValue={values.price ? values.price : "No Data"}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-          id="type"
-          label="Type"
-          onChange={handleChange}
-          defaultValue={values.type ? values.type : "No Data"}
-        />
-        <TextField
-          id="color"
-          label="Color"
-          defaultValue={values.color ? values.color : "No Data"}
-          onChange={handleChange}
-        />
-        <TextField
-          id="discount"
-          label="Discount"
-          defaultValue={values.discount ? values.discount : "No Data"}
-          onChange={handleChange}
-        />
-      </GridContainer>
-      <TextField
-        id="description"
-        label="Description"
-        defaultValue={
-          values.description ? values.description : "No Data"
-        }
-        onChange={handleChange}
-        fullWidth
-        multiline
-        maxRows={4}
-      />
+      </>
       <Divider>Stock</Divider>
       <Box
         sx={{
@@ -159,9 +131,6 @@ const Update = (props) => {
             id={size}
             label={size.toUpperCase()}
             type="number"
-            defaultValue={
-              values.stock[size] ? values.stock[size] : "No Data"
-            }
             onChange={handleStockChange}
           />
         ))}
@@ -171,12 +140,10 @@ const Update = (props) => {
         <IconButton onClick={() => addPhoto("imgDisplay")}>
           <AddIcon />
         </IconButton>
-        <br />
-        <br />
         <GridContainer>
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} />
+              <Image src={img} index={index} />
               <IconButton
                 onClick={() => removePhoto("imgDisplay", index)}
               >
@@ -184,7 +151,7 @@ const Update = (props) => {
               </IconButton>
               <TextField
                 id={`imgDisplay`}
-                index={index}
+                inputProps={{alt : index}}
                 label={`Display Photo ${index}`}
                 defaultValue={img}
                 onChange={handleImageChange}
@@ -198,22 +165,21 @@ const Update = (props) => {
         <IconButton onClick={() => addPhoto("imgDetails")}>
           <AddIcon />
         </IconButton>
-        <br />
-        <br />
         <GridContainer>
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} />
+              <Image src={img} index={index} />
               <IconButton
                 onClick={() => removePhoto("imgDetails", index)}
               >
                 <RemoveIcon />
               </IconButton>
               <TextField
-                id={`imgDisplay`}
-                index={index}
+                id={`imgDetails`}
+                inputProps={{alt : index}}
                 label={`Details Photo ${index}`}
                 defaultValue={img}
+                type={"url"}
                 onChange={handleImageChange}
               />
             </PhotoDiv>
@@ -221,10 +187,10 @@ const Update = (props) => {
         </GridContainer>
       </center>
       <Button variant="contained" onClick={handleSubmit}>
-        Update <CircularProgress />{" "}
+        Create <CircularProgress />
       </Button>
     </Box>
   );
 };
 
-export default Update;
+export default Create;

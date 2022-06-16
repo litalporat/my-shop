@@ -2,24 +2,43 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import Popup from "./Popup";
 import Update from "../Forms/Update";
-
-//onClick={props.update}
+import axios from "axios";
+import { Alert, Fab, IconButton } from "@mui/material";
 
 const BtnGroup = (props) => {
+  const deleteProduct = (id) => {
+    alert("This Product Is Deleted");
+    axios.delete(`http://localhost:5000/api/products/${id}`);
+    props.toggleChange();
+  };
+
   return (
     <ButtonGroup
       variant="outlined"
       aria-label="outlined primary button group"
     >
-      <Popup button={<Button>View</Button>} />
-      <Popup button={<Button color="success">Update</Button>}>
-        <Update product={props.product}/>
+      <Popup
+        button={
+          <Fab color="primary" aria-label="edit" size={"small"}>
+            <EditIcon />
+          </Fab>
+        }
+      >
+        <Update
+          product={props.product}
+          toggleChange={props.toggleChange}
+        />
       </Popup>
-      <Button color="error" startIcon={<DeleteIcon />}>
-        Delete
-      </Button>
+      <Fab
+        color="error"
+        size={"small"}
+        onClick={() => deleteProduct(props.product._id)}
+      >
+        <DeleteIcon />
+      </Fab>
     </ButtonGroup>
   );
 };
