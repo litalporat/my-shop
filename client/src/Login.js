@@ -1,14 +1,15 @@
 import React from 'react';
 import { useRef, useState, useEffect, useContext} from 'react';
 import AuthContext from "./context/AuthProvider";
-import axios from './api/axios';
+import axios from 'axios';
 
-const LOGIN_URL = '/auth';
+const LOGIN_URL = 'http://localhost:5000/api/auth/login';
 
-const Login = () => {
+const Login = (props) => {
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
+    
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -26,24 +27,24 @@ const Login = () => {
         e.preventDefault();
 
         try{
-            const response = await axios.post(LOGIN_URL, JSON.stringify({user, pwd}),{
-                headers: {'Content-Type': 'application/json'},
-                withCredentials: true
+            const response = await axios.post(LOGIN_URL, {email: user, password: pwd},{
+                headers: {'Content-Type': 'application/json'}
             }
             );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response)); זה כל המידע, יכול להיות מאוד גדול אז בינתיים בהערה
+            console.log(response);
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
             setAuth({user, pwd, roles, accessToken});
             setUser('');
             setPwd('');
-            setSuccess(true);   
+            setSuccess(true);
+            window.localStorage.setItem("key", accessToken);
+            props.setIsLogin(true);
         }catch (err){
             if (!err?.response){
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 400){ // 400 זה קוד שנוהג לציין שהאינפורמציה הצפויה לא התקבלה
-                setErrMsg('Missing Email or Password');
+            } else if (err.response?.status === 400){
+                setErrMsg('Bad Request');
             } else if (err.response?.status === 401){
                 setErrMsg('Unauthorized');
             } else {
@@ -59,9 +60,9 @@ const Login = () => {
                 <section>
                     <h1> You are logged in!</h1>
                     <br />
-                    <p>
+                    {/* <p>
                         <a href = "#">Go to Home</a>
-                    </p>
+                    </p> */}
                 </section>
             ) : (
 
@@ -79,6 +80,7 @@ const Login = () => {
                     value = {user}  /* אולי להעיף בשביל להשאיר שדה מלא */
                     required
                 />
+                <br />
                 <label htmlFor = "password">Password:</label>
                 <input
                     type = "password"
@@ -88,6 +90,8 @@ const Login = () => {
                     value = {pwd}  /* אולי להעיף בשביל להשאיר שדה מלא */
                     //required
                 />
+                                <br />
+
                 <button>Sign In</button>
             </form>
             {/* <p>
