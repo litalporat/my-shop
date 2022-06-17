@@ -4,22 +4,20 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Popup from "./Popup";
-import Update from "../Forms/Update";
+import UpdateProduct from "../Forms/Product/Update";
+import UpdateLocation from "../Forms/Location/Update";
 import axios from "axios";
 import { Alert, Fab, IconButton } from "@mui/material";
 
 const BtnGroup = (props) => {
-  const deleteProduct = (id) => {
+  const deleteFunc = (what, id) => {
     alert("This Product Is Deleted");
-    axios.delete(`http://localhost:5000/api/products/${id}`);
+    axios.delete(`http://localhost:5000/api/${what}/${id}`);
     props.toggleChange();
   };
 
   return (
-    <ButtonGroup
-      variant="outlined"
-      aria-label="outlined primary button group"
-    >
+    <ButtonGroup variant="outlined" aria-label="outlined primary button group">
       <Popup
         button={
           <Fab color="primary" aria-label="edit" size={"small"}>
@@ -27,15 +25,23 @@ const BtnGroup = (props) => {
           </Fab>
         }
       >
-        <Update
-          product={props.product}
-          toggleChange={props.toggleChange}
-        />
+        {props.what == "products" && (
+          <UpdateProduct
+            product={props.item}
+            toggleChange={props.toggleChange}
+          />
+        )}
+        {props.what == "locations" && (
+          <UpdateLocation
+            location={props.item}
+            toggleChange={props.toggleChange}
+          />
+        )}
       </Popup>
       <Fab
         color="error"
         size={"small"}
-        onClick={() => deleteProduct(props.product._id)}
+        onClick={() => deleteFunc(props.what, props.item._id)}
       >
         <DeleteIcon />
       </Fab>
