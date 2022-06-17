@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import createProduct from "../../../Hooks/ProductCrud";
+import createProduct from "../../Hooks/ProductCrud";
 import { IconButton, CircularProgress } from "@mui/material";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import axios from "axios";
-import Types from "./Types";
+import Types from "./Product/Types";
 
 const Image = styled.img`
   width: 14rem;
@@ -150,7 +150,9 @@ const Create = (props) => {
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDisplay", index)}>
+              <IconButton
+                onClick={() => removePhoto("imgDisplay", index)}
+              >
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -173,7 +175,9 @@ const Create = (props) => {
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDetails", index)}>
+              <IconButton
+                onClick={() => removePhoto("imgDetails", index)}
+              >
                 <RemoveIcon />
               </IconButton>
               <TextField
