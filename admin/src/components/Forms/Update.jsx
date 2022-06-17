@@ -47,7 +47,7 @@ const Update = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("You have submitted the form.");
-    console.table(values);
+    console.log(values.imgDisplay);
     axios.patch(
       `http://localhost:5000/api/products/${props.product._id}`,
       values
@@ -62,13 +62,13 @@ const Update = (props) => {
     let temp = { ...values.stock };
     temp[event.target.id] = Number(event.target.value);
     setValues({ ...values, stock: temp });
-    console.log(values.stock);
   };
   const handleTypeChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
   const handleImageChange = (event) => {
     let temp = [...values[event.target.id]];
+    console.log(event.target)
     temp[event.target.alt] = event.target.value;
     setValues({ ...values, [event.target.id]: temp });
   };
@@ -184,7 +184,7 @@ const Update = (props) => {
         <GridContainer>
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} />
+              <Image src={img} index={index}/>
               <IconButton
                 onClick={() => removePhoto("imgDisplay", index)}
               >
@@ -193,6 +193,7 @@ const Update = (props) => {
               <TextField
                 id={`imgDisplay`}
                 index={index}
+                inputProps={{ alt: index }}
                 label={`Display Photo ${index}`}
                 defaultValue={img}
                 onChange={handleImageChange}
@@ -211,7 +212,7 @@ const Update = (props) => {
         <GridContainer>
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} />
+              <Image src={img} index={index}/>
               <IconButton
                 onClick={() => removePhoto("imgDetails", index)}
               >
@@ -220,6 +221,7 @@ const Update = (props) => {
               <TextField
                 id={`imgDisplay`}
                 index={index}
+                inputProps={{ alt: index }}
                 label={`Details Photo ${index}`}
                 defaultValue={img}
                 onChange={handleImageChange}
