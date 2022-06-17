@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import Create from "../components/Forms/Location/Create";
 import axios from "axios";
+import BtnGroup from "../components/New/BtnGroup";
 import { DataGrid } from "@mui/x-data-grid";
 import styled, { css } from "styled-components";
-import BtnGroup from "../components/New/BtnGroup";
 import { Button } from "@mui/material";
 import Popup from "../components/New/Popup";
-import AddIcon from "@mui/icons-material/Add";
-import Create from "../components/Forms/Product/Create";
-
 const Body = styled.div``;
 const Title = styled.h1`
   font-size: 3rem;
@@ -28,11 +27,8 @@ const Table = styled.div`
   width: 100%;
   height: 80%;
 `;
-const Image = styled.img`
-  width: 3rem;
-`;
 
-const Products = () => {
+const Locations = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
   const [isChange, setIsChange] = useState(false);
@@ -41,35 +37,22 @@ const Products = () => {
     setIsChange(!isChange);
   };
 
-  const columnsTemp = [
+  const columns = [
     { field: "id", headerName: "ID", width: 220 },
     {
-      field: "mainPhoto",
-      headerName: "Photo",
-      width: 80,
-      renderCell: (params) => (
-        <Image src={params.row.mainPhoto} />
-      )
-    },
-    {
-      field: "productName",
-      headerName: "Product",
+      field: "name",
+      headerName: "Name",
       width: 200,
     },
     {
-      field: "price",
-      headerName: "Price",
-      width: 100,
+      field: "lat",
+      headerName: "Latitude",
+      width: "150",
     },
     {
-      field: "type",
-      headerName: "Type",
-      width: 100,
-    },
-    {
-      field: "color",
-      headerName: "Color",
-      width: 120,
+      field: "lng",
+      headerName: "longitude",
+      width: "150",
     },
     {
       field: "actions",
@@ -78,19 +61,18 @@ const Products = () => {
       width: 100,
       renderCell: (params) => (
         <BtnGroup
-          item={params.row.product}
+          item={params.row.location}
           deleteAction={params.row.deleteAction}
           toggleChange={toggleChange}
-          what="products"
+          what="locations"
         />
       ),
     },
   ];
 
-  // Getting the data from the DB.
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("http://localhost:5000/api/locations")
       .then(function (response) {
         // handle success
         setData(response.data);
@@ -107,12 +89,11 @@ const Products = () => {
       data.map((obj, index) => {
         temp.push({
           id: obj._id,
-          mainPhoto: obj.imgDisplay[0],
-          productName: obj.displayName,
-          price: obj.price,
-          type: obj.type,
-          color: obj.color,
-          product: obj,
+          name: obj.name,
+          lat: obj.lat,
+          lng: obj.lng,
+          __v: obj.__v,
+          location: obj,
         });
       });
       setRows(temp);
@@ -122,13 +103,13 @@ const Products = () => {
   return (
     <Body>
       <Header>
-        <Title>Products Manager</Title>
+        <Title>Locations Manager</Title>
       </Header>
       <Table>
         <Popup
           button={
             <Button color="success" startIcon={<AddIcon />}>
-              New Product
+              New Location
             </Button>
           }
         >
@@ -136,7 +117,7 @@ const Products = () => {
         </Popup>
         <DataGrid
           rows={rows}
-          columns={columnsTemp}
+          columns={columns}
           autoPageSize
           checkboxSelection
           disableSelectionOnClick
@@ -156,4 +137,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Locations;
