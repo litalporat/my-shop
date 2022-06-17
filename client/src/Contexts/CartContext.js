@@ -32,10 +32,12 @@ export function CartProvider({ children }) {
     else {
       const tempProducts = [];
       products.map((prod) => {
-        if (prod._id != product._id) tempProducts.push(prod);
+        if (!(prod._id == product._id && prod.size == product.size))
+          tempProducts.push(prod);
       });
       setProducts(tempProducts);
     }
+    console.log(products);
   };
 
   return (

@@ -73,17 +73,17 @@ const QuantityDisplay = styled.input`
 `;
 
 const QuantityBtn = (props) => {
-  const [quantity, setQuantity] = useState(props.quantity);
+  const quantity = props.quantity;
   const { addProduct, removeProduct } = useContext(CartContext);
 
   const decrement = () => {
     removeProduct(props.product, false);
-    setQuantity(quantity - 1);
+    quantity = props.product.quantity;
   };
 
   const increment = () => {
     addProduct(props.product);
-    setQuantity(quantity + 1);
+    quantity = props.product.quantity;
   };
 
   return (

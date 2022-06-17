@@ -33,9 +33,11 @@ const CartList = () => {
           )
         )
       )}
-      <Link to={"/cart"}>
-        <ArrowBtn content={"to checkout"} />
-      </Link>
+      {products.length > 0 && (
+        <Link to={"/cart"}>
+          <ArrowBtn content={"to checkout"} />
+        </Link>
+      )}
     </Container>
   );
 };

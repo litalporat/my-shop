@@ -43,7 +43,7 @@ const ListViewProduct = (props) => {
         {/* <Text>
           Price: {(props.product.price * rates[currency]).toFixed(2)} {currency}
         </Text> */}
-        <Text>{props.product.size.toUpperCase()}</Text>
+        {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>
       <IconList>
         <IconBtn onClick={() => props.delete(props.product, true)}>

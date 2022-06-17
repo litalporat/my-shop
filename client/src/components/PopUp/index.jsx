@@ -25,6 +25,15 @@ const PhotoDiv = styled.div`
 const Text = styled.p`
   padding: 10px;
 `;
+
+const Label = styled.label`
+  color: black;
+`;
+
+const P = styled.p`
+  color: black;
+`;
+
 const Details = styled.div`
   display: flex;
   height: 100%;
@@ -97,10 +106,10 @@ const Popup = (props) => {
         </div>
       </PhotoDiv>
       <Details>
-        <label htmlFor=""> Descriptons:</label>
-        <p className="text text-small">{props.product.description}</p>
-        <label htmlFor=""> Price:</label>
-        <p className="text">{"₪" + props.product.price}</p>
+        <Label htmlFor="">Descriptons:</Label>
+        <P className="text text-small">{props.product.description}</P>
+        <Label htmlFor=""> Price:</Label>
+        <P className="text">{"₪" + props.product.price}</P>
         <Sizes stock={props.product.stock} onClick={setSize} />
         <ArrowBtn content={"add to cart"} onClick={handleAddToCart} />
         {error && (
