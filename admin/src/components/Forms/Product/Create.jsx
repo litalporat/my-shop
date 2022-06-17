@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import createProduct from "../../Hooks/ProductCrud";
+import createProduct from "../../../Hooks/ProductCrud";
 import { IconButton, CircularProgress } from "@mui/material";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import axios from "axios";
@@ -50,14 +50,14 @@ const Create = (props) => {
     setValues({ ...values, [event.target.id]: event.target.value });
   };
   const handleStockChange = (event) => {
-    let temp = {...values.stock}
-    temp[event.target.id] = Number(event.target.value)
-    setValues({ ...values, "stock" : temp });
-    console.log(values.stock)
-  }
+    let temp = { ...values.stock };
+    temp[event.target.id] = Number(event.target.value);
+    setValues({ ...values, stock: temp });
+    console.log(values.stock);
+  };
   const handleImageChange = (event) => {
     let temp = [...values[event.target.id]];
-    temp[event.target.alt] = event.target.value
+    temp[event.target.alt] = event.target.value;
     setValues({ ...values, [event.target.id]: temp });
   };
   const addPhoto = (id) => {
@@ -91,16 +91,8 @@ const Create = (props) => {
             onChange={handleChange}
           />
           <TextField id="type" label="Type" onChange={handleChange} />
-          <TextField
-            id="color"
-            label="Color"
-            onChange={handleChange}
-          />
-          <TextField
-            id="discount"
-            label="Discount"
-            onChange={handleChange}
-          />
+          <TextField id="color" label="Color" onChange={handleChange} />
+          <TextField id="discount" label="Discount" onChange={handleChange} />
           <TextField
             id="price"
             label="Price"
@@ -125,9 +117,9 @@ const Create = (props) => {
           gap: 2,
           justifyContent: "center",
         }}
-        >
+      >
         {Object.keys(values.stock).map((size) => (
-            <TextField
+          <TextField
             id={size}
             label={size.toUpperCase()}
             type="number"
@@ -144,14 +136,12 @@ const Create = (props) => {
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton
-                onClick={() => removePhoto("imgDisplay", index)}
-              >
+              <IconButton onClick={() => removePhoto("imgDisplay", index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
                 id={`imgDisplay`}
-                inputProps={{alt : index}}
+                inputProps={{ alt: index }}
                 label={`Display Photo ${index}`}
                 defaultValue={img}
                 onChange={handleImageChange}
@@ -169,14 +159,12 @@ const Create = (props) => {
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton
-                onClick={() => removePhoto("imgDetails", index)}
-              >
+              <IconButton onClick={() => removePhoto("imgDetails", index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
                 id={`imgDetails`}
-                inputProps={{alt : index}}
+                inputProps={{ alt: index }}
                 label={`Details Photo ${index}`}
                 defaultValue={img}
                 type={"url"}
