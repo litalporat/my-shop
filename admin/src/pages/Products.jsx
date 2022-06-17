@@ -29,6 +29,9 @@ const Table = styled.div`
   width: 100%;
   height: 80%;
 `;
+const Image = styled.img`
+  width: 3rem;
+`;
 
 const Products = () => {
   const [data, setData] = useState();
@@ -42,6 +45,14 @@ const Products = () => {
   const columnsTemp = [
     { field: "id", headerName: "ID", width: 220 },
     {
+      field: "mainPhoto",
+      headerName: "Photo",
+      width: 80,
+      renderCell: (params) => (
+        <Image src={params.row.mainPhoto} />
+      )
+    },
+    {
       field: "productName",
       headerName: "Product",
       width: 200,
@@ -49,7 +60,17 @@ const Products = () => {
     {
       field: "price",
       headerName: "Price",
-      width: "100",
+      width: 100,
+    },
+    {
+      field: "type",
+      headerName: "Type",
+      width: 100,
+    },
+    {
+      field: "color",
+      headerName: "Color",
+      width: 120,
     },
     {
       field: "actions",
@@ -89,7 +110,8 @@ const Products = () => {
           mainPhoto: obj.imgDisplay[0],
           productName: obj.displayName,
           price: obj.price,
-          description: obj.description,
+          type: obj.type,
+          color: obj.color,
           product: obj,
         });
       });

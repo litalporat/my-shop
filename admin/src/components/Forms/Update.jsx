@@ -11,6 +11,7 @@ import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import axios from "axios";
+import Types from "./Types";
 
 const Image = styled.img`
   width: 14rem;
@@ -40,14 +41,17 @@ const Update = (props) => {
     description: props.product.description,
     imgDisplay: props.product.imgDisplay,
     imgDetails: props.product.imgDetails,
-    stock : {xs: 0, s: 0, m: 0, l: 0, os: 0 , ...props.product.stock},
+    stock: { xs: 0, s: 0, m: 0, l: 0, os: 0, ...props.product.stock },
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("You have submitted the form.");
     console.table(values);
-    axios.patch(`http://localhost:5000/api/products/${props.product._id}`, values);
+    axios.patch(
+      `http://localhost:5000/api/products/${props.product._id}`,
+      values
+    );
     props.toggleChange();
   };
 
@@ -59,6 +63,9 @@ const Update = (props) => {
     temp[event.target.id] = Number(event.target.value);
     setValues({ ...values, stock: temp });
     console.log(values.stock);
+  };
+  const handleTypeChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
   };
   const handleImageChange = (event) => {
     let temp = [...values[event.target.id]];
@@ -115,6 +122,7 @@ const Update = (props) => {
             shrink: true,
           }}
         />
+        <Types onChange={handleTypeChange} value={values.type} />
         <TextField
           id="type"
           label="Type"
@@ -153,9 +161,9 @@ const Update = (props) => {
           gap: 2,
           justifyContent: "center",
         }}
-        >
+      >
         {Object.keys(values.stock).map((size) => (
-            <TextField
+          <TextField
             id={size}
             label={size.toUpperCase()}
             type="number"
