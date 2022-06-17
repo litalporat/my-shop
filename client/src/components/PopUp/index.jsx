@@ -47,12 +47,37 @@ const BtnsList = styled.div`
 `;
 
 const Popup = (props) => {
-  const [viewPhoto, setViewPhoto] = useState(
-    props.product.imgDetails[0]
-  );
+  const [viewPhoto, setViewPhoto] = useState(props.product.imgDetails[0]);
+  const [chosenSize, setChosenSize] = useState();
+  const [error, setError] = useState(false);
 
   const handleClickPhoto = (e) => {
     setViewPhoto(e.target.src);
+  };
+
+  const setSize = (size, stock) => {
+    if (stock > 0) {
+      console.log("setting size");
+      console.log(size);
+      setError(false);
+      setChosenSize(size);
+    } else {
+      console.log("setting error");
+      setError(true);
+      setChosenSize();
+    }
+  };
+
+  const handleAddToCart = () => {
+    console.log("in handle cart");
+    if (chosenSize) {
+      console.log("error = false  && chosen size true");
+      props.product.size = chosenSize;
+      props.onCart(props.product);
+    } else {
+      console.log("error is true or size is undefined ");
+      setError(true);
+    }
   };
 
   return (
@@ -76,8 +101,11 @@ const Popup = (props) => {
         <p className="text text-small">{props.product.description}</p>
         <label htmlFor=""> Price:</label>
         <p className="text">{"₪" + props.product.price}</p>
-        <Sizes stock={props.product.stock} />
-        <ArrowBtn content={"add to cart"} />
+        <Sizes stock={props.product.stock} onClick={setSize} />
+        <ArrowBtn content={"add to cart"} onClick={handleAddToCart} />
+        {error && (
+          <p style={{ color: "red" }}>please choose an available size...</p>
+        )}
       </Details>
       <BtnsList>
         <IconBtn>

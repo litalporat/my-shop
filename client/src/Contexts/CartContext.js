@@ -1,3 +1,4 @@
+import { prototype } from "google-map-react";
 import { createContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
@@ -13,14 +14,28 @@ export function CartProvider({ children }) {
   }, [products]);
 
   const addProduct = (product) => {
-    const tempProducts = [...products, product];
-    setProducts(tempProducts);
+    const index = products.findIndex((prod) => {
+      return prod._id == product._id && prod.size == product.size;
+    });
+    if (index >= 0) {
+      products[index].quantity++;
+    } else {
+      const prod = Object.assign({}, product);
+      prod.quantity = 1;
+      console.log(prod);
+      const tempProducts = [...products, prod];
+      setProducts(tempProducts);
+    }
   };
-  const removeProduct = (product) => {
-    const tempProducts = [];
-    for (let i = 0; i < products.length; i++)
-      if (products[i]._id != product._id) tempProducts.push(products[i]);
-    setProducts(tempProducts);
+  const removeProduct = (product, all) => {
+    if (!all) product.quantity--;
+    else {
+      const tempProducts = [];
+      products.map((prod) => {
+        if (prod._id != product._id) tempProducts.push(prod);
+      });
+      setProducts(tempProducts);
+    }
   };
 
   return (

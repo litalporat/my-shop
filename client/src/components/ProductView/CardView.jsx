@@ -78,7 +78,7 @@ const Index = (props) => {
             size={"L"}
             button={<BasicBtn title={"View"} />}
           >
-            <Popup product={props.product} />
+            <Popup product={props.product} onCart={props.onCart} />
           </PopupBtn>
           <IconBtn
             onClick={() => handleHearts(props.product)}
