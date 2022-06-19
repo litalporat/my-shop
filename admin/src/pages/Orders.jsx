@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import Create from "../components/Forms/Location/Create";
-import axios from "axios";
-import BtnGroup from "../components/New/BtnGroup";
 import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
-import { Button } from "@mui/material";
+import BtnGroup from "../components/New/BtnGroup";
 import Popup from "../components/New/Popup";
 import "./pages.css";
-
-const Locations = () => {
+import AddIcon from "@mui/icons-material/Add";
+import { Button } from "@mui/material";
+import Create from "../components/Forms/Order/Create";
+const Orders = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
   const [isChange, setIsChange] = useState(false);
@@ -21,19 +22,54 @@ const Locations = () => {
   const columns = [
     { field: "id", headerName: "ID", width: 220 },
     {
-      field: "name",
-      headerName: "Name",
-      width: 200,
+      field: "firstName",
+      headerName: "First Name",
+      width: "100",
     },
     {
-      field: "lat",
-      headerName: "Latitude",
-      width: "150",
+      field: "lastName",
+      headerName: "Last Name",
+      width: "100",
     },
     {
-      field: "lng",
-      headerName: "longitude",
-      width: "150",
+      field: "country",
+      headerName: "Country",
+      width: "100",
+    },
+    {
+      field: "city",
+      headerName: "City",
+      width: "100",
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      width: "100",
+    },
+    {
+      field: "zipCode",
+      headerName: "Zip Code",
+      width: "100",
+    },
+    {
+      field: "cardNumber",
+      headerName: "Card Number",
+      width: "100",
+    },
+    {
+      field: "expirationDate",
+      headerName: "Expiration Date",
+      width: "100",
+    },
+    {
+      field: "cvcNumber",
+      headerName: "Cvc Number",
+      width: "100",
+    },
+    {
+      field: "customerId",
+      headerName: "Customer ID",
+      width: "100",
     },
     {
       field: "actions",
@@ -53,7 +89,7 @@ const Locations = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/locations")
+      .get("http://localhost:5000/api/orders")
       .then(function (response) {
         // handle success
         setData(response.data);
@@ -70,11 +106,16 @@ const Locations = () => {
       data.map((obj, index) => {
         temp.push({
           id: obj._id,
-          name: obj.name,
-          lat: obj.lat,
-          lng: obj.lng,
-          __v: obj.__v,
-          location: obj,
+          firstName: obj.firstName,
+          lastName: obj.lastName,
+          country: obj.country,
+          city: obj.city,
+          address: obj.address,
+          zipCode: obj.zipCode,
+          cardNumber: obj.cardNumber,
+          expirationDate: obj.expirationDate,
+          cvcNumber: obj.cvcNumber,
+          customerId: obj.customerId,
         });
       });
       setRows(temp);
@@ -84,13 +125,13 @@ const Locations = () => {
   return (
     <div>
       <div className="header">
-        <div className="title">Locations Manager</div>
-      </div>
+        <div className="title">Orders Manager</div>
+      </div>{" "}
       <div className="table">
         <Popup
           button={
             <Button color="success" startIcon={<AddIcon />}>
-              New Location
+              New Order
             </Button>
           }
         >
@@ -118,4 +159,4 @@ const Locations = () => {
   );
 };
 
-export default Locations;
+export default Orders;

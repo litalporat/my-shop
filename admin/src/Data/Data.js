@@ -6,6 +6,7 @@ import {
   UilPackage,
   UilChart,
   UilLocationPinAlt,
+  UilShoppingBag,
 } from "@iconscout/react-unicons";
 
 // Analytics Cards imports
@@ -30,9 +31,9 @@ export const SidebarData = [
     link: "/locations",
   },
   {
-    icon: UilUsersAlt,
-    heading: "Customers",
-    link: "/customers",
+    icon: UilShoppingBag,
+    heading: "Orders",
+    link: "/orders",
   },
   {
     icon: UilPackage,

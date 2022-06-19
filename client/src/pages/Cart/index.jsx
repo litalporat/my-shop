@@ -33,7 +33,7 @@ const CartPage = () => {
     cardNumber: 0,
     expirationDate: "",
     cvcNumber: 0,
-    id: 0,
+    customerId: 0,
   });
 
   const handleChange = (event) => {
@@ -145,7 +145,7 @@ const CartPage = () => {
               label="Cvc Number"
               onChange={handleChange}
             />
-            <TextField id="id" label="ID" onChange={handleChange} />
+            <TextField id="customerId" label="ID" onChange={handleChange} />
           </GridContainer>
         </Box>
         <Button
