@@ -6,6 +6,7 @@ import Quantity from "../../components/Buttons/QuantityBtn";
 import CartProduct from "../../components/ProductView/ListViewProduct";
 import styled from "styled-components";
 import axios from "axios";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 
 const GridContainer = styled.div`
   display: grid;
@@ -22,6 +23,7 @@ const Strong = styled.strong`
 
 const CartPage = () => {
   const { products, removeProduct } = useContext(CartContext);
+  const { currency, rates } = useContext(CurrencyContext);
   const [values, setValues] = useState({
     products: products,
     firstName: "",
@@ -43,8 +45,10 @@ const CartPage = () => {
 
   const sum = () => {
     let sum = 0;
-    products.map((prod) => (sum += prod.price * prod.quantity));
-    return sum;
+    products.map(
+      (prod) => (sum += prod.price * rates[currency] * prod.quantity)
+    );
+    return sum.toFixed(2);
   };
   const order = (event) => {
     event.preventDefault();
@@ -96,7 +100,10 @@ const CartPage = () => {
               )
             )
           )}
-          <Strong>{`Total: ${sum()} ₪`}</Strong>
+          <Strong>
+            {`Total: ${sum()} `}{" "}
+            <small style={{ padding: " 1px 5px" }}>{currency}</small>
+          </Strong>
         </Box>
         <Divider>Details</Divider>
         <Box

@@ -8,6 +8,7 @@ import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";
+import CurrenctSelect from "../CurrencySelector";
 
 const BtnsDiv = styled.div`
   display: flex;
@@ -74,6 +75,7 @@ const Navbar = () => {
           </li>
         </ul>
         <BtnsDiv>
+          <CurrenctSelect />
           <SearchBar />
           <SideBarBtn
             title={"Notification"}
