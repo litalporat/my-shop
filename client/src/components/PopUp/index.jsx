@@ -4,6 +4,8 @@ import { ArrowBtn, IconBtn } from "../Buttons";
 import Sizes from "../NewComp/Sizes";
 import "./Popup.css";
 import BackGround from "../../images/background.png";
+import { useContext } from "react";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 
 const Body = styled.div`
   display: flex;
@@ -57,6 +59,7 @@ const BtnsList = styled.div`
 
 const Popup = (props) => {
   const [viewPhoto, setViewPhoto] = useState(props.product.imgDetails[0]);
+  const { currency, rates } = useContext(CurrencyContext);
   const [chosenSize, setChosenSize] = useState();
   const [error, setError] = useState(false);
 
@@ -109,7 +112,10 @@ const Popup = (props) => {
         <Label htmlFor="">Descriptons:</Label>
         <P className="text text-small">{props.product.description}</P>
         <Label htmlFor=""> Price:</Label>
-        <P className="text">{"₪" + props.product.price}</P>
+        <P className="text">
+          {(props.product.price * rates[currency]).toFixed(2)}
+          <small style={{ padding: "0 5px" }}>{currency}</small>
+        </P>
         <Sizes stock={props.product.stock} onClick={setSize} />
         <ArrowBtn content={"add to cart"} onClick={handleAddToCart} />
         {error && (
