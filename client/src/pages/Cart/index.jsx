@@ -5,6 +5,7 @@ import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
 import Quantity from "../../components/Buttons/QuantityBtn";
 import CartProduct from "../../components/ProductView/ListViewProduct";
 import styled from "styled-components";
+import axios from "axios";
 
 const GridContainer = styled.div`
   display: grid;
@@ -21,14 +22,35 @@ const Strong = styled.strong`
 
 const CartPage = () => {
   const { products, removeProduct } = useContext(CartContext);
+  const [values, setValues] = useState({
+    products: products,
+    firstName: "",
+    lastName: "",
+    country: "",
+    city: "",
+    address: "",
+    zipCode: 0,
+    cardNumber: 0,
+    expirationDate: "",
+    cvcNumber: 0,
+    customerId: 0,
+  });
+
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setValues({ ...values, [event.target.id]: event.target.value });
+  };
 
   const sum = () => {
     let sum = 0;
     products.map((prod) => (sum += prod.price * prod.quantity));
     return sum;
   };
-  const order = () => {
+  const order = (event) => {
+    event.preventDefault();
     alert("Thank you! your order has been placed successfuly.");
+    console.table(values);
+    axios.post(`http://localhost:5000/api/orders/`, values);
   };
 
   return (
@@ -84,12 +106,20 @@ const CartPage = () => {
           }}
         >
           <GridContainer>
-            <TextField label="First Name" />
-            <TextField label="Last Name" />
-            <TextField label="Country" />
-            <TextField label="City" />
-            <TextField label="Address" />
-            <TextField label="Zip Code" />
+            <TextField
+              id="firstName"
+              label="First Name"
+              onChange={handleChange}
+            />
+            <TextField
+              id="lastName"
+              label="Last Name"
+              onChange={handleChange}
+            />
+            <TextField id="country" label="Country" onChange={handleChange} />
+            <TextField id="city" label="City" onChange={handleChange} />
+            <TextField id="address" label="Address" onChange={handleChange} />
+            <TextField id="zipCode" label="Zip Code" onChange={handleChange} />
           </GridContainer>
         </Box>
         <Divider>Payment</Divider>
@@ -100,10 +130,22 @@ const CartPage = () => {
           }}
         >
           <GridContainer>
-            <TextField label="Card Number" />
-            <TextField label="Expiration Date" />
-            <TextField label="Cvc Number" />
-            <TextField label="ID" />
+            <TextField
+              id="cardNumber"
+              label="Card Number"
+              onChange={handleChange}
+            />
+            <TextField
+              id="expirationDate"
+              label="Expiration Date"
+              onChange={handleChange}
+            />
+            <TextField
+              id="cvcNumber"
+              label="Cvc Number"
+              onChange={handleChange}
+            />
+            <TextField id="customerId" label="ID" onChange={handleChange} />
           </GridContainer>
         </Box>
         <Button
