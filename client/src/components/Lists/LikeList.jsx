@@ -3,6 +3,8 @@ import CartContext from "../../Contexts/CartContext";
 import HeartContext from "../../Contexts/HeartContext";
 import CartProduct from "../ProductView/ListViewProduct";
 import IconBtn from "../Buttons/IconBtn";
+import { PopupBtn } from "../Buttons";
+import Popup from "../PopUp";
 
 const LikeList = () => {
   const { addProduct } = useContext(CartContext);
@@ -15,9 +17,17 @@ const LikeList = () => {
           product={like}
           delete={() => removeHeart(like)}
           button={
-            <IconBtn onClick={() => addProduct(like)}>
-              <i className="fas fa-shopping-cart"></i>
-            </IconBtn>
+            <PopupBtn
+              title={like.displayName}
+              size={"L"}
+              button={
+                <IconBtn>
+                  <i className="fas fa-shopping-cart"></i>
+                </IconBtn>
+              }
+            >
+              <Popup product={like} onCart={addProduct} />
+            </PopupBtn>
           }
         />
       ))}

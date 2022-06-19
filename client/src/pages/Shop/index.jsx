@@ -115,7 +115,7 @@ const ProductPage = (props) => {
       setViewData(tempData);
     }
   };
-  
+
   const sortByString = (param, order) => {
     let tempData = [...data];
     if (order === "Default") {
@@ -156,7 +156,7 @@ const ProductPage = (props) => {
                 changeContent(product);
                 togglePopup();
               }}
-              onCart={() => addProduct(product)}
+              onCart={addProduct}
             />
           ))}
         {isOpen && <Popup content={content} handleClose={togglePopup} />}

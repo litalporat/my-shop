@@ -24,8 +24,9 @@ const Details = styled.div`
 const IconList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   padding-right: 10px;
+  align-items: center;
 `;
 const Text = styled.p`
   letter-spacing: 1px;
@@ -36,19 +37,20 @@ const ListViewProduct = (props) => {
 
   return (
     <Container>
-      <Photo src={props.product.images.display[0]}></Photo>
+      <Photo src={props.product.imgDisplay[0]}></Photo>
       <Details>
         <Text>{props.product.displayName}</Text>
-        {/* <Text>
-          Price: {(props.product.price * rates[currency]).toFixed(2)} {currency}
-        </Text> */}
-        <Text>Size: XS </Text>
+        <Text>
+          {props.product.price} {"₪"}
+        </Text>
+        {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>
       <IconList>
-        <IconBtn onClick={props.delete}>
+        <IconBtn onClick={() => props.delete(props.product, true)}>
           <i class="fa-solid fa-trash-can"></i>
         </IconBtn>
         {props.button}
+        {props.children}
       </IconList>
     </Container>
   );

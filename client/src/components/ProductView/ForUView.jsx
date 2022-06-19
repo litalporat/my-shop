@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  padding-bottom:1rem;
+  padding-bottom: 1rem;
   box-shadow: 0px 1px 20px -10px black;
 `;
 const Image = styled.img`
@@ -18,29 +18,36 @@ const Image = styled.img`
   border-radius: 10px 10px 0 0;
 `;
 const FlexRow = styled.div`
-    display:flex;
-    position:absolute;
-    gap:12rem;
-    margin-top:1rem;
-    z-index:2;
-`
+  display: flex;
+  position: absolute;
+  gap: 12rem;
+  margin-top: 1rem;
+  z-index: 2;
+`;
 
 const ForUView = (props) => {
-
   return (
     <Container>
-        <FlexRow>
+      <FlexRow>
+        <PopupBtn
+          title={props.product.displayName}
+          size={"L"}
+          button={<BasicBtn title={"View"} />}
+        >
+          <Popup product={props.product} />
+        </PopupBtn>
+        <IconBtn>
+          <i className="fa-solid fa-up-right-from-square"></i>
+        </IconBtn>
+      </FlexRow>
+      <Image src={props.product.imgDisplay[0]} />
       <PopupBtn
         title={props.product.displayName}
         size={"L"}
-        button={<BasicBtn title={"View"} />}
+        button={<ArrowBtn content={"add to cart"} />}
       >
-        <Popup product={props.product} />
+        <Popup product={props.product} onCart={props.onCart} />
       </PopupBtn>
-      <IconBtn><i className="fa-solid fa-up-right-from-square"></i></IconBtn>
-        </FlexRow>
-      <Image src={props.product.imgDisplay[0]} />
-      <ArrowBtn content={"add to cart"} onClick={props.onCart} />
     </Container>
   );
 };
