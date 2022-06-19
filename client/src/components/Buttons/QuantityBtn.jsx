@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import styled, { css } from "styled-components";
@@ -72,18 +72,20 @@ const QuantityDisplay = styled.input`
   text-align: center;
 `;
 
-const QuantityBtn = (props) => {
-  const quantity = props.quantity;
+const Quantity = (props) => {
+  const [quantity, setQuantity] = useState(props.product.quantity);
   const { addProduct, removeProduct } = useContext(CartContext);
+
+  useEffect(() => {
+    setQuantity(props.product.quantity);
+  }, [props.product.quantity]);
 
   const decrement = () => {
     removeProduct(props.product, false);
-    quantity = props.product.quantity;
   };
 
   const increment = () => {
     addProduct(props.product);
-    quantity = props.product.quantity;
   };
 
   return (
@@ -93,7 +95,9 @@ const QuantityBtn = (props) => {
       ) : (
         <BtnLeft onClick={decrement}>-</BtnLeft>
       )}
-      <QuantityDisplay type="text" value={quantity} readOnly />
+
+      <QuantityDisplay id="QD" type="text" value={quantity} readOnly />
+
       {quantity == props.disable ? (
         <BtnRightDisable>+</BtnRightDisable>
       ) : (
@@ -103,4 +107,4 @@ const QuantityBtn = (props) => {
   );
 };
 
-export default QuantityBtn;
+export default Quantity;

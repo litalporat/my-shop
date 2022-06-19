@@ -1,13 +1,10 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../Contexts/CartContext";
 import "./Cart.css";
-import { Box, Button, Divider, TextField } from "@mui/material";
-import { Card } from "@mui/material";
-import { Grid } from "@mui/material";
+import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
 import Quantity from "../../components/Buttons/QuantityBtn";
 import CartProduct from "../../components/ProductView/ListViewProduct";
 import styled from "styled-components";
-// import Box from "@mui/material/Box";
 
 const GridContainer = styled.div`
   display: grid;
@@ -29,6 +26,9 @@ const CartPage = () => {
     let sum = 0;
     products.map((prod) => (sum += prod.price * prod.quantity));
     return sum;
+  };
+  const order = () => {
+    alert("Thank you! your order has been placed successfuly.");
   };
 
   return (
@@ -63,13 +63,14 @@ const CartPage = () => {
             (product) => (
               console.log(product),
               (
-                <CartProduct product={product} delete={removeProduct}>
-                  <Quantity
-                    disable={product.stock[product.size]}
-                    quantity={product.quantity}
-                    product={product}
-                  />
-                </CartProduct>
+                <Box sx={{ padding: "10px" }}>
+                  <CartProduct product={product} delete={removeProduct}>
+                    <Quantity
+                      disable={product.stock[product.size]}
+                      product={product}
+                    />
+                  </CartProduct>
+                </Box>
               )
             )
           )}
@@ -108,6 +109,7 @@ const CartPage = () => {
         <Button
           variant="contained"
           sx={{ width: "90%", height: "50px", alignSelf: "center" }}
+          onClick={order}
         >
           Place Order
         </Button>

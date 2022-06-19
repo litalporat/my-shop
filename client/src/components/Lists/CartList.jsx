@@ -26,7 +26,6 @@ const CartList = () => {
             <CartProduct product={product} delete={removeProduct}>
               <Quantity
                 disable={product.stock[product.size]}
-                quantity={product.quantity}
                 product={product}
               />
             </CartProduct>

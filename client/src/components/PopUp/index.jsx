@@ -41,7 +41,7 @@ const Details = styled.div`
   flex: 6;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 30px;
 `;
 
 const BtnsList = styled.div`

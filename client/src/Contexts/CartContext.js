@@ -14,30 +14,42 @@ export function CartProvider({ children }) {
   }, [products]);
 
   const addProduct = (product) => {
+    // console.log("in add");
     const index = products.findIndex((prod) => {
       return prod._id == product._id && prod.size == product.size;
     });
+    const prod = Object.assign({}, product);
+    let tempProducts = [];
     if (index >= 0) {
-      products[index].quantity++;
-    } else {
-      const prod = Object.assign({}, product);
-      prod.quantity = 1;
-      console.log(prod);
-      const tempProducts = [...products, prod];
-      setProducts(tempProducts);
-    }
-  };
-  const removeProduct = (product, all) => {
-    if (!all) product.quantity--;
-    else {
-      const tempProducts = [];
-      products.map((prod) => {
-        if (!(prod._id == product._id && prod.size == product.size))
-          tempProducts.push(prod);
+      prod.quantity = products[index].quantity + 1;
+      products.map((p) => {
+        if (!(p._id == product._id && p.size == product.size))
+          tempProducts.push(p);
+        else tempProducts.push(prod);
       });
-      setProducts(tempProducts);
+    } else {
+      prod.quantity = 1;
+      tempProducts = [...products, prod];
     }
-    console.log(products);
+    setProducts(tempProducts);
+  };
+
+  const removeProduct = (product, all) => {
+    // console.log("in remove");
+    const index = products.findIndex((prod) => {
+      return prod._id == product._id && prod.size == product.size;
+    });
+    const tempProducts = [];
+    products.map((prod) => {
+      if (!(prod._id == product._id && prod.size == product.size))
+        tempProducts.push(prod);
+      else if (!all) {
+        prod.quantity = prod.quantity - 1;
+        tempProducts.push(prod);
+      }
+    });
+    setProducts(tempProducts);
+    // console.log(products);
   };
 
   return (
