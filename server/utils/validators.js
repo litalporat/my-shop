@@ -1,4 +1,5 @@
 const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 module.exports = function() {
 
@@ -70,6 +71,32 @@ module.exports = function() {
     this.validateToken = (body) => {
         const schema = Joi.object({
             token: Joi.string().required()
+        });
+        return schema.validate(body);
+    }
+
+    /**
+     * This function validate an order request body.
+     * @param {Object} body - request body to validate
+     * @returns {Object} - Joi object with details of the validation.
+     */
+    this.validateOrder = (body) => {
+        let product = Joi.object().keys({
+            _id: Joi.objectId(),
+            size: Joi.string().min(2).max(30).required(),
+            quantity: Joi.number().required(),
+            price: Joi.number().required(),
+            img: Joi.string().required(),
+        })
+        const schema = Joi.object({
+            firstName: Joi.string().min(2).max(30).required(),
+            lastName: Joi.string().min(2).max(30).required(),
+            country: Joi.string().min(2).max(30).required(),
+            city: Joi.string().min(2).max(30).required(),
+            address: Joi.string().min(2).max(30),
+            zipCode: Joi.string().min(2).max(30),
+            total: Joi.number().required(),
+            products: Joi.array().items(product)
         });
         return schema.validate(body);
     }
