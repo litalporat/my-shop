@@ -7,6 +7,7 @@ import CartProduct from "../../components/ProductView/ListViewProduct";
 import styled from "styled-components";
 import axios from "axios";
 import CurrencyContext from "../../Contexts/CurrencyContext";
+import { useEffect } from "react";
 
 const GridContainer = styled.div`
   display: grid;
@@ -24,8 +25,9 @@ const Strong = styled.strong`
 const CartPage = () => {
   const { products, removeProduct } = useContext(CartContext);
   const { currency, rates } = useContext(CurrencyContext);
+
   const [values, setValues] = useState({
-    products: products,
+    products: "",
     firstName: "",
     lastName: "",
     country: "",
@@ -36,6 +38,7 @@ const CartPage = () => {
     expirationDate: "",
     cvcNumber: 0,
     customerId: 0,
+    total: 0,
   });
 
   const handleChange = (event) => {
@@ -45,14 +48,23 @@ const CartPage = () => {
 
   const sum = () => {
     let sum = 0;
-    products.map(
-      (prod) => (sum += prod.price * rates[currency] * prod.quantity)
-    );
-    return sum.toFixed(2);
+    products.map((prod) => (sum += prod.price * prod.quantity));
+    return sum;
   };
   const order = (event) => {
     event.preventDefault();
     alert("Thank you! your order has been placed successfuly.");
+    const temp = [];
+    products.map((prod) => {
+      temp.push({
+        _id: prod._id,
+        size: prod.size,
+        quantity: prod.quantity,
+        price: prod.price,
+      });
+    });
+    const total = sum();
+    setValues({ ...values, products: temp, total: total });
     console.table(values);
     axios.post(`http://localhost:5000/api/orders/`, values);
   };
@@ -101,7 +113,7 @@ const CartPage = () => {
             )
           )}
           <Strong>
-            {`Total: ${sum()} `}{" "}
+            {`Total: ${(sum() * rates[currency]).toFixed(2)} `}{" "}
             <small style={{ padding: " 1px 5px" }}>{currency}</small>
           </Strong>
         </Box>
