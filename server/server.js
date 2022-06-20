@@ -7,6 +7,7 @@ require("./config/mongoConnect")
         const server = require('http').createServer(app);
         const PORT = process.env.PORT || 5000;
         server.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
+        require('./setup/currencyCrone')();
         require('./setup/socketio')(server);
     })
     .catch((e) => {

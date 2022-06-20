@@ -41,7 +41,8 @@ const ListViewProduct = (props) => {
       <Details>
         <Text>{props.product.displayName}</Text>
         <Text>
-          {props.product.price} {"₪"}
+          {(props.product.price * rates[currency]).toFixed(2)}{" "}
+          <small style={{ "font-size": "10px" }}>{currency}</small>{" "}
         </Text>
         {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>

@@ -10,12 +10,14 @@ export function CurrencyProvider({ children }) {
 
   useEffect(() => {
     axios
-      .get(
-        "https://api.apilayer.com/fixer/latest?base=ILS&apikey=7ahTq1dAWtfksYdqHvCGhVFLqB38tlm7"
-      )
+      .get("http://localhost:5000/api/currency")
       .then((response) => {
-        setRates(response.data.rates);
-        console.log(response.data.rates);
+        const temp = Object.assign({}, response.data);
+        delete temp["id"];
+        delete temp["_id"];
+        delete temp["_v"];
+        setRates(temp);
+        console.log(temp);
       })
       .catch(function (error) {
         console.log(error);
