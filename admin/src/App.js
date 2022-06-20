@@ -20,7 +20,7 @@ function App() {
             <Route element={<ProtectedRoute/>}>
               <Route exact path="/" element={<MainDash />} />
               <Route exact path="/analytics" element={<Analytics />} />
-              <Route exact path="/customers" element={<Customers />} />
+              {/* <Route exact path="/customers" element={<Customers />} /> */}
               <Route exact path="/locations" element={<Locations />} />
               <Route exact path="/products" element={<Products />} />
               <Route path='*' component={()=> "404 NOT FOUND"}/>

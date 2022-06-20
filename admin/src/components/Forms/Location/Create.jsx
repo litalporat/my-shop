@@ -34,7 +34,11 @@ const Create = (props) => {
     alert("You have submitted the form.");
     console.table(values);
     // createProduct(values);
-    axios.post(`http://localhost:5000/api/locations/`, values);
+    axios.post(`http://localhost:5000/api/locations/`, values, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("key")}`,
+      },
+    });
     props.toggleChange();
   };
   const handleChange = (event) => {

@@ -25,7 +25,12 @@ const Update = (props) => {
     console.table(values);
     axios.patch(
       `http://localhost:5000/api/locations/${props.location._id}`,
-      values
+      values,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("key")}`,
+        },
+      }
     );
     props.toggleChange();
   };
