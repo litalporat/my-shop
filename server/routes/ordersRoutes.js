@@ -11,7 +11,7 @@ router.get("/", getAllOrders);
 //@desc get a Orders by id from db
 //@route PATCH /api/Orders/:id
 //@access Public
-router.patch("/:id", setOrderById);
+router.patch("/:id", verifyToken, setOrderById);
 
 //@desc add a Orders to the db
 //@route POST /api/Orders
@@ -21,6 +21,6 @@ router.post("/", addOrder);
 // @desc delete a Orders from the db
 // @route DELETE /api/Orders/:id
 // @access Public
-router.delete("/:id", deleteOrderById);
+router.delete("/:id", verifyToken, deleteOrderById);
 
 module.exports = router;
