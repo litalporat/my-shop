@@ -6,21 +6,21 @@ const { getAllLocations, addLocation, deleteLocationById, setLocationById } = re
 //@desc get all locations from db
 //@route GET /api/locations
 //@access Public
-router.get("/", getAllLocations);
+router.get("/", verifyToken, getAllLocations);
 
 //@desc get a location by id from db
 //@route PATCH /api/locations/:id
 //@access Public
-router.patch("/:id", setLocationById);
+router.patch("/:id", verifyToken, setLocationById);
 
 //@desc add a location to the db
 //@route POST /api/locations
 //@access Public
-router.post("/", addLocation);
+router.post("/", verifyToken, addLocation);
 
 // @desc delete a location from the db
 // @route DELETE /api/locations/:id
 // @access Public
-router.delete("/:id", deleteLocationById);
+router.delete("/:id", verifyToken, deleteLocationById);
 
 module.exports = router;
