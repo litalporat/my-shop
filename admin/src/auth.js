@@ -10,10 +10,12 @@ class Auth {
 
     logout(cb){
         this.authenticated=false;
+        localStorage.removeItem("key");
         cb();
     }
 
     isAuthenticated(){
+        if (localStorage.getItem("key")) this.authenticated=true;
         return this.authenticated;
     }
 }

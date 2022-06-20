@@ -38,15 +38,15 @@ const Login = (props) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      // console.log(response);
+      console.log(response);
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
-      setUser("");
-      setPwd("");
-      setSuccess(true);
+      // const roles = response?.data?.roles;
+      // setAuth({ user, pwd, roles, accessToken });
+      // setUser("");
+      // setPwd("");
+      // setSuccess(true);
       window.localStorage.setItem("key", accessToken);
-      props.setIsLogin(true);
+      // props.setIsLogin(true);
       auth.login(() => {
         navigate("/");
       });
@@ -54,7 +54,7 @@ const Login = (props) => {
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 400) {
-        setErrMsg("Bad Request");
+        setErrMsg("Wrong username or password");
       } else if (err.response?.status === 401) {
         setErrMsg("Unauthorized");
       } else {

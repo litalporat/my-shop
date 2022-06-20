@@ -64,11 +64,11 @@ const Sidebar = () => {
           {/* signoutIcon */}
           <div
             className="menuItem"
-            //   onClick={
-            //     auth.login(() => {
-            //     navigate("/");
-            //   })
-            // }
+            onClick={() =>
+              auth.logout(() => {
+                navigate("/login");
+              })
+            }
           >
             <UilSignOutAlt />
             Logout
