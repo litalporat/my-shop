@@ -114,13 +114,13 @@ const Navbar = () => {
           >
             <CartList />
           </SideBarBtn>
-          <PopupBtn
+          {/* <PopupBtn
             title={"Login"}
             size={"S"}
             button={<BasicBtn title={loginTitle} type={"secondary"} />}
           >
             <Login setIsLogin={setIsLogin} />
-          </PopupBtn>
+          </PopupBtn> */}
         </BtnsDiv>
       </nav>
     </div>
