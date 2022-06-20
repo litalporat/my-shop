@@ -44,7 +44,11 @@ const Create = (props) => {
     alert("You have submitted the form.");
     console.table(values);
     // createProduct(values);
-    axios.post(`http://localhost:5000/api/products/`, values);
+    axios.post(`http://localhost:5000/api/products/`, values, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("key")}`,
+      },
+    });
     props.toggleChange();
   };
   const handleChange = (event) => {
@@ -75,8 +79,6 @@ const Create = (props) => {
     setValues({ ...values, [id]: temp });
   };
 
-  
-
   return (
     <Box
       component="form"
@@ -96,17 +98,9 @@ const Create = (props) => {
             label="Product Name"
             onChange={handleChange}
           />
-          <Types onChange={handleTypeChange} value={values.type}/>
-          <TextField
-            id="color"
-            label="Color"
-            onChange={handleArrChange}
-          />
-          <TextField
-            id="discount"
-            label="Discount"
-            onChange={handleChange}
-          />
+          <Types onChange={handleTypeChange} value={values.type} />
+          <TextField id="color" label="Color" onChange={handleArrChange} />
+          <TextField id="discount" label="Discount" onChange={handleChange} />
           <TextField
             id="price"
             label="Price"

@@ -12,7 +12,11 @@ import { Alert, Fab, IconButton } from "@mui/material";
 const BtnGroup = (props) => {
   const deleteFunc = (what, id) => {
     alert("This Product Is Deleted");
-    axios.delete(`http://localhost:5000/api/${what}/${id}`);
+    axios.delete(`http://localhost:5000/api/${what}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("key")}`,
+      },
+    });
     props.toggleChange();
   };
 

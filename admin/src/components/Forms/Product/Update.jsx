@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  TextField,
-} from "@mui/material";
+import { Box, Button, Divider, IconButton, TextField } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import React from "react";
 import styled from "styled-components";
@@ -50,7 +44,12 @@ const Update = (props) => {
     console.log(values.imgDisplay);
     axios.patch(
       `http://localhost:5000/api/products/${props.product._id}`,
-      values
+      values,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("key")}`,
+        },
+      }
     );
     props.toggleChange();
   };
@@ -68,7 +67,7 @@ const Update = (props) => {
   };
   const handleImageChange = (event) => {
     let temp = [...values[event.target.id]];
-    console.log(event.target)
+    console.log(event.target);
     temp[event.target.alt] = event.target.value;
     setValues({ ...values, [event.target.id]: temp });
   };
@@ -107,9 +106,7 @@ const Update = (props) => {
         <TextField
           id="displayName"
           label="Product Name"
-          defaultValue={
-            values.displayName ? values.displayName : "No Data"
-          }
+          defaultValue={values.displayName ? values.displayName : "No Data"}
           onChange={handleChange}
         />
         <TextField
@@ -145,9 +142,7 @@ const Update = (props) => {
       <TextField
         id="description"
         label="Description"
-        defaultValue={
-          values.description ? values.description : "No Data"
-        }
+        defaultValue={values.description ? values.description : "No Data"}
         onChange={handleChange}
         fullWidth
         multiline
@@ -167,9 +162,7 @@ const Update = (props) => {
             id={size}
             label={size.toUpperCase()}
             type="number"
-            defaultValue={
-              values.stock[size] ? values.stock[size] : "No Data"
-            }
+            defaultValue={values.stock[size] ? values.stock[size] : "No Data"}
             onChange={handleStockChange}
           />
         ))}
@@ -184,10 +177,8 @@ const Update = (props) => {
         <GridContainer>
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} index={index}/>
-              <IconButton
-                onClick={() => removePhoto("imgDisplay", index)}
-              >
+              <Image src={img} index={index} />
+              <IconButton onClick={() => removePhoto("imgDisplay", index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -212,10 +203,8 @@ const Update = (props) => {
         <GridContainer>
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
-              <Image src={img} index={index}/>
-              <IconButton
-                onClick={() => removePhoto("imgDetails", index)}
-              >
+              <Image src={img} index={index} />
+              <IconButton onClick={() => removePhoto("imgDetails", index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
