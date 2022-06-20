@@ -6,7 +6,7 @@ const { getAllLocations, addLocation, deleteLocationById, setLocationById } = re
 //@desc get all locations from db
 //@route GET /api/locations
 //@access Public
-router.get("/", verifyToken, getAllLocations);
+router.get("/", getAllLocations);
 
 //@desc get a location by id from db
 //@route PATCH /api/locations/:id
