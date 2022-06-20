@@ -29,13 +29,19 @@ const ProductPage = (props) => {
     const path = location.search
       ? `http://localhost:5000/api/products${location.search}`
       : "http://localhost:5000/api/products";
-    console.log(path);
     axios
       .get(path)
       .then(function (response) {
         // handle success
+        console.log(searchItem());
         setData(response.data);
-        setViewData(response.data);
+        searchItem()
+          ? setViewData(
+              response.data.filter((item) =>
+                item.displayName.toLowerCase().includes(searchItem())
+              )
+            )
+          : setViewData(response.data);
       })
       .catch(function (error) {
         // handle error
@@ -43,13 +49,17 @@ const ProductPage = (props) => {
       });
   }, [location]);
 
+  const searchItem = () => {
+    return decodeURI(location?.search.split("search=")[1].toLowerCase());
+  };
+
   // Filtering the data
   useEffect(() => {
     if (data) {
       let tempData = [...data];
       let newData = [];
       let filteredData = [];
-      console.log(filters);
+      // console.log(filters);
       Object.keys(filters).map((key, index) => {
         filters[key].forEach((value) => {
           newData.push(tempData.filter((prod) => prod[key].includes(value)));
@@ -138,7 +148,7 @@ const ProductPage = (props) => {
   return (
     <div className="shop-body">
       <div className="filters">
-        {console.log(location.search)}
+        {/* {console.log(location.search)} */}
         <FilterComp
           filterFunc={filterByParam}
           delFilterFunc={deletefilterByParam}
