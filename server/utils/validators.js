@@ -82,8 +82,8 @@ module.exports = function() {
      */
     this.validateOrder = (body) => {
         let product = Joi.object().keys({
-            _id: Joi.objectId(),
-            size: Joi.string().min(2).max(30).required(),
+            _id: Joi.objectId().required(),
+            size: Joi.string().min(1).max(30).required(),
             quantity: Joi.number().required(),
             price: Joi.number().required(),
             img: Joi.string().required(),
