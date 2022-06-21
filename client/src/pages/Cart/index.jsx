@@ -61,6 +61,7 @@ const CartPage = () => {
         size: prod.size,
         quantity: prod.quantity,
         price: prod.price,
+        img: prod.imgDisplay[0],
       });
     });
     const total = sum();
