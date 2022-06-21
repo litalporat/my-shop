@@ -6,6 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Popup from "./Popup";
 import UpdateProduct from "../Forms/Product/Update";
 import UpdateLocation from "../Forms/Location/Update";
+import UpdateOrder from "../Forms/Order/Update";
 import axios from "axios";
 import { Alert, Fab, IconButton } from "@mui/material";
 
@@ -40,6 +41,9 @@ const BtnGroup = (props) => {
             location={props.item}
             toggleChange={props.toggleChange}
           />
+        )}
+        {props.what == "orders" && (
+          <UpdateOrder order={props.item} toggleChange={props.toggleChange} />
         )}
       </Popup>
       <Fab
