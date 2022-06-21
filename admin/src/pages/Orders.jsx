@@ -58,10 +58,10 @@ const Orders = () => {
       width: 100,
       renderCell: (params) => (
         <BtnGroup
-          item={params.row.location}
+          item={params.row.order}
           deleteAction={params.row.deleteAction}
           toggleChange={toggleChange}
-          what="locations"
+          what="orders"
         />
       ),
     },
@@ -92,10 +92,7 @@ const Orders = () => {
           city: obj.city,
           address: obj.address,
           zipCode: obj.zipCode,
-          cardNumber: obj.cardNumber,
-          expirationDate: obj.expirationDate,
-          cvcNumber: obj.cvcNumber,
-          customerId: obj.customerId,
+          order: obj,
         });
       });
       setRows(temp);
