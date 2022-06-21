@@ -33,7 +33,6 @@ const ProductPage = (props) => {
       .get(path)
       .then(function (response) {
         // handle success
-        console.log(searchItem());
         setData(response.data);
         searchItem()
           ? setViewData(
