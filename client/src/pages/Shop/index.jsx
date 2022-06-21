@@ -50,7 +50,9 @@ const ProductPage = (props) => {
   }, [location]);
 
   const searchItem = () => {
-    return decodeURI(location?.search.split("search=")[1].toLowerCase());
+    if (location?.search.includes("search"))
+      return decodeURI(location?.search.split("search=")[1].toLowerCase());
+    else return false;
   };
 
   // Filtering the data
