@@ -10,6 +10,7 @@ import "./pages.css";
 import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import Create from "../components/Forms/Order/Create";
+import PopUpProducts from "../components/New/PopProducts";
 const Orders = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
@@ -52,6 +53,23 @@ const Orders = () => {
       width: "100",
     },
     {
+      field: "total",
+      headerName: "Total",
+      width: "100",
+    },
+    {
+      field: "products",
+      headerName: "Products",
+      type: "products",
+      width: 100,
+      renderCell: (params) => (
+        <PopUpProducts
+          products={params.row.products}
+          toggleChange={toggleChange}
+        />
+      ),
+    },
+    {
       field: "actions",
       headerName: "Actions",
       type: "actions",
@@ -92,6 +110,8 @@ const Orders = () => {
           city: obj.city,
           address: obj.address,
           zipCode: obj.zipCode,
+          total: obj.total,
+          products: obj.products,
           order: obj,
         });
       });
