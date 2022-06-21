@@ -1,12 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const { verifyToken } = require('../middlewares/auth');
-const { getAllOrders, addOrder, deleteOrderById, setOrderById } = require("../controller/ordersController");
+const {
+    getAllOrders,
+    addOrder,
+    deleteOrderById,
+    setOrderById
+} = require("../controller/ordersController");
 
 //@desc get all Orders from db
 //@route GET /api/Orders
 //@access Public
 router.get("/", getAllOrders);
+
+router.get("/test", getAllOrders);
 
 //@desc get a Orders by id from db
 //@route PATCH /api/Orders/:id

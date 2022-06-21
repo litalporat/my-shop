@@ -1,5 +1,6 @@
 const res = require("express/lib/response");
 const Orders = require("../models/Orders");
+const Product = require("../models/Product");
 const logger = require('../utils/logger');
 const { ObjectId } = require("bson");
 
@@ -19,6 +20,15 @@ const getAllOrders = async (req, res) => {
     }
 };
 
+const availableStock = (stock, results) => {
+    for (let i = 0; i < results.length; i++) {
+        // no stock in shop or stock in shop < order stock
+        if (!results[i].stock[stock[i].size] || results[i].stock[stock[i].size] < stock[i].quantity)
+            return false;
+    }
+    return true;
+};
+
 const addOrder = async (req, res) => {
     try {
         const { error } = validateOrder(req.body);
@@ -26,8 +36,17 @@ const addOrder = async (req, res) => {
             res.status(400).send({ error: error.details[0].message });
             return;
         }
-        await Orders.create(req.body);
-        res.json({ info: "order was added successfuly!" })
+        let stock = [];
+        let promises = req.body.products.map((p) => {
+            stock.push({ size: p.size, quantity: p.quantity });
+            return Product.findById(p._id);
+        });
+        let results = await Promise.all(promises);
+        if (availableStock(stock, results)) {
+            await Orders.create(req.body);
+            return res.status(200).json({ info: "order was added successfuly!" })
+        }
+        return res.status(400).json({ info: "invalid order, items not in stock!" })
     } catch (e) {
         logger.error(e);
         res.status(500).json({ message: "Server Error!" });
