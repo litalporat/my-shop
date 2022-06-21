@@ -26,21 +26,13 @@ const ProductPage = (props) => {
 
   // Getting the data from the DB.
   useEffect(() => {
-    const path = location.search
-      ? `http://localhost:5000/api/products${location.search}`
-      : "http://localhost:5000/api/products";
+    const path = "http://localhost:5000/api/products";
     axios
       .get(path)
       .then(function (response) {
         // handle success
         setData(response.data);
-        searchItem()
-          ? setViewData(
-              response.data.filter((item) =>
-                item.displayName.toLowerCase().includes(searchItem())
-              )
-            )
-          : setViewData(response.data);
+        viewControl(response);
       })
       .catch(function (error) {
         // handle error
@@ -48,10 +40,27 @@ const ProductPage = (props) => {
       });
   }, [location]);
 
-  const searchItem = () => {
-    if (location?.search.includes("search"))
-      return decodeURI(location?.search.split("search=")[1].toLowerCase());
-    else return false;
+  const viewControl = (response) => {
+    if (location?.search.includes("search")) {
+      const searchedItem = decodeURI(
+        location?.search.split("search=")[1].toLowerCase()
+      );
+      setViewData(
+        response.data.filter((item) =>
+          item.displayName.toLowerCase().includes(searchedItem)
+        )
+      );
+    } else if (location?.search.includes("category")) {
+      const searchedItem = decodeURI(
+        location?.search.split("category=")[1].toLowerCase()
+      );
+      console.log(response.data);
+      setViewData(
+        response.data.filter((item) => {
+          item.type.toLowerCase().includes(searchedItem);
+        })
+      );
+    } else setViewData(response.data);
   };
 
   // Filtering the data
