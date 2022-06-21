@@ -52,26 +52,6 @@ const Orders = () => {
       width: "100",
     },
     {
-      field: "cardNumber",
-      headerName: "Card Number",
-      width: "100",
-    },
-    {
-      field: "expirationDate",
-      headerName: "Expiration Date",
-      width: "100",
-    },
-    {
-      field: "cvcNumber",
-      headerName: "Cvc Number",
-      width: "100",
-    },
-    {
-      field: "customerId",
-      headerName: "Customer ID",
-      width: "100",
-    },
-    {
       field: "actions",
       headerName: "Actions",
       type: "actions",

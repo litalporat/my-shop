@@ -25,7 +25,6 @@ const Strong = styled.strong`
 const CartPage = () => {
   const { products, removeProduct } = useContext(CartContext);
   const { currency, rates } = useContext(CurrencyContext);
-
   const [values, setValues] = useState({
     products: "",
     firstName: "",
@@ -34,12 +33,9 @@ const CartPage = () => {
     city: "",
     address: "",
     zipCode: 0,
-    cardNumber: 0,
-    expirationDate: "",
-    cvcNumber: 0,
-    customerId: 0,
     total: 0,
   });
+  const [submit, setSubmit] = useState(false);
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -53,7 +49,6 @@ const CartPage = () => {
   };
   const order = (event) => {
     event.preventDefault();
-    alert("Thank you! your order has been placed successfuly.");
     const temp = [];
     products.map((prod) => {
       temp.push({
@@ -65,10 +60,23 @@ const CartPage = () => {
       });
     });
     const total = sum();
+
     setValues({ ...values, products: temp, total: total });
-    console.table(values);
-    axios.post(`http://localhost:5000/api/orders/`, values);
+    setSubmit(!submit);
   };
+
+  useEffect(() => {
+    console.log("in useEffect");
+    if (submit) {
+      console.log(values);
+      axios.post("http://localhost:5000/api/orders/", values);
+      alert("Thank you! your order has been placed successfuly.");
+      setSubmit(!submit);
+      axios
+        .get("http://localhost:5000/api/orders")
+        .then((response) => console.log(response.data));
+    }
+  }, [submit]);
 
   return (
     <Grid
@@ -98,21 +106,16 @@ const CartPage = () => {
             alignSelf: "center",
           }}
         >
-          {products.map(
-            (product) => (
-              console.log(product),
-              (
-                <Box sx={{ padding: "10px" }}>
-                  <CartProduct product={product} delete={removeProduct}>
-                    <Quantity
-                      disable={product.stock[product.size]}
-                      product={product}
-                    />
-                  </CartProduct>
-                </Box>
-              )
-            )
-          )}
+          {products.map((product) => (
+            <Box sx={{ padding: "10px" }}>
+              <CartProduct product={product} delete={removeProduct}>
+                <Quantity
+                  disable={product.stock[product.size]}
+                  product={product}
+                />
+              </CartProduct>
+            </Box>
+          ))}
           <Strong>
             {`Total: ${(sum() * rates[currency]).toFixed(2)} `}{" "}
             <small style={{ padding: " 1px 5px" }}>{currency}</small>
@@ -150,22 +153,10 @@ const CartPage = () => {
           }}
         >
           <GridContainer>
-            <TextField
-              id="cardNumber"
-              label="Card Number"
-              onChange={handleChange}
-            />
-            <TextField
-              id="expirationDate"
-              label="Expiration Date"
-              onChange={handleChange}
-            />
-            <TextField
-              id="cvcNumber"
-              label="Cvc Number"
-              onChange={handleChange}
-            />
-            <TextField id="customerId" label="ID" onChange={handleChange} />
+            <TextField id="cardNumber" label="Card Number" />
+            <TextField id="expirationDate" label="Expiration Date" />
+            <TextField id="cvcNumber" label="Cvc Number" />
+            <TextField id="customerId" label="ID" />
           </GridContainer>
         </Box>
         <Button

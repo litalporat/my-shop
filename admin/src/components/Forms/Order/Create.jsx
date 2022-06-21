@@ -26,8 +26,8 @@ const PhotoDiv = styled.div`
 
 const Create = (props) => {
   const [values, setValues] = React.useState({
-    name: " ",
-    lat: 0,
+    firstName: " ",
+    lastName: 0,
     lng: 0,
   });
   const handleSubmit = (event) => {
@@ -85,18 +85,6 @@ const Create = (props) => {
         <TextField id="city" label="City" onChange={handleChange} />
         <TextField id="address" label="Adress" onChange={handleChange} />
         <TextField id="zipCode" label="Zip Code" onChange={handleChange} />
-        <TextField
-          id="cardNumber"
-          label="Card Number"
-          onChange={handleChange}
-        />
-        <TextField
-          id="expirationDate"
-          label="Expiration Date"
-          onChange={handleChange}
-        />
-        <TextField id="cvcNumber" label="Cvc Number" onChange={handleChange} />
-        <TextField id="customerId" label="ID" onChange={handleChange} />
       </GridContainer>
       <Button variant="contained" onClick={handleSubmit}>
         Create <CircularProgress />
