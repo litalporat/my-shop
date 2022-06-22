@@ -74,14 +74,14 @@ const CartPage = () => {
         .post("http://localhost:5000/api/orders/", values)
         .then(() => {
           alert("Thank you! your order has been placed successfuly.");
+          setProducts([]);
+          window.location.replace(window.location.origin);
         })
         .catch(() => {
           alert("Please make sure all inputs are valid.");
         });
-      setProducts([]);
-      setSubmit(!submit);
 
-      window.location.replace(window.location.origin);
+      setSubmit(!submit);
     }
   }, [submit]);
 
