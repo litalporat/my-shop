@@ -8,6 +8,7 @@ import styled from "styled-components";
 import axios from "axios";
 import CurrencyContext from "../../Contexts/CurrencyContext";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const GridContainer = styled.div`
   display: grid;
@@ -23,8 +24,8 @@ const Strong = styled.strong`
 `;
 
 const CartPage = () => {
-  const { products, removeProduct } = useContext(CartContext);
-  const { currency, rates } = useContext(CurrencyContext);
+  const { products, removeProduct, setProducts } = useContext(CartContext);
+  const { currency } = useContext(CurrencyContext);
   const [values, setValues] = useState({
     products: "",
     firstName: "",
@@ -36,6 +37,7 @@ const CartPage = () => {
     total: 0,
   });
   const [submit, setSubmit] = useState(false);
+  const rates = JSON.parse(localStorage.getItem("rates"));
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -68,13 +70,18 @@ const CartPage = () => {
   useEffect(() => {
     console.log("in useEffect");
     if (submit) {
-      console.log(values);
-      axios.post("http://localhost:5000/api/orders/", values);
-      alert("Thank you! your order has been placed successfuly.");
-      setSubmit(!submit);
       axios
-        .get("http://localhost:5000/api/orders")
-        .then((response) => console.log(response.data));
+        .post("http://localhost:5000/api/orders/", values)
+        .then(() => {
+          alert("Thank you! your order has been placed successfuly.");
+        })
+        .catch(() => {
+          alert("Please make sure all inputs are valid.");
+        });
+      setProducts([]);
+      setSubmit(!submit);
+
+      window.location.replace(window.location.origin);
     }
   }, [submit]);
 
@@ -117,7 +124,7 @@ const CartPage = () => {
             </Box>
           ))}
           <Strong>
-            {`Total: ${(sum() * rates[currency]).toFixed(2)} `}{" "}
+            {`Total: ${(sum() * rates[currency]).toFixed(2)} `}
             <small style={{ padding: " 1px 5px" }}>{currency}</small>
           </Strong>
         </Box>
