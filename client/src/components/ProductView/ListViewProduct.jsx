@@ -33,7 +33,8 @@ const Text = styled.p`
 `;
 
 const ListViewProduct = (props) => {
-  const { currency, rates } = useContext(CurrencyContext);
+  const { currency } = useContext(CurrencyContext);
+  const rates = JSON.parse(localStorage.getItem("rates"));
 
   return (
     <Container>

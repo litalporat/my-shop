@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import CurrenctSelect from "../components/CurrencySelector";
 
 const CurrencyContext = createContext();
 
@@ -17,16 +16,14 @@ export function CurrencyProvider({ children }) {
         delete temp["_id"];
         delete temp["_v"];
         setRates(temp);
-        console.log(temp);
+        localStorage.setItem("rates", JSON.stringify(temp));
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
-
   const changeCurrency = (curr) => {
     setCurrency(curr);
-    console.log(currency);
   };
 
   return (
