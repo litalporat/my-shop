@@ -65,6 +65,15 @@ const FlexRow = styled.div`
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
   const { currency, rates } = useContext(CurrencyContext);
+
+  const handleNotification = () => {
+    console.log(props.socket);
+    props.socket.emit("like", {
+      user: "user",
+      product: props.product,
+    });
+  };
+
   return (
     <Container>
       <Image
@@ -81,7 +90,10 @@ const Index = (props) => {
             <Popup product={props.product} onCart={props.onCart} />
           </PopupBtn>
           <IconBtn
-            onClick={() => handleHearts(props.product)}
+            onClick={() => {
+              handleHearts(props.product);
+              handleNotification();
+            }}
             style={
               include(props.product)
                 ? { color: "#ec3434", background: "#A18278" }
