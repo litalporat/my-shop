@@ -1,10 +1,12 @@
 import HeartContext from "../../Contexts/HeartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 
 import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../Buttons";
 import Popup from "../PopUp";
 import CurrencyContext from "../../Contexts/CurrencyContext";
+
+import { toast } from 'react-toastify';
 
 const Container = styled.div`
   background-color: #d8d2d2;
@@ -65,9 +67,12 @@ const FlexRow = styled.div`
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
   const { currency, rates } = useContext(CurrencyContext);
-
+  const [liked, setLiked] = useState(include(props.product));
   const handleNotification = () => {
     props.socket.emit("like", { name: '' }, { name: props.product.displayName });
+    if (liked) toast(`You just 🗑️ ${ props.product.displayName }`);
+    else toast(`You just ❤️ ${ props.product.displayName }`);
+    setLiked(!liked);
   };
 
   return (

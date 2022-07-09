@@ -3,7 +3,7 @@ import styled from "styled-components";
 import IconBtn from "../Buttons/IconBtn";
 import { useContext } from "react";
 import CurrencyContext from "../../Contexts/CurrencyContext";
-
+import { toast } from 'react-toastify';
 const Container = styled.div`
   border-radius: 10px;
   display: flex;
@@ -48,7 +48,10 @@ const ListViewProduct = (props) => {
         {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>
       <IconList>
-        <IconBtn onClick={() => props.delete(props.product, true)}>
+        <IconBtn onClick={() => {
+            props.delete(props.product, true)
+            toast(`${ props.product.displayName } removed from your 🛒!`)
+          }}>
           <i class="fa-solid fa-trash-can"></i>
         </IconBtn>
         {props.button}
