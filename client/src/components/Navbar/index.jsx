@@ -8,6 +8,7 @@ import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";
+import Notification from "../NewComp/Notification";
 import CurrenctSelect from "../CurrencySelector";
 
 const BtnsDiv = styled.div`
@@ -17,7 +18,7 @@ const BtnsDiv = styled.div`
   gap: 10px;
 `;
 
-const Navbar = () => {
+const Navbar = ({socket}) => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
   const [isLogin, setIsLogin] = useState(false);
@@ -86,7 +87,7 @@ const Navbar = () => {
               </IconBtn>
             }
           >
-            {/* Notification List */}
+            <Notification socket={socket}/>
           </SideBarBtn>
           <SideBarBtn
             title={"Likes"}

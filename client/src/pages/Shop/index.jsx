@@ -10,10 +10,8 @@ import BasicButton from "../../components/Buttons/BasicBtn";
 import HeartContext from "../../Contexts/HeartContext";
 import { useLocation, useSearchParams } from "react-router-dom";
 
-const ProductPage = (props) => {
+const ProductPage = ({socket}) => {
   //States
-  const [isOpen, setIsOpen] = useState(false);
-  const [content, setcontent] = useState();
   const [data, setData] = useState();
   const [viewData, setViewData] = useState();
   const [filters, setFilters] = useState({});
@@ -60,7 +58,6 @@ const ProductPage = (props) => {
       let tempData = [...data];
       let newData = [];
       let filteredData = [];
-      // console.log(filters);
       Object.keys(filters).map((key, index) => {
         filters[key].forEach((value) => {
           newData.push(tempData.filter((prod) => prod[key].includes(value)));
@@ -85,12 +82,6 @@ const ProductPage = (props) => {
     else setViewData(priceData);
   }, [colorData, priceData]);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-  const changeContent = (product) => {
-    setcontent(product);
-  };
   const filterByParam = (param, value) => {
     let newFilters = { ...filters };
     if (!newFilters[param]) newFilters[param] = [];
@@ -163,14 +154,10 @@ const ProductPage = (props) => {
           viewData.map((product) => (
             <Product
               product={product}
-              onClick={() => {
-                changeContent(product);
-                togglePopup();
-              }}
+              socket={socket}
               onCart={addProduct}
             />
           ))}
-        {isOpen && <Popup content={content} handleClose={togglePopup} />}
       </div>
     </div>
   );
