@@ -6,7 +6,7 @@ import "./Popup.css";
 import BackGround from "../../images/background.png";
 import { useContext } from "react";
 import CurrencyContext from "../../Contexts/CurrencyContext";
-
+import { toast } from 'react-toastify';
 const Body = styled.div`
   display: flex;
   height: 100%;
@@ -81,11 +81,12 @@ const Popup = (props) => {
   };
 
   const handleAddToCart = () => {
-    console.log("in handle cart");
+    //console.log("in handle cart");
     if (chosenSize) {
-      console.log("error = false  && chosen size true");
+      //console.log("error = false  && chosen size true");
       props.product.size = chosenSize;
       props.onCart(props.product);
+      toast(`${ props.product.displayName } added to your 🛒!`)
     } else {
       console.log("error is true or size is undefined ");
       setError(true);
