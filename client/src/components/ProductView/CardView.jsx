@@ -103,10 +103,11 @@ const Index = (props) => {
             <i className="fas fa-heart" />
           </IconBtn>
         </FlexRow>
-        {/* <Price>
+        <Price>
           {" "}
-          {(props.product.price * rates[currency]).toFixed(2)} {currency}{" "}
-        </Price> */}
+          {(props.product.price * rates[currency]).toFixed(2)}{" "}
+          <small style={{ "font-size": "10px" }}>{currency}</small>{" "}
+        </Price>
         <Title> {props.product.displayName} </Title>
         <Devider />
         <PopupBtn

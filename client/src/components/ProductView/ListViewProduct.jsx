@@ -33,7 +33,8 @@ const Text = styled.p`
 `;
 
 const ListViewProduct = (props) => {
-  const { currency, rates } = useContext(CurrencyContext);
+  const { currency } = useContext(CurrencyContext);
+  const rates = JSON.parse(localStorage.getItem("rates"));
 
   return (
     <Container>
@@ -41,7 +42,8 @@ const ListViewProduct = (props) => {
       <Details>
         <Text>{props.product.displayName}</Text>
         <Text>
-          {props.product.price} {"₪"}
+          {(props.product.price * rates[currency]).toFixed(2)}{" "}
+          <small style={{ "font-size": "10px" }}>{currency}</small>{" "}
         </Text>
         {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>

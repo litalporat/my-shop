@@ -14,7 +14,7 @@ const Container = styled.div`
   gap: 1rem;
 `;
 
-const CartList = () => {
+const CartList = (props) => {
   const { products, removeProduct } = useContext(CartContext);
 
   return (
@@ -33,7 +33,7 @@ const CartList = () => {
         )
       )}
       {products.length > 0 && (
-        <Link to={"/cart"}>
+        <Link onClick={props.closeSideBar} to={"/cart"}>
           <ArrowBtn content={"to checkout"} />
         </Link>
       )}

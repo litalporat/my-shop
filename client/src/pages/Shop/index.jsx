@@ -32,13 +32,25 @@ const ProductPage = ({socket}) => {
       .then(function (response) {
         // handle success
         setData(response.data);
-        setViewData(response.data);
+        searchItem()
+          ? setViewData(
+              response.data.filter((item) =>
+                item.displayName.toLowerCase().includes(searchItem())
+              )
+            )
+          : setViewData(response.data);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
       });
   }, [location]);
+
+  const searchItem = () => {
+    if (location?.search.includes("search"))
+      return decodeURI(location?.search.split("search=")[1].toLowerCase());
+    else return false;
+  };
 
   // Filtering the data
   useEffect(() => {
@@ -128,7 +140,7 @@ const ProductPage = ({socket}) => {
   return (
     <div className="shop-body">
       <div className="filters">
-        {console.log(location.search)}
+        {/* {console.log(location.search)} */}
         <FilterComp
           filterFunc={filterByParam}
           delFilterFunc={deletefilterByParam}

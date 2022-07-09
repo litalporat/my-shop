@@ -1,9 +1,10 @@
 import React from 'react';
+import BarChart from '../components/BarChart';
 
 const Analytics = () => {
     return (
         <div>
-            Analytics
+            <BarChart/>
         </div>
     );
 };

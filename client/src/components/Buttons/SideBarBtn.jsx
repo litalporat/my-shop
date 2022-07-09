@@ -33,7 +33,6 @@ const Box = styled.div`
 `;
 const Button = styled.button`
   display: flex;
-
 `;
 const Title = styled.h3`
   color: var(--darkgray-color);
@@ -69,18 +68,13 @@ const SideBarBtn = (props) => {
 
   return (
     <>
-      <span onClick={() => setIsOpen(!isOpen)}>
-      {props.button}
-      </span>
+      <span onClick={() => setIsOpen(!isOpen)}>{props.button}</span>
       {isOpen && (
         <Container id="back-frame">
           <Box side={props.side}>
             <TitleDiv>
               <Title>{props.title}</Title>
-              <Button
-                side={props.side}
-                onClick={() => setIsOpen(!isOpen)}
-              >
+              <Button side={props.side} onClick={() => setIsOpen(!isOpen)}>
                 <i
                   class="fa-solid fa-xmark"
                   style={{
@@ -91,7 +85,13 @@ const SideBarBtn = (props) => {
               </Button>
             </TitleDiv>
             <hr />
-            {props.children ? props.children : "No Data"}
+            <>
+              {props.children
+                ? React.cloneElement(props.children, {
+                    closeSideBar: () => setIsOpen(!isOpen),
+                  })
+                : "No Data"}
+            </>
           </Box>
         </Container>
       )}

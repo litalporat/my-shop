@@ -1,0 +1,66 @@
+GET http://localhost:5000/api/orders
+
+###
+
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+
+{
+    "firstName": "Ravid",
+    "lastName": "Eliyahu",
+    "country": "Israel",
+    "city": "Rishon Lezzyion",
+    "address": "Hahelmonit 27",
+    "zipCode": "7542321",
+    "total": 220,
+    "products": [{
+        "_id": "62aca0cd365b7667bfb702ca",
+        "size": "s",
+        "quantity": 2,
+        "price": 110,
+        "img": "https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg_dtysbl.webp"
+    },
+    {
+        "_id": "62aca0cd365b7667bfb702ca",
+        "size": "l",
+        "quantity": 100,
+        "price": 110,
+        "img": "https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg_dtysbl.webp"
+    },
+    {
+        "_id": "62aca0cd365b7667bfb702ca",
+        "size": "xs",
+        "quantity": 3,
+        "price": 110,
+        "img": "https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg_dtysbl.webp"
+    }]
+}
+
+###
+
+PATCH http://localhost:5000/api/orders/62b09c73bc576451d4f65179
+Content-Type: application/json
+
+{
+    "firstName": "Ravid123",
+    "lastName": "Eliyahu",
+    "country": "Israel",
+    "city": "Rishon Lezzyion",
+    "address": "Hahelmonit 27",
+    "zipCode": "7542321",
+    "total": 220,
+    "products": [{
+        "_id": "62aca0cd365b7667bfb702ca",
+        "size": "s",
+        "quantity": 2,
+        "price": 110,
+        "img": "https://res.cloudinary.com/league-shop-cloud/image/upload/v1653215975/products/overalls/vi_model/WhatsApp-Image-2022-04-13-at-10.27.28-1-430x515.jpeg_dtysbl.webp"
+    }]
+}
+
+###
+
+DELETE http://localhost:5000/api/orders/62b1ad56fe9fbd14ff34e94e
+
+
+

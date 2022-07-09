@@ -14,13 +14,14 @@ export function CartProvider({ children }) {
   }, [products]);
 
   const addProduct = (product) => {
-    // console.log("in add");
     const index = products.findIndex((prod) => {
       return prod._id == product._id && prod.size == product.size;
     });
+
     const prod = Object.assign({}, product);
     let tempProducts = [];
     if (index >= 0) {
+      if (products[index].quantity >= prod.stock[prod.size]) return;
       prod.quantity = products[index].quantity + 1;
       products.map((p) => {
         if (!(p._id == product._id && p.size == product.size))
@@ -53,7 +54,9 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ products, addProduct, removeProduct }}>
+    <CartContext.Provider
+      value={{ products, addProduct, removeProduct, setProducts }}
+    >
       {children}
     </CartContext.Provider>
   );

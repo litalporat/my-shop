@@ -44,7 +44,12 @@ const Update = (props) => {
     console.log(values.imgDisplay);
     axios.patch(
       `http://localhost:5000/api/products/${props.product._id}`,
-      values
+      values,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("key")}`,
+        },
+      }
     );
     props.toggleChange();
   };

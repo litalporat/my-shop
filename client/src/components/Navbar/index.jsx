@@ -9,6 +9,7 @@ import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";
 import Notification from "../NewComp/Notification";
+import CurrenctSelect from "../CurrencySelector";
 
 const BtnsDiv = styled.div`
   display: flex;
@@ -75,6 +76,7 @@ const Navbar = ({socket}) => {
           </li>
         </ul>
         <BtnsDiv>
+          <CurrenctSelect />
           <SearchBar />
           <SideBarBtn
             title={"Notification"}
@@ -113,13 +115,13 @@ const Navbar = ({socket}) => {
           >
             <CartList />
           </SideBarBtn>
-          <PopupBtn
+          {/* <PopupBtn
             title={"Login"}
             size={"S"}
             button={<BasicBtn title={loginTitle} type={"secondary"} />}
           >
             <Login setIsLogin={setIsLogin} />
-          </PopupBtn>
+          </PopupBtn> */}
         </BtnsDiv>
       </nav>
     </div>

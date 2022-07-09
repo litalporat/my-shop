@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import createProduct from "../../../Hooks/ProductCrud";
-import { IconButton, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import axios from "axios";
 
@@ -37,7 +34,11 @@ const Create = (props) => {
     alert("You have submitted the form.");
     console.table(values);
     // createProduct(values);
-    axios.post(`http://localhost:5000/api/locations/`, values);
+    axios.post(`http://localhost:5000/api/locations/`, values, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("key")}`,
+      },
+    });
     props.toggleChange();
   };
   const handleChange = (event) => {
@@ -62,7 +63,6 @@ const Create = (props) => {
         <TextField id="lat" label="Latitude" onChange={handleChange} />
         <TextField id="lng" label="Longitude" onChange={handleChange} />
       </GridContainer>
-
       <Button variant="contained" onClick={handleSubmit}>
         Create <CircularProgress />
       </Button>

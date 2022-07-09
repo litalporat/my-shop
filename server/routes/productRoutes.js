@@ -23,16 +23,16 @@ router.get("/:id", getProductById);
 //@desc add a product to the db
 //@route POST /api/products/
 //@access Public
-router.post("/", addProduct);
+router.post("/", verifyToken, addProduct);
 
 //@desc update a product to the db
 //@route PATCH /api/products/:id
 //@access Public
-router.patch("/:id", setProductById);
+router.patch("/:id", verifyToken, setProductById);
 
 //@desc delete a product to the db
 //@route DELETE /api/products/:id
 //@access Public
-router.delete("/:id", removeProductById);
+router.delete("/:id", verifyToken, removeProductById);
 
 module.exports = router;
