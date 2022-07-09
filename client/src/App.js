@@ -15,16 +15,22 @@ import Footer from "./components/Sections/Footer";
 import { CartProvider } from "./Contexts/CartContext";
 import { HeartProvider } from "./Contexts/HeartContext";
 import { CurrencyProvider } from "./Contexts/CurrencyContext";
-import { io } from "socket.io-client";
+import io from "socket.io-client";
 import { useState } from "react";
 import { useEffect } from "react";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    setSocket(io("http://localhost:3000"));
-  }, []);
+    const newSocket = io(`http://${window.location.hostname}:5000`);
+    setSocket(newSocket);
+    newSocket.on('recieve-likes', (msg) => toast(msg));
+    return () => newSocket.close();
+  }, [setSocket]);
 
 
   return (
@@ -44,6 +50,7 @@ function App() {
           </CurrencyProvider>
         </HeartProvider>
       </CartProvider>
+      <ToastContainer position="bottom-left"/>
     </Router>
   );
 }

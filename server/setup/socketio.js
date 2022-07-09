@@ -1,22 +1,26 @@
+const logger = require('../utils/logger')
+
 module.exports = function (port) {
   const io = require('socket.io')(port, {
     cors: {
-      origin: ["http://localhost:5000", "http://localhost:8080"]
+      origin: '*',
     }
   });
   io.on("connection", socket => {
-    // logger.info("A Client has connected!");
+    logger.info("A Client has connected!");
 
     socket.on("like", (user, product) => {
-      socket.broadcast.emit("recieve-likes", `${user.name} just liked ${product.name}!`);
+      logger.info(`someone just liked ${product.name}!`);
+      socket.broadcast.emit("recieve-likes", `Someone just ❤️ ${product.name}!`);
     })
 
     socket.on("cart", (user, product) => {
-      socket.broadcast.emit("recieve-cart", `${user.name} just added ${product.name} to his/her cart!`);
+      logger.info(`Someone just added ${product.name} to his/her cart!`);
+      socket.broadcast.emit("recieve-cart", `Someone just added ${product.name} to his/her cart!`);
     })
 
     socket.on("disconnect", () => {
-      // logger.info("disconnected!");
+      logger.info("disconnected!");
     })
   })
   return io;

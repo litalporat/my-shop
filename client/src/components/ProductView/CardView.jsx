@@ -67,11 +67,7 @@ const Index = (props) => {
   const { currency, rates } = useContext(CurrencyContext);
 
   const handleNotification = () => {
-    console.log(props.socket);
-    props.socket.emit("like", {
-      user: "user",
-      product: props.product,
-    });
+    props.socket.emit("like", { name: '' }, { name: props.product.displayName });
   };
 
   return (

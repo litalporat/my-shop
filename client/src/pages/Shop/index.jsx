@@ -24,7 +24,6 @@ const ProductPage = ({ socket }) => {
 
   // Getting the data from the DB.
   useEffect(() => {
-    console.log(location.search);
     const path = location.search
       ? `http://localhost:5000/api/products${location.search}`
       : "http://localhost:5000/api/products";
