@@ -20,7 +20,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 100,
   },
   {
@@ -42,7 +42,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -64,7 +64,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 77,
   },
   {
@@ -86,7 +86,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 23,
   },
   {
@@ -108,7 +108,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 400,
   },
   {
@@ -130,7 +130,7 @@ const products = [
       xs: 3,
       s: 10,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 72,
   },
   {
@@ -152,7 +152,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -174,7 +174,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -196,7 +196,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -218,7 +218,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -240,7 +240,7 @@ const products = [
       xs: 10,
       s: 20,
     },
-    type: "Overalls",
+    type: "overall",
     amountSold: 70,
   },
   {
@@ -266,7 +266,7 @@ const products = [
       os: 4,
       xl: 1
     },
-    type: "Dresss",
+    type: "dress",
     amountSold: 50,
   },
   {
@@ -290,7 +290,7 @@ const products = [
       os: 4,
       xl: 1
     },
-    type: "Dresss",
+    type: "dress",
     amountSold: 50,
   },
   {
@@ -314,7 +314,7 @@ const products = [
       os: 4,
       xl: 1
     },
-    type: "Dresss",
+    type: "dress",
     amountSold: 50,
   },
   {
@@ -338,7 +338,7 @@ const products = [
       os: 4,
       xl: 1
     },
-    type: "Dresss",
+    type: "dress",
     amountSold: 50,
   },
   {
@@ -362,7 +362,7 @@ const products = [
       os: 4,
       xl: 1
     },
-    type: "Dresss",
+    type: "dress",
     amountSold: 50,
   },
   {
@@ -384,7 +384,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Shirts & Tops",
+    type: "shirt",
     amountSold: 10,
   },
   {
@@ -405,7 +405,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Shirts & Tops",
+    type: "shirt",
     amountSold: 39,
   },
   {
@@ -426,7 +426,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Shirts & Tops",
+    type: "shirt",
     amountSold: 39,
   },
   {
@@ -447,7 +447,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Shirts & Tops",
+    type: "shirt",
     amountSold: 89,
   },
   {
@@ -469,7 +469,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 30,
   },
   {
@@ -492,7 +492,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 0,
   },
   {
@@ -513,7 +513,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 600,
   },
   {
@@ -534,7 +534,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 0,
   },
   {
@@ -557,7 +557,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 0,
   },
   {
@@ -578,7 +578,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 0,
   },
   {
@@ -599,7 +599,7 @@ const products = [
     stock: {
       os: 14,
     },
-    type: "Suits",
+    type: "suit",
     amountSold: 0,
   },
   {
@@ -622,7 +622,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 0,
   },
   {
@@ -645,7 +645,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 0,
   },
   {
@@ -668,7 +668,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 20,
   },
   {
@@ -691,7 +691,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 20,
   },
   {
@@ -714,7 +714,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 48,
   },
   {
@@ -737,7 +737,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 0,
   },
   {
@@ -761,7 +761,7 @@ const products = [
       s: 5,
       m: 3
     },
-    type: "Skirts",
+    type: "skirt",
     amountSold: 0,
   },
   {
@@ -784,7 +784,7 @@ const products = [
       s: 5,
       l: 3
     },
-    type: "Pants & Jeans",
+    type: "pants",
     amountSold: 44,
   },
   {
@@ -807,7 +807,7 @@ const products = [
       s: 5,
       m: 3
     },
-    type: "Skirts",
+    type: "skirt",
     amountSold: 0,
   },
   {
@@ -830,7 +830,7 @@ const products = [
       s: 5,
       m: 3
     },
-    type: "Skirts",
+    type: "skirt",
     amountSold: 0,
   },
   {
@@ -853,7 +853,7 @@ const products = [
       s: 5,
       m: 3
     },
-    type: "Skirts",
+    type: "skirt",
     amountSold: 0,
   },
 ];
