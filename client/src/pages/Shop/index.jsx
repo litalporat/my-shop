@@ -31,7 +31,6 @@ const ProductPage = ({ socket }) => {
       .get(path)
       .then(function (response) {
         // handle success
-        console.log(response.data);
         setData(response.data);
         searchItem()
           ? setViewData(
