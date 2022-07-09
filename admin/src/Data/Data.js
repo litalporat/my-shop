@@ -10,7 +10,10 @@ import {
 } from "@iconscout/react-unicons";
 
 // Analytics Cards imports
-import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
+import {
+  UilUsdSquare,
+  UilMoneyWithdrawal,
+} from "@iconscout/react-unicons";
 import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 // Recent Card Imports
@@ -93,8 +96,20 @@ export const cardsData = [
     png: UilClipboardAlt,
     series: [
       {
-        name: "Expenses",
-        data: [10, 25, 15, 30, 12, 15, 20],
+        data: [
+          {
+            x: "category A",
+            y: 10,
+          },
+          {
+            x: "category B",
+            y: 18,
+          },
+          {
+            x: "category C",
+            y: 13,
+          },
+        ],
       },
     ],
   },
