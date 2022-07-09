@@ -32,46 +32,42 @@ const FilterComp = (props) => {
   ];
 
   const checkValue = (e) => {
-    if (e.target.checked)
-      props.filterFunc(e.target.id, e.target.value);
+    if (e.target.checked) props.filterFunc(e.target.id, e.target.value);
     else props.delFilterFunc(e.target.id, e.target.value);
   };
 
   return (
-      <SideBarBtn 
-      title={"Filters"}
-      button={<BasicButton title={"Filters"}/>}
-      >
-        <h3>Price</h3>
-        <Slider
-          value={value}
-          onChange={updateRange}
-          valueLabelDisplay="auto"
-          max={1000}
-          step={10}
-        />
-        <hr />
-        {options.map((obj) => (
-          <>
-            <h3> {obj.title} </h3>
-            {obj.values.map((val) => (
-              <>
-                <label className="check-cont">
-                  <input
-                    type="checkbox"
-                    onChange={checkValue}
-                    value={val}
-                    id={obj.param}
-                  />
-                  {val}
-                  <span className="checkmark"></span>
-                </label>
-              </>
-            ))}
-            <hr/>
-          </>
-        ))}
-      </SideBarBtn>
+    <SideBarBtn title={"Filters"} button={<BasicButton title={"Filters"} />}>
+      <h3>Price</h3>
+      <Slider
+        value={value}
+        onChange={updateRange}
+        valueLabelDisplay="auto"
+        max={1000}
+        step={10}
+      />
+      <hr />
+      {options.map((obj) => (
+        <>
+          <h3> {obj.title} </h3>
+          {obj.values.map((val) => (
+            <>
+              <label className="check-cont">
+                <input
+                  type="checkbox"
+                  onChange={checkValue}
+                  value={val}
+                  id={obj.param}
+                />
+                {val}
+                <span className="checkmark"></span>
+              </label>
+            </>
+          ))}
+          <hr />
+        </>
+      ))}
+    </SideBarBtn>
   );
 };
 

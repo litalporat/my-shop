@@ -10,7 +10,7 @@ import BasicButton from "../../components/Buttons/BasicBtn";
 import HeartContext from "../../Contexts/HeartContext";
 import { useLocation, useSearchParams } from "react-router-dom";
 
-const ProductPage = ({socket}) => {
+const ProductPage = ({ socket }) => {
   //States
   const [data, setData] = useState();
   const [viewData, setViewData] = useState();
@@ -24,6 +24,7 @@ const ProductPage = ({socket}) => {
 
   // Getting the data from the DB.
   useEffect(() => {
+    console.log(location.search);
     const path = location.search
       ? `http://localhost:5000/api/products${location.search}`
       : "http://localhost:5000/api/products";
@@ -31,6 +32,7 @@ const ProductPage = ({socket}) => {
       .get(path)
       .then(function (response) {
         // handle success
+        console.log(response.data);
         setData(response.data);
         searchItem()
           ? setViewData(
@@ -140,7 +142,6 @@ const ProductPage = ({socket}) => {
   return (
     <div className="shop-body">
       <div className="filters">
-        {/* {console.log(location.search)} */}
         <FilterComp
           filterFunc={filterByParam}
           delFilterFunc={deletefilterByParam}
@@ -152,11 +153,7 @@ const ProductPage = ({socket}) => {
       <div className="shop-list">
         {data &&
           viewData.map((product) => (
-            <Product
-              product={product}
-              socket={socket}
-              onCart={addProduct}
-            />
+            <Product product={product} socket={socket} onCart={addProduct} />
           ))}
       </div>
     </div>

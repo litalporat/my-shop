@@ -79,7 +79,7 @@ const DropDownList = (props) => {
       {props.items.map((category) => (
         <>
           <Item>
-            <Link to={`/shop?category=${category.displayName}`}>
+            <Link to={`/shop?category=${category.name}`}>
               {category.displayName}
             </Link>
           </Item>
