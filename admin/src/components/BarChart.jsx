@@ -11,6 +11,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { useEffect } from "react";
 import axios from "axios";
+import fetchCatagories from "../Utils/fetchCatagories";
 // import faker from 'faker';
 
 ChartJS.register(
@@ -24,27 +25,13 @@ ChartJS.register(
 
 const BarChart = () => {
   const [catagories, setCatagories] = useState();
-  const [labels, setLabels] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/categories")
-      .then(function (response) {
-        // handle success
-        setCatagories(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    fetchCatagories().then(data => {
+      setCatagories(data)
+    })
   }, []);
-
-  console.log(catagories);
-
-  useEffect(() => {
-      catagories && catagories.map((obj) => labels.push(obj.displayName));
-    }, [catagories]);
-
+  
   const options = {
     responsive: true,
     plugins: {
@@ -59,13 +46,17 @@ const BarChart = () => {
   };
 
   const data = {
-    labels,
+    labels: catagories && catagories.map((obj) => obj.displayName),
     datasets: [
       {
-        label: "Dataset 1",
-        // data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        data: 50,
+        label: "Amount",
+        data: catagories && catagories.map(() => 15),
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: 'Profit',
+        data: catagories && catagories.map(() => 50),
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };
