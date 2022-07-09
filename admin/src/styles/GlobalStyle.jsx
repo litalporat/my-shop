@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 *{
   font-family: 'Quicksand', sans-serif;
+  margin:0;
 }
 
 .App {
