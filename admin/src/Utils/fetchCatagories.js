@@ -1,4 +1,4 @@
-import axiosinstance from '../Api/axios'
+import axiosinstance from '../api/axios'
 
 async function fetchCatagories() {
   return axiosinstance

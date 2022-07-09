@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
+import { createGlobalStyle } from "styled-components";
+import backGround from '../imgs/background.png'
+
+const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
 
 :root {
   --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
@@ -19,7 +23,7 @@
 
 .App {
   color: var(--black);
-  background-image: url(./imgs/background.png);
+  background-image: url(${backGround});
   height: 100vh;
   display: flex;
   align-items: center;
@@ -53,3 +57,6 @@
     grid-template-columns: 1fr;
   } 
 }
+`;
+
+export default GlobalStyle;

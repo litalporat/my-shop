@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { useState } from "react";
-import fetchCatagories from "../Utils/fetchCatagories";
+import fetchCatagories from "../utils/fetchCatagories";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

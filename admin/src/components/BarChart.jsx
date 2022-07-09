@@ -11,7 +11,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { useEffect } from "react";
 import axios from "axios";
-import fetchCatagories from "../Utils/fetchCatagories";
+import fetchCatagories from "../utils/fetchCatagories";
 // import faker from 'faker';
 
 ChartJS.register(
