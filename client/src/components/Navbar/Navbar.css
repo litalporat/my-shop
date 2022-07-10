@@ -14,10 +14,12 @@
   top: 0;
 }
 .down {
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 .up {
-  visibility: visible;
+  opacity: 100%;
+  transition: opacity 0.5s ease-in-out;
 }
 
 h2 {
@@ -47,8 +49,8 @@ h2 {
   align-items: center;
   gap: 0.5rem;
 }
-.navbar__links > li > a:hover{
-    text-decoration: overline 2px;
+.navbar__links > li > a:hover {
+  text-decoration: overline 2px;
 }
 .navbar__links > li > a > span {
   display: flex;
