@@ -50,7 +50,7 @@ function App() {
           </CurrencyProvider>
         </HeartProvider>
       </CartProvider>
-      <ToastContainer position="bottom-left"/>
+      <ToastContainer position="bottom-left" progressStyle={{background : "#B6ADA7"}}/>
     </Router>
   );
 }
