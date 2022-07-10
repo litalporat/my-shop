@@ -3,7 +3,7 @@ import ArrowBtn from "../components/Buttons/ArrowBtn";
 import VideoSection from "../components/Sections/VideoSection";
 import ForUSection from "../components/Sections/ForUSection";
 import { Link } from "react-router-dom";
-import Map from "../components/Map/Map";
+import Map from "../components/Elements/Map";
 import { Body, Container, ForUBtn, Image, Shape, Text, Title } from "./styles/HomePageStyle";
 
 

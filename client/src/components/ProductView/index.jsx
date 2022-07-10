@@ -1,4 +1,4 @@
 import CardView from "./CardView";
-import ListViewProduct from "./ListViewProduct";
+import ListView from "./ListView";
 
-export { CardView, ListViewProduct };
+export { CardView, ListView };

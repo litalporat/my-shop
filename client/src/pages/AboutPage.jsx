@@ -1,7 +1,7 @@
 import React from "react";
 
 //Components
-import Map from "../components/Map/Map";
+import Map from "../components/Elements/Map";
 
 //Styles
 import { Body } from "./styles/AboutPageStyle";

@@ -8,7 +8,7 @@ import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";
-import Notification from "../NewComp/Notification";
+import Notification from "../Elements/Notification";
 import CurrenctSelect from "../CurrencySelector";
 
 const BtnsDiv = styled.div`

@@ -7,7 +7,7 @@ import HeartContext from "../contexts/HeartContext";
 import Product from "../components/ProductView/CardView";
 import CartContext from "../contexts/CartContext";
 import FilterComp from "../components/FilterComp";
-import SorterComp from "../components/SorterComp";
+import SorterComp from "../components/FuncComps/SorterComp";
 import BasicButton from "../components/Buttons/BasicBtn";
 
 //Styles
