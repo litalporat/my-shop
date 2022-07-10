@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import createProduct from "../../../Hooks/ProductCrud";
+import createProduct from "../../../hooks/ProductCrud";
 import { IconButton, CircularProgress } from "@mui/material";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import axios from "axios";

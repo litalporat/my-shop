@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
+import { createGlobalStyle } from "styled-components";
+import backGround from '../imgs/background.png'
+
+const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
 
 :root {
   --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
@@ -15,18 +19,12 @@
 
 *{
   font-family: 'Quicksand', sans-serif;
+  margin:0;
 }
 
 .App {
-  /* padding: 0.5rem 3.5rem; */
   color: var(--black);
-  background-image: url(./imgs/background.png);
-  /* background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  ); */
+  background-image: url(${backGround});
   height: 100vh;
   display: flex;
   align-items: center;
@@ -60,3 +58,6 @@
     grid-template-columns: 1fr;
   } 
 }
+`;
+
+export default GlobalStyle;

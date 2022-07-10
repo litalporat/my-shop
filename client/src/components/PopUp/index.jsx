@@ -6,11 +6,11 @@ import "./Popup.css";
 import BackGround from "../../images/background.png";
 import { useContext } from "react";
 import CurrencyContext from "../../Contexts/CurrencyContext";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+
 const Body = styled.div`
   display: flex;
   height: 100%;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -25,11 +25,15 @@ const PhotoDiv = styled.div`
   background-image: url(${BackGround});
 `;
 const Text = styled.p`
-  padding: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
 `;
 
 const Label = styled.label`
+  letter-spacing:1.5px;
+  font-size: 20px;
   color: black;
+  margin-bottom: 10px;
 `;
 
 const P = styled.p`
@@ -38,12 +42,14 @@ const P = styled.p`
 
 const Details = styled.div`
   display: flex;
+  text-align: left;
+  align-items: flex-start;
   height: 100%;
-  padding: 10px;
+  padding: 1rem 1rem 1rem 5rem;
   flex: 6;
   flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  gap:25px;
+  justify-content: center;
 `;
 
 const BtnsList = styled.div`
@@ -81,12 +87,10 @@ const Popup = (props) => {
   };
 
   const handleAddToCart = () => {
-    //console.log("in handle cart");
     if (chosenSize) {
-      //console.log("error = false  && chosen size true");
       props.product.size = chosenSize;
       props.onCart(props.product);
-      toast(`${ props.product.displayName } added to your 🛒!`)
+      toast(`${props.product.displayName} added to your 🛒!`);
     } else {
       console.log("error is true or size is undefined ");
       setError(true);
@@ -110,13 +114,12 @@ const Popup = (props) => {
         </div>
       </PhotoDiv>
       <Details>
-        <Label htmlFor="">Descriptons:</Label>
-        <P className="text text-small">{props.product.description}</P>
-        <Label htmlFor=""> Price:</Label>
-        <P className="text">
+        <Label htmlFor="">Descriptons</Label>
+        <Text>{props.product.description}</Text>
+        <Label>
           {(props.product.price * rates[currency]).toFixed(2)}
           <small style={{ padding: "0 5px" }}>{currency}</small>
-        </P>
+        </Label>
         <Sizes stock={props.product.stock} onClick={setSize} />
         <ArrowBtn content={"add to cart"} onClick={handleAddToCart} />
         {error && (
