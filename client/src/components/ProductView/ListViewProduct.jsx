@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import IconBtn from "../Buttons/IconBtn";
 import { useContext } from "react";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 import { toast } from 'react-toastify';
 const Container = styled.div`
   border-radius: 10px;

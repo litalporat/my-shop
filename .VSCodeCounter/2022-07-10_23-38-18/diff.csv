@@ -1,0 +1,13 @@
+"filename", "language", "JSON", "Markdown", "HTML", "JavaScript", "CSS", "comment", "blank", "total"
+"c:\Users\בר\IdeaProjects\my-shop\client\README.md", "Markdown", 0, -38, 0, 0, 0, 0, -33, -71
+"c:\Users\בר\IdeaProjects\my-shop\client\build\asset-manifest.json", "JSON", -17, 0, 0, 0, 0, 0, 0, -17
+"c:\Users\בר\IdeaProjects\my-shop\client\build\index.html", "HTML", 0, 0, -1, 0, 0, 0, 0, -1
+"c:\Users\בר\IdeaProjects\my-shop\client\build\manifest.json", "JSON", -25, 0, 0, 0, 0, 0, -1, -26
+"c:\Users\בר\IdeaProjects\my-shop\client\build\static\css\main.7c4ecf2b.css", "CSS", 0, 0, 0, 0, -1, -1, 0, -2
+"c:\Users\בר\IdeaProjects\my-shop\client\build\static\js\787.c4e7f8f9.chunk.js", "JavaScript", 0, 0, 0, -1, 0, -1, 0, -2
+"c:\Users\בר\IdeaProjects\my-shop\client\build\static\js\main.0a5d26bc.js", "JavaScript", 0, 0, 0, -1, 0, -2, 0, -3
+"c:\Users\בר\IdeaProjects\my-shop\client\package-lock.json", "JSON", -31305, 0, 0, 0, 0, 0, -1, -31306
+"c:\Users\בר\IdeaProjects\my-shop\client\package.json", "JSON", -58, 0, 0, 0, 0, 0, -1, -59
+"c:\Users\בר\IdeaProjects\my-shop\client\public\index.html", "HTML", 0, 0, -33, 0, 0, 0, -1, -34
+"c:\Users\בר\IdeaProjects\my-shop\client\public\manifest.json", "JSON", -25, 0, 0, 0, 0, 0, -1, -26
+"Total", "-", -31430, -38, -34, -2, -1, -4, -38, -31547

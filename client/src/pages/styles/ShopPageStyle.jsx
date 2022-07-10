@@ -1,15 +1,17 @@
-.shop-body {
+import styled from "styled-components";
+
+const ShopPageBody = styled.div`
   margin-top: 5%;
-}
-.shop-list {
+`;
+const ShopList = styled.div`
   padding: 1rem 1rem 1rem 1rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-}
-.filters {
+`;
+const FitlersStyle = styled.div`
   background: #d8d2d2;
   margin: 8px 22px;
   padding: 20px;
@@ -18,4 +20,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+`;
+
+export { ShopPageBody, ShopList, FitlersStyle };

@@ -1,16 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import Product from "../../components/ProductView/CardView";
-import Popup from "../../components/PopUp";
-import axios from "axios";
-import "./Shop.css";
-import CartContext from "../../Contexts/CartContext";
-import FilterComp from "../../components/FilterComp";
-import SorterComp from "../../components/SorterComp";
-import BasicButton from "../../components/Buttons/BasicBtn";
-import HeartContext from "../../Contexts/HeartContext";
 import { useLocation, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import HeartContext from "../contexts/HeartContext";
 
-const ProductPage = ({ socket }) => {
+//Componentes
+import Product from "../components/ProductView/CardView";
+import CartContext from "../contexts/CartContext";
+import FilterComp from "../components/FilterComp";
+import SorterComp from "../components/SorterComp";
+import BasicButton from "../components/Buttons/BasicBtn";
+
+//Styles
+import { FitlersStyle, ShopList, ShopPageBody } from "./styles/ShopPageStyle";
+
+const ShopPage = ({ socket }) => {
   //States
   const [data, setData] = useState();
   const [viewData, setViewData] = useState();
@@ -138,8 +141,8 @@ const ProductPage = ({ socket }) => {
   };
 
   return (
-    <div className="shop-body">
-      <div className="filters">
+    <ShopPageBody>
+      <FitlersStyle>
         <FilterComp
           filterFunc={filterByParam}
           delFilterFunc={deletefilterByParam}
@@ -147,15 +150,20 @@ const ProductPage = ({ socket }) => {
         />
         <BasicButton title={`Number Of Products: ${data && viewData.length}`} />
         <SorterComp sortByInt={sortByInt} sortByString={sortByString} />
-      </div>
-      <div className="shop-list">
+      </FitlersStyle>
+      <ShopList>
         {data &&
           viewData.map((product) => (
-            <Product product={product} socket={socket} onCart={addProduct} />
+            <Product
+              key={product._id}
+              product={product}
+              socket={socket}
+              onCart={addProduct}
+            />
           ))}
-      </div>
-    </div>
+      </ShopList>
+    </ShopPageBody>
   );
 };
 
-export default ProductPage;
+export default ShopPage;

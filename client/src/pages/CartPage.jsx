@@ -1,27 +1,18 @@
-import React, { useContext, useState } from "react";
-import CartContext from "../../Contexts/CartContext";
-import "./Cart.css";
-import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
-import Quantity from "../../components/Buttons/QuantityBtn";
-import CartProduct from "../../components/ProductView/ListViewProduct";
-import styled from "styled-components";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import CurrencyContext from "../../Contexts/CurrencyContext";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  gap: 20px;
-  justify-content: center;
-`;
+//Contexts
+import CartContext from "../contexts/CartContext";
+import CurrencyContext from "../contexts/CurrencyContext";
 
-const Strong = styled.strong`
-  display: flex;
-  justify-content: center;
-  margin-top: 35px;
-`;
+//Components
+import Quantity from "../components/Buttons/QuantityBtn";
+import CartProduct from "../components/ProductView/ListViewProduct";
+import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
+
+//Styles
+import { GridContainer, Strong } from "./styles/CartPageStyle";
+
 
 const CartPage = () => {
   const { products, removeProduct, setProducts } = useContext(CartContext);

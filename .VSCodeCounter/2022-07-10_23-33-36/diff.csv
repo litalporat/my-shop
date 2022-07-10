@@ -1,0 +1,108 @@
+"filename", "language", "JSON", "Markdown", "JavaScript", "HTTP", "JavaScript React", "CSS", "HTML", "comment", "blank", "total"
+"c:\Users\בר\IdeaProjects\my-shop\README.md", "Markdown", 0, -2, 0, 0, 0, 0, 0, 0, -1, -3
+"c:\Users\בר\IdeaProjects\my-shop\admin\package-lock.json", "JSON", -28075, 0, 0, 0, 0, 0, 0, 0, -1, -28076
+"c:\Users\בר\IdeaProjects\my-shop\admin\package.json", "JSON", -56, 0, 0, 0, 0, 0, 0, 0, -1, -57
+"c:\Users\בר\IdeaProjects\my-shop\admin\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, -16, 0, -1, -17
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\App.jsx", "JavaScript React", 0, 0, 0, 0, -30, 0, 0, -3, -6, -39
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.css", "CSS", 0, 0, 0, 0, 0, -257, 0, 0, -25, -282
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.html", "HTML", 0, 0, 0, 0, 0, 0, -57, -20, -2, -79
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.js", "JavaScript", 0, 0, -103, 0, 0, 0, 0, -17, -21, -141
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\api\axios.js", "JavaScript", 0, 0, -8, 0, 0, 0, 0, 0, -3, -11
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\auth\ProtectedRoutes.jsx", "JavaScript React", 0, 0, 0, 0, -8, 0, 0, 0, -3, -11
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\auth\auth.js", "JavaScript", 0, 0, -19, 0, 0, 0, 0, 0, -4, -23
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\BarChart.jsx", "JavaScript React", 0, 0, 0, 0, -59, 0, 0, -1, -8, -68
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Card\Card.css", "CSS", 0, 0, 0, 0, 0, -94, 0, -3, -9, -106
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Card\Card.jsx", "JavaScript React", 0, 0, 0, 0, -116, 0, 0, -3, -9, -128
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Cards\Cards.css", "CSS", 0, 0, 0, 0, 0, -21, 0, 0, -3, -24
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Cards\Cards.jsx", "JavaScript React", 0, 0, 0, 0, -25, 0, 0, 0, -4, -29
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\CustomerReview\CustomerReview.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\CustomerReview\CustomerReview.jsx", "JavaScript React", 0, 0, 0, 0, -59, 0, 0, 0, -5, -64
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Location\Create.jsx", "JavaScript React", 0, 0, 0, 0, -65, 0, 0, -1, -8, -74
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Location\Update.jsx", "JavaScript React", 0, 0, 0, 0, -90, 0, 0, 0, -8, -98
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Order\Create.jsx", "JavaScript React", 0, 0, 0, 0, -192, 0, 0, 0, -14, -206
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Order\Update.jsx", "JavaScript React", 0, 0, 0, 0, -255, 0, 0, 0, -15, -270
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Create.jsx", "JavaScript React", 0, 0, 0, 0, -185, 0, 0, -1, -7, -193
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Types.jsx", "JavaScript React", 0, 0, 0, 0, -41, 0, 0, -2, -5, -48
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Update.jsx", "JavaScript React", 0, 0, 0, 0, -221, 0, 0, 0, -9, -230
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Update.jsx", "JavaScript React", 0, 0, 0, 0, -221, 0, 0, 0, -9, -230
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\MainDash\MainDash.css", "CSS", 0, 0, 0, 0, 0, -17, 0, 0, -3, -20
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\MainDash\MainDash.jsx", "JavaScript React", 0, 0, 0, 0, -14, 0, 0, 0, -2, -16
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\BtnGroup.jsx", "JavaScript React", 0, 0, 0, 0, -57, 0, 0, 0, -3, -60
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\DataTable.jsx", "JavaScript React", 0, 0, 0, 0, -8, 0, 0, 0, -4, -12
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\PopProducts.jsx", "JavaScript React", 0, 0, 0, 0, -59, 0, 0, 0, -6, -65
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\Popup.jsx", "JavaScript React", 0, 0, 0, 0, -41, 0, 0, 0, -4, -45
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\PieChart.jsx", "JavaScript React", 0, 0, 0, 0, -42, 0, 0, 0, -7, -49
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\RigtSide\RightSide.css", "CSS", 0, 0, 0, 0, 0, -26, 0, -1, -3, -30
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\RigtSide\RightSide.jsx", "JavaScript React", 0, 0, 0, 0, -19, 0, 0, 0, -3, -22
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Sidebar.css", "CSS", 0, 0, 0, 0, 0, -108, 0, -3, -9, -120
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Sidebar.jsx", "JavaScript React", 0, 0, 0, 0, -72, 0, 0, -3, -8, -83
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Table\Table.css", "CSS", 0, 0, 0, 0, 0, -35, 0, 0, -7, -42
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Table\Table.jsx", "JavaScript React", 0, 0, 0, 0, -81, 0, 0, 0, -5, -86
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Updates\Updates.css", "CSS", 0, 0, 0, 0, 0, -21, 0, 0, -5, -26
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Updates\Updates.jsx", "JavaScript React", 0, 0, 0, 0, -24, 0, 0, 0, -3, -27
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\context\AuthProvider.js", "JavaScript", 0, 0, -11, 0, 0, 0, 0, 0, -4, -15
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\data\Data.js", "JavaScript", 0, 0, -127, 0, 0, 0, 0, -6, -6, -139
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\hooks\ProductCrud.js", "JavaScript", 0, 0, -6, 0, 0, 0, 0, -22, -5, -33
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\index.js", "JavaScript", 0, 0, -14, 0, 0, 0, 0, 0, -1, -15
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Analytics.jsx", "JavaScript React", 0, 0, 0, 0, -33, 0, 0, 0, -3, -36
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Locations.jsx", "JavaScript React", 0, 0, 0, 0, -112, 0, 0, -2, -8, -122
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Login.jsx", "JavaScript React", 0, 0, 0, 0, -97, 0, 0, -16, -12, -125
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Orders.jsx", "JavaScript React", 0, 0, 0, 0, -151, 0, 0, -2, -7, -160
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Products.jsx", "JavaScript React", 0, 0, 0, 0, -125, 0, 0, -3, -8, -136
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\index.jsx", "JavaScript React", 0, 0, 0, 0, -6, 0, 0, 0, -1, -7
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\pages.css", "CSS", 0, 0, 0, 0, 0, -22, 0, 0, -4, -26
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\styles\GlobalStyle.jsx", "JavaScript React", 0, 0, 0, 0, -61, 0, 0, 0, -3, -64
+"c:\Users\בר\IdeaProjects\my-shop\admin\src\utils\fetchCatagories.js", "JavaScript", 0, 0, -12, 0, 0, 0, 0, 0, -3, -15
+"c:\Users\בר\IdeaProjects\my-shop\package-lock.json", "JSON", -180, 0, 0, 0, 0, 0, 0, 0, -1, -181
+"c:\Users\בר\IdeaProjects\my-shop\package.json", "JSON", -5, 0, 0, 0, 0, 0, 0, 0, -1, -6
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\auth.rest", "HTTP", 0, 0, 0, -16, 0, 0, 0, -3, -8, -27
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\categories.rest", "HTTP", 0, 0, 0, -1, 0, 0, 0, -1, -1, -3
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\currency.rest", "HTTP", 0, 0, 0, -1, 0, 0, 0, -1, -1, -3
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\locations.rest", "HTTP", 0, 0, 0, -13, 0, 0, 0, -3, -8, -24
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\orders.rest", "HTTP", 0, 0, 0, -52, 0, 0, 0, -3, -12, -67
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\products.rest", "HTTP", 0, 0, 0, -30, 0, 0, 0, -6, -14, -50
+"c:\Users\בר\IdeaProjects\my-shop\server\API_testing\users.rest", "HTTP", 0, 0, 0, -11, 0, 0, 0, -4, -9, -24
+"c:\Users\בר\IdeaProjects\my-shop\server\README.md", "Markdown", 0, -27, 0, 0, 0, 0, 0, 0, -7, -34
+"c:\Users\בר\IdeaProjects\my-shop\server\app.js", "JavaScript", 0, 0, -22, 0, 0, 0, 0, -3, -3, -28
+"c:\Users\בר\IdeaProjects\my-shop\server\config\mongoConnect.js", "JavaScript", 0, 0, -16, 0, 0, 0, 0, 0, -3, -19
+"c:\Users\בר\IdeaProjects\my-shop\server\config\redisConnect.js", "JavaScript", 0, 0, -6, 0, 0, 0, 0, 0, -2, -8
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\authControllers.js", "JavaScript", 0, 0, -58, 0, 0, 0, 0, 0, -8, -66
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\categoriesControllers.js", "JavaScript", 0, 0, -16, 0, 0, 0, 0, 0, -2, -18
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\currencyController.js", "JavaScript", 0, 0, -15, 0, 0, 0, 0, 0, -2, -17
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\locationController.js", "JavaScript", 0, 0, -79, 0, 0, 0, 0, 0, -6, -85
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\ordersController.js", "JavaScript", 0, 0, -96, 0, 0, 0, 0, -1, -7, -104
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\productControllers.js", "JavaScript", 0, 0, -102, 0, 0, 0, 0, 0, -8, -110
+"c:\Users\בר\IdeaProjects\my-shop\server\controller\userControllers.js", "JavaScript", 0, 0, -69, 0, 0, 0, 0, 0, -5, -74
+"c:\Users\בר\IdeaProjects\my-shop\server\data\categories.js", "JavaScript", 0, 0, -9, 0, 0, 0, 0, 0, -2, -11
+"c:\Users\בר\IdeaProjects\my-shop\server\data\locations.js", "JavaScript", 0, 0, -9, 0, 0, 0, 0, 0, -2, -11
+"c:\Users\בר\IdeaProjects\my-shop\server\data\products.js", "JavaScript", 0, 0, -860, 0, 0, 0, 0, 0, -2, -862
+"c:\Users\בר\IdeaProjects\my-shop\server\middlewares\auth.js", "JavaScript", 0, 0, -22, 0, 0, 0, 0, 0, -4, -26
+"c:\Users\בר\IdeaProjects\my-shop\server\models\Categories.js", "JavaScript", 0, 0, -7, 0, 0, 0, 0, 0, -3, -10
+"c:\Users\בר\IdeaProjects\my-shop\server\models\Currency.js", "JavaScript", 0, 0, -173, 0, 0, 0, 0, 0, -3, -176
+"c:\Users\בר\IdeaProjects\my-shop\server\models\Location.js", "JavaScript", 0, 0, -17, 0, 0, 0, 0, 0, -3, -20
+"c:\Users\בר\IdeaProjects\my-shop\server\models\Orders.js", "JavaScript", 0, 0, -35, 0, 0, 0, 0, 0, -4, -39
+"c:\Users\בר\IdeaProjects\my-shop\server\models\Product.js", "JavaScript", 0, 0, -79, 0, 0, 0, 0, 0, -6, -85
+"c:\Users\בר\IdeaProjects\my-shop\server\models\User.js", "JavaScript", 0, 0, -24, 0, 0, 0, 0, 0, -5, -29
+"c:\Users\בר\IdeaProjects\my-shop\server\package-lock.json", "JSON", -12026, 0, 0, 0, 0, 0, 0, 0, -1, -12027
+"c:\Users\בר\IdeaProjects\my-shop\server\package.json", "JSON", -51, 0, 0, 0, 0, 0, 0, 0, -1, -52
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\authRoutes.js", "JavaScript", 0, 0, -11, 0, 0, 0, 0, -9, -5, -25
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\categoriesRoutes.js", "JavaScript", 0, 0, -7, 0, 0, 0, 0, -3, -3, -13
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\currencyRoutes.js", "JavaScript", 0, 0, -7, 0, 0, 0, 0, -3, -3, -13
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\locationRoutes.js", "JavaScript", 0, 0, -9, 0, 0, 0, 0, -12, -6, -27
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\ordersRoutes.js", "JavaScript", 0, 0, -15, 0, 0, 0, 0, -12, -7, -34
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\productRoutes.js", "JavaScript", 0, 0, -16, 0, 0, 0, 0, -15, -8, -39
+"c:\Users\בר\IdeaProjects\my-shop\server\routes\userRoutes.js", "JavaScript", 0, 0, -9, 0, 0, 0, 0, -12, -6, -27
+"c:\Users\בר\IdeaProjects\my-shop\server\server.js", "JavaScript", 0, 0, -15, 0, 0, 0, 0, 0, -2, -17
+"c:\Users\בר\IdeaProjects\my-shop\server\setup\currencyCrone.js", "JavaScript", 0, 0, -18, 0, 0, 0, 0, 0, -1, -19
+"c:\Users\בר\IdeaProjects\my-shop\server\setup\mongoMockDB.js", "JavaScript", 0, 0, -27, 0, 0, 0, 0, 0, -5, -32
+"c:\Users\בר\IdeaProjects\my-shop\server\setup\socketio.js", "JavaScript", 0, 0, -23, 0, 0, 0, 0, 0, -4, -27
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\auth.test.js", "JavaScript", 0, 0, -128, 0, 0, 0, 0, -1, -19, -148
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\categories.test.js", "JavaScript", 0, 0, -27, 0, 0, 0, 0, -1, -5, -33
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\loaction.test.js", "JavaScript", 0, 0, -26, 0, 0, 0, 0, -19, -6, -51
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\products.test.js", "JavaScript", 0, 0, -81, 0, 0, 0, 0, -1, -9, -91
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\socketio.test.js", "JavaScript", 0, 0, -45, 0, 0, 0, 0, 0, -7, -52
+"c:\Users\בר\IdeaProjects\my-shop\server\test\api\user.test.js", "JavaScript", 0, 0, -150, 0, 0, 0, 0, -1, -17, -168
+"c:\Users\בר\IdeaProjects\my-shop\server\utils\logger.js", "JavaScript", 0, 0, -13, 0, 0, 0, 0, 0, -1, -14
+"c:\Users\בר\IdeaProjects\my-shop\server\utils\seederScript.js", "JavaScript", 0, 0, -27, 0, 0, 0, 0, 0, -10, -37
+"c:\Users\בר\IdeaProjects\my-shop\server\utils\validators.js", "JavaScript", 0, 0, -72, 0, 0, 0, 0, -25, -6, -103
+"Total", "-", -40393, -29, -2740, -124, -2569, -601, -73, -248, -593, -47370

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import CartContext from "../../Contexts/CartContext";
+import CartContext from "../../contexts/CartContext";
 
 const Container = styled.span`
   display: flex;

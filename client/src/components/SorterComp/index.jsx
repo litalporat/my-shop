@@ -33,6 +33,7 @@ const SorterComp = props => {
             {
                 sort.map(obj => (
                     <BasicButton
+                    key={obj.title}
                     title={`Sort By ${obj.title}: ${obj.order}`}
                     onClick={() => sortChange(obj.param,obj.order)}
                     />

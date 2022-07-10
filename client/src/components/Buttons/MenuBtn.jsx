@@ -57,7 +57,7 @@ const DropDown = (props) => {
   return (
     <Wrapper>
       <Button
-        onClick={<Link to="/shop" />}
+        onClick={() => <Link to="/shop" />}
         onMouseOver={() => setdropdown(true)}
       >
         {props.title}
@@ -79,7 +79,7 @@ const DropDownList = (props) => {
       {props.items.map((category) => (
         <>
           <Item>
-            <Link to={`/shop?category=${category.name}`}>
+            <Link key={category._id} to={`/shop?category=${category.name}`}>
               {category.displayName}
             </Link>
           </Item>

@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+import Backgorund from '../images/background.png'
+
+const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
 
 :root{
@@ -12,9 +16,16 @@
 *{
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 body{
-    background-image: url(./images/background.png);
+    background-image: url(${Backgorund});
+}
+img {
+  width: 95%;
+  object-fit: contain;
 }
 main{
     margin: 5px;
@@ -26,3 +37,7 @@ main{
 ::-webkit-scrollbar {
     display: none;
 }
+
+`;
+
+export default GlobalStyle;

@@ -35,10 +35,10 @@ const Cirlce = styled.span`
 const ArrowBtn = (props) => {
   return (
     <Button onClick={props.onClick}>
-      <span class="circle">
-        <span class="icon arrow"></span>
+      <span className="circle">
+        <span className="icon arrow"></span>
       </span>
-      <span class="button-text">{props.content}</span>
+      <span className="button-text">{props.content}</span>
     </Button>
   );
 };

@@ -42,6 +42,7 @@ const Map = ({ lat, lng, zoom }) => {
       >
         {locations.map((location) => (
           <Icon
+            key={location._id}
             className="fa-solid fa-bag-shopping"
             lat={location.lat}
             lng={location.lng}

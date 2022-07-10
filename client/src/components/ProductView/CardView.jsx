@@ -1,10 +1,10 @@
-import HeartContext from "../../Contexts/HeartContext";
+import HeartContext from "../../contexts/HeartContext";
 import { useContext, useState } from "react";
 import styled from "styled-components";
 
 import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../Buttons";
 import Popup from "../PopUp";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 
 import { toast } from 'react-toastify';
 
@@ -107,7 +107,7 @@ const Index = (props) => {
         <Price>
           {" "}
           {(props.product.price * rates[currency]).toFixed(2)}{" "}
-          <small style={{ "font-size": "10px" }}>{currency}</small>{" "}
+          <small style={{ fontSize: "10px" }}>{currency}</small>{" "}
         </Price>
         <Title> {props.product.displayName} </Title>
         <Devider />

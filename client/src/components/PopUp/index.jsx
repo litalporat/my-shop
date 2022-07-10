@@ -5,7 +5,7 @@ import Sizes from "../NewComp/Sizes";
 import "./Popup.css";
 import BackGround from "../../images/background.png";
 import { useContext } from "react";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 import { toast } from "react-toastify";
 
 const Body = styled.div`
