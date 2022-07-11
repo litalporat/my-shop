@@ -1,25 +1,37 @@
 import { useContext, useState } from "react";
 
 //Contexts
-import HeartContext from "../../contexts/HeartContext";
-import CurrencyContext from "../../contexts/CurrencyContext";
+import HeartContext from "../../Contexts/HeartContext";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 
 //Components
 import Popup from "../PopUp";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../Buttons";
 
 //Styles
-import { Body, Container, Devider, FlexRow, Image, Price, Title } from "./styles/CardViewStyle";
+import {
+  Body,
+  Container,
+  Devider,
+  FlexRow,
+  Image,
+  Price,
+  Title,
+} from "./styles/CardViewStyle";
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
   const { currency, rates } = useContext(CurrencyContext);
   const [liked, setLiked] = useState(include(props.product));
   const handleNotification = () => {
-    props.socket.emit("like", { name: '' }, { name: props.product.displayName });
-    if (liked) toast(`You just 🗑️ ${ props.product.displayName }`);
-    else toast(`You just ❤️ ${ props.product.displayName }`);
+    props.socket.emit(
+      "like",
+      { name: "" },
+      { name: props.product.displayName }
+    );
+    if (liked) toast(`You just 🗑️ ${props.product.displayName}`);
+    else toast(`You just ❤️ ${props.product.displayName}`);
     setLiked(!liked);
   };
 

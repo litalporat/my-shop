@@ -1,8 +1,8 @@
-import HeartContext from "../../contexts/HeartContext";
+import HeartContext from "../../Contexts/HeartContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../../components/ProductView/ForUView";
-import CartContext from "../../contexts/CartContext";
+import CartContext from "../../Contexts/CartContext";
 import styled from "styled-components";
 
 const Container = styled.div`

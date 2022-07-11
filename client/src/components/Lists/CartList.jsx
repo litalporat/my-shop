@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import CartContext from "../../contexts/CartContext";
+import CartContext from "../../Contexts/CartContext";
 import ArrowBtn from "../Buttons/ArrowBtn";
 import Quantity from "../Buttons/QuantityBtn";
 import CartProduct from "../ProductView/ListViewProduct";

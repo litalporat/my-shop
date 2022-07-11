@@ -5,7 +5,7 @@ import Sizes from "../Elements/Sizes";
 import "./Popup.css";
 import BackGround from "../../images/background.png";
 import { useContext } from "react";
-import CurrencyContext from "../../contexts/CurrencyContext";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 import { toast } from "react-toastify";
 
 const Body = styled.div`
@@ -30,7 +30,7 @@ const Text = styled.p`
 `;
 
 const Label = styled.label`
-  letter-spacing:1.5px;
+  letter-spacing: 1.5px;
   font-size: 20px;
   color: black;
   margin-bottom: 10px;
@@ -48,7 +48,7 @@ const Details = styled.div`
   padding: 1rem 1rem 1rem 5rem;
   flex: 6;
   flex-direction: column;
-  gap:25px;
+  gap: 25px;
   justify-content: center;
 `;
 

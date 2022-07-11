@@ -2,14 +2,20 @@ import React from "react";
 import { useContext } from "react";
 
 //Contexts
-import CurrencyContext from "../../contexts/CurrencyContext";
+import CurrencyContext from "../../Contexts/CurrencyContext";
 
 //Components
 import IconBtn from "../Buttons/IconBtn";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 //Styles
-import { Container, Details, IconList, Photo, Text } from "./styles/ListViewStyle";
+import {
+  Container,
+  Details,
+  IconList,
+  Photo,
+  Text,
+} from "./styles/ListViewStyle";
 
 const ListView = (props) => {
   const { currency } = useContext(CurrencyContext);
@@ -27,10 +33,12 @@ const ListView = (props) => {
         {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>
       <IconList>
-        <IconBtn onClick={() => {
-            props.delete(props.product, true)
-            toast(`${ props.product.displayName } removed from your 🛒!`)
-          }}>
+        <IconBtn
+          onClick={() => {
+            props.delete(props.product, true);
+            toast(`${props.product.displayName} removed from your 🛒!`);
+          }}
+        >
           <i class="fa-solid fa-trash-can"></i>
         </IconBtn>
         {props.button}

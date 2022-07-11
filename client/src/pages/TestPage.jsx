@@ -4,10 +4,6 @@ import FacebookLog from "../components/FacebookComp/Login";
 import FacebookShare from "../components/FacebookComp/Share";
 import CartProduct from "../components/ProductView/ListViewProduct";
 // import Map from "../components/NewComp/Map";
-import { IconBtn } from "../components/Buttons";
-import CurrencyContext from "../contexts/CurrencyContext";
-import { useContext } from "react";
-import CurrenctSelect from "../components/CurrencySelector";
 
 const TestPage = () => {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import CartContext from "../../contexts/CartContext";
+import CartContext from "../../Contexts/CartContext";
 import { useContext, useEffect, useState } from "react";
 import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
 import { LikeList, CartList } from "../Lists";
@@ -18,7 +18,7 @@ const BtnsDiv = styled.div`
   gap: 10px;
 `;
 
-const Navbar = ({socket}) => {
+const Navbar = ({ socket }) => {
   const { products } = useContext(CartContext);
   const [navbar, setNavBar] = useState("navbar");
   const [isLogin, setIsLogin] = useState(false);
@@ -86,7 +86,7 @@ const Navbar = ({socket}) => {
               </IconBtn>
             }
           >
-            <Notification socket={socket}/>
+            <Notification socket={socket} />
           </SideBarBtn>
           <SideBarBtn
             title={"Likes"}

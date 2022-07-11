@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import HeartContext from "../contexts/HeartContext";
+import HeartContext from "../Contexts/HeartContext";
 
 //Componentes
 import Product from "../components/ProductView/CardView";
-import CartContext from "../contexts/CartContext";
+import CartContext from "../Contexts/CartContext";
 import FilterComp from "../components/FilterComp";
 import SorterComp from "../components/FuncComps/SorterComp";
 import BasicButton from "../components/Buttons/BasicBtn";
