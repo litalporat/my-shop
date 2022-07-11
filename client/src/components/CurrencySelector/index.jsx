@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 
 export default function CurrenctSelect(props) {
   const { currency, rates, changeCurrency } = useContext(CurrencyContext);
@@ -10,7 +10,9 @@ export default function CurrenctSelect(props) {
         <option>{currency}</option>
         {rates &&
           Object.keys(rates).map((elem) => (
-            <option value={elem}>{elem}</option>
+            <option value={elem} key={elem}>
+              {elem}
+            </option>
           ))}
       </select>
     </div>

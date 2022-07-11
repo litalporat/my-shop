@@ -26,13 +26,3 @@ main{
 ::-webkit-scrollbar {
     display: none;
 }
-/* 
-::-webkit-scrollbar-track {
-    background: var(--white-color);
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: var(--lightnude-color);
-  }
-   */

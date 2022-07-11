@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import CartContext from "../../Contexts/CartContext";
+import CartContext from "../../contexts/CartContext";
 import { useContext, useEffect, useState } from "react";
 import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
 import { LikeList, CartList } from "../Lists";
@@ -8,7 +8,7 @@ import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";
-import Notification from "../NewComp/Notification";
+import Notification from "../Elements/Notification";
 import CurrenctSelect from "../CurrencySelector";
 
 const BtnsDiv = styled.div`
@@ -46,7 +46,6 @@ const Navbar = ({socket}) => {
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
-      console.log("Im holding a key");
       setLoginTitle("Logout");
     }
   }, []);
@@ -62,9 +61,9 @@ const Navbar = ({socket}) => {
           <h2 style={{ textDecoration: "none" }}>My Shop</h2>
         </Link>
         <ul className="navbar__links">
-          {/* <li>
+          <li>
             <Link to="/">Home</Link>
-          </li> */}
+          </li>
           <li>
             <Link to="/About">About</Link>
           </li>

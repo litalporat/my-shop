@@ -1,11 +1,11 @@
 import React, { useState, useSyncExternalStore } from "react";
 import styled from "styled-components";
 import { ArrowBtn, IconBtn } from "../Buttons";
-import Sizes from "../NewComp/Sizes";
+import Sizes from "../Elements/Sizes";
 import "./Popup.css";
 import BackGround from "../../images/background.png";
 import { useContext } from "react";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 import { toast } from "react-toastify";
 
 const Body = styled.div`

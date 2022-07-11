@@ -1,0 +1,63 @@
+"filename", "language", "JavaScript React", "CSS", "JavaScript", "comment", "blank", "total"
+"c:\Users\בר\IdeaProjects\my-shop\client\src\App.css", "CSS", 0, -26, 0, 0, -3, -29
+"c:\Users\בר\IdeaProjects\my-shop\client\src\App.jsx", "JavaScript React", -44, 0, 0, -4, -10, -58
+"c:\Users\בר\IdeaProjects\my-shop\client\src\Login.js", "JavaScript", 0, 0, -92, -6, -11, -109
+"c:\Users\בר\IdeaProjects\my-shop\client\src\Register.js", "JavaScript", 0, 0, 0, -54, -15, -69
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\ArrowBtn\ArrowBtn.css", "CSS", 0, -66, 0, 0, -1, -67
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\ArrowBtn\index.jsx", "JavaScript React", -43, 0, 0, 0, -4, -47
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\BasicBtn.jsx", "JavaScript React", -42, 0, 0, -7, -5, -54
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\IconBtn.jsx", "JavaScript React", -46, 0, 0, -7, -3, -56
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\MenuBtn.jsx", "JavaScript React", -82, 0, 0, -6, -6, -94
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\PopupBtn.jsx", "JavaScript React", -85, 0, 0, -7, -5, -97
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\QuantityBtn.jsx", "JavaScript React", -96, 0, 0, 0, -15, -111
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\SideBarBtn.jsx", "JavaScript React", -90, 0, 0, -6, -7, -103
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Buttons\index.jsx", "JavaScript React", -7, 0, 0, 0, -2, -9
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\CurrencySelector\index.jsx", "JavaScript React", -19, 0, 0, 0, -2, -21
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\FacebookComp\Login\FacebookLog.css", "CSS", 0, 0, 0, 0, -1, -1
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\FacebookComp\Login\index.jsx", "JavaScript React", -17, 0, 0, -1, -2, -20
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\FacebookComp\Share\index.jsx", "JavaScript React", -13, 0, 0, 0, -3, -16
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\FilterComp\FilterComp.css", "CSS", 0, -53, 0, -7, -8, -68
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\FilterComp\index.jsx", "JavaScript React", -64, 0, 0, -5, -10, -79
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Foryou\index.jsx", "JavaScript React", -61, 0, 0, -3, -6, -70
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Lists\CartList.jsx", "JavaScript React", -39, 0, 0, 0, -6, -45
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Lists\LikeList.jsx", "JavaScript React", -35, 0, 0, 0, -4, -39
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Lists\index.jsx", "JavaScript React", -3, 0, 0, 0, -2, -5
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Map\Map.jsx", "JavaScript React", -54, 0, 0, -2, -5, -61
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Navbar\Navbar.css", "CSS", 0, -88, 0, 0, -12, -100
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Navbar\index.jsx", "JavaScript React", -113, 0, 0, -9, -9, -131
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Navbar\search.jsx", "JavaScript React", -46, 0, 0, 0, -5, -51
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\NewComp\Notification.jsx", "JavaScript React", -33, 0, 0, 0, -7, -40
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\NewComp\Sizes.jsx", "JavaScript React", -67, 0, 0, 0, -9, -76
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\NewComp\Video.jsx", "JavaScript React", -12, 0, 0, 0, -3, -15
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\PopUp\Popup.css", "CSS", 0, -26, 0, 0, -6, -32
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\PopUp\index.jsx", "JavaScript React", -129, 0, 0, 0, -13, -142
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\CardView.jsx", "JavaScript React", -55, 0, 0, 3, 0, -52
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\ForUView.jsx", "JavaScript React", -21, 0, 0, 2, 1, -18
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\ListViewProduct.jsx", "JavaScript React", -27, 0, 0, 3, 3, -21
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\styles\CardViewStyle.jsx", "JavaScript React", 57, 0, 0, 0, 3, 60
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\styles\ForUViewStyle.jsx", "JavaScript React", 23, 0, 0, 0, 3, 26
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\ProductView\styles\ListViewStyle.jsx", "JavaScript React", 29, 0, 0, 0, 3, 32
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Sections\Footer.jsx", "JavaScript React", -16, 0, 0, 0, -4, -20
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Sections\ForUSection.jsx", "JavaScript React", -21, 0, 0, 0, -4, -25
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\Sections\VideoSection.jsx", "JavaScript React", -21, 0, 0, 0, -3, -24
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\SorterComp\SorterComp.css", "CSS", 0, 0, 0, 0, -1, -1
+"c:\Users\בר\IdeaProjects\my-shop\client\src\components\SorterComp\index.jsx", "JavaScript React", -42, 0, 0, -4, -4, -50
+"c:\Users\בר\IdeaProjects\my-shop\client\src\contexts\AuthProvider.js", "JavaScript", 0, 0, -11, 0, -4, -15
+"c:\Users\בר\IdeaProjects\my-shop\client\src\contexts\CartContext.js", "JavaScript", 0, 0, -55, -2, -9, -66
+"c:\Users\בר\IdeaProjects\my-shop\client\src\contexts\CurrencyContext.js", "JavaScript", 0, 0, -31, 0, -6, -37
+"c:\Users\בר\IdeaProjects\my-shop\client\src\contexts\HeartContext.js", "JavaScript", 0, 0, -38, 0, -10, -48
+"c:\Users\בר\IdeaProjects\my-shop\client\src\index.js", "JavaScript", 0, 0, -12, 0, -6, -18
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\AboutPage.jsx", "JavaScript React", -12, 0, 0, -2, -5, -19
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\CartPage.jsx", "JavaScript React", -157, 0, 0, -3, -13, -173
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\HomePage.jsx", "JavaScript React", -40, 0, 0, 0, -4, -44
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\ShopPage.jsx", "JavaScript React", -146, 0, 0, -11, -13, -170
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\TestPage.jsx", "JavaScript React", -26, 0, 0, -2, -3, -31
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\index.jsx", "JavaScript React", -6, 0, 0, 0, -2, -8
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\styles\AboutPageStyle.jsx", "JavaScript React", -10, 0, 0, 0, -2, -12
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\styles\CartPageStyle.jsx", "JavaScript React", -13, 0, 0, 0, -4, -17
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\styles\HomePageStyle.jsx", "JavaScript React", -51, 0, 0, 0, -3, -54
+"c:\Users\בר\IdeaProjects\my-shop\client\src\pages\styles\ShopPageStyle.jsx", "JavaScript React", -23, 0, 0, 0, -3, -26
+"c:\Users\בר\IdeaProjects\my-shop\client\src\reportWebVitals.js", "JavaScript", 0, 0, -12, 0, -2, -14
+"c:\Users\בר\IdeaProjects\my-shop\client\src\styles\ColorsTheme.jsx", "JavaScript React", 0, 0, 0, 0, -1, -1
+"c:\Users\בר\IdeaProjects\my-shop\client\src\styles\GlobalStyle.jsx", "JavaScript React", -41, 0, 0, 0, -3, -44
+"Total", "-", -1859, -259, -251, -140, -296, -2805

@@ -51,10 +51,10 @@ const FilterComp = (props) => {
         <hr />
 
         {options.map((obj) => (
-          <>
+          <span key={obj.title}>
             <h3> {obj.title} </h3>
             {obj.values.map((val) => (
-              <>
+              <span key={obj.param}>
                 <label className="check-cont">
                   <input
                     type="checkbox"
@@ -65,10 +65,10 @@ const FilterComp = (props) => {
                   {val}
                   <span className="checkmark"></span>
                 </label>
-              </>
+              </span>
             ))}
             <hr />
-          </>
+          </span>
         ))}
       </>
     </SideBarBtn>

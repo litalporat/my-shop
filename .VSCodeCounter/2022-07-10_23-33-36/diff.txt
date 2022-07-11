@@ -1,0 +1,174 @@
+Date : 2022-07-10 23:33:36
+Directory : c:\Users\בר\IdeaProjects\my-shop\client
+Total : 106 files,  -46529 codes, -248 comments, -593 blanks, all -47370 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Markdown         |          2 |        -29 |          0 |         -8 |        -37 |
+| HTML             |          2 |        -73 |        -20 |         -3 |        -96 |
+| HTTP             |          7 |       -124 |        -21 |        -53 |       -198 |
+| CSS              |         10 |       -601 |         -7 |        -69 |       -677 |
+| JavaScript React |         31 |     -2,569 |        -37 |       -197 |     -2,803 |
+| JavaScript       |         48 |     -2,740 |       -163 |       -257 |     -3,160 |
+| JSON             |          6 |    -40,393 |          0 |         -6 |    -40,399 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                    | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                       |        106 |    -46,529 |       -248 |       -593 |    -47,370 |
+| ..                                                                                      |        106 |    -46,529 |       -248 |       -593 |    -47,370 |
+| ..\admin                                                                                |         53 |    -31,674 |       -109 |       -318 |    -32,101 |
+| ..\admin\public                                                                         |          1 |        -16 |          0 |         -1 |        -17 |
+| ..\admin\src                                                                            |         50 |     -3,527 |       -109 |       -315 |     -3,951 |
+| ..\admin\src\Test                                                                       |          3 |       -417 |        -37 |        -48 |       -502 |
+| ..\admin\src\api                                                                        |          1 |         -8 |          0 |         -3 |        -11 |
+| ..\admin\src\auth                                                                       |          2 |        -27 |          0 |         -7 |        -34 |
+| ..\admin\src\components                                                                 |         30 |     -2,268 |        -18 |       -186 |     -2,472 |
+| ..\admin\src\components\Card                                                            |          2 |       -210 |         -6 |        -18 |       -234 |
+| ..\admin\src\components\Cards                                                           |          2 |        -46 |          0 |         -7 |        -53 |
+| ..\admin\src\components\CustomerReview                                                  |          2 |        -59 |          0 |         -6 |        -65 |
+| ..\admin\src\components\Forms                                                           |          8 |     -1,270 |         -4 |        -75 |     -1,349 |
+| ..\admin\src\components\Forms\Location                                                  |          2 |       -155 |         -1 |        -16 |       -172 |
+| ..\admin\src\components\Forms\Order                                                     |          2 |       -447 |          0 |        -29 |       -476 |
+| ..\admin\src\components\Forms\Product                                                   |          3 |       -447 |         -3 |        -21 |       -471 |
+| ..\admin\src\components\MainDash                                                        |          2 |        -31 |          0 |         -5 |        -36 |
+| ..\admin\src\components\New                                                             |          4 |       -165 |          0 |        -17 |       -182 |
+| ..\admin\src\components\RigtSide                                                        |          2 |        -45 |         -1 |         -6 |        -52 |
+| ..\admin\src\components\Table                                                           |          2 |       -116 |          0 |        -12 |       -128 |
+| ..\admin\src\components\Updates                                                         |          2 |        -45 |          0 |         -8 |        -53 |
+| ..\admin\src\context                                                                    |          1 |        -11 |          0 |         -4 |        -15 |
+| ..\admin\src\data                                                                       |          1 |       -127 |         -6 |         -6 |       -139 |
+| ..\admin\src\hooks                                                                      |          1 |         -6 |        -22 |         -5 |        -33 |
+| ..\admin\src\pages                                                                      |          7 |       -546 |        -23 |        -43 |       -612 |
+| ..\admin\src\styles                                                                     |          1 |        -61 |          0 |         -3 |        -64 |
+| ..\admin\src\utils                                                                      |          1 |        -12 |          0 |         -3 |        -15 |
+| ..\server                                                                               |         50 |    -14,668 |       -139 |       -272 |    -15,079 |
+| ..\server\API_testing                                                                   |          7 |       -124 |        -21 |        -53 |       -198 |
+| ..\server\config                                                                        |          2 |        -22 |          0 |         -5 |        -27 |
+| ..\server\controller                                                                    |          7 |       -435 |         -1 |        -38 |       -474 |
+| ..\server\data                                                                          |          3 |       -878 |          0 |         -6 |       -884 |
+| ..\server\middlewares                                                                   |          1 |        -22 |          0 |         -4 |        -26 |
+| ..\server\models                                                                        |          6 |       -335 |          0 |        -24 |       -359 |
+| ..\server\routes                                                                        |          7 |        -74 |        -66 |        -38 |       -178 |
+| ..\server\setup                                                                         |          3 |        -68 |          0 |        -10 |        -78 |
+| ..\server\test                                                                          |          6 |       -457 |        -23 |        -63 |       -543 |
+| ..\server\test\api                                                                      |          6 |       -457 |        -23 |        -63 |       -543 |
+| ..\server\utils                                                                         |          3 |       -112 |        -25 |        -17 |       -154 |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                | language         | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\Users\בר\IdeaProjects\my-shop\README.md                                              | Markdown         |         -2 |          0 |         -1 |         -3 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\package-lock.json                                | JSON             |    -28,075 |          0 |         -1 |    -28,076 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\package.json                                     | JSON             |        -56 |          0 |         -1 |        -57 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\public\index.html                                | HTML             |        -16 |          0 |         -1 |        -17 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\App.jsx                                      | JavaScript React |        -30 |         -3 |         -6 |        -39 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.css                           | CSS              |       -257 |          0 |        -25 |       -282 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.html                          | HTML             |        -57 |        -20 |         -2 |        -79 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\Test\LoginPage.js                            | JavaScript       |       -103 |        -17 |        -21 |       -141 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\api\axios.js                                 | JavaScript       |         -8 |          0 |         -3 |        -11 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\auth\ProtectedRoutes.jsx                     | JavaScript React |         -8 |          0 |         -3 |        -11 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\auth\auth.js                                 | JavaScript       |        -19 |          0 |         -4 |        -23 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\BarChart.jsx                      | JavaScript React |        -59 |         -1 |         -8 |        -68 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Card\Card.css                     | CSS              |        -94 |         -3 |         -9 |       -106 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Card\Card.jsx                     | JavaScript React |       -116 |         -3 |         -9 |       -128 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Cards\Cards.css                   | CSS              |        -21 |          0 |         -3 |        -24 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Cards\Cards.jsx                   | JavaScript React |        -25 |          0 |         -4 |        -29 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\CustomerReview\CustomerReview.css | CSS              |          0 |          0 |         -1 |         -1 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\CustomerReview\CustomerReview.jsx | JavaScript React |        -59 |          0 |         -5 |        -64 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Location\Create.jsx         | JavaScript React |        -65 |         -1 |         -8 |        -74 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Location\Update.jsx         | JavaScript React |        -90 |          0 |         -8 |        -98 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Order\Create.jsx            | JavaScript React |       -192 |          0 |        -14 |       -206 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Order\Update.jsx            | JavaScript React |       -255 |          0 |        -15 |       -270 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Create.jsx          | JavaScript React |       -185 |         -1 |         -7 |       -193 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Types.jsx           | JavaScript React |        -41 |         -2 |         -5 |        -48 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Product\Update.jsx          | JavaScript React |       -221 |          0 |         -9 |       -230 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Forms\Update.jsx                  | JavaScript React |       -221 |          0 |         -9 |       -230 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\MainDash\MainDash.css             | CSS              |        -17 |          0 |         -3 |        -20 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\MainDash\MainDash.jsx             | JavaScript React |        -14 |          0 |         -2 |        -16 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\BtnGroup.jsx                  | JavaScript React |        -57 |          0 |         -3 |        -60 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\DataTable.jsx                 | JavaScript React |         -8 |          0 |         -4 |        -12 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\PopProducts.jsx               | JavaScript React |        -59 |          0 |         -6 |        -65 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\New\Popup.jsx                     | JavaScript React |        -41 |          0 |         -4 |        -45 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\PieChart.jsx                      | JavaScript React |        -42 |          0 |         -7 |        -49 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\RigtSide\RightSide.css            | CSS              |        -26 |         -1 |         -3 |        -30 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\RigtSide\RightSide.jsx            | JavaScript React |        -19 |          0 |         -3 |        -22 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Sidebar.css                       | CSS              |       -108 |         -3 |         -9 |       -120 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Sidebar.jsx                       | JavaScript React |        -72 |         -3 |         -8 |        -83 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Table\Table.css                   | CSS              |        -35 |          0 |         -7 |        -42 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Table\Table.jsx                   | JavaScript React |        -81 |          0 |         -5 |        -86 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Updates\Updates.css               | CSS              |        -21 |          0 |         -5 |        -26 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\components\Updates\Updates.jsx               | JavaScript React |        -24 |          0 |         -3 |        -27 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\context\AuthProvider.js                      | JavaScript       |        -11 |          0 |         -4 |        -15 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\data\Data.js                                 | JavaScript       |       -127 |         -6 |         -6 |       -139 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\hooks\ProductCrud.js                         | JavaScript       |         -6 |        -22 |         -5 |        -33 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\index.js                                     | JavaScript       |        -14 |          0 |         -1 |        -15 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Analytics.jsx                          | JavaScript React |        -33 |          0 |         -3 |        -36 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Locations.jsx                          | JavaScript React |       -112 |         -2 |         -8 |       -122 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Login.jsx                              | JavaScript React |        -97 |        -16 |        -12 |       -125 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Orders.jsx                             | JavaScript React |       -151 |         -2 |         -7 |       -160 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\Products.jsx                           | JavaScript React |       -125 |         -3 |         -8 |       -136 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\index.jsx                              | JavaScript React |         -6 |          0 |         -1 |         -7 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\pages\pages.css                              | CSS              |        -22 |          0 |         -4 |        -26 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\styles\GlobalStyle.jsx                       | JavaScript React |        -61 |          0 |         -3 |        -64 |
+| c:\Users\בר\IdeaProjects\my-shop\admin\src\utils\fetchCatagories.js                     | JavaScript       |        -12 |          0 |         -3 |        -15 |
+| c:\Users\בר\IdeaProjects\my-shop\package-lock.json                                      | JSON             |       -180 |          0 |         -1 |       -181 |
+| c:\Users\בר\IdeaProjects\my-shop\package.json                                           | JSON             |         -5 |          0 |         -1 |         -6 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\auth.rest                           | HTTP             |        -16 |         -3 |         -8 |        -27 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\categories.rest                     | HTTP             |         -1 |         -1 |         -1 |         -3 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\currency.rest                       | HTTP             |         -1 |         -1 |         -1 |         -3 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\locations.rest                      | HTTP             |        -13 |         -3 |         -8 |        -24 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\orders.rest                         | HTTP             |        -52 |         -3 |        -12 |        -67 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\products.rest                       | HTTP             |        -30 |         -6 |        -14 |        -50 |
+| c:\Users\בר\IdeaProjects\my-shop\server\API_testing\users.rest                          | HTTP             |        -11 |         -4 |         -9 |        -24 |
+| c:\Users\בר\IdeaProjects\my-shop\server\README.md                                       | Markdown         |        -27 |          0 |         -7 |        -34 |
+| c:\Users\בר\IdeaProjects\my-shop\server\app.js                                          | JavaScript       |        -22 |         -3 |         -3 |        -28 |
+| c:\Users\בר\IdeaProjects\my-shop\server\config\mongoConnect.js                          | JavaScript       |        -16 |          0 |         -3 |        -19 |
+| c:\Users\בר\IdeaProjects\my-shop\server\config\redisConnect.js                          | JavaScript       |         -6 |          0 |         -2 |         -8 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\authControllers.js                   | JavaScript       |        -58 |          0 |         -8 |        -66 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\categoriesControllers.js             | JavaScript       |        -16 |          0 |         -2 |        -18 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\currencyController.js                | JavaScript       |        -15 |          0 |         -2 |        -17 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\locationController.js                | JavaScript       |        -79 |          0 |         -6 |        -85 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\ordersController.js                  | JavaScript       |        -96 |         -1 |         -7 |       -104 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\productControllers.js                | JavaScript       |       -102 |          0 |         -8 |       -110 |
+| c:\Users\בר\IdeaProjects\my-shop\server\controller\userControllers.js                   | JavaScript       |        -69 |          0 |         -5 |        -74 |
+| c:\Users\בר\IdeaProjects\my-shop\server\data\categories.js                              | JavaScript       |         -9 |          0 |         -2 |        -11 |
+| c:\Users\בר\IdeaProjects\my-shop\server\data\locations.js                               | JavaScript       |         -9 |          0 |         -2 |        -11 |
+| c:\Users\בר\IdeaProjects\my-shop\server\data\products.js                                | JavaScript       |       -860 |          0 |         -2 |       -862 |
+| c:\Users\בר\IdeaProjects\my-shop\server\middlewares\auth.js                             | JavaScript       |        -22 |          0 |         -4 |        -26 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\Categories.js                            | JavaScript       |         -7 |          0 |         -3 |        -10 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\Currency.js                              | JavaScript       |       -173 |          0 |         -3 |       -176 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\Location.js                              | JavaScript       |        -17 |          0 |         -3 |        -20 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\Orders.js                                | JavaScript       |        -35 |          0 |         -4 |        -39 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\Product.js                               | JavaScript       |        -79 |          0 |         -6 |        -85 |
+| c:\Users\בר\IdeaProjects\my-shop\server\models\User.js                                  | JavaScript       |        -24 |          0 |         -5 |        -29 |
+| c:\Users\בר\IdeaProjects\my-shop\server\package-lock.json                               | JSON             |    -12,026 |          0 |         -1 |    -12,027 |
+| c:\Users\בר\IdeaProjects\my-shop\server\package.json                                    | JSON             |        -51 |          0 |         -1 |        -52 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\authRoutes.js                            | JavaScript       |        -11 |         -9 |         -5 |        -25 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\categoriesRoutes.js                      | JavaScript       |         -7 |         -3 |         -3 |        -13 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\currencyRoutes.js                        | JavaScript       |         -7 |         -3 |         -3 |        -13 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\locationRoutes.js                        | JavaScript       |         -9 |        -12 |         -6 |        -27 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\ordersRoutes.js                          | JavaScript       |        -15 |        -12 |         -7 |        -34 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\productRoutes.js                         | JavaScript       |        -16 |        -15 |         -8 |        -39 |
+| c:\Users\בר\IdeaProjects\my-shop\server\routes\userRoutes.js                            | JavaScript       |         -9 |        -12 |         -6 |        -27 |
+| c:\Users\בר\IdeaProjects\my-shop\server\server.js                                       | JavaScript       |        -15 |          0 |         -2 |        -17 |
+| c:\Users\בר\IdeaProjects\my-shop\server\setup\currencyCrone.js                          | JavaScript       |        -18 |          0 |         -1 |        -19 |
+| c:\Users\בר\IdeaProjects\my-shop\server\setup\mongoMockDB.js                            | JavaScript       |        -27 |          0 |         -5 |        -32 |
+| c:\Users\בר\IdeaProjects\my-shop\server\setup\socketio.js                               | JavaScript       |        -23 |          0 |         -4 |        -27 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\auth.test.js                           | JavaScript       |       -128 |         -1 |        -19 |       -148 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\categories.test.js                     | JavaScript       |        -27 |         -1 |         -5 |        -33 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\loaction.test.js                       | JavaScript       |        -26 |        -19 |         -6 |        -51 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\products.test.js                       | JavaScript       |        -81 |         -1 |         -9 |        -91 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\socketio.test.js                       | JavaScript       |        -45 |          0 |         -7 |        -52 |
+| c:\Users\בר\IdeaProjects\my-shop\server\test\api\user.test.js                           | JavaScript       |       -150 |         -1 |        -17 |       -168 |
+| c:\Users\בר\IdeaProjects\my-shop\server\utils\logger.js                                 | JavaScript       |        -13 |          0 |         -1 |        -14 |
+| c:\Users\בר\IdeaProjects\my-shop\server\utils\seederScript.js                           | JavaScript       |        -27 |          0 |        -10 |        -37 |
+| c:\Users\בר\IdeaProjects\my-shop\server\utils\validators.js                             | JavaScript       |        -72 |        -25 |         -6 |       -103 |
+| Total                                                                                   |                  |    -46,529 |       -248 |       -593 |    -47,370 |
++-----------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

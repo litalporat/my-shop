@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Video from '../NewComp/Video';
+import Video from '../Elements/Video';
 
 const Body = styled.div`
     width:100vw;
