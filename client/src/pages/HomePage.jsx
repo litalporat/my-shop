@@ -4,8 +4,15 @@ import VideoSection from "../components/Sections/VideoSection";
 import ForUSection from "../components/Sections/ForUSection";
 import { Link } from "react-router-dom";
 import Map from "../components/Elements/Map";
-import { Body, Container, ForUBtn, Image, Shape, Text, Title } from "./styles/HomePageStyle";
-
+import {
+  Body,
+  Container,
+  ForUBtn,
+  Image,
+  Shape,
+  Text,
+  Title,
+} from "./styles/HomePageStyle";
 
 const HomePage = () => {
   return (
@@ -18,10 +25,12 @@ const HomePage = () => {
           <Container>
             <Title> Welcome To Our App</Title>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste
-              unde quibusdam, laborum aperiam veniam et nisi architecto
-              doloremque commodi tempore eveniet vero velit accusamus, ipsam ex
-              nesciunt provident reiciendis! Nihil.
+              After months of work; planning, designing, learning, developing,
+              team working and bug fixing.
+              <br /> Wer'e very happy to present to you our first app.
+              <br /> It's been a very fulfilling, long process that has thought
+              us a lot about web developement and we all enjoyed the making of
+              it.
             </Text>
             <Link to="/shop">
               <ArrowBtn content={"Start Tour"} />
@@ -35,7 +44,6 @@ const HomePage = () => {
       </Container>
       <ForUSection />
       <VideoSection />
-      <Map lat={31.998629} lng={34.775545} />
     </>
   );
 };
