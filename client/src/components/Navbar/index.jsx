@@ -58,7 +58,11 @@ const Navbar = ({ socket }) => {
     <div>
       <nav className={navbar}>
         <Link to="/">
-          <h2 style={{ textDecoration: "none" }}>My Shop</h2>
+          <h2
+            style={{ textDecoration: "none", color: "var(--lightnude-color)" }}
+          >
+            OurShop
+          </h2>
         </Link>
         <ul className="navbar__links">
           <li>
@@ -114,13 +118,6 @@ const Navbar = ({ socket }) => {
           >
             <CartList />
           </SideBarBtn>
-          {/* <PopupBtn
-            title={"Login"}
-            size={"S"}
-            button={<BasicBtn title={loginTitle} type={"secondary"} />}
-          >
-            <Login setIsLogin={setIsLogin} />
-          </PopupBtn> */}
         </BtnsDiv>
       </nav>
     </div>
