@@ -3,7 +3,9 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import auth from "../auth/auth";
 import { useNavigate } from "react-router-dom";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
+
+import LoginStyle from "../styles/LoginStyle";
 
 const LOGIN_URL = "http://localhost:5000/api/auth/login";
 
@@ -57,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <section>
+    <div className="App">
       <p
         ref={errRef}
         className={errMsg ? "errmsg" : "offscreen"}
@@ -66,6 +68,7 @@ const Login = () => {
         {errMsg}
       </p>
       <h1 className="login-title">Sign In</h1>
+      <br />
       <form className="login-form" onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
@@ -93,7 +96,8 @@ const Login = () => {
         <br />
         <button>Sign In</button>
       </form>
-    </section>
+      <LoginStyle />
+    </div>
   );
 };
 

@@ -15,7 +15,9 @@ const ProtectedRoute = () => {
       <GlobalStyle />
     </>
   ) : (
-    <Navigate to="/Login" />
+    <>
+      <Navigate to="/Login" />
+    </>
   );
 };
 
