@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import auth from "../auth/auth";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Divider, IconButton, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const LOGIN_URL = "http://localhost:5000/api/auth/login";
 

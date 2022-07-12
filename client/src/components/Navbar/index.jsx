@@ -4,7 +4,6 @@ import CartContext from "../../Contexts/CartContext";
 import { useContext, useEffect, useState } from "react";
 import { MenuBtn, SideBarBtn, IconBtn, BasicBtn, PopupBtn } from "../Buttons";
 import { LikeList, CartList } from "../Lists";
-import Login from "../../Login";
 import styled from "styled-components";
 import axios from "axios";
 import SearchBar from "./search";

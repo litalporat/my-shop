@@ -32,16 +32,13 @@ const Foryou = () => {
         .then(function (response) {
           // handle success
           const temp = [...hearts, ...response.data].slice(0, 3);
-          console.log(temp);
           const arrayUniqueById = [
             ...new Map(temp.map((item) => [item["_id"], item])).values(),
           ];
-          console.log(arrayUniqueById);
           if (arrayUniqueById.length < 3) {
             arrayUniqueById.push(response.data[4]);
           }
           setForyouProd(arrayUniqueById);
-          console.log(arrayUniqueById);
         })
         .catch(function (error) {
           // handle error
