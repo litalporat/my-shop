@@ -12,7 +12,6 @@ const ProtectedRoute = () => {
       <Sidebar />
       <Outlet />
       <RightSide />
-      <GlobalStyle />
     </>
   ) : (
     <>

@@ -4,8 +4,7 @@ import axios from "axios";
 import auth from "../auth/auth";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-
-import LoginStyle from "../styles/LoginStyle";
+import { Container, LoginForm } from "./styles/LoginStyle";
 
 const LOGIN_URL = "http://localhost:5000/api/auth/login";
 
@@ -59,17 +58,12 @@ const Login = () => {
   };
 
   return (
-    <div className="App">
-      <p
-        ref={errRef}
-        className={errMsg ? "errmsg" : "offscreen"}
-        aria-live="assertive"
-      >
+    <Container>
+      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
         {errMsg}
       </p>
-      <h1 className="login-title">Sign In</h1>
-      <br />
-      <form className="login-form" onSubmit={handleSubmit}>
+      <LoginForm>
+        <h1 className="login-title">Sign In</h1>
         <TextField
           id="outlined-basic"
           label="Email"
@@ -79,10 +73,9 @@ const Login = () => {
           autoComplete="off"
           onChange={(e) => setUser(e.target.value)}
           value={user}
+          fullWidth
           required
         />
-        <br />
-        <br />
         <TextField
           id="outlined-basic"
           label="Password"
@@ -91,13 +84,11 @@ const Login = () => {
           ref={userRef}
           onChange={(e) => setPwd(e.target.value)}
           value={pwd}
-          //required
+          fullWidth
         />
-        <br />
-        <button>Sign In</button>
-      </form>
-      <LoginStyle />
-    </div>
+          <Button variant="contained" onClick={handleSubmit}>Sign In</Button>
+      </LoginForm>
+    </Container>
   );
 };
 

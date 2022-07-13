@@ -6,6 +6,7 @@ import { Analytics, Locations, Login, Orders, Products } from "./pages";
 //Components
 import MainDash from "./components/MainDash/MainDash";
 import ProtectedRoute from "./auth/ProtectedRoutes";
+import GlobalStyle from "./styles/GlobalStyle";
 
 //Styles
 
@@ -14,7 +15,15 @@ function App() {
     <div className="App">
       <div className="AppGlass">
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <>
+                <div />
+                <Login />
+              </>
+            }
+          />
           <Route element={<ProtectedRoute />}>
             <Route exact path="/" element={<MainDash />} />
             <Route exact path="/analytics" element={<Analytics />} />
@@ -25,6 +34,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <GlobalStyle />
     </div>
   );
 }
