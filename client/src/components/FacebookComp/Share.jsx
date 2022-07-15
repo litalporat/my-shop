@@ -7,7 +7,7 @@ const FacebookShare = () => {
       quote={"hey! check this out!"}
       hashtag="#Shop"
     >
-      <FacebookIcon logoFillColor="white" round={true}></FacebookIcon>
+      {/* <FacebookIcon logoFillColor="white" round={true}></FacebookIcon> */}
     </FacebookShareButton>
   );
 };

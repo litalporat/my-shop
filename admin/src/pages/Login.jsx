@@ -1,21 +1,20 @@
 import React from "react";
-import { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../context/AuthProvider";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import auth from "../auth/auth";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
+import { Container, LoginForm } from "./styles/LoginStyle";
 
 const LOGIN_URL = "http://localhost:5000/api/auth/login";
 
-const Login = (props) => {
-  const { setAuth } = useContext(AuthContext);
+const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,13 +39,7 @@ const Login = (props) => {
       );
       console.log(response);
       const accessToken = response?.data?.accessToken;
-      // const roles = response?.data?.roles;
-      // setAuth({ user, pwd, roles, accessToken });
-      // setUser("");
-      // setPwd("");
-      // setSuccess(true);
       window.localStorage.setItem("key", accessToken);
-      // props.setIsLogin(true);
       auth.login(() => {
         navigate("/");
       });
@@ -65,59 +58,37 @@ const Login = (props) => {
   };
 
   return (
-    <>
-      {success ? (
-        <section>
-          <h1> You are logged in!</h1>
-          <br />
-          {/* <p>
-                        <a href = "#">Go to Home</a>
-                    </p> */}
-        </section>
-      ) : (
-        <section>
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1 className="login-title">Sign In</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              id="email"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user} /* אולי להעיף בשביל להשאיר שדה מלא */
-              required
-            />
-            <br />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              ref={userRef}
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd} /* אולי להעיף בשביל להשאיר שדה מלא */
-              //required
-            />
-            <br />
-
-            <button>Sign In</button>
-          </form>
-          {/* <p>
-                Don't have an account? <br />
-                <span className = "line">
-                    <a href = "#">Sign Up</a>
-                </span>
-            </p> */}
-        </section>
-      )}
-    </>
+    <Container>
+      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
+        {errMsg}
+      </p>
+      <LoginForm>
+        <h1 className="login-title">Sign In</h1>
+        <TextField
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
+          type="text"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(e) => setUser(e.target.value)}
+          value={user}
+          fullWidth
+          required
+        />
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          type="password"
+          ref={userRef}
+          onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
+          fullWidth
+        />
+          <Button variant="contained" onClick={handleSubmit}>Sign In</Button>
+      </LoginForm>
+    </Container>
   );
 };
 
