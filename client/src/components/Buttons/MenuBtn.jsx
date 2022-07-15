@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Styled Component
@@ -50,19 +50,20 @@ const Item = styled.li`
  */
 
 const DropDown = (props) => {
+  const navigate = useNavigate();
   const [dropdown, setdropdown] = useState(false);
   document.addEventListener("click", (e) => {
     setdropdown(false);
   });
+
   return (
     <Wrapper>
       <Button
-        onClick={() => <Link to="/shop" />}
+        onClick={() => navigate("/shop")}
         onMouseOver={() => setdropdown(true)}
       >
         {props.title}
       </Button>
-      {/* <Button onMouseOver={() => setdropdown(!dropdown)}>{props.title}</Button> */}
       {dropdown && <DropDownList items={props.items} />}
     </Wrapper>
   );
