@@ -17,7 +17,7 @@ const Box = styled.button`
   border-radius: 5px;
   background: var(--lightwhite-color);
   ${(props) =>
-    props.amount == null &&
+    (props.amount <= 0 || props.amount == null) &&
     css`
       color: var(--white-color);
       border-color: var(--lightnude-color);

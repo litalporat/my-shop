@@ -73,26 +73,12 @@ const Navbar = ({ socket }) => {
           <li>
             <MenuBtn title={"Shop"} items={categories} />
           </li>
-          <li>
-            <Link to="/test">Test</Link>
-          </li>
         </ul>
         <BtnsDiv>
           <CurrenctSelect />
           <SearchBar />
           <SideBarBtn
-            title={"Notification"}
-            side={"right"}
-            button={
-              <IconBtn type={"secondary"}>
-                <i className="fa-solid fa-bell"></i>
-              </IconBtn>
-            }
-          >
-            <Notification socket={socket} />
-          </SideBarBtn>
-          <SideBarBtn
-            title={"Likes"}
+            title={"Likes"} 
             side={"right"}
             button={
               <IconBtn type={"secondary"}>

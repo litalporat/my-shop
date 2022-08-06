@@ -11,6 +11,7 @@ beforeAll(async () => {
     await Categories.insertMany(categoriesData);
 });
 
+
 //afterEach(async () => await db.clear());
 
 afterAll(async () => await db.close());

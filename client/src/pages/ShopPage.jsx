@@ -11,7 +11,12 @@ import SorterComp from "../components/FuncComps/SorterComp";
 import BasicButton from "../components/Buttons/BasicBtn";
 
 //Styles
-import { FitlersStyle, ShopList, ShopPageBody } from "./styles/ShopPageStyle";
+import {
+  FitlersStyle,
+  RowFlex,
+  ShopList,
+  ShopPageBody,
+} from "./styles/ShopPageStyle";
 
 const ShopPage = ({ socket }) => {
   //States
@@ -143,13 +148,15 @@ const ShopPage = ({ socket }) => {
   return (
     <ShopPageBody>
       <FitlersStyle>
-        <FilterComp
-          filterFunc={filterByParam}
-          delFilterFunc={deletefilterByParam}
-          filterByPrice={filterByPrice}
-        />
+        <RowFlex>
+          <FilterComp
+            filterFunc={filterByParam}
+            delFilterFunc={deletefilterByParam}
+            filterByPrice={filterByPrice}
+          />
+          <SorterComp sortByInt={sortByInt} sortByString={sortByString} />
+        </RowFlex>
         <BasicButton title={`Number Of Products: ${data && viewData.length}`} />
-        <SorterComp sortByInt={sortByInt} sortByString={sortByString} />
       </FitlersStyle>
       <ShopList>
         {data &&

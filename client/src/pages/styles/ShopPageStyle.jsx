@@ -22,4 +22,9 @@ const FitlersStyle = styled.div`
   justify-content: space-between;
 `;
 
-export { ShopPageBody, ShopList, FitlersStyle };
+const RowFlex = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+export { ShopPageBody, ShopList, FitlersStyle, RowFlex };
