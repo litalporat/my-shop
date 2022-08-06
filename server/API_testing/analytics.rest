@@ -5,3 +5,13 @@ GET http://localhost:5000/api/analytics/stock
 GET http://localhost:5000/api/analytics/countries
 
 ###
+
+
+[
+    {
+        name: Israel,
+        amount: 50,
+        users:30,
+
+    }
+]

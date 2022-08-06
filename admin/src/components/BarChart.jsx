@@ -1,18 +1,9 @@
-import React, { useState } from "react";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
-import { useEffect } from "react";
-import axios from "axios";
-import fetchCatagories from "../utils/fetchCatagories";
-// import faker from 'faker';
+  BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title,
+  Tooltip
+} from 'chart.js';
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -23,39 +14,31 @@ ChartJS.register(
   Legend
 );
 
-const BarChart = () => {
-  const [catagories, setCatagories] = useState();
-
-  useEffect(() => {
-    fetchCatagories().then(data => {
-      setCatagories(data)
-    })
-  }, []);
-  
+const BarChart = ({ salesByCountry }) => {
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: 'top',
       },
       title: {
         display: true,
-        text: "Sales By Catagories",
+        text: 'Sales By Catagories',
       },
     },
   };
 
   const data = {
-    labels: catagories && catagories.map((obj) => obj.displayName),
+    labels: salesByCountry.map((obj) => obj.country),
     datasets: [
       {
-        label: "Amount",
-        data: catagories && catagories.map(() => 15),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        label: 'Orders',
+        data: salesByCountry.map((obj) => obj.amountSold),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Profit',
-        data: catagories && catagories.map(() => 50),
+        data: salesByCountry.map((obj) => obj.profit),
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],

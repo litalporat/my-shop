@@ -1,7 +1,6 @@
-import AboutPage from "./AboutPage";
-import CartPage from "./CartPage";
-import HomePage from "./HomePage";
-import ShopPage from "./ShopPage";
-import TestPage from "./TestPage";
+import PageAbout from './Page.About/Page.About';
+import PageCart from './Page.Cart/Page.Cart';
+import PageHome from './Page.Home/Page.Home';
+import PageShop from './Page.Shop/Page.Shop';
 
-export { AboutPage, CartPage, HomePage, ShopPage, TestPage };
+export { PageAbout, PageCart, PageHome, PageShop };

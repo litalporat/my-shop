@@ -2,16 +2,16 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 //Contexts
-import CartContext from "../Contexts/CartContext";
-import CurrencyContext from "../Contexts/CurrencyContext";
+import CartContext from "../../contexts/CartContext";
+import CurrencyContext from "../../contexts/CurrencyContext";
 
 //Components
-import Quantity from "../components/Buttons/QuantityBtn";
-import CartProduct from "../components/ProductView/ListViewProduct";
+import Quantity from "../../components/Buttons/QuantityBtn";
+import CartProduct from "../../components/ProductView/Product.List/Product.List";
 import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
 
 //Styles
-import { GridContainer, Strong } from "./styles/CartPageStyle";
+import { GridContainer, Strong } from "./Page.Cart.Styled";
 
 const CartPage = () => {
   const { products, removeProduct, setProducts } = useContext(CartContext);

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import BackGround from "../../images/background.png";
+import styled from 'styled-components';
+import BackGround from '../../../images/background.png';
 
 const Body = styled.div`
   display: flex;

@@ -1,18 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-import FacebookShare from "../FacebookComp/Share";
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  height: 20rem;
-  background: var(--black-color);
-  color: var(--lightwhite-color);
-`;
+import FacebookShare from '../../FacebookComp/Share';
+import { Container } from './Section.Footer.Styled';
 
 const Footer = () => {
   return (

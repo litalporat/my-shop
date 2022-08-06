@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import CartContext from "../../Contexts/CartContext";
-import HeartContext from "../../Contexts/HeartContext";
-import CartProduct from "../ProductView/ListViewProduct";
+import CartContext from "../../contexts/CartContext";
+import HeartContext from "../../contexts/HeartContext";
+import CartProduct from "../ProductView/Product.List/Product.List";
 import IconBtn from "../Buttons/IconBtn";
 import { PopupBtn } from "../Buttons";
-import Popup from "../PopUp";
+import Popup from "../ProductView/Product.Popup/Product.Popup";
 
 const LikeList = () => {
   const { addProduct } = useContext(CartContext);

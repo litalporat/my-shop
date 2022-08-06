@@ -2,10 +2,10 @@ import React from "react";
 import { useContext } from "react";
 
 //Contexts
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import CurrencyContext from "../../../contexts/CurrencyContext";
 
 //Components
-import IconBtn from "../Buttons/IconBtn";
+import IconBtn from "../../Buttons/IconBtn";
 import { toast } from "react-toastify";
 
 //Styles
@@ -15,7 +15,7 @@ import {
   IconList,
   Photo,
   Text,
-} from "./styles/ListViewStyle";
+} from "./Product.List.Styled";
 
 const ListView = (props) => {
   const { currency } = useContext(CurrencyContext);

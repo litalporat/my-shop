@@ -1,40 +1,38 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
-import axios from "axios";
-import HeartContext from "../Contexts/HeartContext";
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 //Componentes
-import Product from "../components/ProductView/CardView";
-import CartContext from "../Contexts/CartContext";
-import FilterComp from "../components/FilterComp";
-import SorterComp from "../components/FuncComps/SorterComp";
-import BasicButton from "../components/Buttons/BasicBtn";
+import BasicButton from '../../components/Buttons/BasicBtn';
+import FilterComp from '../../components/FilterComp';
+import SorterComp from '../../components/FuncComps/SorterComp';
+import { ProductCard } from '../../components/ProductView';
+import CartContext from '../../contexts/CartContext';
+
 
 //Styles
 import {
   FitlersStyle,
   RowFlex,
   ShopList,
-  ShopPageBody,
-} from "./styles/ShopPageStyle";
+  ShopPageBody
+} from './Page.Shop.Styled';
 
 const ShopPage = ({ socket }) => {
-  //States
   const [data, setData] = useState();
   const [viewData, setViewData] = useState();
   const [filters, setFilters] = useState({});
   const [colorData, setColorData] = useState([]);
   const [priceData, setPriceData] = useState([]);
-  //Context
+
   const { addProduct } = useContext(CartContext);
-  const { hearts } = useContext(HeartContext);
   const location = useLocation();
 
   // Getting the data from the DB.
   useEffect(() => {
     const path = location.search
       ? `http://localhost:5000/api/products${location.search}`
-      : "http://localhost:5000/api/products";
+      : 'http://localhost:5000/api/products';
     axios
       .get(path)
       .then(function (response) {
@@ -55,8 +53,8 @@ const ShopPage = ({ socket }) => {
   }, [location]);
 
   const searchItem = () => {
-    if (location?.search.includes("search"))
-      return decodeURI(location?.search.split("search=")[1].toLowerCase());
+    if (location?.search.includes('search'))
+      return decodeURI(location?.search.split('search=')[1].toLowerCase());
     else return false;
   };
 
@@ -110,16 +108,16 @@ const ShopPage = ({ socket }) => {
   };
 
   const sortByInt = (param, order) => {
-    if (order === "Default") {
+    if (order === 'Default') {
       let tempData = [...data];
       setViewData(tempData);
     }
-    if (order === "High To Low") {
+    if (order === 'High To Low') {
       let tempData = [...viewData];
       tempData = tempData.sort((a, b) => a[param] - b[param]);
       setViewData(tempData);
     }
-    if (order === "Low To High") {
+    if (order === 'Low To High') {
       let tempData = [...viewData];
       tempData = tempData.sort((a, b) => b[param] - a[param]);
       setViewData(tempData);
@@ -128,16 +126,16 @@ const ShopPage = ({ socket }) => {
 
   const sortByString = (param, order) => {
     let tempData = [...data];
-    if (order === "Default") {
+    if (order === 'Default') {
       setViewData(tempData);
     }
-    if (order === "High To Low") {
+    if (order === 'High To Low') {
       tempData = tempData.sort((a, b) =>
         a[param] > b[param] ? 1 : b[param] > a[param] ? -1 : 0
       );
       setViewData(tempData);
     }
-    if (order === "Low To High") {
+    if (order === 'Low To High') {
       tempData = tempData.sort((a, b) =>
         a[param] < b[param] ? 1 : b[param] < a[param] ? -1 : 0
       );
@@ -161,7 +159,7 @@ const ShopPage = ({ socket }) => {
       <ShopList>
         {data &&
           viewData.map((product) => (
-            <Product
+            <ProductCard
               key={product._id}
               product={product}
               socket={socket}

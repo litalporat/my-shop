@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import CartContext from "../../Contexts/CartContext";
+import CartContext from "../../contexts/CartContext";
 import ArrowBtn from "../Buttons/ArrowBtn";
 import Quantity from "../Buttons/QuantityBtn";
-import CartProduct from "../ProductView/ListViewProduct";
+import CartProduct from "../ProductView/Product.List/Product.List";
 
 const Container = styled.div`
   display: flex;

@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 
 //Contexts
-import HeartContext from "../../Contexts/HeartContext";
-import CurrencyContext from "../../Contexts/CurrencyContext";
+import HeartContext from "../../../contexts/HeartContext";
+import CurrencyContext from "../../../contexts/CurrencyContext";
 
 //Components
-import Popup from "../PopUp";
+import Popup from "../Product.Popup/Product.Popup";
 import { toast } from "react-toastify";
-import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../Buttons";
+import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../../Buttons";
 
 //Styles
 import {
@@ -18,7 +18,7 @@ import {
   Image,
   Price,
   Title,
-} from "./styles/CardViewStyle";
+} from "./Product.Card.Styled";
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);

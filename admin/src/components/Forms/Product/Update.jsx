@@ -1,11 +1,11 @@
-import { Box, Button, Divider, IconButton, TextField } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import React from "react";
-import styled from "styled-components";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import axios from "axios";
-import Types from "./Types";
+import { Box, Button, Divider, IconButton, TextField } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import React from 'react';
+import styled from 'styled-components';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import axios from 'axios';
+import Types from './Types';
 
 const Image = styled.img`
   width: 14rem;
@@ -40,14 +40,14 @@ const Update = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("You have submitted the form.");
-    console.log(values.imgDisplay);
+    console.log(values);
+    alert('You have submitted the form.');
     axios.patch(
       `http://localhost:5000/api/products/${props.product._id}`,
       values,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("key")}`,
+          Authorization: `Bearer ${localStorage.getItem('key')}`,
         },
       }
     );
@@ -73,7 +73,7 @@ const Update = (props) => {
   };
   const addPhoto = (id) => {
     let temp = [...values[id]];
-    temp.push("Enter An URL");
+    temp.push('Enter An URL');
     setValues({ ...values, [id]: temp });
   };
   const removePhoto = (id, index) => {
@@ -86,11 +86,11 @@ const Update = (props) => {
     <Box
       component="form"
       sx={{
-        width: "100%",
-        display: "flex",
+        width: '100%',
+        display: 'flex',
         gap: 4,
-        justifyContent: "center",
-        flexDirection: "column",
+        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
       <Divider>Product Details</Divider>
@@ -106,7 +106,7 @@ const Update = (props) => {
         <TextField
           id="displayName"
           label="Product Name"
-          defaultValue={values.displayName ? values.displayName : "No Data"}
+          defaultValue={values.displayName ? values.displayName : 'No Data'}
           onChange={handleChange}
         />
         <TextField
@@ -114,7 +114,7 @@ const Update = (props) => {
           label="Price"
           type="number"
           onChange={handleChange}
-          defaultValue={values.price ? values.price : "No Data"}
+          defaultValue={values.price ? values.price : 'No Data'}
           InputLabelProps={{
             shrink: true,
           }}
@@ -124,25 +124,25 @@ const Update = (props) => {
           id="type"
           label="Type"
           onChange={handleChange}
-          defaultValue={values.type ? values.type : "No Data"}
+          defaultValue={values.type ? values.type : 'No Data'}
         />
         <TextField
           id="color"
           label="Color"
-          defaultValue={values.color ? values.color : "No Data"}
+          defaultValue={values.color ? values.color : 'No Data'}
           onChange={handleChange}
         />
         <TextField
           id="discount"
           label="Discount"
-          defaultValue={values.discount ? values.discount : "No Data"}
+          defaultValue={values.discount ? values.discount : 'No Data'}
           onChange={handleChange}
         />
       </GridContainer>
       <TextField
         id="description"
         label="Description"
-        defaultValue={values.description ? values.description : "No Data"}
+        defaultValue={values.description ? values.description : 'No Data'}
         onChange={handleChange}
         fullWidth
         multiline
@@ -151,10 +151,10 @@ const Update = (props) => {
       <Divider>Stock</Divider>
       <Box
         sx={{
-          display: "flex",
-          maxWidth: "100%",
+          display: 'flex',
+          maxWidth: '100%',
           gap: 2,
-          justifyContent: "center",
+          justifyContent: 'center',
         }}
       >
         {Object.keys(values.stock).map((size) => (
@@ -162,14 +162,14 @@ const Update = (props) => {
             id={size}
             label={size.toUpperCase()}
             type="number"
-            defaultValue={values.stock[size] ? values.stock[size] : "No Data"}
+            defaultValue={values.stock[size] ? values.stock[size] : 'No Data'}
             onChange={handleStockChange}
           />
         ))}
       </Box>
       <Divider>Display Photos</Divider>
       <center>
-        <IconButton onClick={() => addPhoto("imgDisplay")}>
+        <IconButton onClick={() => addPhoto('imgDisplay')}>
           <AddIcon />
         </IconButton>
         <br />
@@ -178,7 +178,7 @@ const Update = (props) => {
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDisplay", index)}>
+              <IconButton onClick={() => removePhoto('imgDisplay', index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -195,7 +195,7 @@ const Update = (props) => {
       </center>
       <Divider>Details Photos</Divider>
       <center>
-        <IconButton onClick={() => addPhoto("imgDetails")}>
+        <IconButton onClick={() => addPhoto('imgDetails')}>
           <AddIcon />
         </IconButton>
         <br />
@@ -204,7 +204,7 @@ const Update = (props) => {
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDetails", index)}>
+              <IconButton onClick={() => removePhoto('imgDetails', index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -220,7 +220,7 @@ const Update = (props) => {
         </GridContainer>
       </center>
       <Button variant="contained" onClick={handleSubmit}>
-        Update <CircularProgress />{" "}
+        Update <CircularProgress />
       </Button>
     </Box>
   );

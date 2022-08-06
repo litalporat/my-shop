@@ -1,11 +1,11 @@
 import React from "react";
 
 //Components
-import Popup from "../PopUp";
-import { ArrowBtn, BasicBtn, IconBtn, PopupBtn } from "../Buttons";
+import Popup from "../Product.Popup/Product.Popup";
+import { ArrowBtn, BasicBtn, IconBtn, PopupBtn } from "../../Buttons";
 
 //Styles
-import { Container, FlexRow, Image } from "./styles/ForUViewStyle";
+import { Container, FlexRow, Image } from "./Product.ForU.Styled";
 
 const ForUView = (props) => {
   return (

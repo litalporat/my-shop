@@ -1,9 +1,7 @@
-import Photo from "../images/photo.jpg";
-import ArrowBtn from "../components/Buttons/ArrowBtn";
-import VideoSection from "../components/Sections/VideoSection";
-import ForUSection from "../components/Sections/ForUSection";
-import { Link } from "react-router-dom";
-import Map from "../components/Elements/Map";
+import { Link } from 'react-router-dom';
+import ArrowBtn from '../../components/Buttons/ArrowBtn';
+import { SectionForU, SectionVideo } from '../../components/Sections';
+import Photo from '../../images/photo.jpg';
 import {
   Body,
   Container,
@@ -11,8 +9,8 @@ import {
   Image,
   Shape,
   Text,
-  Title,
-} from "./styles/HomePageStyle";
+  Title
+} from './Page.Home.Styled';
 
 const HomePage = () => {
   return (
@@ -33,17 +31,17 @@ const HomePage = () => {
               it.
             </Text>
             <Link to="/shop">
-              <ArrowBtn content={"Start Tour"} />
+              <ArrowBtn content={'Start Tour'} />
             </Link>
           </Container>
         </Body>
         <ForUBtn>
           #ForU
-          <i className="fas fa-fire" style={{ color: "red" }}></i>
+          <i className="fas fa-fire" style={{ color: 'red' }}></i>
         </ForUBtn>
       </Container>
-      <ForUSection />
-      <VideoSection />
+      <SectionForU />
+      <SectionVideo />
     </>
   );
 };

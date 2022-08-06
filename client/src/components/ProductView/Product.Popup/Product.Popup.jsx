@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { ArrowBtn, IconBtn } from '../Buttons';
-import Sizes from '../Elements/Sizes';
-import './Popup.css';
 import { useContext } from 'react';
-import CurrencyContext from '../../Contexts/CurrencyContext';
+
+//Components
+import { ArrowBtn, IconBtn } from '../../Buttons';
+import Sizes from '../../Elements/Sizes';
+
+//Styles
+import './Popup.css';
+
+import CurrencyContext from '../../../contexts/CurrencyContext';
 import { toast } from 'react-toastify';
 import {
   Body,

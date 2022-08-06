@@ -15,4 +15,5 @@ const Container = styled.div`
   flex-direction: column;
   text-align: center;
 `;
+
 export { Body, Container };

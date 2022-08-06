@@ -1,6 +1,4 @@
-import React from "react";
-import styled from "styled-components";
-import Video from "../Elements/Video";
+import styled from 'styled-components';
 
 const Body = styled.div`
   width: 100vw;
@@ -17,14 +15,4 @@ const Container = styled.div`
   border-radius: 15% 40%;
 `;
 
-const VideoSection = () => {
-  return (
-    <Body>
-      <Container>
-        <Video />
-      </Container>
-    </Body>
-  );
-};
-
-export default VideoSection;
+export { Body, Container };

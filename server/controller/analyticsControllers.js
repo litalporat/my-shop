@@ -30,7 +30,7 @@ const getOrdersCountries = async (req, res) => {
         {
             $group: {
                 _id: '$country',
-                "count": {"$sum":1}
+                "count": {"$sum":1},
             }
         }
         ]);
@@ -42,6 +42,7 @@ const getOrdersCountries = async (req, res) => {
             {
                 "country": item["_id"],
                 "amountSold": item["count"]
+
             }
         ));
         res.status(200).json(result);
