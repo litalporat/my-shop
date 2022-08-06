@@ -38,7 +38,12 @@ const getOrdersCountries = async (req, res) => {
             res.status(400).send({ error: 'error, no orders!' });
             return;
         }
-        let result = orders.map(item => [item["_id"], item["count"]]);
+        let result = orders.map(item => (
+            {
+                "country": item["_id"],
+                "amountSold": item["count"]
+            }
+        ));
         res.status(200).json(result);
     } catch (e) {
         logger.error(e);
