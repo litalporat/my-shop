@@ -6,7 +6,7 @@ import CartContext from "../../contexts/CartContext";
 import CurrencyContext from "../../contexts/CurrencyContext";
 
 //Components
-import Quantity from "../../components/Buttons/QuantityBtn";
+import Quantity from "../../components/Buttons/Button.Quantity/Button.Quantity";
 import CartProduct from "../../components/ProductView/Product.List/Product.List";
 import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
 
@@ -58,7 +58,6 @@ const CartPage = () => {
   };
 
   useEffect(() => {
-    console.log("in useEffect");
     if (submit) {
       axios
         .post("http://localhost:5000/api/orders/", values)

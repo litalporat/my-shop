@@ -5,7 +5,7 @@ import { useContext } from "react";
 import CurrencyContext from "../../../contexts/CurrencyContext";
 
 //Components
-import IconBtn from "../../Buttons/IconBtn";
+import IconBtn from "../../Buttons/Button.Icon/Button.Icon";
 import { toast } from "react-toastify";
 
 //Styles

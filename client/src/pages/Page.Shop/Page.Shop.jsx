@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 //Componentes
-import BasicButton from '../../components/Buttons/BasicBtn';
+import BasicButton from '../../components/Buttons/Button.Basic/Button.Basic';
 import FilterComp from '../../components/FilterComp';
-import SorterComp from '../../components/FuncComps/SorterComp';
+import SorterComp from '../../components/Functions/FuncComps/SorterComp';
 import { ProductCard } from '../../components/ProductView';
 import CartContext from '../../contexts/CartContext';
 

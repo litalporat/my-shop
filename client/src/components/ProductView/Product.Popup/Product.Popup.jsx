@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 
 //Components
-import { ArrowBtn, IconBtn } from '../../Buttons';
-import Sizes from '../../Elements/Sizes';
+import { ArrowBtn, ButtonArrow, ButtonIcon, IconBtn } from '../../Buttons';
+import Sizes from '../../Elements/Element.Sizes/Element.Sizes';
 
 //Styles
 import './Popup.css';
@@ -74,18 +74,18 @@ const Popup = (props) => {
           <small style={{ padding: '0 5px' }}>{currency}</small>
         </Label>
         <Sizes stock={props.product.stock} onClick={setSize} />
-        <ArrowBtn content={'add to cart'} onClick={handleAddToCart} />
+        <ButtonArrow content={'add to cart'} onClick={handleAddToCart} />
         {error && (
           <p style={{ color: 'red' }}>please choose an available size...</p>
         )}
       </Details>
       <BtnsList>
-        <IconBtn>
+        <ButtonIcon>
           <i className="fas fa-heart"></i>
-        </IconBtn>
-        <IconBtn>
+        </ButtonIcon>
+        <ButtonIcon>
           <i className="fa-solid fa-up-right-from-square"></i>
-        </IconBtn>
+        </ButtonIcon>
       </BtnsList>
     </Body>
   );

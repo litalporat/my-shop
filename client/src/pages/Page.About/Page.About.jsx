@@ -1,7 +1,7 @@
 import React from "react";
 
 //Components
-import Map from "../../components/Elements/Map";
+import Map from "../../components/Elements/Element.Map/Element.Map";
 
 //Styles
 import { Body, Container } from "./Page.About.Styled";

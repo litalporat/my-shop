@@ -1,8 +1,8 @@
 import React from "react";
 
 //Components
+import { ButtonArrow, ButtonBasic, ButtonIcon, ButtonPopup } from "../../Buttons";
 import Popup from "../Product.Popup/Product.Popup";
-import { ArrowBtn, BasicBtn, IconBtn, PopupBtn } from "../../Buttons";
 
 //Styles
 import { Container, FlexRow, Image } from "./Product.ForU.Styled";
@@ -11,25 +11,25 @@ const ForUView = (props) => {
   return (
     <Container>
       <FlexRow>
-        <PopupBtn
+        <ButtonPopup
           title={props.product.displayName}
           size={"L"}
-          button={<BasicBtn title={"View"} />}
+          button={<ButtonBasic title={"View"} />}
         >
           <Popup product={props.product} />
-        </PopupBtn>
-        <IconBtn>
+        </ButtonPopup>
+        <ButtonIcon>
           <i className="fa-solid fa-up-right-from-square"></i>
-        </IconBtn>
+        </ButtonIcon>
       </FlexRow>
       <Image src={props.product.imgDisplay[0]} />
-      <PopupBtn
+      <ButtonPopup
         title={props.product.displayName}
         size={"L"}
-        button={<ArrowBtn content={"add to cart"} />}
+        button={<ButtonArrow content={"add to cart"} />}
       >
         <Popup product={props.product} onCart={props.onCart} />
-      </PopupBtn>
+      </ButtonPopup>
     </Container>
   );
 };

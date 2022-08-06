@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ArrowBtn from '../../components/Buttons/ArrowBtn';
+import ArrowBtn from '../../components/Buttons/Button.Arrow/Button.Arrow';
 import { SectionForU, SectionVideo } from '../../components/Sections';
 import Photo from '../../images/photo.jpg';
 import {

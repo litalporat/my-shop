@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 
 //Contexts
-import HeartContext from "../../../contexts/HeartContext";
 import CurrencyContext from "../../../contexts/CurrencyContext";
+import HeartContext from "../../../contexts/HeartContext";
 
 //Components
-import Popup from "../Product.Popup/Product.Popup";
 import { toast } from "react-toastify";
-import { ArrowBtn, PopupBtn, BasicBtn, IconBtn } from "../../Buttons";
+import { ButtonArrow, ButtonBasic, ButtonIcon, ButtonPopup } from "../../Buttons";
+import Popup from "../Product.Popup/Product.Popup";
 
 //Styles
 import {
@@ -17,7 +17,7 @@ import {
   FlexRow,
   Image,
   Price,
-  Title,
+  Title
 } from "./Product.Card.Styled";
 
 const Index = (props) => {
@@ -43,14 +43,14 @@ const Index = (props) => {
       />
       <Body>
         <FlexRow>
-          <PopupBtn
+          <ButtonPopup
             title={props.product.displayName}
             size={"L"}
-            button={<BasicBtn title={"View"} />}
+            button={<ButtonBasic title={"View"} />}
           >
             <Popup product={props.product} onCart={props.onCart} />
-          </PopupBtn>
-          <IconBtn
+          </ButtonPopup>
+          <ButtonIcon
             onClick={() => {
               handleHearts(props.product);
               handleNotification();
@@ -62,7 +62,7 @@ const Index = (props) => {
             }
           >
             <i className="fas fa-heart" />
-          </IconBtn>
+          </ButtonIcon>
         </FlexRow>
         <Price>
           {" "}
@@ -71,13 +71,13 @@ const Index = (props) => {
         </Price>
         <Title> {props.product.displayName} </Title>
         <Devider />
-        <PopupBtn
+        <ButtonPopup
           title={props.product.displayName}
           size={"L"}
-          button={<ArrowBtn content={"add to cart"} />}
+          button={<ButtonArrow content={"add to cart"} />}
         >
           <Popup product={props.product} onCart={props.onCart} />
-        </PopupBtn>
+        </ButtonPopup>
       </Body>
     </Container>
   );

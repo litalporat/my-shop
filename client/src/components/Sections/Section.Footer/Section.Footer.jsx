@@ -1,4 +1,4 @@
-import FacebookShare from '../../FacebookComp/Share';
+import FacebookShare from '../../Functions/FacebookComp/Share';
 import { Container } from './Section.Footer.Styled';
 
 const Footer = () => {

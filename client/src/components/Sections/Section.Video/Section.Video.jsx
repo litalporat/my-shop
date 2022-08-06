@@ -1,4 +1,4 @@
-import Video from '../../Elements/Video';
+import Video from '../../Elements/Element.Video/Element.Video';
 import { Body, Container } from './Section.Video.Styled';
 
 const VideoSection = () => {

@@ -12,7 +12,7 @@ import { CurrencyProvider } from './contexts/CurrencyContext';
 import { PageAbout, PageCart, PageHome, PageShop } from './pages';
 
 // Components
-import Navbar from './components/Navbar';
+import Navbar from './components/Layouts/Navbar/Navbar';
 import { SectionFooter } from './components/Sections';
 import { ToastContainer, toast } from 'react-toastify';
 
