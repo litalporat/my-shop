@@ -9,6 +9,7 @@ const categoriesRoutes = require("./routes/categoriesRoutes");
 const locationRoutes = require("./routes/locationRoutes");
 const currencyRoutes = require("./routes/currencyRoutes");
 const ordersRoutes = require("./routes/ordersRoutes");
+const analyticsRoutes = require("./routes/analyticsRoutes")
 const app = express();
 
 // Middlewares
@@ -24,5 +25,6 @@ app.use("/api/categories", categoriesRoutes);
 app.use("/api/locations", locationRoutes);
 app.use("/api/currency", currencyRoutes);
 app.use("/api/orders", ordersRoutes);
+app.use("/api/analytics", analyticsRoutes);
 
 module.exports = app;
