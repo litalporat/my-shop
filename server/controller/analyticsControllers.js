@@ -1,8 +1,10 @@
 const res = require("express/lib/response");
 const Categories = require("../models/Categories");
 const Product = require("../models/Product");
+const Orders = require("../models/Orders");
 const logger = require('../utils/logger');
-const { ObjectId } = require("bson");
+
+
 const getStock = async (req, res) => {
     try {
         let cats = await Categories.find({});
@@ -22,6 +24,28 @@ const getStock = async (req, res) => {
     }
 };
 
+const getOrdersCountries = async (req, res) => {
+    try {
+        const orders = await Orders.aggregate([
+        {
+            $group: {
+                _id: '$country',
+                "count": {"$sum":1}
+            }
+        }
+        ]);
+        if (orders.length == 0) {
+            res.status(400).send({ error: 'error, no orders!' });
+            return;
+        }
+        res.status(200).json(orders);
+    } catch (e) {
+        logger.error(e);
+        res.status(500).json({ message: "Server Error!" });
+    }
+}
+
 module.exports = {
-    getStock
+    getStock,
+    getOrdersCountries
 }
