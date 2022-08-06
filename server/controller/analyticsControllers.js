@@ -27,12 +27,13 @@ const getStock = async (req, res) => {
 const getOrdersCountries = async (req, res) => {
     try {
         const orders = await Orders.aggregate([
-        {
-            $group: {
-                _id: '$country',
-                "count": {"$sum":1},
+            {
+                $group: {
+                    _id: '$country',
+                    "count": {"$sum":1},
+                    "profit": {"$sum": "$total"}
+                }
             }
-        }
         ]);
         if (orders.length == 0) {
             res.status(400).send({ error: 'error, no orders!' });
@@ -41,8 +42,8 @@ const getOrdersCountries = async (req, res) => {
         let result = orders.map(item => (
             {
                 "country": item["_id"],
-                "amountSold": item["count"]
-
+                "amountSold": item["count"],
+                "profit": item["profit"]
             }
         ));
         res.status(200).json(result);
