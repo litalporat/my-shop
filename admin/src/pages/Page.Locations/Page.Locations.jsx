@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import Create from "../components/Forms/Location/Create";
+import Create from "../../components/Forms/Location/Create";
 import axios from "axios";
-import BtnGroup from "../components/New/BtnGroup";
+import BtnGroup from "../../components/Layouts/ButtonGroup/BtnGroup";
 import { DataGrid } from "@mui/x-data-grid";
-import styled, { css } from "styled-components";
 import { Button } from "@mui/material";
-import Popup from "../components/New/Popup";
-import "./pages.css";
+import Popup from "../../components/New/Popup";
+import "../pages.css";
 
 const Locations = () => {
   const [data, setData] = useState();

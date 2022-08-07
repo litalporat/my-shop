@@ -1,10 +1,10 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import auth from "../auth/auth";
+import auth from "../../auth/auth";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-import { Container, LoginForm } from "./styles/LoginStyle";
+import { Container, LoginForm } from "./Page.Login.Styled";
 
 const LOGIN_URL = "http://localhost:5000/api/auth/login";
 

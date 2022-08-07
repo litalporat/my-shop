@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import Logo from "../images/logo.png";
+import Logo from "../../../images/logo.png";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
-import { SidebarData } from "../data/Data";
+import { SidebarData } from "../../../data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../auth/auth";
+import auth from "../../../auth/auth";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
-
   const [expanded, setExpaned] = useState(true);
 
   const navigate = useNavigate();
@@ -24,7 +23,6 @@ const Sidebar = () => {
     },
   };
 
-  // console.log(window.innerWidth);
   return (
     <>
       <div

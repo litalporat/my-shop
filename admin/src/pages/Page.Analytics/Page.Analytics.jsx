@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import BarChart from '../components/BarChart';
-import PieChart from '../components/PieChart';
-import { fetchSalesByCountry, fetchStockByType } from '../utils/fetchAnalytics';
+import BarChart from '../../components/Graphs/BarChart';
+import PieChart from '../../components/Graphs/PieChart';
+import {
+  fetchSalesByCountry,
+  fetchStockByType,
+} from '../../utils/services/Analytics.Service';
+import { BarCharts, Body, PieCharts } from './Page.Analytics.Styled';
 
-const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-const PieCharts = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20rem;
-`;
-const BarCharts = styled.div`
-  width: 45rem;
-`;
 const Analytics = () => {
   const [stockByType, setStockByType] = useState();
   const [salesByCountry, setSalesByCountry] = useState();
@@ -31,8 +19,6 @@ const Analytics = () => {
       setSalesByCountry(data);
     });
   }, []);
-
-  console.log(stockByType);
 
   return (
     <Body>

@@ -1,4 +1,4 @@
-import axiosinstance from '../api/axios'
+import axiosinstance from '../../api/axios'
 
 async function fetchStockByType() {
   return axiosinstance

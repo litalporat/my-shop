@@ -1,8 +1,7 @@
+import { Box, Button, CircularProgress, Divider, TextField } from "@mui/material";
+import axios from "axios";
 import React from "react";
 import styled from "styled-components";
-import { CircularProgress } from "@mui/material";
-import { Box, Button, Divider, TextField } from "@mui/material";
-import axios from "axios";
 
 const Image = styled.img`
   width: 14rem;

@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
-import BtnGroup from "../components/New/BtnGroup";
-import { Button } from "@mui/material";
-import Popup from "../components/New/Popup";
+import BtnGroup from "../../components/Layouts/ButtonGroup/BtnGroup";
+import Popup from "../../components/New/Popup";
+import "../pages.css";
 import AddIcon from "@mui/icons-material/Add";
-import Create from "../components/Forms/Product/Create";
-
-const Products = () => {
+import { Button } from "@mui/material";
+import Create from "../../components/Forms/Order/Create";
+import PopUpProducts from "../../components/New/PopProducts";
+const Orders = () => {
   const [data, setData] = useState();
   const [rows, setRows] = useState([]);
   const [isChange, setIsChange] = useState(false);
@@ -17,35 +20,54 @@ const Products = () => {
     setIsChange(!isChange);
   };
 
-  const columnsTemp = [
+  const columns = [
     { field: "id", headerName: "ID", width: 220 },
     {
-      field: "mainPhoto",
-      headerName: "Photo",
-      width: 80,
+      field: "firstName",
+      headerName: "First Name",
+      width: "100",
+    },
+    {
+      field: "lastName",
+      headerName: "Last Name",
+      width: "100",
+    },
+    {
+      field: "country",
+      headerName: "Country",
+      width: "100",
+    },
+    {
+      field: "city",
+      headerName: "City",
+      width: "100",
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      width: "100",
+    },
+    {
+      field: "zipCode",
+      headerName: "Zip Code",
+      width: "100",
+    },
+    {
+      field: "total",
+      headerName: "Total",
+      width: "100",
+    },
+    {
+      field: "products",
+      headerName: "Products",
+      type: "products",
+      width: 100,
       renderCell: (params) => (
-        <img className="image" src={params.row.mainPhoto} />
+        <PopUpProducts
+          products={params.row.products}
+          toggleChange={toggleChange}
+        />
       ),
-    },
-    {
-      field: "productName",
-      headerName: "Product",
-      width: 200,
-    },
-    {
-      field: "price",
-      headerName: "Price",
-      width: 100,
-    },
-    {
-      field: "type",
-      headerName: "Type",
-      width: 100,
-    },
-    {
-      field: "color",
-      headerName: "Color",
-      width: 120,
     },
     {
       field: "actions",
@@ -54,19 +76,18 @@ const Products = () => {
       width: 100,
       renderCell: (params) => (
         <BtnGroup
-          item={params.row.product}
+          item={params.row.order}
           deleteAction={params.row.deleteAction}
           toggleChange={toggleChange}
-          what="products"
+          what="orders"
         />
       ),
     },
   ];
 
-  // Getting the data from the DB.
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("http://localhost:5000/api/orders")
       .then(function (response) {
         // handle success
         setData(response.data);
@@ -83,12 +104,15 @@ const Products = () => {
       data.map((obj, index) => {
         temp.push({
           id: obj._id,
-          mainPhoto: obj.imgDisplay[0],
-          productName: obj.displayName,
-          price: obj.price,
-          type: obj.type,
-          color: obj.color,
-          product: obj,
+          firstName: obj.firstName,
+          lastName: obj.lastName,
+          country: obj.country,
+          city: obj.city,
+          address: obj.address,
+          zipCode: obj.zipCode,
+          total: obj.total,
+          products: obj.products,
+          order: obj,
         });
       });
       setRows(temp);
@@ -98,13 +122,13 @@ const Products = () => {
   return (
     <div>
       <div className="header">
-        <div className="title">Products Manager</div>
+        <div className="title">Orders Manager</div>
       </div>
       <div className="table">
         <Popup
           button={
             <Button color="success" startIcon={<AddIcon />}>
-              New Product
+              New Order
             </Button>
           }
         >
@@ -112,7 +136,7 @@ const Products = () => {
         </Popup>
         <DataGrid
           rows={rows}
-          columns={columnsTemp}
+          columns={columns}
           autoPageSize
           checkboxSelection
           disableSelectionOnClick
@@ -132,4 +156,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Orders;

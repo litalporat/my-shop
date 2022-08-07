@@ -1,12 +1,11 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import Popup from "./Popup";
-import UpdateProduct from "../Forms/Product/Update";
-import UpdateLocation from "../Forms/Location/Update";
-import UpdateOrder from "../Forms/Order/Update";
+import Popup from "../../New/Popup";
+import UpdateProduct from "../../Forms/Product/Update";
+import UpdateLocation from "../../Forms/Location/Update";
+import UpdateOrder from "../../Forms/Order/Update";
 import axios from "axios";
 import { Alert, Fab, IconButton } from "@mui/material";
 

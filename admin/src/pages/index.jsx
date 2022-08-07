@@ -1,7 +1,15 @@
-import Analytics from "./Analytics";
-import Locations from "./Locations";
-import Login from "./Login";
-import Orders from "./Orders";
-import Products from "./Products";
+import PageAnalytics from './Page.Analytics/Page.Analytics';
+import PageLocations from './Page.Locations/Page.Locations';
+import PageLogin from './Page.Login/Page.Login';
+import PageOrders from './Page.Orders/Page.Orders';
+import PageProducts from './Page.Products/Page.Products';
+import PageDashboard from './Page.Dashboard/Page.Dashboard';
 
-export { Analytics , Locations , Login , Orders , Products}
+export {
+  PageDashboard,
+  PageAnalytics,
+  PageLocations,
+  PageLogin,
+  PageOrders,
+  PageProducts,
+};
