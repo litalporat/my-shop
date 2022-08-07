@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import backGround from '../imgs/background.png'
+import backGround from '../images/background.png'
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Montserrat&family=Prompt:wght@200&family=Quicksand&display=swap');
