@@ -2,8 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 //Contexts
-import CartContext from "../../contexts/CartContext";
-import CurrencyContext from "../../contexts/CurrencyContext";
+import CartContext from "../../Contexts/CartContext";
+import CurrencyContext from "../../Contexts/CurrencyContext";
+import OrderHistoryContext from "../../Contexts/OrderHistory";
 
 //Components
 import Quantity from "../../components/Buttons/Button.Quantity/Button.Quantity";
@@ -14,6 +15,7 @@ import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
 import { GridContainer, Strong } from "./Page.Cart.Styled";
 
 const CartPage = () => {
+  const { addOrder } = useContext(OrderHistoryContext);
   const { products, removeProduct, setProducts } = useContext(CartContext);
   const { currency } = useContext(CurrencyContext);
   const [values, setValues] = useState({
@@ -63,6 +65,7 @@ const CartPage = () => {
         .post("http://localhost:5000/api/orders/", values)
         .then(() => {
           alert("Thank you! your order has been placed successfuly.");
+          addOrder(values.products);
           setProducts([]);
           window.location.replace(window.location.origin);
         })

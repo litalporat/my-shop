@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 
 //Contexts
-import CurrencyContext from "../../../contexts/CurrencyContext";
+import CurrencyContext from "../../../Contexts/CurrencyContext";
 
 //Components
 import IconBtn from "../../Buttons/Button.Icon/Button.Icon";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import CurrencyContext from "../../../contexts/CurrencyContext";
+import CurrencyContext from "../../../Contexts/CurrencyContext";
 
 export default function CurrenctSelect(props) {
   const { currency, rates, changeCurrency } = useContext(CurrencyContext);

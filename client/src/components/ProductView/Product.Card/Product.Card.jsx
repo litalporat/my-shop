@@ -1,12 +1,17 @@
 import { useContext, useState } from "react";
 
 //Contexts
-import CurrencyContext from "../../../contexts/CurrencyContext";
-import HeartContext from "../../../contexts/HeartContext";
+import CurrencyContext from "../../../Contexts/CurrencyContext";
+import HeartContext from "../../../Contexts/HeartContext";
 
 //Components
 import { toast } from "react-toastify";
-import { ButtonArrow, ButtonBasic, ButtonIcon, ButtonPopup } from "../../Buttons";
+import {
+  ButtonArrow,
+  ButtonBasic,
+  ButtonIcon,
+  ButtonPopup,
+} from "../../Buttons";
 import Popup from "../Product.Popup/Product.Popup";
 
 //Styles
@@ -17,7 +22,7 @@ import {
   FlexRow,
   Image,
   Price,
-  Title
+  Title,
 } from "./Product.Card.Styled";
 
 const Index = (props) => {

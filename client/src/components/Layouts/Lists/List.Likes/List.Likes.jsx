@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import CartContext from "../../../../contexts/CartContext";
-import HeartContext from "../../../../contexts/HeartContext";
+import CartContext from "../../../../Contexts/CartContext";
+import HeartContext from "../../../../Contexts/HeartContext";
 import { ButtonIcon, ButtonPopup } from "../../../Buttons";
 import CartProduct from "../../../ProductView/Product.List/Product.List";
 import Popup from "../../../ProductView/Product.Popup/Product.Popup";

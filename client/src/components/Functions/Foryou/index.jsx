@@ -1,8 +1,8 @@
-import HeartContext from "../../contexts/HeartContext";
+import OrderHistoryContext from "../../../Contexts/OrderHistory";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Product from "../ProductView/Product.ForU/Product.ForU";
-import CartContext from "../../contexts/CartContext";
+import Product from "../../ProductView/Product.ForU/Product.ForU";
+import CartContext from "../../../Contexts/CartContext";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -18,34 +18,56 @@ const Body = styled.div`
 `;
 
 const Foryou = () => {
-  const { hearts } = useContext(HeartContext);
+  const { orders } = useContext(OrderHistoryContext);
   const { addProduct } = useContext(CartContext);
   // const [defaultForyou, setdefaultForyou] = useState([]);
   const [foryouProd, setForyouProd] = useState([]);
+  const colors = ["Blue", "Red", "Green", "Black", "Pink", "White"];
 
   useEffect(() => {
-    if (hearts.length >= 3) {
-      setForyouProd(hearts.slice(0, 3));
-    } else {
-      axios
-        .get(`http://localhost:5000/api/products`)
-        .then(function (response) {
-          // handle success
-          const temp = [...hearts, ...response.data].slice(0, 3);
-          const arrayUniqueById = [
-            ...new Map(temp.map((item) => [item["_id"], item])).values(),
-          ];
-          if (arrayUniqueById.length < 3) {
-            arrayUniqueById.push(response.data[4]);
-          }
-          setForyouProd(arrayUniqueById);
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
-    }
-  }, [hearts]);
+    axios
+      .get(`http://localhost:5000/api/products`)
+      .then(function (response) {
+        const allProducts = response.data;
+        if (orders.length > 0) {
+          axios
+            .get(
+              `http://localhost:5000/api/products/${
+                orders[orders.length - 1][0]._id
+              }`
+            )
+            .then(function (response) {
+              const prod = response.data;
+              console.log(prod.color[0]);
+              var colorIndex;
+              for (let i = 0; i < colors.length; i++) {
+                if (prod.color[0].includes(colors[i])) colorIndex = i;
+              }
+              const products = [
+                ...allProducts.filter(
+                  (p) =>
+                    p.color.includes(colors[colorIndex]) && p._id != prod._id
+                ),
+                ...allProducts,
+              ];
+              setForyouProd(products.slice(0, 3));
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            });
+        } else {
+          setForyouProd(allProducts.slice(0, 3));
+        }
+        // handle success
+        const temp = response.data.slice(0, 3);
+        setForyouProd(temp);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, [orders]);
 
   return (
     <Body>

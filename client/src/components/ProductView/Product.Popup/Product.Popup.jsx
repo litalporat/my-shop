@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
+import React, { useState } from "react";
+import { useContext } from "react";
 
 //Components
-import { ArrowBtn, ButtonArrow, ButtonIcon, IconBtn } from '../../Buttons';
-import Sizes from '../../Elements/Element.Sizes/Element.Sizes';
+import { ArrowBtn, ButtonArrow, ButtonIcon, IconBtn } from "../../Buttons";
+import Sizes from "../../Elements/Element.Sizes/Element.Sizes";
 
 //Styles
-import './Popup.css';
+import "./Popup.css";
 
-import CurrencyContext from '../../../contexts/CurrencyContext';
-import { toast } from 'react-toastify';
+import CurrencyContext from "../../../Contexts/CurrencyContext";
+import { toast } from "react-toastify";
 import {
   Body,
   BtnsList,
@@ -17,7 +17,7 @@ import {
   Label,
   PhotoDiv,
   Text,
-} from './Product.Popup.Styled';
+} from "./Product.Popup.Styled";
 
 const Popup = (props) => {
   const [viewPhoto, setViewPhoto] = useState(props.product.imgDetails[0]);
@@ -45,7 +45,7 @@ const Popup = (props) => {
       props.onCart(props.product);
       toast(`${props.product.displayName} added to your 🛒!`);
     } else {
-      console.log('error is true or size is undefined ');
+      console.log("error is true or size is undefined ");
       setError(true);
     }
   };
@@ -60,7 +60,7 @@ const Popup = (props) => {
           {props.product.imgDetails.map((img) => (
             <img
               src={img}
-              className={img === viewPhoto ? 'chosen-photo' : ''}
+              className={img === viewPhoto ? "chosen-photo" : ""}
               onClick={handleClickPhoto}
             />
           ))}
@@ -71,12 +71,12 @@ const Popup = (props) => {
         <Text>{props.product.description}</Text>
         <Label>
           {(props.product.price * rates[currency]).toFixed(2)}
-          <small style={{ padding: '0 5px' }}>{currency}</small>
+          <small style={{ padding: "0 5px" }}>{currency}</small>
         </Label>
         <Sizes stock={props.product.stock} onClick={setSize} />
-        <ButtonArrow content={'add to cart'} onClick={handleAddToCart} />
+        <ButtonArrow content={"add to cart"} onClick={handleAddToCart} />
         {error && (
-          <p style={{ color: 'red' }}>please choose an available size...</p>
+          <p style={{ color: "red" }}>please choose an available size...</p>
         )}
       </Details>
       <BtnsList>

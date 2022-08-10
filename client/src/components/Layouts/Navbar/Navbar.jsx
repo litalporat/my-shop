@@ -1,13 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import CartContext from '../../../contexts/CartContext';
-import { CatagoriesService } from '../../../utils/services';
-import { ButtonBasic, ButtonIcon, ButtonMenu, ButtonSidebar } from '../../Buttons';
-import CurrenctSelect from '../../Functions/CurrencySelector';
-import SearchBar from '../../Functions/Search/Search';
-import { ListCart, ListLikes } from '../Lists';
-import './Navbar.css';
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import CartContext from "../../../Contexts/CartContext";
+import { CatagoriesService } from "../../../utils/services";
+import {
+  ButtonBasic,
+  ButtonIcon,
+  ButtonMenu,
+  ButtonSidebar,
+} from "../../Buttons";
+import CurrenctSelect from "../../Functions/CurrencySelector";
+import SearchBar from "../../Functions/Search/Search";
+import { ListCart, ListLikes } from "../Lists";
+import "./Navbar.css";
 
 const BtnsDiv = styled.div`
   display: flex;
@@ -18,7 +23,7 @@ const BtnsDiv = styled.div`
 
 const Navbar = () => {
   const { products } = useContext(CartContext);
-  const [navbar, setNavBar] = useState('navbar');
+  const [navbar, setNavBar] = useState("navbar");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -28,9 +33,9 @@ const Navbar = () => {
   }, []);
 
   window.onwheel = (e) => {
-    if (e.deltaY > 0) setNavBar('navbar down');
-    if (e.deltaY < 0) setNavBar('navbar up');
-    if (e.x >= 920) setNavBar('navbar');
+    if (e.deltaY > 0) setNavBar("navbar down");
+    if (e.deltaY < 0) setNavBar("navbar up");
+    if (e.x >= 920) setNavBar("navbar");
   };
 
   return (
@@ -38,7 +43,7 @@ const Navbar = () => {
       <nav className={navbar}>
         <Link to="/">
           <h2
-            style={{ textDecoration: 'none', color: 'var(--lightnude-color)' }}
+            style={{ textDecoration: "none", color: "var(--lightnude-color)" }}
           >
             OurShop
           </h2>
@@ -51,17 +56,17 @@ const Navbar = () => {
             <Link to="/About">About</Link>
           </li>
           <li>
-            <ButtonMenu title={'Shop'} items={categories} />
+            <ButtonMenu title={"Shop"} items={categories} />
           </li>
         </ul>
         <BtnsDiv>
           <CurrenctSelect />
           <SearchBar />
           <ButtonSidebar
-            title={'Likes'}
-            side={'right'}
+            title={"Likes"}
+            side={"right"}
             button={
-              <ButtonIcon type={'secondary'}>
+              <ButtonIcon type={"secondary"}>
                 <i className="fas fa-heart"></i>
               </ButtonIcon>
             }
@@ -69,12 +74,12 @@ const Navbar = () => {
             <ListLikes />
           </ButtonSidebar>
           <ButtonSidebar
-            title={'Cart'}
-            side={'right'}
+            title={"Cart"}
+            side={"right"}
             button={
               <ButtonBasic
-                title={'Cart'}
-                type={'secondary'}
+                title={"Cart"}
+                type={"secondary"}
                 icon={<i className="fas fa-shopping-cart"></i>}
               >
                 <span className="cartlogo__badge">{products.length}</span>
