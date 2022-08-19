@@ -3,10 +3,11 @@ Content-Type: application/json
 
 {
     "email": "ravid1233@gmail.com",
-    "password": "Testing123!@#"
+    "password": "   "
 }
 
 ###
+
 
 POST http://localhost:5000/api/auth/token
 Content-Type: application/json

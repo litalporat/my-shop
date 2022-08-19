@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import CartContext from "../../../Contexts/CartContext";
+import CartContext from "../../../contexts/CartContext";
 import {
   BtnLeft,
   BtnLeftDisable,

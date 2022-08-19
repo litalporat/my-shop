@@ -8,6 +8,8 @@ export function OrderHistoryProvider({ children }) {
     return data ? JSON.parse(data) : [];
   });
 
+
+
   useEffect(() => {
     localStorage.setItem("orderHistory", JSON.stringify(orders));
   }, [orders]);
@@ -25,3 +27,7 @@ export function OrderHistoryProvider({ children }) {
 }
 
 export default OrderHistoryContext;
+
+{
+  
+}

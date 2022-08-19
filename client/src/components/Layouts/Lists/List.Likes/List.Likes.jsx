@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import CartContext from "../../../../Contexts/CartContext";
-import HeartContext from "../../../../Contexts/HeartContext";
-import { ButtonIcon, ButtonPopup } from "../../../Buttons";
-import CartProduct from "../../../ProductView/Product.List/Product.List";
-import Popup from "../../../ProductView/Product.Popup/Product.Popup";
+import React, { useContext } from 'react';
+import CartContext from '../../../../contexts/CartContext';
+import HeartContext from '../../../../contexts/HeartContext';
+import { ButtonIcon, ButtonPopup } from '../../../Buttons';
+import CartProduct from '../../../ProductView/Product.List/Product.List';
+import Popup from '../../../ProductView/Product.Popup/Product.Popup';
 
 const LikeList = () => {
   const { addProduct } = useContext(CartContext);
@@ -18,7 +18,7 @@ const LikeList = () => {
           button={
             <ButtonPopup
               title={like.displayName}
-              size={"L"}
+              size={'L'}
               button={
                 <ButtonIcon>
                   <i className="fas fa-shopping-cart"></i>

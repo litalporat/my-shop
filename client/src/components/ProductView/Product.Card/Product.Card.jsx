@@ -1,18 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useState } from 'react';
 
 //Contexts
-import CurrencyContext from "../../../Contexts/CurrencyContext";
-import HeartContext from "../../../Contexts/HeartContext";
+import CurrencyContext from '../../../contexts/CurrencyContext';
+import HeartContext from '../../../contexts/HeartContext';
 
 //Components
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import {
   ButtonArrow,
   ButtonBasic,
   ButtonIcon,
   ButtonPopup,
-} from "../../Buttons";
-import Popup from "../Product.Popup/Product.Popup";
+} from '../../Buttons';
+import Popup from '../Product.Popup/Product.Popup';
 
 //Styles
 import {
@@ -23,7 +23,7 @@ import {
   Image,
   Price,
   Title,
-} from "./Product.Card.Styled";
+} from './Product.Card.Styled';
 
 const Index = (props) => {
   const { handleHearts, include } = useContext(HeartContext);
@@ -31,8 +31,8 @@ const Index = (props) => {
   const [liked, setLiked] = useState(include(props.product));
   const handleNotification = () => {
     props.socket.emit(
-      "like",
-      { name: "" },
+      'like',
+      { name: '' },
       { name: props.product.displayName }
     );
     if (liked) toast(`You just 🗑️ ${props.product.displayName}`);
@@ -50,8 +50,8 @@ const Index = (props) => {
         <FlexRow>
           <ButtonPopup
             title={props.product.displayName}
-            size={"L"}
-            button={<ButtonBasic title={"View"} />}
+            size={'L'}
+            button={<ButtonBasic title={'View'} />}
           >
             <Popup product={props.product} onCart={props.onCart} />
           </ButtonPopup>
@@ -62,7 +62,7 @@ const Index = (props) => {
             }}
             style={
               include(props.product)
-                ? { color: "#ec3434", background: "#A18278" }
+                ? { color: '#ec3434', background: '#A18278' }
                 : {}
             }
           >
@@ -70,16 +70,16 @@ const Index = (props) => {
           </ButtonIcon>
         </FlexRow>
         <Price>
-          {" "}
-          {(props.product.price * rates[currency]).toFixed(2)}{" "}
-          <small style={{ fontSize: "10px" }}>{currency}</small>{" "}
+          {' '}
+          {(props.product.price * rates[currency]).toFixed(2)}{' '}
+          <small style={{ fontSize: '10px' }}>{currency}</small>{' '}
         </Price>
         <Title> {props.product.displayName} </Title>
         <Devider />
         <ButtonPopup
           title={props.product.displayName}
-          size={"L"}
-          button={<ButtonArrow content={"add to cart"} />}
+          size={'L'}
+          button={<ButtonArrow content={'add to cart'} />}
         >
           <Popup product={props.product} onCart={props.onCart} />
         </ButtonPopup>

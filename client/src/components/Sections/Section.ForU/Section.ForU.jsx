@@ -1,4 +1,4 @@
-import Foryou from "../../Functions/Foryou";
+import Foryou from "../../Functions/Foryou/Foryou";
 import { Container } from "./Section.ForU.Styled";
 
 const ForUSection = () => {
