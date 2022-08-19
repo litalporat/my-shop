@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CartContext from '../../../contexts/CartContext';
 import { CatagoriesService } from '../../../utils/services';
-import { ButtonBasic, ButtonIcon, ButtonMenu, ButtonSidebar } from '../../Buttons';
-import CurrenctSelect from '../../Functions/CurrencySelector';
+import {
+  ButtonBasic,
+  ButtonIcon,
+  ButtonMenu,
+  ButtonSidebar,
+} from '../../Buttons';
+import CurrenctSelect from '../../Functions/CurrencySelector/CurrencySelector';
 import SearchBar from '../../Functions/Search/Search';
 import { ListCart, ListLikes } from '../Lists';
 import './Navbar.css';

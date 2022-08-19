@@ -1,12 +1,12 @@
-import React from "react";
-import { useContext } from "react";
+import React from 'react';
+import { useContext } from 'react';
 
 //Contexts
-import CurrencyContext from "../../../contexts/CurrencyContext";
+import CurrencyContext from '../../../contexts/CurrencyContext';
 
 //Components
-import IconBtn from "../../Buttons/Button.Icon/Button.Icon";
-import { toast } from "react-toastify";
+import IconBtn from '../../Buttons/Button.Icon/Button.Icon';
+import { toast } from 'react-toastify';
 
 //Styles
 import {
@@ -15,11 +15,11 @@ import {
   IconList,
   Photo,
   Text,
-} from "./Product.List.Styled";
+} from './Product.List.Styled';
 
 const ListView = (props) => {
   const { currency } = useContext(CurrencyContext);
-  const rates = JSON.parse(localStorage.getItem("rates"));
+  const rates = JSON.parse(localStorage.getItem('rates'));
 
   return (
     <Container>
@@ -27,8 +27,8 @@ const ListView = (props) => {
       <Details>
         <Text>{props.product.displayName}</Text>
         <Text>
-          {(props.product.price * rates[currency]).toFixed(2)}{" "}
-          <small style={{ "font-size": "10px" }}>{currency}</small>{" "}
+          {(props.product.price * rates[currency]).toFixed(2)}{' '}
+          <small style={{ 'font-size': '10px' }}>{currency}</small>{' '}
         </Text>
         {props.product.size && <Text>{props.product.size.toUpperCase()}</Text>}
       </Details>

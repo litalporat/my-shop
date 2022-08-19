@@ -1,5 +1,5 @@
-import Foryou from '../../Foryou';
-import { Container } from './Section.ForU.Styled';
+import Foryou from "../../Functions/Foryou/Foryou";
+import { Container } from "./Section.ForU.Styled";
 
 const ForUSection = () => {
   return (

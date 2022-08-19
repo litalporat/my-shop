@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import CartContext from '../../../contexts/CartContext';
+import React, { useContext, useEffect, useState } from "react";
+import CartContext from "../../../contexts/CartContext";
 import {
   BtnLeft,
   BtnLeftDisable,
@@ -7,7 +7,7 @@ import {
   BtnRightDisable,
   Container,
   QuantityDisplay,
-} from './Button.Quantity.Styled';
+} from "./Button.Quantity.Styled";
 
 const Quantity = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
@@ -26,7 +26,7 @@ const Quantity = (props) => {
   };
 
   return (
-    <Container side={'left'}>
+    <Container side={"left"}>
       {quantity == 1 ? (
         <BtnLeftDisable>-</BtnLeftDisable>
       ) : (

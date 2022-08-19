@@ -1,33 +1,35 @@
-import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 //Contexts
-import CartContext from "../../contexts/CartContext";
-import CurrencyContext from "../../contexts/CurrencyContext";
+import CartContext from '../../contexts/CartContext';
+import CurrencyContext from '../../contexts/CurrencyContext';
+import OrderHistoryContext from '../../contexts/OrderHistory';
 
 //Components
-import Quantity from "../../components/Buttons/Button.Quantity/Button.Quantity";
-import CartProduct from "../../components/ProductView/Product.List/Product.List";
-import { Box, Button, Divider, TextField, Card, Grid } from "@mui/material";
+import Quantity from '../../components/Buttons/Button.Quantity/Button.Quantity';
+import CartProduct from '../../components/ProductView/Product.List/Product.List';
+import { Box, Button, Divider, TextField, Card, Grid } from '@mui/material';
 
 //Styles
-import { GridContainer, Strong } from "./Page.Cart.Styled";
+import { GridContainer, Strong } from './Page.Cart.Styled';
 
 const CartPage = () => {
+  const { addOrder } = useContext(OrderHistoryContext);
   const { products, removeProduct, setProducts } = useContext(CartContext);
   const { currency } = useContext(CurrencyContext);
   const [values, setValues] = useState({
-    products: "",
-    firstName: "",
-    lastName: "",
-    country: "",
-    city: "",
-    address: "",
+    products: '',
+    firstName: '',
+    lastName: '',
+    country: '',
+    city: '',
+    address: '',
     zipCode: 0,
     total: 0,
   });
   const [submit, setSubmit] = useState(false);
-  const rates = JSON.parse(localStorage.getItem("rates"));
+  const rates = JSON.parse(localStorage.getItem('rates'));
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -60,14 +62,15 @@ const CartPage = () => {
   useEffect(() => {
     if (submit) {
       axios
-        .post("http://localhost:5000/api/orders/", values)
+        .post('http://localhost:5000/api/orders/', values)
         .then(() => {
-          alert("Thank you! your order has been placed successfuly.");
+          alert('Thank you! your order has been placed successfuly.');
+          addOrder(values.products);
           setProducts([]);
           window.location.replace(window.location.origin);
         })
         .catch(() => {
-          alert("Please make sure all inputs are valid.");
+          alert('Please make sure all inputs are valid.');
         });
 
       setSubmit(!submit);
@@ -81,29 +84,29 @@ const CartPage = () => {
       direction="column"
       alignItems="center"
       justify="center"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: '100vh' }}
     >
       <Card
         component="form"
         sx={{
-          width: "60%",
-          display: "flex",
+          width: '60%',
+          display: 'flex',
           gap: 4,
-          justifyContent: "center",
-          flexDirection: "column",
-          margin: "140px 0px",
-          padding: "40px 20px",
+          justifyContent: 'center',
+          flexDirection: 'column',
+          margin: '140px 0px',
+          padding: '40px 20px',
         }}
       >
         <Divider>Checkout</Divider>
         <Box
           sx={{
-            width: "70%",
-            alignSelf: "center",
+            width: '70%',
+            alignSelf: 'center',
           }}
         >
           {products.map((product) => (
-            <Box sx={{ padding: "10px" }}>
+            <Box sx={{ padding: '10px' }}>
               <CartProduct product={product} delete={removeProduct}>
                 <Quantity
                   disable={product.stock[product.size]}
@@ -114,14 +117,14 @@ const CartPage = () => {
           ))}
           <Strong>
             {`Total: ${(sum() * rates[currency]).toFixed(2)} `}
-            <small style={{ padding: " 1px 5px" }}>{currency}</small>
+            <small style={{ padding: ' 1px 5px' }}>{currency}</small>
           </Strong>
         </Box>
         <Divider>Details</Divider>
         <Box
           sx={{
-            width: "90%",
-            alignSelf: "center",
+            width: '90%',
+            alignSelf: 'center',
           }}
         >
           <GridContainer>
@@ -144,8 +147,8 @@ const CartPage = () => {
         <Divider>Payment</Divider>
         <Box
           sx={{
-            width: "90%",
-            alignSelf: "center",
+            width: '90%',
+            alignSelf: 'center',
           }}
         >
           <GridContainer>
@@ -157,7 +160,7 @@ const CartPage = () => {
         </Box>
         <Button
           variant="contained"
-          sx={{ width: "90%", height: "50px", alignSelf: "center" }}
+          sx={{ width: '90%', height: '50px', alignSelf: 'center' }}
           onClick={order}
         >
           Place Order

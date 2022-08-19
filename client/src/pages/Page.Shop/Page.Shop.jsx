@@ -4,18 +4,17 @@ import { useLocation } from 'react-router-dom';
 
 //Componentes
 import BasicButton from '../../components/Buttons/Button.Basic/Button.Basic';
-import FilterComp from '../../components/FilterComp';
+import FilterComp from '../../components/Functions/FilterComp';
 import SorterComp from '../../components/Functions/FuncComps/SorterComp';
 import { ProductCard } from '../../components/ProductView';
 import CartContext from '../../contexts/CartContext';
-
 
 //Styles
 import {
   FitlersStyle,
   RowFlex,
   ShopList,
-  ShopPageBody
+  ShopPageBody,
 } from './Page.Shop.Styled';
 
 const ShopPage = ({ socket }) => {

@@ -5,6 +5,18 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = ({ stockByType }) => {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Stock By Type',
+      },
+    },
+  };
   
   const data = {
     labels: Object.keys(stockByType).map((t) => t),
@@ -33,7 +45,7 @@ const PieChart = ({ stockByType }) => {
     ],
   };
 
-  return <Pie data={data} />;
+  return <Pie options={options} data={data} />;
 };
 
 export default PieChart;
