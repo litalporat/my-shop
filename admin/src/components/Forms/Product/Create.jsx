@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import { IconButton, CircularProgress } from "@mui/material";
-import { Box, Button, Divider, TextField } from "@mui/material";
-import axios from "axios";
-import Types from "./Types";
+import React from 'react';
+import styled from 'styled-components';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { IconButton, CircularProgress } from '@mui/material';
+import { Box, Button, Divider, TextField } from '@mui/material';
+import axios from 'axios';
+import Types from './Types';
 
 const Image = styled.img`
   width: 14rem;
@@ -28,24 +28,24 @@ const PhotoDiv = styled.div`
 
 const Create = (props) => {
   const [values, setValues] = React.useState({
-    displayName: " ",
+    displayName: ' ',
     color: [],
     type: [],
     discount: 0,
-    price: " ",
-    description: " ",
+    price: ' ',
+    description: ' ',
     stock: { xs: 0, s: 0, m: 0, l: 0, os: 0 },
     imgDisplay: [],
     imgDetails: [],
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("You have submitted the form.");
+    alert('You have submitted the form.');
     console.table(values);
     // createProduct(values);
     axios.post(`http://localhost:5000/api/products/`, values, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("key")}`,
+        Authorization: `Bearer ${localStorage.getItem('key')}`,
       },
     });
     props.toggleChange();
@@ -69,7 +69,7 @@ const Create = (props) => {
   };
   const addPhoto = (id) => {
     let temp = [...values[id]];
-    temp.push("Enter An URL");
+    temp.push('Enter An URL');
     setValues({ ...values, [id]: temp });
   };
   const removePhoto = (id, index) => {
@@ -82,11 +82,11 @@ const Create = (props) => {
     <Box
       component="form"
       sx={{
-        width: "100%",
-        display: "flex",
+        width: '100%',
+        display: 'flex',
         gap: 4,
-        justifyContent: "center",
-        flexDirection: "column",
+        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
       <Divider>Product Details</Divider>
@@ -119,10 +119,10 @@ const Create = (props) => {
       <Divider>Stock</Divider>
       <Box
         sx={{
-          display: "flex",
-          maxWidth: "100%",
+          display: 'flex',
+          maxWidth: '100%',
           gap: 2,
-          justifyContent: "center",
+          justifyContent: 'center',
         }}
       >
         {Object.keys(values.stock).map((size) => (
@@ -136,14 +136,14 @@ const Create = (props) => {
       </Box>
       <Divider>Display Photos</Divider>
       <center>
-        <IconButton onClick={() => addPhoto("imgDisplay")}>
+        <IconButton onClick={() => addPhoto('imgDisplay')}>
           <AddIcon />
         </IconButton>
         <GridContainer>
           {values.imgDisplay.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDisplay", index)}>
+              <IconButton onClick={() => removePhoto('imgDisplay', index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -159,14 +159,14 @@ const Create = (props) => {
       </center>
       <Divider>Details Photos</Divider>
       <center>
-        <IconButton onClick={() => addPhoto("imgDetails")}>
+        <IconButton onClick={() => addPhoto('imgDetails')}>
           <AddIcon />
         </IconButton>
         <GridContainer>
           {values.imgDetails.map((img, index) => (
             <PhotoDiv>
               <Image src={img} index={index} />
-              <IconButton onClick={() => removePhoto("imgDetails", index)}>
+              <IconButton onClick={() => removePhoto('imgDetails', index)}>
                 <RemoveIcon />
               </IconButton>
               <TextField
@@ -174,7 +174,7 @@ const Create = (props) => {
                 inputProps={{ alt: index }}
                 label={`Details Photo ${index}`}
                 defaultValue={img}
-                type={"url"}
+                type={'url'}
                 onChange={handleArrChange}
               />
             </PhotoDiv>

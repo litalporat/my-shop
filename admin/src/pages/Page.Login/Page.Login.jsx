@@ -11,7 +11,6 @@ const LOGIN_URL = "http://localhost:5000/api/auth/login";
 const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
-
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");

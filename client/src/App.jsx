@@ -29,7 +29,7 @@ function App() {
     setSocket(newSocket);
     newSocket.on("recieve-likes", (msg) => toast(msg));
     return () => newSocket.close();
-  }, [setSocket]);
+  }, []);
 
   return (
     <Router>

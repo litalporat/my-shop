@@ -1,6 +1,7 @@
 import FacebookShare from '../../Functions/FacebookComp/Share';
 import { Container } from './Section.Footer.Styled';
 
+
 const Footer = () => {
   return (
     <Container>
@@ -10,7 +11,6 @@ const Footer = () => {
         Write us a recommendation on facebook
       </p>
       <FacebookShare />
-
       <p>
         Ⓒ all rights reserved to
         <br />

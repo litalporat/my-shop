@@ -1,11 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Snowfall from 'react-snowfall';
 
 //Components
-import Map from "../../components/Elements/Element.Map/Element.Map";
+import Map from '../../components/Elements/Element.Map/Element.Map';
 
 //Styles
-import { Body, Container } from "./Page.About.Styled";
+import { Body, Container } from './Page.About.Styled';
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -13,12 +14,14 @@ const AboutPage = () => {
   return (
     <Body>
       <Container>
+        <Snowfall color="#d8d2d2" />
+
         <h2
           style={{
-            textDecoration: "none",
-            fontSize: "350%",
+            textDecoration: 'none',
+            fontSize: '350%',
           }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/')}
         >
           OurShop
         </h2>

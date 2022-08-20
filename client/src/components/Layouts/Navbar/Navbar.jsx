@@ -41,6 +41,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className={navbar}>
+        
         <Link to="/">
           <h2
             style={{ textDecoration: 'none', color: 'var(--lightnude-color)' }}

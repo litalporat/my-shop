@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   displayName: {
@@ -7,9 +7,9 @@ const productSchema = new mongoose.Schema({
     minlength: 0,
     maxlength: 50,
     validate: {
-      validator: v => v.length > 0 && v.length < 50,
-      message: props => `${props.value} length is not valid!`
-    }
+      validator: (v) => v.length > 0 && v.length < 50,
+      message: (props) => `${props.value} length is not valid!`,
+    },
   },
   description: {
     type: String,
@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   discount: {
-    type: Number
+    type: Number,
   },
   stock: {
     type: Object,
@@ -29,25 +29,25 @@ const productSchema = new mongoose.Schema({
     xs: {
       type: Number,
     },
-    s:  {
+    s: {
       type: Number,
     },
-    m:  {
+    m: {
       type: Number,
     },
-    l:  {
+    l: {
       type: Number,
     },
-    os:  {
+    os: {
       type: Number,
     },
-    xl:  {
+    xl: {
       type: Number,
-    }
+    },
   },
   type: {
     required: true,
-    type: String
+    type: String,
   },
   imgDisplay: {
     type: [String],
@@ -58,27 +58,27 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   amountSold: {
-    type: Number
+    type: Number,
   },
   createdAt: {
     type: Date,
     immutable: true,
-    default: () => new Date()
+    default: () => new Date(),
   },
   updatedAt: {
     type: Date,
-    default: () => new Date()
-  }
+    default: () => new Date(),
+  },
 });
 
-productSchema.virtual('globalStock').get(function() {
+productSchema.virtual('globalStock').get(function () {
   return Object.values(this.stock).reduce((acc, a) => acc + a, 0);
 });
 
-productSchema.virtual('availableSizes').get(function() {
+productSchema.virtual('availableSizes').get(function () {
   return Object.keys(this.stock);
 });
 
-const Product = mongoose.model("product", productSchema);
+const Product = mongoose.model('product', productSchema);
 
 module.exports = Product;
