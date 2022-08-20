@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 //Componentes
 import BasicButton from '../../components/Buttons/Button.Basic/Button.Basic';
-import FilterComp from '../../components/Functions/FilterComp';
+import FilterComp from '../../components/FilterComp/index';
 import SorterComp from '../../components/Functions/FuncComps/SorterComp';
 import { ProductCard } from '../../components/ProductView';
 import CartContext from '../../contexts/CartContext';

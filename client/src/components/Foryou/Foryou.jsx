@@ -1,9 +1,9 @@
-import OrderHistoryContext from '../../../contexts/OrderHistory';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import Product from '../../ProductView/Product.ForU/Product.ForU';
-import CartContext from '../../../contexts/CartContext';
+import Product from '../ProductView/Product.ForU/Product.ForU';
+import CartContext from '../../contexts/CartContext';
 import styled from 'styled-components';
+import OrderHistoryContext from '../../contexts/OrderHistory';
 
 const Container = styled.div`
   gap: 5rem;
