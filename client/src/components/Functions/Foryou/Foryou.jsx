@@ -20,7 +20,6 @@ const Body = styled.div`
 const Foryou = () => {
   const { orders } = useContext(OrderHistoryContext);
   const { addProduct } = useContext(CartContext);
-  // const [defaultForyou, setdefaultForyou] = useState([]);
   const [foryouProd, setForyouProd] = useState([]);
   const colors = ['Blue', 'Red', 'Green', 'Black', 'Pink', 'White'];
 
