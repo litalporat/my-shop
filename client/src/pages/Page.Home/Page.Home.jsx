@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import ArrowBtn from '../../components/Buttons/Button.Arrow/Button.Arrow';
-import { SectionForU, SectionVideo } from '../../components/Sections';
-import Photo from '../../images/photo.jpg';
+import { Link } from "react-router-dom";
+import ArrowBtn from "../../components/Buttons/Button.Arrow/Button.Arrow";
+import { SectionForU, SectionVideo } from "../../components/Sections";
+import Photo from "../../images/photo.jpg";
 import {
   Body,
   Container,
@@ -9,8 +9,8 @@ import {
   Image,
   Shape,
   Text,
-  Title
-} from './Page.Home.Styled';
+  Title,
+} from "./Page.Home.Styled";
 
 const HomePage = () => {
   return (
@@ -23,21 +23,22 @@ const HomePage = () => {
           <Container>
             <Title> Welcome To Our App</Title>
             <Text>
-              After months of work; planning, designing, learning, developing,
-              team working and bug fixing.
-              <br /> Wer'e very happy to present to you our first app.
-              <br /> It's been a very fulfilling, long process that has thought
-              us a lot about web developement and we all enjoyed the making of
-              it.
+              After months of team work—planning, designing, learning,
+              <br />
+              developing, and fixing bugs—wer'e happy to present to you our
+              first app.
+              <br /> It's been a long and rewarding process that has taught us a
+              lot about web developement.
+              <br /> Enjoy!
             </Text>
             <Link to="/shop">
-              <ArrowBtn content={'Start Tour'} />
+              <ArrowBtn content={"Start Tour"} />
             </Link>
           </Container>
         </Body>
         <ForUBtn>
           #ForU
-          <i className="fas fa-fire" style={{ color: 'red' }}></i>
+          <i className="fas fa-fire" style={{ color: "red" }}></i>
         </ForUBtn>
       </Container>
       <SectionForU />
