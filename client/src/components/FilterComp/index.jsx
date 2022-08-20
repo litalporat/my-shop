@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./FilterComp.css";
 import { Slider } from "@mui/material";
-import BasicButton from "../../Buttons/Button.Basic/Button.Basic";
-import SideBarBtn from "../../Buttons/Button.Sidebar/Button.Sidebar";
+import BasicButton from "../Buttons/Button.Basic/Button.Basic";
+import SideBarBtn from "../Buttons/Button.Sidebar/Button.Sidebar";
 
 const FilterComp = (props) => {
   const [isOpen, setIsOpen] = useState(false);

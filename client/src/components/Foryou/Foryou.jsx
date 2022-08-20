@@ -1,9 +1,9 @@
-import OrderHistoryContext from '../../../contexts/OrderHistory';
-import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
-import Product from '../../ProductView/Product.ForU/Product.ForU';
-import CartContext from '../../../contexts/CartContext';
-import styled from 'styled-components';
+import OrderHistoryContext from "../../contexts/OrderHistory";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import Product from "../ProductView/Product.ForU/Product.ForU";
+import CartContext from "../../contexts/CartContext";
+import styled from "styled-components";
 
 const Container = styled.div`
   gap: 5rem;
@@ -22,7 +22,7 @@ const Foryou = () => {
   const { addProduct } = useContext(CartContext);
   // const [defaultForyou, setdefaultForyou] = useState([]);
   const [foryouProd, setForyouProd] = useState([]);
-  const colors = ['Blue', 'Red', 'Green', 'Black', 'Pink', 'White'];
+  const colors = ["Blue", "Red", "Green", "Black", "Pink", "White"];
 
   useEffect(() => {
     axios
