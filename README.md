@@ -50,8 +50,19 @@ npm run start
 ```
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### 4. Setup Admin Client
+Open a third terminal and type:
+```
+cd admin
+npm install
+npm run start
+```
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+
 ## A Quick Look
 
 <img width="1437" alt="Screen Shot 2022-08-21 at 10 10 39" src="https://user-images.githubusercontent.com/46108499/185779932-7fa6dd9f-aee2-4d2a-8747-c5910a3b2af0.png">
 <img width="1437" alt="Screen Shot 2022-08-21 at 10 11 11" src="https://user-images.githubusercontent.com/46108499/185779953-fae7434c-27e8-41f4-8e64-8db17cd75b38.png">
+<img width="1434" alt="Screen Shot 2022-08-21 at 10 35 15" src="https://user-images.githubusercontent.com/46108499/185780745-b8170807-5080-40a3-8e34-93b52610047a.png">
+<img width="1271" alt="Screen Shot 2022-08-21 at 10 35 39" src="https://user-images.githubusercontent.com/46108499/185780767-e9cf253d-d2c2-48ef-95f0-e4039a5d9b56.png">
 
