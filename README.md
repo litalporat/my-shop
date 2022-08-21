@@ -27,9 +27,9 @@ Enjoy!
   - env file in server
   
 ## MVC Architecture
-- Model -> Express & Mongoose
+- Model -> Nodejs & Express & Mongoose - Logic & Functionallity
 - View -> React Client
-- Controller -> Nodejs API
+- Controller -> API Routes
 ![1_OVRtyTs-d94SEl-FVR5o0w](https://user-images.githubusercontent.com/46108499/185781268-f107e841-78cf-419b-9afc-52d99f6cce05.png)
 
 
