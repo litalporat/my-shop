@@ -25,6 +25,13 @@ Enjoy!
   - git
   - Node (`v10.x`)
   - env file in server
+  
+## MVC Architecture
+- Model -> Nodejs Server
+- View -> React Client
+- Controller -> Axios within react client
+![1_OVRtyTs-d94SEl-FVR5o0w](https://user-images.githubusercontent.com/46108499/185781268-f107e841-78cf-419b-9afc-52d99f6cce05.png)
+
 
 ## Run Server & Client manually
 ### 1. Clone repository 
