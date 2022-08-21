@@ -1,5 +1,8 @@
 # my-shop
-
+After months of team work—planning, designing, learning,
+developing, and fixing bugs—wer'e happy to present to you our first app.
+It's been a long and rewarding process that has taught us a lot about web developement.
+Enjoy!
 ## Stack
 ### Backend
 
@@ -14,7 +17,6 @@
 
 - Web
   - React
----
 
 ## Setup and Running
 
